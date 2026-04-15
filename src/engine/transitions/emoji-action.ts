@@ -1,5 +1,5 @@
 import gsap from 'gsap'
-import { registerTransition } from '../TransitionManager'
+import { registerTransition, posToCamera } from '../TransitionManager'
 import type { SlidePosition } from '../../slides/types'
 
 /* ── helpers ──────────────────────────────────────────────── */
@@ -8,12 +8,7 @@ function snap(
   worldEl: HTMLElement,
   to: SlidePosition,
 ) {
-  gsap.set(worldEl, {
-    x: -to.x * to.scale,
-    y: -to.y * to.scale,
-    scale: to.scale,
-    rotation: -to.rotation,
-  })
+  gsap.set(worldEl, posToCamera(to))
 }
 
 function rnd(min: number, max: number) {

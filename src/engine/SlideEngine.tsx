@@ -2,7 +2,7 @@ import { useRef, useState, useCallback, useEffect } from 'react'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { SlideRenderer } from './SlideRenderer'
-import { getTransition, createCameraMove } from './TransitionManager'
+import { getTransition, createCameraMove, posToCamera } from './TransitionManager'
 import './transitions/index'
 import type { SlideData } from '../slides/types'
 
@@ -82,12 +82,7 @@ export function SlideEngine({ slides, startIndex = 0, onSlideChange }: SlideEngi
       if (!worldRef.current || slides.length === 0) return
       const pos = slides[startIndex]?.position
       if (!pos) return
-      gsap.set(worldRef.current, {
-        x: -pos.x,
-        y: -pos.y,
-        scale: 1 / pos.scale,
-        rotation: -pos.rotation,
-      })
+      gsap.set(worldRef.current, posToCamera(pos))
     },
     { dependencies: [startIndex, slides], scope: containerRef },
   )
@@ -181,6 +176,7 @@ export function SlideEngine({ slides, startIndex = 0, onSlideChange }: SlideEngi
               position: 'absolute',
               width: SLIDE_WIDTH,
               height: SLIDE_HEIGHT,
+              overflow: 'hidden',
               left: slide.position.x - SLIDE_WIDTH / 2,
               top: slide.position.y - SLIDE_HEIGHT / 2,
               transform: `scale(${slide.position.scale}) rotate(${slide.position.rotation}deg)`,
@@ -207,14 +203,16 @@ export function SlideEngine({ slides, startIndex = 0, onSlideChange }: SlideEngi
       <div
         style={{
           position: 'absolute',
-          bottom: '1rem',
-          right: '1.5rem',
-          fontSize: '0.85rem',
-          color: 'var(--text-muted)',
+          bottom: '1.5rem',
+          right: '2rem',
+          fontSize: '1.1rem',
+          color: 'var(--text-dim)',
           fontFamily: 'var(--font)',
           fontVariantNumeric: 'tabular-nums',
+          fontWeight: 600,
           zIndex: 20,
           userSelect: 'none',
+          textShadow: '0 1px 4px rgba(0,0,0,0.6)',
         }}
       >
         {currentIndex + 1} / {slides.length}

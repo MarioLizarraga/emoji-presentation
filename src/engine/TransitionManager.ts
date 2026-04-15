@@ -37,12 +37,31 @@ export function createCameraMove(
 ): gsap.core.Timeline {
   const tl = gsap.timeline()
   tl.to(worldEl, {
-    x: -toPos.x,
-    y: -toPos.y,
-    scale: 1 / toPos.scale,
-    rotation: -toPos.rotation,
+    ...posToCamera(toPos),
     duration,
     ease,
   })
   return tl
+}
+
+/**
+ * Convert a SlidePosition to the GSAP camera properties for the world element.
+ *
+ * GSAP applies transforms as:  translate(x, y) rotate(r) scale(s)
+ * We need the slide centre (pos.x, pos.y) to end up at (0, 0) on screen.
+ */
+export function posToCamera(pos: SlidePosition) {
+  const s = 1 / pos.scale
+  const rotDeg = -pos.rotation
+  const rad = (rotDeg * Math.PI) / 180
+  const sx = pos.x * s
+  const sy = pos.y * s
+  const cosR = Math.cos(rad)
+  const sinR = Math.sin(rad)
+  return {
+    x: -(sx * cosR - sy * sinR),
+    y: -(sx * sinR + sy * cosR),
+    scale: s,
+    rotation: rotDeg,
+  }
 }

@@ -4,13 +4,33 @@ import type { SlidePosition } from '../../slides/types'
 
 /* ── helpers ──────────────────────────────────────────────── */
 
-/** Convert a SlidePosition to the world-element transform values */
+/** Convert a SlidePosition to the world-element transform values.
+ *
+ *  GSAP applies CSS transforms in this order (right-to-left):
+ *    translate(x, y)  rotate(r)  scale(s)
+ *
+ *  So a child at world coordinates (wx, wy) ends up at:
+ *    screen = rotate(scale(wx, wy)) + translate
+ *
+ *  We want the slide centre (pos.x, pos.y) to land at (0, 0)
+ *  (viewport centre, because the world div sits at left:50% top:50%).
+ *  Solving for translate:
+ *    translate = −rotate(scale(pos.x, pos.y))
+ */
 function toWorld(pos: SlidePosition) {
+  const s = 1 / pos.scale
+  const rotDeg = -pos.rotation            // GSAP rotation value
+  const rad = (rotDeg * Math.PI) / 180
+  const sx = pos.x * s
+  const sy = pos.y * s
+  // CSS standard rotation matrix: rotate(θ) → [cosθ -sinθ; sinθ cosθ]
+  const cosR = Math.cos(rad)
+  const sinR = Math.sin(rad)
   return {
-    x: -pos.x,
-    y: -pos.y,
-    scale: 1 / pos.scale,
-    rotation: -pos.rotation,
+    x: -(sx * cosR - sy * sinR),
+    y: -(sx * sinR + sy * cosR),
+    scale: s,
+    rotation: rotDeg,
   }
 }
 

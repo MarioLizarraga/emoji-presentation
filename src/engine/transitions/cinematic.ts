@@ -1,16 +1,11 @@
 import gsap from 'gsap'
-import { registerTransition } from '../TransitionManager'
+import { registerTransition, posToCamera } from '../TransitionManager'
 import type { SlidePosition } from '../../slides/types'
 
 /* ── helpers ──────────────────────────────────────────────── */
 
 function snapCamera(worldEl: HTMLElement, to: SlidePosition) {
-  gsap.set(worldEl, {
-    x: -to.x,
-    y: -to.y,
-    scale: 1 / to.scale,
-    rotation: -to.rotation,
-  })
+  gsap.set(worldEl, posToCamera(to))
 }
 
 /* ── fade ─────────────────────────────────────────────────── */
