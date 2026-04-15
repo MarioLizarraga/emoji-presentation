@@ -38,6 +38,7 @@ export function BuzzerView({ roomCode }: BuzzerViewProps) {
   const [playerName, setPlayerName] = useState('')
   const [team, setTeam] = useState<'red' | 'blue' | null>(null)
   const [joined, setJoined] = useState(false)
+  const [nameInputFocused, setNameInputFocused] = useState(false)
 
   const redTeamName = gameState.teamNames.red
   const blueTeamName = gameState.teamNames.blue
@@ -229,9 +230,11 @@ export function BuzzerView({ roomCode }: BuzzerViewProps) {
         <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
           <input
             type="text"
-            placeholder="😀 🦄 🔥"
+            placeholder={nameInputFocused ? '' : '😀 🦄 🔥'}
             value={playerName}
             onChange={(e) => handleNameChange(e.target.value)}
+            onFocus={() => setNameInputFocused(true)}
+            onBlur={() => setNameInputFocused(false)}
             inputMode="text"
             autoCapitalize="none"
             autoCorrect="off"
@@ -241,6 +244,7 @@ export function BuzzerView({ roomCode }: BuzzerViewProps) {
               letterSpacing: '0.2em',
               fontSize: '1.8rem',
               minHeight: '3.5rem',
+              borderColor: nameInputFocused ? 'var(--neon-purple)' : 'var(--bg-surface)',
             }}
           />
           <p style={{
@@ -251,6 +255,41 @@ export function BuzzerView({ roomCode }: BuzzerViewProps) {
             fontStyle: 'italic',
           }}>
             Solo emojis 🎭 — máximo 5. Abre el teclado de emojis de tu celular.
+          </p>
+        </div>
+
+        {/* Team selection instruction */}
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '0.2rem',
+            width: '100%',
+            marginTop: '0.5rem',
+          }}
+        >
+          <p
+            style={{
+              fontSize: '1rem',
+              fontWeight: 700,
+              color: 'var(--text)',
+              textAlign: 'center',
+              margin: 0,
+            }}
+          >
+            ⬇️ Ahora elige tu equipo ⬇️
+          </p>
+          <p
+            style={{
+              fontSize: '0.75rem',
+              color: 'var(--text-muted)',
+              textAlign: 'center',
+              margin: 0,
+              fontStyle: 'italic',
+            }}
+          >
+            Asegúrate de escoger el mismo equipo que tus compañeros
           </p>
         </div>
 
