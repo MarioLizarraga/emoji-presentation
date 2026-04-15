@@ -22,7 +22,7 @@ const initialGameState: GameState = {
   gameEnded: false,
   winner: null,
   lastReveal: null,
-  teamNames: { red: 'Equipo Fuego', blue: 'Equipo Hielo' },
+  teamNames: { red: '🔥', blue: '🧊' },
 }
 
 export function usePlayer(roomCode: string) {
@@ -87,8 +87,8 @@ export function usePlayer(roomCode: string) {
     })
 
     const unsubTeamNames = on('presenter:teamNames', (payload) => {
-      const red = (payload.red as string) || 'Equipo Fuego'
-      const blue = (payload.blue as string) || 'Equipo Hielo'
+      const red = (payload.red as string) || '🔥'
+      const blue = (payload.blue as string) || '🧊'
       setGameState((prev) => ({
         ...prev,
         teamNames: { red, blue },

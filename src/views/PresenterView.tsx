@@ -2,6 +2,7 @@ import { useState, useCallback, useMemo, useRef, useEffect } from 'react'
 import { SlideEngine } from '../engine/SlideEngine'
 import type { SlideEngineHandle } from '../engine/SlideEngine'
 import { Scoreboard } from '../components/Scoreboard'
+import { FinalScoreboard } from '../components/FinalScoreboard'
 import { usePresenter } from '../realtime/usePresenter'
 import { allSlides } from '../slides/slideData'
 import type { BuzzEvent } from '../realtime/usePresenter'
@@ -22,6 +23,8 @@ export function PresenterView() {
     teamNames,
     scores,
     setScores,
+    playerStats,
+    recordAnswer,
   } = usePresenter()
 
   const engineRef = useRef<SlideEngineHandle>(null)
@@ -79,20 +82,23 @@ export function PresenterView() {
         const newScores = { ...scores, [buzz.team]: newTotal }
         setScores(newScores)
         updateScore(buzz.team, 100, newTotal)
+        // Track player stats for the final scoreboard
+        recordAnswer(buzz.name, buzz.team, 100)
       }
       // Remove handled buzz (keep the rest)
       clearBuzzes()
     },
-    [scores, setScores, updateScore, clearBuzzes],
+    [scores, setScores, updateScore, clearBuzzes, recordAnswer],
   )
 
   // Remote URL for QR indicator
   const baseUrl = window.location.origin + import.meta.env.BASE_URL
   const remoteUrl = `${baseUrl}#/remote`
 
-  // Determine if the current slide is the QR lobby
+  // Determine what special slide we're on
   const currentSlide = slides[currentSlideIndex]
   const isLobbySlide = currentSlide?.content.type === 'qr-lobby'
+  const isFinalScoreboard = currentSlide?.content.type === 'scoreboard-final'
 
   return (
     <div style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden' }}>
@@ -102,6 +108,17 @@ export function PresenterView() {
         slides={slides}
         onSlideChange={handleSlideChange}
       />
+
+      {/* Final Scoreboard overlay with celebration animation */}
+      {isFinalScoreboard && (
+        <FinalScoreboard
+          redScore={scores.red}
+          blueScore={scores.blue}
+          redName={teamNames.red}
+          blueName={teamNames.blue}
+          playerStats={playerStats}
+        />
+      )}
 
       {/* Player count badge on lobby slide (the QR is rendered by the slide itself) */}
       {isLobbySlide && players.length > 0 && (
@@ -135,7 +152,7 @@ export function PresenterView() {
       )}
 
       {/* Small, subtle scoreboard during game mode (bottom-left, not on lobby) */}
-      {gameActive && !isLobbySlide && (
+      {gameActive && !isLobbySlide && !isFinalScoreboard && (
         <div
           style={{
             position: 'absolute',
@@ -155,7 +172,7 @@ export function PresenterView() {
       )}
 
       {/* Buzz notifications during game mode */}
-      {gameActive && buzzes.length > 0 && !isLobbySlide && (
+      {gameActive && buzzes.length > 0 && !isLobbySlide && !isFinalScoreboard && (
         <div
           style={{
             position: 'absolute',
@@ -259,7 +276,7 @@ export function PresenterView() {
       )}
 
       {/* Room code + remote link indicator (top-right corner) */}
-      {connected && !isLobbySlide && (
+      {connected && !isLobbySlide && !isFinalScoreboard && (
         <div
           style={{
             position: 'absolute',

@@ -9,7 +9,7 @@ interface ScoreboardProps {
   style?: React.CSSProperties
 }
 
-export function Scoreboard({ redScore, blueScore, redName = 'Equipo Fuego', blueName = 'Equipo Hielo', style }: ScoreboardProps) {
+export function Scoreboard({ redScore, blueScore, redName = '🔥', blueName = '🧊', style }: ScoreboardProps) {
   const redRef = useRef<HTMLSpanElement>(null)
   const blueRef = useRef<HTMLSpanElement>(null)
   const prevRedRef = useRef(redScore)

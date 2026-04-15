@@ -13,13 +13,21 @@ export interface BuzzEvent {
   timestamp: number
 }
 
+export interface PlayerStats {
+  name: string
+  team: 'red' | 'blue'
+  correctAnswers: number
+  points: number
+}
+
 export function usePresenter() {
   const { roomCode, connected, broadcast, on } = useRoom()
   const [players, setPlayers] = useState<Player[]>([])
   const [buzzes, setBuzzes] = useState<BuzzEvent[]>([])
   const [remoteSlideCommand, setRemoteSlideCommand] = useState<{ index: number; ts: number } | null>(null)
-  const [teamNames, setTeamNames] = useState({ red: 'Equipo Fuego', blue: 'Equipo Hielo' })
+  const [teamNames, setTeamNames] = useState({ red: '🔥', blue: '🧊' })
   const [scores, setScores] = useState({ red: 0, blue: 0 })
+  const [playerStats, setPlayerStats] = useState<Record<string, PlayerStats>>({})
 
   useEffect(() => {
     const unsubJoin = on('player:join', (payload) => {
@@ -41,8 +49,8 @@ export function usePresenter() {
     })
 
     const unsubTeamNames = on('presenter:teamNames', (payload) => {
-      const red = (payload.red as string) || 'Equipo Fuego'
-      const blue = (payload.blue as string) || 'Equipo Hielo'
+      const red = (payload.red as string) || '🔥'
+      const blue = (payload.blue as string) || '🧊'
       setTeamNames({ red, blue })
     })
 
@@ -93,6 +101,24 @@ export function usePresenter() {
     [broadcast],
   )
 
+  const recordAnswer = useCallback(
+    (name: string, team: 'red' | 'blue', points: number) => {
+      setPlayerStats((prev) => {
+        const existing = prev[name] ?? { name, team, correctAnswers: 0, points: 0 }
+        return {
+          ...prev,
+          [name]: {
+            name,
+            team,
+            correctAnswers: existing.correctAnswers + 1,
+            points: existing.points + points,
+          },
+        }
+      })
+    },
+    [],
+  )
+
   const nextRound = useCallback(
     (index: number) => {
       broadcast('presenter:nextRound', { index })
@@ -125,6 +151,7 @@ export function usePresenter() {
     startGame,
     revealAnswer,
     updateScore,
+    recordAnswer,
     nextRound,
     endGame,
     remoteSlideCommand,
@@ -132,5 +159,6 @@ export function usePresenter() {
     broadcastTeamNames,
     scores,
     setScores,
+    playerStats,
   }
 }

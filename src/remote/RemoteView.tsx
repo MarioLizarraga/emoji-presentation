@@ -117,10 +117,10 @@ function RemoteController({ roomCode }: { roomCode: string }) {
 
   // Team names with localStorage persistence
   const [redTeamName, setRedTeamName] = useState(() => {
-    return localStorage.getItem('emoji-remote-redTeam') || 'Equipo Fuego'
+    return localStorage.getItem('emoji-remote-redTeam') || '🔥'
   })
   const [blueTeamName, setBlueTeamName] = useState(() => {
-    return localStorage.getItem('emoji-remote-blueTeam') || 'Equipo Hielo'
+    return localStorage.getItem('emoji-remote-blueTeam') || '🧊'
   })
   const [showTeamSettings, setShowTeamSettings] = useState(false)
 
