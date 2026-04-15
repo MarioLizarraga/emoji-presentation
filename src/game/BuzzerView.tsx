@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { usePlayer } from '../realtime/usePlayer'
 import { Scoreboard } from '../components/Scoreboard'
+import { allSlides } from '../slides/slideData'
 
 interface BuzzerViewProps {
   roomCode: string
@@ -102,6 +103,11 @@ export function BuzzerView({ roomCode }: BuzzerViewProps) {
         ? 'radial-gradient(circle at center, #ff444422 0%, transparent 70%)'
         : 'radial-gradient(circle at center, #4488ff22 0%, transparent 70%)'
 
+    // Only allow buzzing on quiz-question slides (prevents pre-buzz cheating)
+    const currentPresenterSlide = allSlides[gameState.currentSlide]
+    const isQuestionActive = currentPresenterSlide?.content.type === 'quiz-question'
+    const buzzerDisabled = hasBuzzed || !isQuestionActive
+
     return (
       <div
         style={{
@@ -159,35 +165,41 @@ export function BuzzerView({ roomCode }: BuzzerViewProps) {
         >
           <button
             onClick={() => {
-              if (team) buzz(playerName, team)
+              if (team && !buzzerDisabled) buzz(playerName, team)
             }}
-            disabled={hasBuzzed}
+            disabled={buzzerDisabled}
             style={{
               width: 'min(80vw, 300px)',
               height: 'min(80vw, 300px)',
               borderRadius: '50%',
               border: 'none',
-              cursor: hasBuzzed ? 'not-allowed' : 'pointer',
+              cursor: buzzerDisabled ? 'not-allowed' : 'pointer',
               touchAction: 'manipulation',
-              fontSize: 'clamp(1.5rem, 5vw, 2.5rem)',
+              fontSize: 'clamp(1.2rem, 4.5vw, 2.5rem)',
               fontWeight: 900,
               fontFamily: 'var(--font)',
               letterSpacing: '0.1em',
               color: '#fff',
-              background: hasBuzzed
-                ? '#333'
+              background: buzzerDisabled
+                ? '#222'
                 : team === 'red'
                   ? 'radial-gradient(circle at 40% 40%, #ff6666, #ff4444, #cc0000)'
                   : 'radial-gradient(circle at 40% 40%, #6688ff, #4488ff, #0044cc)',
-              boxShadow: hasBuzzed
+              boxShadow: buzzerDisabled
                 ? 'none'
                 : `0 0 30px ${teamColor}66, 0 0 60px ${teamColor}33, inset 0 -4px 12px rgba(0,0,0,0.3)`,
               transition: 'transform 0.1s, box-shadow 0.2s, background 0.3s',
-              transform: hasBuzzed ? 'scale(0.95)' : 'scale(1)',
-              opacity: hasBuzzed ? 0.5 : 1,
+              transform: buzzerDisabled ? 'scale(0.95)' : 'scale(1)',
+              opacity: buzzerDisabled ? 0.45 : 1,
+              padding: '1rem',
+              lineHeight: 1.2,
             }}
           >
-            {hasBuzzed ? '¡BUZZEADO!' : 'BUZZ'}
+            {hasBuzzed
+              ? '¡BUZZEADO!'
+              : !isQuestionActive
+                ? 'Esperando pregunta...'
+                : 'BUZZ'}
           </button>
         </div>
 

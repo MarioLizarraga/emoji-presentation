@@ -39,6 +39,16 @@ export function PresenterView() {
     }
   }, [remoteSlideCommand])
 
+  // When a new player joins, rebroadcast the current slide so their buzzer
+  // knows whether a question is active.
+  const prevPlayerCount = useRef(0)
+  useEffect(() => {
+    if (players.length > prevPlayerCount.current) {
+      sendSlide(currentSlideIndex)
+    }
+    prevPlayerCount.current = players.length
+  }, [players.length, currentSlideIndex, sendSlide])
+
   // Inject roomCode into the qr-lobby slide
   const slides = useMemo(
     () =>
