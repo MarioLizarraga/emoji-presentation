@@ -1,0 +1,223 @@
+import { useRef, useState, useCallback, useEffect } from 'react'
+import gsap from 'gsap'
+import { useGSAP } from '@gsap/react'
+import { SlideRenderer } from './SlideRenderer'
+import { getTransition, createCameraMove } from './TransitionManager'
+import type { SlideData } from '../slides/types'
+
+gsap.registerPlugin(useGSAP)
+
+/* ── Props ─────────────────────────────────────────────── */
+
+interface SlideEngineProps {
+  slides: SlideData[]
+  startIndex?: number
+  onSlideChange?: (index: number) => void
+}
+
+/* ── Constants ─────────────────────────────────────────── */
+
+const SLIDE_WIDTH = 1920
+const SLIDE_HEIGHT = 1080
+
+/* ── Component ─────────────────────────────────────────── */
+
+export function SlideEngine({ slides, startIndex = 0, onSlideChange }: SlideEngineProps) {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const worldRef = useRef<HTMLDivElement>(null)
+  const overlayRef = useRef<HTMLDivElement>(null)
+  const isAnimating = useRef(false)
+  const [currentIndex, setCurrentIndex] = useState(startIndex)
+
+  /* ── Navigate to a slide ──────────────────────────────── */
+
+  const goToSlide = useCallback(
+    (index: number) => {
+      if (isAnimating.current) return
+      if (index < 0 || index >= slides.length) return
+      if (!worldRef.current || !overlayRef.current) return
+
+      const fromSlide = slides[currentIndex]
+      const toSlide = slides[index]
+      if (!fromSlide || !toSlide) return
+
+      isAnimating.current = true
+
+      const registeredFn = getTransition(toSlide.transition.id)
+      let tl: gsap.core.Timeline
+
+      if (registeredFn) {
+        tl = registeredFn(
+          worldRef.current,
+          fromSlide.position,
+          toSlide.position,
+          overlayRef.current,
+          toSlide.transition,
+        )
+      } else {
+        tl = createCameraMove(
+          worldRef.current,
+          toSlide.position,
+          toSlide.transition.duration,
+        )
+      }
+
+      tl.eventCallback('onComplete', () => {
+        isAnimating.current = false
+        setCurrentIndex(index)
+        onSlideChange?.(index)
+      })
+    },
+    [currentIndex, slides, onSlideChange],
+  )
+
+  const goNext = useCallback(() => goToSlide(currentIndex + 1), [currentIndex, goToSlide])
+  const goPrev = useCallback(() => goToSlide(currentIndex - 1), [currentIndex, goToSlide])
+
+  /* ── Set initial camera position (no animation) ──────── */
+
+  useGSAP(
+    () => {
+      if (!worldRef.current || slides.length === 0) return
+      const pos = slides[startIndex]?.position
+      if (!pos) return
+      gsap.set(worldRef.current, {
+        x: -pos.x,
+        y: -pos.y,
+        scale: 1 / pos.scale,
+        rotation: -pos.rotation,
+      })
+    },
+    { dependencies: [startIndex, slides], scope: containerRef },
+  )
+
+  /* ── Keyboard input ───────────────────────────────────── */
+
+  useEffect(() => {
+    function handleKeyDown(e: KeyboardEvent) {
+      // Don't capture if user is typing in an input
+      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return
+
+      switch (e.key) {
+        case 'ArrowRight':
+        case ' ':
+        case 'Enter':
+          e.preventDefault()
+          goNext()
+          break
+        case 'ArrowLeft':
+        case 'Backspace':
+          e.preventDefault()
+          goPrev()
+          break
+        case 'f':
+        case 'F':
+          e.preventDefault()
+          toggleFullscreen()
+          break
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [goNext, goPrev])
+
+  /* ── Click to advance ─────────────────────────────────── */
+
+  const handleClick = useCallback(
+    (e: React.MouseEvent) => {
+      // Don't advance if clicking a button or interactive element
+      const target = e.target as HTMLElement
+      if (target.closest('button, a, input, textarea, [role="button"]')) return
+      goNext()
+    },
+    [goNext],
+  )
+
+  /* ── Fullscreen toggle ────────────────────────────────── */
+
+  function toggleFullscreen() {
+    if (!document.fullscreenElement) {
+      containerRef.current?.requestFullscreen().catch(() => {
+        /* silently ignore if not allowed */
+      })
+    } else {
+      document.exitFullscreen().catch(() => {
+        /* silently ignore */
+      })
+    }
+  }
+
+  /* ── Render ───────────────────────────────────────────── */
+
+  return (
+    <div
+      ref={containerRef}
+      onClick={handleClick}
+      style={{
+        width: '100vw',
+        height: '100vh',
+        overflow: 'hidden',
+        position: 'relative',
+        background: 'var(--bg)',
+        cursor: 'pointer',
+      }}
+    >
+      {/* World canvas — GSAP transforms this */}
+      <div
+        ref={worldRef}
+        style={{
+          position: 'absolute',
+          left: '50%',
+          top: '50%',
+          willChange: 'transform',
+        }}
+      >
+        {slides.map((slide) => (
+          <div
+            key={slide.id}
+            style={{
+              position: 'absolute',
+              width: SLIDE_WIDTH,
+              height: SLIDE_HEIGHT,
+              left: slide.position.x - SLIDE_WIDTH / 2,
+              top: slide.position.y - SLIDE_HEIGHT / 2,
+              transform: `scale(${slide.position.scale}) rotate(${slide.position.rotation}deg)`,
+              transformOrigin: 'center center',
+            }}
+          >
+            <SlideRenderer content={slide.content} />
+          </div>
+        ))}
+      </div>
+
+      {/* Overlay layer for transition effects (flashes, wipes, etc.) */}
+      <div
+        ref={overlayRef}
+        style={{
+          position: 'absolute',
+          inset: 0,
+          pointerEvents: 'none',
+          zIndex: 10,
+        }}
+      />
+
+      {/* Slide counter */}
+      <div
+        style={{
+          position: 'absolute',
+          bottom: '1rem',
+          right: '1.5rem',
+          fontSize: '0.85rem',
+          color: 'var(--text-muted)',
+          fontFamily: 'var(--font)',
+          fontVariantNumeric: 'tabular-nums',
+          zIndex: 20,
+          userSelect: 'none',
+        }}
+      >
+        {currentIndex + 1} / {slides.length}
+      </div>
+    </div>
+  )
+}
