@@ -213,9 +213,13 @@ function RemoteController({ roomCode }: { roomCode: string }) {
       if (correct) {
         const pts = bonus ? 200 : 100
         awardPoints(team, pts)
+        // Correct answer closes the question — just remove the buzz from the list
+        setBuzzes((prev) => prev.filter((b) => b.playerName !== playerName))
+      } else {
+        // Wrong answer: reset ALL buzzers so other players can steal the question
+        setBuzzes([])
+        broadcast('presenter:resetBuzzers', {})
       }
-      // Remove that buzz from the list
-      setBuzzes((prev) => prev.filter((b) => b.playerName !== playerName))
     },
     [awardPoints],
   )

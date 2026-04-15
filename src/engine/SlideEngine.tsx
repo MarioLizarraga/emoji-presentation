@@ -46,6 +46,7 @@ export const SlideEngine = forwardRef<SlideEngineHandle, SlideEngineProps>(
     (index: number) => {
       if (isAnimating.current) return
       if (index < 0 || index >= slides.length) return
+      if (index === currentIndex) return // no-op if same slide (prevents broadcast echo loops)
       if (!worldRef.current || !overlayRef.current) return
 
       const fromSlide = slides[currentIndex]

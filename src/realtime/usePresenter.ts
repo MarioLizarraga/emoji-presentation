@@ -75,7 +75,7 @@ export function usePresenter() {
 
   const sendSlide = useCallback(
     (index: number) => {
-      broadcast('presenter:slide', { index })
+      broadcast('presenter:slide', { slideIndex: index, timestamp: Date.now() })
     },
     [broadcast],
   )
@@ -119,6 +119,11 @@ export function usePresenter() {
     [],
   )
 
+  const resetBuzzers = useCallback(() => {
+    setBuzzes([])
+    broadcast('presenter:resetBuzzers', {})
+  }, [broadcast])
+
   const nextRound = useCallback(
     (index: number) => {
       broadcast('presenter:nextRound', { index })
@@ -152,6 +157,7 @@ export function usePresenter() {
     revealAnswer,
     updateScore,
     recordAnswer,
+    resetBuzzers,
     nextRound,
     endGame,
     remoteSlideCommand,

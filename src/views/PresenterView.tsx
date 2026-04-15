@@ -25,6 +25,7 @@ export function PresenterView() {
     setScores,
     playerStats,
     recordAnswer,
+    resetBuzzers,
   } = usePresenter()
 
   const engineRef = useRef<SlideEngineHandle>(null)
@@ -84,11 +85,14 @@ export function PresenterView() {
         updateScore(buzz.team, 100, newTotal)
         // Track player stats for the final scoreboard
         recordAnswer(buzz.name, buzz.team, 100)
+        // Correct answer closes the question — just clear buzzes
+        clearBuzzes()
+      } else {
+        // Wrong answer: reset buzzers so other players can try to steal the question
+        resetBuzzers()
       }
-      // Remove handled buzz (keep the rest)
-      clearBuzzes()
     },
-    [scores, setScores, updateScore, clearBuzzes, recordAnswer],
+    [scores, setScores, updateScore, clearBuzzes, recordAnswer, resetBuzzers],
   )
 
   // Remote URL for QR indicator

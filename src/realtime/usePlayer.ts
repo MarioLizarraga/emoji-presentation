@@ -32,8 +32,21 @@ export function usePlayer(roomCode: string) {
 
   useEffect(() => {
     const unsubSlide = on('presenter:slide', (payload) => {
-      const { index } = payload as { index: number }
-      setGameState((prev) => ({ ...prev, currentSlide: index }))
+      // Support both 'slideIndex' (standard) and 'index' (legacy) field names
+      const idx = (payload.slideIndex ?? payload.index) as number | undefined
+      if (idx === undefined) return
+      setGameState((prev) => {
+        // Only reset buzzer if the slide actually changed
+        if (prev.currentSlide !== idx) {
+          setHasBuzzed(false)
+          return { ...prev, currentSlide: idx, lastReveal: null }
+        }
+        return prev
+      })
+    })
+
+    const unsubResetBuzzers = on('presenter:resetBuzzers', () => {
+      setHasBuzzed(false)
     })
 
     const unsubStart = on('presenter:startGame', (payload) => {
@@ -107,6 +120,7 @@ export function usePlayer(roomCode: string) {
 
     return () => {
       unsubSlide()
+      unsubResetBuzzers()
       unsubStart()
       unsubReveal()
       unsubScore()
