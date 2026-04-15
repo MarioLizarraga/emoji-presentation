@@ -107,10 +107,10 @@ export const act3Slides: SlideData[] = [
         { year: 'Paso 2', text: 'Envíala al Subcomité de Emoji de Unicode', emoji: '📮' },
         { year: 'Paso 3', text: 'Sobrevive múltiples rondas de revisión', emoji: '😰' },
         { year: 'Paso 4', text: 'Espera 2+ años para una decisión final', emoji: '⏳' },
-        { year: 'Dato', text: '🫠 (Cara Derritiéndose) tardó 3 años en aprobarse', emoji: '🫠' },
+        { year: 'Dato', text: 'La "🤌" (dedos juntos italianos) tardó 2 años de propuestas y debates', emoji: '🤌' },
       ],
     },
-    speakerNotes: '🎤 DI: "Ok preguntita: ¿quién aquí ha pensado \'ay, debería existir un emoji de X\'?" 🎭 ACCIÓN: Levantar mano. "Bueno, pues pueden pedirlo. Pero no es fácil." Repasa los pasos en pantalla. "Primero: propuesta formal con datos. Segundo: la mandas al Subcomité de Emojis. Tercero: sobrevives varias rondas de revisión. Y cuarto: esperas DOS PUTOS AÑOS." Pausa. "La cara derritiéndose 🫠 tardó TRES años. Tres. Años. Esa carita vio más trámites que yo sacando el pasaporte."',
+    speakerNotes: '🎤 DI: "Ok preguntita: ¿quién aquí ha pensado \'ay, debería existir un emoji de X\'?" 🎭 ACCIÓN: Levantar mano. "Bueno, pues pueden pedirlo. Pero no es fácil." Repasa los pasos en pantalla. "Primero: propuesta formal con datos. Segundo: la mandas al Subcomité de Emojis. Tercero: sobrevives varias rondas de revisión. Y cuarto: esperas DOS AÑOS mínimo." Pausa. "El 🤌 italiano — los ‘deditos juntos’ — tardó DOS años de propuestas. Esa manita vio más trámites que yo sacando el pasaporte."',
   },
 
   /* ── Slide 20: The Numbers ──────────────────────────────── */
@@ -120,10 +120,10 @@ export const act3Slides: SlideData[] = [
     transition: { id: 'dolly-zoom', duration: 2.8 },
     content: {
       type: 'stat',
-      value: '3,782',
-      label: 'Emojis existen en 2026',
-      sublabel: 'Pero la persona promedio usa como 50. Eso significa que 3,732 emojis están ahí... sentaditos. Sin usar. Sin amor. Piensa en eso.',
+      value: '3,953',
+      label: 'Emojis existen en 2026 (Unicode 17.0)',
+      sublabel: 'Pero la persona promedio usa como 50. Eso significa que 3,903 emojis están ahí... sentaditos. Sin usar. Sin amor. Piensa en eso.',
     },
-    speakerNotes: '🎤 DI: "En 2026 existen TRES MIL SETECIENTOS OCHENTA Y DOS emojis." 🎭 ACCIÓN: Deja que el número pegue. "Pero la persona promedio usa como… 50. Los mismos 50 de siempre: 😂 ❤️ 🔥 👍 🙏. Eso significa que 3,732 emojis están ahí sentaditos. Sin usar. Sin amor." Pausa cómica. "¿Quién aquí HA USADO alguna vez el emoji del teleférico? ¿Del frasco de medicina? ¿Del fax? Exacto. Nadie. Pobres emojis."',
+    speakerNotes: '🎤 DI: "En 2026 existen TRES MIL NOVECIENTOS CINCUENTA Y TRES emojis. Unicode 17.0, septiembre del 2025." 🎭 ACCIÓN: Deja que el número pegue. "Pero la persona promedio usa como… 50. Los mismos 50 de siempre: 😂 ❤️ 🔥 👍 🙏. Eso significa que 3,903 emojis están ahí sentaditos. Sin usar. Sin amor." Pausa cómica. "¿Quién aquí HA USADO alguna vez el emoji del teleférico? ¿Del frasco de medicina? ¿Del fax? Exacto. Nadie. Pobres emojis."',
   },
 ]

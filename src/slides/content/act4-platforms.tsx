@@ -60,13 +60,35 @@ export const act4Slides: SlideData[] = [
       type: 'timeline',
       title: 'De Revólver a Pistola de Agua',
       events: [
-        { year: '2016', text: 'Apple cambia el revólver por pistola de agua', emoji: '🔫' },
-        { year: '2017', text: 'Twitter sigue a Apple. Empiezan las fichas de dominó.', emoji: '🐦' },
-        { year: '2018', text: 'Google, Samsung y Facebook hacen el cambio', emoji: '💧' },
-        { year: '2018', text: 'Microsoft aguanta con su revólver (respeto)', emoji: '🤠' },
-        { year: '2019', text: 'Microsoft finalmente cede. Todas las plataformas: pistola de agua.', emoji: '🏳️' },
+        { year: '1 Ago 2016', text: 'Apple cambia el revólver por pistola de agua', emoji: '🔫' },
+        { year: '2 Ago 2016', text: 'Microsoft hace lo OPUESTO: cambia su pistolita de rayos por un REVÓLVER realista', emoji: '🤠' },
+        { year: '2018', text: 'Google, Samsung, Facebook y Twitter se alinean: todos a pistola de agua', emoji: '💧' },
+        { year: '2018', text: 'Microsoft por fin se rinde. Pistola de agua universal.', emoji: '🏳️' },
+        { year: 'Jul 2024', text: 'Plot twist: X (Twitter) regresa a pistola real. El caos nunca muere.', emoji: '😱' },
       ],
     },
-    speakerNotes: '🎤 DI: "La evolución del emoji de pistola es la historia de cómo una empresa se atreve a hacer algo y las demás siguen como borregos." 🎭 ACCIÓN: Repasa los años. "2016 Apple rompe el hielo con su pistolita de agua. 2017 Twitter sigue. 2018 Google, Samsung y Facebook también. ¿Y Microsoft? Microsoft aguantó como CAMPEÓN." Pausa. "Tres años siendo la ÚNICA plataforma con pistola real. Un rebelde. Un icono. Un… \'qué onda con Microsoft\'. Al final cedió en 2019. Todo el mundo: pistola de agua. Fin."',
+    speakerNotes: '🎤 DI: "Y aquí viene una de las ANÉCDOTAS más absurdas de la historia de los emojis." 🎭 ACCIÓN: Repasa los años. "1 de agosto de 2016: Apple cambia su revólver por una pistolita de agua. Un DÍA DESPUÉS — no una semana, UN DÍA — Microsoft hace LO OPUESTO. Tenía una pistolita de rayos de juguete y la cambió… a un REVÓLVER REALISTA." Pausa. "Se pasaron al lado OSCURO mientras todos se iban al lado lindo. En 2018 se rindieron junto con Google, Samsung, Facebook y Twitter." Pausa dramática. "Y cuando creías que ya habíamos cerrado el tema… en julio del 2024, X — el Twitter de Elon — regresó a PISTOLA REAL. El drama nunca termina."',
+  },
+
+  /* ── Slide 25: Microsoft Plot Twist ──────────────────────── */
+  {
+    id: 'microsoft-plot-twist',
+    position: { x: 47000, y: 900, scale: 0.5, rotation: -4 },
+    transition: { id: 'whip-pan', duration: 1.8 },
+    content: {
+      type: 'comparison',
+      title: 'Microsoft: 24 Horas Para Arruinarlo Todo',
+      left: {
+        label: '1 Ago 2016 — Apple',
+        emoji: '💧',
+        description: 'Cambia el revólver realista por una pistolita de agua verde brillante. Un mensaje de paz. El mundo aplaude.',
+      },
+      right: {
+        label: '2 Ago 2016 — Microsoft',
+        emoji: '🤠',
+        description: 'AL DÍA SIGUIENTE, Microsoft hace lo EXACTAMENTE opuesto. Tenía una pistolita de rayos de juguete y la cambia… a un REVÓLVER REAL. Se pasaron al lado oscuro en 24 horas.',
+      },
+    },
+    speakerNotes: '🎤 DI: "Ok, este slide merece su propio momento." 🎭 ACCIÓN: Mira al público, cara cómplice. "Es tan absurdo que cuando lo cuento la gente cree que estoy exagerando. Pero NO. Literalmente en 24 horas: Apple se va hacia la paz, Microsoft se va hacia LA GUERRA. Fueron al REVÉS. Completamente." Pausa. "¿Ustedes se imaginan la junta en Microsoft ese lunes? \'Oigan, Apple acaba de poner una pistolita de agua… ¿qué hacemos?\' \'Pongámosle BALAS.\' \'Sí, eso.\' Genio puro."',
   },
 ]
