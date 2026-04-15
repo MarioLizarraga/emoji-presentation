@@ -112,7 +112,14 @@ function ComparisonSlide({ title, left, right }: { title: string; left: { label:
   )
 }
 
-function ComparisonCard({ item, color }: { item: { label: string; emoji?: string; description?: string }; color: string }) {
+function ComparisonCard({
+  item,
+  color,
+}: {
+  item: { label: string; emoji?: string; description?: string; retro?: boolean }
+  color: string
+}) {
+  const isRetro = item.retro
   return (
     <div style={{
       display: 'flex',
@@ -125,8 +132,30 @@ function ComparisonCard({ item, color }: { item: { label: string; emoji?: string
       textAlign: 'center',
       minHeight: 0,
     }}>
-      {item.emoji && <div style={{ fontSize: '6rem', lineHeight: 1 }}>{item.emoji}</div>}
-      <h3 style={{ fontSize: 'clamp(1.2rem, 2.4vw, 2.2rem)', fontWeight: 700, color, lineHeight: 1.2 }}>
+      {item.emoji && (
+        <div style={{
+          fontSize: isRetro ? '3rem' : '8rem',
+          lineHeight: 1,
+          filter: isRetro
+            ? 'grayscale(1) contrast(1.8) brightness(0.9) saturate(0)'
+            : undefined,
+          opacity: isRetro ? 0.9 : 1,
+          padding: isRetro ? '1rem' : undefined,
+          background: isRetro ? 'rgba(100,200,100,0.08)' : undefined,
+          borderRadius: isRetro ? '8px' : undefined,
+          border: isRetro ? '1px dashed rgba(120,200,120,0.3)' : undefined,
+          fontFamily: isRetro ? 'monospace' : undefined,
+        }}>
+          {item.emoji}
+        </div>
+      )}
+      <h3 style={{
+        fontSize: 'clamp(1.2rem, 2.4vw, 2.2rem)',
+        fontWeight: 700,
+        color,
+        lineHeight: 1.2,
+        fontFamily: isRetro ? 'monospace' : undefined,
+      }}>
         {item.label}
       </h3>
       {item.description && (
@@ -144,7 +173,20 @@ function ComparisonCard({ item, color }: { item: { label: string; emoji?: string
 
 /* ── Grid ──────────────────────────────────────────────── */
 
-function GridSlide({ title, items }: { title: string; items: { emoji: string; label?: string }[] }) {
+// CSS filter that makes modern emojis look like 1999 pixel-art monochrome icons
+const RETRO_FILTER = 'grayscale(1) contrast(1.6) brightness(0.95) saturate(0)'
+
+function GridSlide({
+  title,
+  items,
+  retro,
+  subtitle,
+}: {
+  title: string
+  items: { emoji: string; label?: string }[]
+  retro?: boolean
+  subtitle?: string
+}) {
   // Calculate optimal columns/rows to fit 16:9 viewport (1920x1080)
   // Prefer wider layouts for horizontal screens
   const count = items.length
@@ -182,6 +224,17 @@ function GridSlide({ title, items }: { title: string; items: { emoji: string; la
       boxSizing: 'border-box',
     }}>
       <h2 className="slide-subtitle neon-blue" style={{ flexShrink: 0 }}>{title}</h2>
+      {subtitle && (
+        <p style={{
+          fontSize: '1rem',
+          color: 'var(--text-muted)',
+          fontStyle: 'italic',
+          marginTop: '-0.5rem',
+          flexShrink: 0,
+        }}>
+          {subtitle}
+        </p>
+      )}
       <div style={{
         display: 'grid',
         gridTemplateColumns: `repeat(${cols}, 1fr)`,
@@ -202,9 +255,21 @@ function GridSlide({ title, items }: { title: string; items: { emoji: string; la
             gap: '0.25rem',
             textAlign: 'center',
           }}>
-            <span style={{ fontSize: emojiSize, lineHeight: 1 }}>{item.emoji}</span>
+            <span style={{
+              fontSize: emojiSize,
+              lineHeight: 1,
+              filter: retro ? RETRO_FILTER : undefined,
+              opacity: retro ? 0.85 : 1,
+            }}>
+              {item.emoji}
+            </span>
             {showLabels && item.label && (
-              <span style={{ fontSize: labelSize, color: 'var(--text-dim)', lineHeight: 1.1 }}>
+              <span style={{
+                fontSize: labelSize,
+                color: 'var(--text-dim)',
+                lineHeight: 1.1,
+                fontFamily: retro ? 'monospace' : undefined,
+              }}>
                 {item.label}
               </span>
             )}

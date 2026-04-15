@@ -50,6 +50,8 @@ export const act1Slides: SlideData[] = [
     transition: { id: 'emoji-unlock', duration: 2.5, emoji: '🔓' },
     content: {
       type: 'grid',
+      retro: true,
+      subtitle: 'Simulación: así de "simples" se veían en 1999 (12x12 pixeles, blanco y negro)',
       title: 'Los 176 Originales',
       items: [
         { emoji: '☀️', label: 'Sol' }, { emoji: '☁️', label: 'Nube' },
@@ -97,6 +99,7 @@ export const act1Slides: SlideData[] = [
       type: 'comparison',
       title: 'El Glow-Up del Siglo',
       left: {
+        retro: true,
         label: '1999: 12x12 Pixeles',
         emoji: '💩',
         description: '12 pixeles de ancho. Sin sombreado. Sin degradados. Solo vibras y un sueño. Parecía un helado de chocolate diseñado por alguien que jamás había visto chocolate.',
@@ -107,7 +110,7 @@ export const act1Slides: SlideData[] = [
         description: 'Listo para 4K, con degradados, sombras y todo. El emoji de caca ahora tiene mejor iluminación que la mayoría de las fotos de perfil de LinkedIn.',
       },
     },
-    speakerNotes: 'Saca risas comparando el pixel art viejo con las versiones modernas.',
+    speakerNotes: 'El emoji de la izquierda tiene un filtro retro (monocromo, pixelado) para evocar el look de 1999. Haz notar la diferencia visual con el público.',
   },
 
   /* ── Slide 6: The Name ───────────────────────────────────── */

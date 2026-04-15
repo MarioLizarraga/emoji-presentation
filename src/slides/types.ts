@@ -22,7 +22,7 @@ export type SlideContent =
   | { type: 'title'; title: string; subtitle?: string; emoji?: string }
   | { type: 'text'; title: string; body: string; emoji?: string }
   | { type: 'comparison'; title: string; left: ComparisonItem; right: ComparisonItem }
-  | { type: 'grid'; title: string; items: GridItem[] }
+  | { type: 'grid'; title: string; items: GridItem[]; retro?: boolean; subtitle?: string }
   | { type: 'timeline'; title: string; events: TimelineEvent[] }
   | { type: 'stat'; value: string; label: string; sublabel?: string }
   | { type: 'emoji-showcase'; emoji: string; title: string; description: string; platforms?: PlatformRender[] }
@@ -41,6 +41,7 @@ export interface ComparisonItem {
   image?: string
   emoji?: string
   description?: string
+  retro?: boolean
 }
 
 export interface GridItem {
