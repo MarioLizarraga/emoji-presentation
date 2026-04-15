@@ -215,19 +215,16 @@ function RemoteController({ roomCode }: { roomCode: string }) {
   )
 
   const scorePlayer = useCallback(
-    (playerName: string, team: 'red' | 'blue', correct: boolean, bonus = false) => {
+    (_playerName: string, team: 'red' | 'blue', correct: boolean, bonus = false) => {
       if (correct) {
         const pts = bonus ? 200 : 100
         awardPoints(team, pts)
-        // Correct answer closes the question — just remove the buzz from the list
-        setBuzzes((prev) => prev.filter((b) => b.playerName !== playerName))
-      } else {
-        // Wrong answer: reset ALL buzzers so other players can steal the question
-        setBuzzes([])
-        broadcast('presenter:resetBuzzers', {})
       }
+      // Either way: clear local buzz list and broadcast so PresenterView + players sync
+      setBuzzes([])
+      broadcast('presenter:resetBuzzers', {})
     },
-    [awardPoints],
+    [awardPoints, broadcast],
   )
 
   return (

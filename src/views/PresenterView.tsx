@@ -85,14 +85,12 @@ export function PresenterView() {
         updateScore(buzz.team, 100, newTotal)
         // Track player stats for the final scoreboard
         recordAnswer(buzz.name, buzz.team, 100)
-        // Correct answer closes the question — just clear buzzes
-        clearBuzzes()
-      } else {
-        // Wrong answer: reset buzzers so other players can try to steal the question
-        resetBuzzers()
       }
+      // Either way: reset all buzzers across all devices
+      // (correct: question is over; wrong: allow steal)
+      resetBuzzers()
     },
-    [scores, setScores, updateScore, clearBuzzes, recordAnswer, resetBuzzers],
+    [scores, setScores, updateScore, recordAnswer, resetBuzzers],
   )
 
   // Remote URL for QR indicator

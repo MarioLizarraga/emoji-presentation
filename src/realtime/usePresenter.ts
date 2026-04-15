@@ -60,12 +60,19 @@ export function usePresenter() {
       setScores((prev) => ({ ...prev, [team]: total }))
     })
 
+    // Listen for resetBuzzers broadcasts (from the remote's X button, etc.)
+    // to clear the presenter's buzz list as well
+    const unsubReset = on('presenter:resetBuzzers', () => {
+      setBuzzes([])
+    })
+
     return () => {
       unsubJoin()
       unsubBuzz()
       unsubSlide()
       unsubTeamNames()
       unsubScore()
+      unsubReset()
     }
   }, [on])
 
