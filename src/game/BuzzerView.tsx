@@ -255,7 +255,6 @@ export function BuzzerView({ roomCode }: BuzzerViewProps) {
 
 const styles: Record<string, React.CSSProperties> = {
   container: {
-    minHeight: '100vh',
     minHeight: '100dvh',
     display: 'flex',
     flexDirection: 'column',

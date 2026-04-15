@@ -229,7 +229,6 @@ function RemoteController({ roomCode }: { roomCode: string }) {
 
 const styles: Record<string, React.CSSProperties> = {
   container: {
-    minHeight: '100vh',
     minHeight: '100dvh',
     background: 'var(--bg)',
     color: 'var(--text)',

@@ -186,7 +186,7 @@ registerTransition('matrix', (worldEl, _from, to, overlay, config) => {
   }
 
   // Rain down columns with staggered start
-  columns.forEach((col, i) => {
+  columns.forEach((col, _i) => {
     const delay = rnd(0, dur * 0.2)
     tl.to(
       col,

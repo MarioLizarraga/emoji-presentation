@@ -1,6 +1,6 @@
 import gsap from 'gsap'
 import { registerTransition } from '../TransitionManager'
-import type { SlidePosition, TransitionConfig } from '../../slides/types'
+import type { SlidePosition } from '../../slides/types'
 
 /* ── helpers ──────────────────────────────────────────────── */
 
