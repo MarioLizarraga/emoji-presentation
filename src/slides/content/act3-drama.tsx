@@ -5,7 +5,7 @@ export const act3Slides: SlideData[] = [
   {
     id: 'gun-debate',
     position: { x: 24000, y: 800, scale: 0.6, rotation: -3 },
-    transition: { id: 'split-blood', duration: 1000 },
+    transition: { id: 'split-blood', duration: 1.0 },
     content: {
       type: 'emoji-showcase',
       emoji: '🔫',
@@ -20,7 +20,7 @@ export const act3Slides: SlideData[] = [
   {
     id: 'peach-incident',
     position: { x: 26000, y: -300, scale: 0.7, rotation: 4 },
-    transition: { id: 'emoji-pop', duration: 800, emoji: '🍑' },
+    transition: { id: 'emoji-pop', duration: 0.8, emoji: '🍑' },
     content: {
       type: 'text',
       title: 'The Peach Must Stay Thicc',
@@ -34,7 +34,7 @@ export const act3Slides: SlideData[] = [
   {
     id: 'burger-war',
     position: { x: 28000, y: 600, scale: 0.5, rotation: -2 },
-    transition: { id: 'whip-pan', duration: 700 },
+    transition: { id: 'whip-pan', duration: 0.7 },
     content: {
       type: 'comparison',
       title: 'Burgergate',
@@ -56,7 +56,7 @@ export const act3Slides: SlideData[] = [
   {
     id: 'word-of-year',
     position: { x: 30000, y: -700, scale: 0.3, rotation: 0 },
-    transition: { id: 'spotlight', duration: 1000 },
+    transition: { id: 'spotlight', duration: 1.0 },
     content: {
       type: 'stat',
       value: '😂',
@@ -70,7 +70,7 @@ export const act3Slides: SlideData[] = [
   {
     id: 'eggplant-ban',
     position: { x: 32000, y: 400, scale: 0.7, rotation: 5 },
-    transition: { id: 'emoji-freeze', duration: 800, emoji: '🍆' },
+    transition: { id: 'emoji-freeze', duration: 0.8, emoji: '🍆' },
     content: {
       type: 'text',
       title: 'Banned Produce',
@@ -84,7 +84,7 @@ export const act3Slides: SlideData[] = [
   {
     id: 'finland-emoji',
     position: { x: 34000, y: -100, scale: 0.6, rotation: -4 },
-    transition: { id: 'emoji-portal', duration: 1000, emoji: '🇫🇮' },
+    transition: { id: 'emoji-portal', duration: 1.0, emoji: '🇫🇮' },
     content: {
       type: 'text',
       title: 'Finland Said "Hold My Sauna"',
@@ -98,7 +98,7 @@ export const act3Slides: SlideData[] = [
   {
     id: 'approval-process',
     position: { x: 36000, y: 700, scale: 0.5, rotation: 2 },
-    transition: { id: 'loading-bar', duration: 1200 },
+    transition: { id: 'loading-bar', duration: 1.2 },
     content: {
       type: 'timeline',
       title: 'Getting an Emoji Approved is BRUTAL',
@@ -117,7 +117,7 @@ export const act3Slides: SlideData[] = [
   {
     id: 'the-numbers',
     position: { x: 38000, y: -500, scale: 0.15, rotation: 0 },
-    transition: { id: 'dolly-zoom', duration: 1100 },
+    transition: { id: 'dolly-zoom', duration: 1.1 },
     content: {
       type: 'stat',
       value: '3,782',
