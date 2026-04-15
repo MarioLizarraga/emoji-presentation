@@ -1,0 +1,3400 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Guía del Presentador · La Historia de los Emojis</title>
+<style>
+  @page { size: Letter; margin: 18mm 14mm 16mm 14mm; }
+  * { box-sizing: border-box; }
+  html { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: #1a1a2e; }
+  body { margin: 0; padding: 0; line-height: 1.45; font-size: 10.5pt; }
+  h1, h2, h3, h4 { margin: 0; font-weight: 700; color: #0a0a2a; }
+  h1 { font-size: 28pt; line-height: 1.1; margin-bottom: 10pt; }
+  h2 { font-size: 18pt; margin-top: 18pt; padding-bottom: 6pt; border-bottom: 2pt solid #a855f7; color: #6d28d9; page-break-before: always; }
+  h3 { font-size: 13pt; margin-top: 12pt; color: #1e40af; }
+  h4 { font-size: 10pt; margin-top: 6pt; color: #334155; text-transform: uppercase; letter-spacing: 0.06em; }
+  p { margin: 4pt 0; }
+  code { font-family: 'Cascadia Code', 'Consolas', monospace; font-size: 0.92em; background: #f3f4f6; padding: 1px 4px; border-radius: 3px; }
+  kbd { font-family: monospace; padding: 0 5px; border: 1px solid #94a3b8; border-radius: 3px; background: #f1f5f9; font-size: 0.9em; }
+  .cover { text-align: center; padding-top: 20vh; height: 100vh; page-break-after: always; background: linear-gradient(135deg, #0a0a2a, #1e1b4b 50%, #581c87); color: white; }
+  .cover h1 { color: #fff; font-size: 42pt; }
+  .cover .sub { color: #c4b5fd; font-size: 16pt; margin-top: 8pt; }
+  .cover .meta { color: #94a3b8; margin-top: 80pt; font-size: 10pt; }
+  .cover .big-emoji { font-size: 80pt; margin-bottom: 20pt; }
+  .toc { page-break-after: always; }
+  .toc h2 { page-break-before: auto; }
+  .toc ul { list-style: none; padding-left: 0; }
+  .toc li { padding: 3pt 0; border-bottom: 1px dotted #cbd5e1; }
+  .act-sub { color: #64748b; font-style: italic; margin-bottom: 12pt; }
+  .slide-card { margin: 10pt 0 14pt; padding: 10pt 12pt; border: 1pt solid #e2e8f0; border-radius: 6pt; page-break-inside: avoid; background: #fafbfc; }
+  .slide-header { display: flex; align-items: baseline; gap: 10pt; padding-bottom: 6pt; margin-bottom: 6pt; border-bottom: 1pt dashed #cbd5e1; }
+  .slide-num { font-size: 13pt; font-weight: 800; color: #a855f7; }
+  .slide-id { font-size: 11pt; }
+  .slide-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14pt; }
+  .slide-col { min-width: 0; }
+  .content-block { margin-top: 4pt; }
+  .content-type { display: inline-block; font-size: 7.5pt; text-transform: uppercase; letter-spacing: 0.1em; background: #a855f7; color: white; padding: 2px 8px; border-radius: 3px; margin-bottom: 4pt; }
+  .content-title { font-weight: 700; font-size: 12pt; color: #1e40af; margin: 2pt 0; }
+  .content-subtitle { color: #475569; font-style: italic; margin: 2pt 0; }
+  .content-body { margin: 3pt 0; }
+  .content-body.small { font-size: 8.5pt; color: #64748b; }
+  .content-stat { font-size: 22pt; font-weight: 900; color: #6d28d9; }
+  .big-emoji { font-size: 30pt; line-height: 1; }
+  .compare-table { width: 100%; border-collapse: collapse; margin-top: 4pt; }
+  .compare-table th, .compare-table td { border: 1pt solid #cbd5e1; padding: 4pt 6pt; text-align: left; vertical-align: top; font-size: 9pt; }
+  .compare-table th { background: #ede9fe; color: #5b21b6; }
+  .timeline-table { width: 100%; border-collapse: collapse; margin-top: 4pt; font-size: 9.5pt; }
+  .timeline-table th, .timeline-table td { padding: 3pt 6pt; border-bottom: 1pt solid #e2e8f0; text-align: left; vertical-align: top; }
+  .timeline-table th { background: #f3e8ff; color: #6d28d9; text-transform: uppercase; font-size: 8pt; letter-spacing: 0.06em; }
+  .tl-year { font-weight: 700; color: #a855f7; white-space: nowrap; }
+  .tl-emoji { font-size: 14pt; width: 24pt; }
+  .grid-items { display: flex; flex-wrap: wrap; gap: 6pt 10pt; margin: 4pt 0; }
+  .grid-item { font-size: 14pt; display: inline-flex; align-items: center; gap: 3pt; }
+  .grid-label { font-size: 8pt; color: #64748b; }
+  .quiz .quiz-emojis { font-size: 26pt; letter-spacing: 4pt; margin: 4pt 0; }
+  .quiz .content-body { font-size: 10pt; }
+  .trans-box { margin-top: 3pt; padding: 6pt 8pt; background: #faf5ff; border-left: 3pt solid #a855f7; border-radius: 3pt; }
+  .trans-family { background: #a855f7; color: white; padding: 1px 6px; border-radius: 3px; font-size: 8pt; text-transform: uppercase; letter-spacing: 0.06em; }
+  .trans-title { font-size: 10pt; margin-bottom: 3pt; }
+  .trans-config { font-size: 8.5pt; color: #475569; margin-bottom: 4pt; }
+  .trans-desc { font-size: 9.5pt; color: #1f2937; }
+  .pos-box { margin-top: 3pt; padding: 4pt 6pt; background: #f1f5f9; border-radius: 3pt; font-size: 9pt; }
+  .slide-notes { margin-top: 6pt; padding: 6pt 8pt; background: #fff7ed; border-left: 3pt solid #f97316; border-radius: 3pt; font-size: 9pt; }
+  .slide-notes h4 { color: #c2410c; margin-bottom: 3pt; }
+  .family-block { margin: 8pt 0 12pt; page-break-inside: avoid; }
+  .trans-entry { padding: 5pt 8pt; margin: 4pt 0; border-left: 2pt solid #c4b5fd; background: #f5f3ff; border-radius: 3pt; page-break-inside: avoid; }
+  .trans-entry-head { font-size: 10pt; margin-bottom: 2pt; }
+  .trans-id { background: #1e1b4b; color: #c4b5fd; padding: 1px 6px; border-radius: 3px; margin-right: 6pt; }
+  .trans-emoji { margin-left: 8pt; font-size: 8.5pt; color: #64748b; }
+  .trans-entry-desc { font-size: 9pt; color: #334155; }
+  ol.correct li.correct { background: #dcfce7; font-weight: 700; padding: 2pt 4pt; border-radius: 3pt; }
+</style>
+</head>
+<body>
+
+<!-- Cover -->
+<section class="cover">
+  <div class="big-emoji">😂🎭📺</div>
+  <h1>La Historia de los Emojis</h1>
+  <div class="sub">Guía del Presentador</div>
+  <div class="sub" style="margin-top:4pt;font-size:12pt;">Contenido · Animaciones · Transiciones</div>
+  <div class="meta">
+    109 diapositivas · 38 transiciones registradas<br>
+    Generado 15 de abril de 2026
+  </div>
+</section>
+
+<!-- TOC -->
+<section class="toc">
+  <h2 style="page-break-before:auto;">Contenido</h2>
+  <ul>
+    <li><strong>1.</strong> Cómo funciona la presentación (arquitectura)</li>
+    <li><strong>2.</strong> Animaciones CSS internas</li>
+    <li><strong>3.</strong> Glosario de transiciones (38)</li>
+    <li><strong>4.</strong> Acto 1 — Origen (la historia y el verdadero primer emoji) (10 slides)</li><li><strong>5.</strong> Acto 2 — Caos (la explosión global) (5 slides)</li><li><strong>6.</strong> Acto 3 — Drama (las peleas más absurdas) (8 slides)</li><li><strong>7.</strong> Acto 4 — Plataformas (cross-platform hell) (5 slides)</li><li><strong>8.</strong> Acto 5 — Juego interactivo (81 slides)</li>
+  </ul>
+</section>
+
+<section class="act">
+  <h2>Cómo funciona la presentación</h2>
+  <p>
+    Todas las diapositivas viven en un <strong>"mundo" infinito de 2D</strong> (un contenedor absolute).
+    Cada una se coloca en coordenadas <code>(x, y)</code> con <code>scale</code> y <code>rotation</code>.
+    La "cámara" es el <strong>transform GSAP</strong> aplicado al contenedor <code>worldEl</code>:
+    para mostrar un slide, se calcula la transformación inversa para que el centro del slide caiga
+    en el centro del viewport (1920×1080).
+  </p>
+  <p>
+    Al navegar (<kbd>→</kbd>, espacio, click, o control remoto), el engine invoca
+    <code>goToSlide(index)</code> que busca la transición configurada del slide DESTINO
+    en el registro y ejecuta su timeline GSAP. Cada transición decide CÓMO se mueve la cámara
+    + qué efectos overlay (flashes, partículas, glitches) ejecutar durante el movimiento.
+    Si la transición no está registrada, cae al fallback <code>createCameraMove</code>
+    (ease power2.inOut directo).
+  </p>
+  <ul>
+    <li><strong>Tamaño del viewport:</strong> 1920 × 1080 (slide es fixed-size; el zoom lo da el scale de la cámara).</li>
+    <li><strong>Durations:</strong> todas las transiciones tienen un <code>duration</code> en segundos, a veces modificable por slide.</li>
+    <li><strong>Timeout de seguridad:</strong> si una transición se cuelga, a los <code>duration + 2s</code> se fuerza el reset (SlideEngine.tsx línea ~78).</li>
+    <li><strong>Controles:</strong> ← → para navegar, <kbd>F</kbd> fullscreen, click también avanza. El modo <code>/remote</code> controla la presentación desde otro dispositivo vía Supabase Realtime.</li>
+  </ul>
+</section>
+
+<section class="act">
+  <h2>Animaciones CSS internas de los slides</h2>
+  <p class="act-sub">
+    Definidas en <code>src/styles/animations.css</code>. Se aplican a elementos del contenido
+    (no a las transiciones entre slides). La única que realmente se usa hoy es
+    <code>animate-flicker</code> en el título del QR lobby.
+  </p>
+  <table class="timeline-table">
+    <tr><th>Clase</th><th>Keyframe</th><th>Duración</th><th>Efecto</th><th>Dónde se usa</th></tr>
+    <tr><td><code>animate-flicker</code></td><td><code>neonFlicker</code></td><td>2s infinito</td><td>Parpadeo estilo letrero de neón viejo (opacidad saltando entre 1 y 0.4 en instantes puntuales)</td><td>Título de la pantalla QR ("ESCANEA PARA JUGAR")</td></tr>
+    <tr><td><code>animate-pulse</code></td><td><code>pulseGlow</code></td><td>2s ease-in-out infinito</td><td>Brillo pulsante (brightness 1 → 1.3 → 1)</td><td>No usado actualmente (disponible)</td></tr>
+    <tr><td><code>animate-float</code></td><td><code>float</code></td><td>3s ease-in-out infinito</td><td>Flota arriba y abajo 10px</td><td>No usado actualmente (disponible)</td></tr>
+    <tr><td><code>animate-shake</code></td><td><code>shake</code></td><td>0.5s (una vez)</td><td>Sacudida horizontal ±4px</td><td>No usado actualmente (disponible)</td></tr>
+    <tr><td><code>animate-glitch</code></td><td><code>glitchShift</code></td><td>0.3s steps(1) infinito</td><td>Distorsión con clip-path + translateX (efecto VHS)</td><td>No usado actualmente (disponible)</td></tr>
+    <tr><td><code>animate-rgb</code></td><td><code>rgbSplit</code></td><td>0.5s steps(1) infinito</td><td>Text-shadow rosa/azul que salta (separación RGB de tipografía)</td><td>No usado actualmente (disponible)</td></tr>
+  </table>
+</section>
+
+<section class="act">
+  <h2>Glosario de Transiciones</h2>
+  <p class="act-sub">Las 38 transiciones disponibles en el motor, organizadas por familia.</p>
+  
+<div class="family-block">
+  <h3>Cámara</h3>
+  
+    <div class="trans-entry">
+      <div class="trans-entry-head">
+        <code class="trans-id">zoom-in</code>
+        <strong>Zoom In</strong>
+        
+      </div>
+      <div class="trans-entry-desc">Interpolación suave (ease expo.inOut) desde la cámara actual hasta la cámara destino. Hace un zoom directo sin efectos extras. Ideal para aterrizar con foco en una diapositiva.</div>
+    </div>
+    <div class="trans-entry">
+      <div class="trans-entry-head">
+        <code class="trans-id">zoom-out</code>
+        <strong>Zoom Out</strong>
+        
+      </div>
+      <div class="trans-entry-desc">Primero se aleja a 40% de la escala destino (como si retrocediera en el espacio), luego regresa al zoom destino. Da la sensación de "ver el panorama" antes de enfocar.</div>
+    </div>
+    <div class="trans-entry">
+      <div class="trans-entry-head">
+        <code class="trans-id">mega-zoom</code>
+        <strong>Mega Zoom</strong>
+        
+      </div>
+      <div class="trans-entry-desc">Hace un zoom BRUTAL: escala ×8 en el punto medio entre la diapositiva actual y la siguiente, luego vuela y aterriza en el destino. Efecto de "impulso espacial". Usado en la diapositiva de título.</div>
+    </div>
+    <div class="trans-entry">
+      <div class="trans-entry-head">
+        <code class="trans-id">slide</code>
+        <strong>Slide (deslizar)</strong>
+        
+      </div>
+      <div class="trans-entry-desc">Movimiento de cámara directo con ease power3.inOut. Es el default más simple — solo desliza de un slide al otro sin efectos adicionales.</div>
+    </div>
+    <div class="trans-entry">
+      <div class="trans-entry-head">
+        <code class="trans-id">whip-pan</code>
+        <strong>Whip Pan</strong>
+        
+      </div>
+      <div class="trans-entry-desc">Paneo rápido estilo cinematográfico con motion blur (un gradiente horizontal oscuro que barre la pantalla mientras la cámara se mueve). Perfecto para cortes de "mira esto".</div>
+    </div>
+    <div class="trans-entry">
+      <div class="trans-entry-head">
+        <code class="trans-id">orbit</code>
+        <strong>Orbit (órbita)</strong>
+        
+      </div>
+      <div class="trans-entry-desc">La cámara hace una curva en arco entre las dos diapositivas, perpendicular a la línea recta, con una ligera rotación de -15°. Como dar la vuelta alrededor de algo.</div>
+    </div>
+    <div class="trans-entry">
+      <div class="trans-entry-head">
+        <code class="trans-id">dolly-zoom</code>
+        <strong>Dolly Zoom (zoom brutal con impacto)</strong>
+        
+      </div>
+      <div class="trans-entry-desc">Zoom súper rápido con sobrepaso de 25%, un flash blanco en el impacto, shake de pantalla (3 sacudidas), y un radial motion blur. Simula el efecto "Vertigo" de Hitchcock. Usado en el slide de los números grandes.</div>
+    </div>
+    <div class="trans-entry">
+      <div class="trans-entry-head">
+        <code class="trans-id">spiral-zoom</code>
+        <strong>Spiral Zoom (zoom en espiral)</strong>
+        
+      </div>
+      <div class="trans-entry-desc">Zoom + rotación 360° completa mientras se acerca al destino. Ease expo.inOut. Ideal para cierres dramáticos o revelaciones grandes.</div>
+    </div>
+    <div class="trans-entry">
+      <div class="trans-entry-head">
+        <code class="trans-id">boomerang</code>
+        <strong>Boomerang</strong>
+        
+      </div>
+      <div class="trans-entry-desc">Primero se aleja en dirección opuesta al destino (40% más lejos y escala reducida), luego regresa volando al destino. Como un resorte que se estira y se suelta.</div>
+    </div>
+</div>
+<div class="family-block">
+  <h3>Cine</h3>
+  
+    <div class="trans-entry">
+      <div class="trans-entry-head">
+        <code class="trans-id">fade</code>
+        <strong>Fade (a negro)</strong>
+        
+      </div>
+      <div class="trans-entry-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+    </div>
+    <div class="trans-entry">
+      <div class="trans-entry-head">
+        <code class="trans-id">fade-black</code>
+        <strong>Fade a Negro</strong>
+        
+      </div>
+      <div class="trans-entry-desc">Igual que fade pero la cortina es #000 puro y se mantiene visible un momento antes de revelar. Da un respiro dramático antes de la siguiente diapositiva.</div>
+    </div>
+    <div class="trans-entry">
+      <div class="trans-entry-head">
+        <code class="trans-id">spotlight</code>
+        <strong>Spotlight (reflector)</strong>
+        
+      </div>
+      <div class="trans-entry-desc">Un círculo "hueco" sobre fondo casi negro que se mueve por la pantalla como buscando algo (4 posiciones), aterriza al centro, y luego el hueco se expande hasta llenar el viewport revelando la siguiente diapositiva.</div>
+    </div>
+    <div class="trans-entry">
+      <div class="trans-entry-head">
+        <code class="trans-id">tv-flip</code>
+        <strong>TV Flip (apagado de TV CRT)</strong>
+        
+      </div>
+      <div class="trans-entry-desc">Estática aparece, la pantalla colapsa en una línea horizontal blanca (como apagar un TV viejo), flash corto, se cambia la diapositiva, y la línea se expande de vuelta.</div>
+    </div>
+    <div class="trans-entry">
+      <div class="trans-entry-head">
+        <code class="trans-id">iris</code>
+        <strong>Iris (apertura circular)</strong>
+        
+      </div>
+      <div class="trans-entry-desc">Un iris circular negro se cierra desde los bordes hasta el centro (con clip-path circle), se cambia la cámara, y se abre de vuelta. Estilo cine mudo.</div>
+    </div>
+    <div class="trans-entry">
+      <div class="trans-entry-head">
+        <code class="trans-id">letterbox</code>
+        <strong>Letterbox (barras de cine)</strong>
+        
+      </div>
+      <div class="trans-entry-desc">Dos barras negras entran desde arriba y abajo hasta juntarse en el centro, se cambia la cámara, se mantienen un momento, y se retraen. Estilo "cinemascope".</div>
+    </div>
+</div>
+<div class="family-block">
+  <h3>Digital</h3>
+  
+    <div class="trans-entry">
+      <div class="trans-entry-head">
+        <code class="trans-id">glitch</code>
+        <strong>Glitch</strong>
+        
+      </div>
+      <div class="trans-entry-desc">RGB split (sombras roja y azul), scanlines, y 6 tiras horizontales que se desplazan aleatoriamente 4 veces para simular un "error" digital. Gran glitch al centro, luego recuperación.</div>
+    </div>
+    <div class="trans-entry">
+      <div class="trans-entry-head">
+        <code class="trans-id">pixel-dissolve</code>
+        <strong>Pixel Dissolve (mosaico)</strong>
+        
+      </div>
+      <div class="trans-entry-desc">Grid de 20×12 = 240 celdas de colores aleatorios (tonos del fondo) que aparecen en orden random para formar un mosaico que cubre todo, se cambia la cámara, y desaparecen en orden random para revelar la nueva diapositiva.</div>
+    </div>
+    <div class="trans-entry">
+      <div class="trans-entry-head">
+        <code class="trans-id">matrix</code>
+        <strong>Matrix Rain</strong>
+        
+      </div>
+      <div class="trans-entry-desc">Lluvia estilo Matrix con 30 columnas de caracteres (0/1/símbolos, o el emoji especificado si hay uno) cayendo con delays aleatorios sobre fondo casi negro. La cámara cambia al 40% del tiempo.</div>
+    </div>
+    <div class="trans-entry">
+      <div class="trans-entry-head">
+        <code class="trans-id">loading-bar</code>
+        <strong>Loading Bar</strong>
+        
+      </div>
+      <div class="trans-entry-desc">Fondo negro, texto "CARGANDO...", barra de progreso con gradiente neón (rosa → morado → azul) que sube en 6 pasos (23%, 47%, 52% stall, 78%, 93%, 100%), flash al terminar, y revela.</div>
+    </div>
+    <div class="trans-entry">
+      <div class="trans-entry-head">
+        <code class="trans-id">scan-line</code>
+        <strong>Scan Line</strong>
+        
+      </div>
+      <div class="trans-entry-desc">Línea horizontal azul neón con glow que barre la pantalla de arriba abajo (cambiando la cámara al 45%), luego regresa hacia arriba. Efecto "escaneo".</div>
+    </div>
+    <div class="trans-entry">
+      <div class="trans-entry-head">
+        <code class="trans-id">terminal</code>
+        <strong>Terminal</strong>
+        
+      </div>
+      <div class="trans-entry-desc">Pantalla negra con texto verde monoespaciado que imprime 5 líneas de "> inicializando... > cargando recursos... [OK]... transición completa." con un cursor parpadeante. Estilo hacker.</div>
+    </div>
+</div>
+<div class="family-block">
+  <h3>Emoji: Acción</h3>
+  
+    <div class="trans-entry">
+      <div class="trans-entry-head">
+        <code class="trans-id">emoji-bomb</code>
+        <strong>Bomba Emoji</strong>
+        <span class="trans-emoji">emoji default: 💣</span>
+      </div>
+      <div class="trans-entry-desc">Cae una bomba (💣 o el emoji config) desde arriba con bounce, una mecha roja prende, la bomba tiembla mientras "arde", EXPLOTA (se cambia a 💥), flash radial naranja/rojo, shake, 26 fragmentos de colores de fuego salen disparados en todas direcciones.</div>
+    </div>
+    <div class="trans-entry">
+      <div class="trans-entry-head">
+        <code class="trans-id">emoji-slash</code>
+        <strong>Tajo (Emoji Slash)</strong>
+        <span class="trans-emoji">emoji default: ⚔️</span>
+      </div>
+      <div class="trans-entry-desc">Una katana (⚔️ o emoji config) cruza la pantalla en diagonal con speed lines rosa neón, flash blanco, y la pantalla se parte en dos mitades (superior vuela arriba con rotación, inferior vuela abajo).</div>
+    </div>
+    <div class="trans-entry">
+      <div class="trans-entry-head">
+        <code class="trans-id">emoji-magic</code>
+        <strong>Magia con Varita</strong>
+        <span class="trans-emoji">emoji default: 🪄</span>
+      </div>
+      <div class="trans-entry-desc">Una varita (✨ o emoji config) cruza la pantalla de izquierda a derecha con 40 destellos ✨ siguiéndola, y al final un shimmer radial morado cubre el viewport.</div>
+    </div>
+    <div class="trans-entry">
+      <div class="trans-entry-head">
+        <code class="trans-id">emoji-snapshot</code>
+        <strong>Snapshot (foto Polaroid)</strong>
+        <span class="trans-emoji">emoji default: 📸</span>
+      </div>
+      <div class="trans-entry-desc">Fondo oscuro, viewfinder con esquinas de cámara y mira roja, indicador "REC" parpadeante, cámara (📸) aparece con bounce, FLASH blanco (se cambia la cámara), y una Polaroid aparece rotada, se revela (fade-in del contenido), y hace zoom hasta desaparecer.</div>
+    </div>
+    <div class="trans-entry">
+      <div class="trans-entry-head">
+        <code class="trans-id">emoji-unlock</code>
+        <strong>Unlock (candado)</strong>
+        
+      </div>
+      <div class="trans-entry-desc">Un candado 🔒 aparece al centro con rebote, tiembla 7 veces, se transforma en 🔓 (con punch de escala), vuela hacia arriba, y dos puertas negras con borde morado se abren hacia los lados.</div>
+    </div>
+    <div class="trans-entry">
+      <div class="trans-entry-head">
+        <code class="trans-id">emoji-freeze</code>
+        <strong>Freeze (congelación)</strong>
+        <span class="trans-emoji">emoji default: 🥶</span>
+      </div>
+      <div class="trans-entry-desc">Escarcha azul se acumula en los bordes, una cara fría (🥶 o emoji config) aparece al centro, aparecen grietas SVG, flash azul neón, y la pantalla "se rompe" en 15 fragmentos de hielo que salen disparados.</div>
+    </div>
+</div>
+<div class="family-block">
+  <h3>Emoji: Marco</h3>
+  
+    <div class="trans-entry">
+      <div class="trans-entry-head">
+        <code class="trans-id">emoji-tv</code>
+        <strong>Emoji TV</strong>
+        <span class="trans-emoji">emoji default: 📺</span>
+      </div>
+      <div class="trans-entry-desc">Aparece un televisor (📺 o emoji config) con estática, 12 barras de ruido blanco parpadeando, la estática se va (como sintonizar un canal), y la TV crece hasta llenar toda la pantalla.</div>
+    </div>
+    <div class="trans-entry">
+      <div class="trans-entry-head">
+        <code class="trans-id">emoji-door</code>
+        <strong>Puerta Emoji</strong>
+        <span class="trans-emoji">emoji default: 🚪</span>
+      </div>
+      <div class="trans-entry-desc">Un marco de puerta con borde morado aparece al centro, una puerta (🚪 o emoji config) con manija azul aparece dentro, la manija tiembla, la puerta se abre en 3D (rotationY -110°), y hacemos zoom a través del hueco.</div>
+    </div>
+    <div class="trans-entry">
+      <div class="trans-entry-head">
+        <code class="trans-id">emoji-clapper</code>
+        <strong>Claqueta de Cine</strong>
+        <span class="trans-emoji">emoji default: 🎬</span>
+      </div>
+      <div class="trans-entry-desc">Una claqueta (🎬 o emoji config) cae desde arriba con rotación, aparece el texto "SIGUIENTE ESCENA", la claqueta se aplasta (scaleY 0.85) como si cerrara, corte a negro, y el negro se desliza hacia arriba como telón.</div>
+    </div>
+    <div class="trans-entry">
+      <div class="trans-entry-head">
+        <code class="trans-id">emoji-telescope</code>
+        <strong>Telescopio</strong>
+        <span class="trans-emoji">emoji default: 🔭</span>
+      </div>
+      <div class="trans-entry-desc">Oscuro total con un "hueco" circular pequeño en el centro (como ver por un telescopio). Un telescopio 🔭 aparece en la esquina inferior, un lens flare breve, y el hueco se expande gradualmente hasta revelar toda la pantalla.</div>
+    </div>
+</div>
+<div class="family-block">
+  <h3>Emoji: Transformación</h3>
+  
+    <div class="trans-entry">
+      <div class="trans-entry-head">
+        <code class="trans-id">emoji-split</code>
+        <strong>Split (división limpia)</strong>
+        <span class="trans-emoji">emoji default: 🔪</span>
+      </div>
+      <div class="trans-entry-desc">Dos mitades del viewport cada una mostrando la mitad de un emoji (🔪 default) que se encuentran al centro. Flash blanco vertical, y las mitades se separan dejando ver la nueva diapositiva.</div>
+    </div>
+    <div class="trans-entry">
+      <div class="trans-entry-head">
+        <code class="trans-id">split-blood</code>
+        <strong>Split con Sangre</strong>
+        <span class="trans-emoji">emoji default: 🔪</span>
+      </div>
+      <div class="trans-entry-desc">Variante de split con 12 gotas de sangre (rojo a granate) que caen en la línea de corte después de que se abren las mitades.</div>
+    </div>
+    <div class="trans-entry">
+      <div class="trans-entry-head">
+        <code class="trans-id">split-electric</code>
+        <strong>Split Eléctrico</strong>
+        <span class="trans-emoji">emoji default: ⚡</span>
+      </div>
+      <div class="trans-entry-desc">Variante de split con un arco de rayo azul neón zigzagueante (SVG) corriendo por la línea de corte con drop-shadow.</div>
+    </div>
+    <div class="trans-entry">
+      <div class="trans-entry-head">
+        <code class="trans-id">split-lava</code>
+        <strong>Split de Lava</strong>
+        <span class="trans-emoji">emoji default: 🌋</span>
+      </div>
+      <div class="trans-entry-desc">Variante de split con una columna vertical de lava (gradiente naranja/rojo) con glow y 8 gotas de lava cayendo por la línea de corte.</div>
+    </div>
+    <div class="trans-entry">
+      <div class="trans-entry-head">
+        <code class="trans-id">split-confetti</code>
+        <strong>Split con Confetti</strong>
+        <span class="trans-emoji">emoji default: 🎉</span>
+      </div>
+      <div class="trans-entry-desc">Variante de split con una explosión de 50 confettis en 6 colores neón que salen del centro después de que se abren las mitades. Ideal para cierres.</div>
+    </div>
+    <div class="trans-entry">
+      <div class="trans-entry-head">
+        <code class="trans-id">emoji-portal</code>
+        <strong>Portal</strong>
+        <span class="trans-emoji">emoji default: 🌀</span>
+      </div>
+      <div class="trans-entry-desc">Un portal (🌀 o emoji config) aparece al centro con rebote, gira 720° mientras se expande hasta llenar la pantalla, y luego el relleno radial morado se contrae revelando la nueva diapositiva.</div>
+    </div>
+    <div class="trans-entry">
+      <div class="trans-entry-head">
+        <code class="trans-id">emoji-pop</code>
+        <strong>Pop de Globo</strong>
+        <span class="trans-emoji">emoji default: 🎈</span>
+      </div>
+      <div class="trans-entry-desc">Un globo (🎈 o emoji config) se infla desde pequeño a enorme, tambalea, POP flash rosa neón, y 40 confettis salen volando en direcciones aleatorias.</div>
+    </div>
+</div>
+</section>
+
+<section class="act">
+  <h2>Acto 1 — Origen (la historia y el verdadero primer emoji)</h2>
+  <p class="act-sub">De 1988 a 1999, de Sharp a Kurita. Incluye el plot-twist de la pre-historia.</p>
+  <section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#1</div>
+    <div class="slide-id"><code>title</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block"><div class="content-type">Título</div>
+        <div class="big-emoji">😂</div>
+        <div class="content-title">La Historia de los Emojis</div>
+        <div class="content-subtitle">De 176 Pixeles al Dominio Mundial</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cámara</span> · <strong>Mega Zoom</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>mega-zoom</code> · <strong>duración:</strong> 3s · <strong>emoji:</strong> 😂</div>
+        <div class="trans-desc">Hace un zoom BRUTAL: escala ×8 en el punto medio entre la diapositiva actual y la siguiente, luego vuela y aterriza en el destino. Efecto de "impulso espacial". Usado en la diapositiva de título.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=0, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  <div class="slide-notes"><h4>Notas del presentador</h4><div>🎤 DI: "¡Bienvenidos, bienvenidas! Hoy les voy a contar una historia de drama, guerras, peleas, y… pixeles. La historia de los EMOJIS." 🎭 ACCIÓN: Pausa dramática después del mega-zoom. Sonríe. Deja que el logo aterrice. Cuando todos estén viendo, avanza.</div></div>
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#2</div>
+    <div class="slide-id"><code>the-problem</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block"><div class="content-type">Texto</div>
+        <div class="big-emoji">📱</div>
+        <div class="content-title">El Problema</div>
+        <div class="content-body">Estamos en 1999. Japón. 80 millones de personas mandan mensajes como locos, pero cada mensaje se lee como una declaración de impuestos. "Llego a las 7." ¿Están emocionados? ¿Enojados? ¿Planeando tu fin? Nadie sabe. Los mensajes no tenían emoción y estaban causando malentendidos reales. Algo tenía que cambiar.</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cámara</span> · <strong>Slide (deslizar)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>slide</code> · <strong>duración:</strong> 1.8s</div>
+        <div class="trans-desc">Movimiento de cámara directo con ease power3.inOut. Es el default más simple — solo desliza de un slide al otro sin efectos adicionales.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=2000, y=-400, scale=0.8, rotation=-2°</code></div>
+    </div>
+  </div>
+  <div class="slide-notes"><h4>Notas del presentador</h4><div>🎤 DI: "Estamos en 1999. Japón. 80 millones de personas mandando mensajes como locos. Pero cada mensaje se leía como declaración de impuestos. ¿Ustedes se imaginan mandar 'llego a las 7' sin saber si está emocionado, enojado, o planeando su muerte? CAOS." 🎭 ACCIÓN: Gesto con la mano como escribiendo en un teléfono viejo. Hazlo exagerado.</div></div>
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#3</div>
+    <div class="slide-id"><code>plot-twist-prehistory</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block"><div class="content-type">Título</div>
+        <div class="big-emoji">🕰️</div>
+        <div class="content-title">PLOT TWIST</div>
+        <div class="content-subtitle">Todos te dicen que los emojis nacieron en 1999. Pero esta historia empieza 11 años ANTES.</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Digital</span> · <strong>Glitch</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>glitch</code> · <strong>duración:</strong> 2.2s</div>
+        <div class="trans-desc">RGB split (sombras roja y azul), scanlines, y 6 tiras horizontales que se desplazan aleatoriamente 4 veces para simular un "error" digital. Gran glitch al centro, luego recuperación.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=2700, y=1100, scale=0.7, rotation=-5°</code></div>
+    </div>
+  </div>
+  <div class="slide-notes"><h4>Notas del presentador</h4><div>🎤 DI: "Pero antes de meternos con Kurita, tengo que confesarles algo." 🎭 ACCIÓN: Pausa. Cara seria. "Todo lo que van a encontrar en Wikipedia, en TikTok, en los hilos de Twitter de 'datos curiosos' les va a decir que el emoji se inventó en 1999. MENTIRA. O más bien: VERDAD INCOMPLETA. La historia empieza ANTES. MUCHO antes. Agárrense."</div></div>
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#4</div>
+    <div class="slide-id"><code>sharp-1988</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block"><div class="content-type">Texto</div>
+        <div class="big-emoji">🗓️</div>
+        <div class="content-title">1988: Sharp PA-8500</div>
+        <div class="content-body">Japón, año 1988. Madonna está en la radio. Nintendo arrasa. Y Sharp lanza una "agenda electrónica" con ~100 iconitos a 16x16 pixeles — caritas, clima, comida, símbolos. Son, técnicamente, los primeros emojis documentados. 11 años ANTES de Kurita. Dato descubierto por un investigador llamado Matt Sephton en 2024.</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Digital</span> · <strong>Pixel Dissolve (mosaico)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>pixel-dissolve</code> · <strong>duración:</strong> 2.5s</div>
+        <div class="trans-desc">Grid de 20×12 = 240 celdas de colores aleatorios (tonos del fondo) que aparecen en orden random para formar un mosaico que cubre todo, se cambia la cámara, y desaparecen en orden random para revelar la nueva diapositiva.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=3100, y=-1200, scale=0.55, rotation=3°</code></div>
+    </div>
+  </div>
+  <div class="slide-notes"><h4>Notas del presentador</h4><div>🎤 DI: "1988. Japón. Sharp saca una agenda electrónica — el PA-8500 — con CIEN ICONITOS. Caritas, clima, símbolos. A 16x16 pixeles. ONCE AÑOS antes de lo que te cuentan en los libros." 🎭 ACCIÓN: "¿Y por qué nunca lo supiste? Porque nadie lo había documentado hasta 2024, cuando un investigador llamado Matt Sephton se clavó con PDAs japonesas viejas y los sacó a la luz. El internet se volvió loco. Wikipedia tuvo que cambiar el artículo."</div></div>
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#5</div>
+    <div class="slide-id"><code>softbank-1997</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block"><div class="content-type">Texto</div>
+        <div class="big-emoji">📱</div>
+        <div class="content-title">1997: SoftBank Se Adelanta</div>
+        <div class="content-body">El 1 de noviembre de 1997, DOS AÑOS antes que Kurita, la compañía japonesa J-Phone (hoy SoftBank) lanza el celular SkyWalker DP-211SW con 90 emojis a 12x12 pixeles en blanco y negro. Y aquí viene lo mejor: el emoji de la CAQUITA 💩 estaba en ese set. No fue Kurita quien la inventó. Fue SoftBank. Escríbanlo en su diario.</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Emoji: Transformación</span> · <strong>Pop de Globo</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>emoji-pop</code> · <strong>duración:</strong> 2.2s · <strong>emoji:</strong> 💩</div>
+        <div class="trans-desc">Un globo (🎈 o emoji config) se infla desde pequeño a enorme, tambalea, POP flash rosa neón, y 40 confettis salen volando en direcciones aleatorias.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=3500, y=900, scale=0.6, rotation=-2°</code></div>
+    </div>
+  </div>
+  <div class="slide-notes"><h4>Notas del presentador</h4><div>🎤 DI: "1 de noviembre de 1997. Dos años ANTES de Kurita. La compañía J-Phone — que hoy se llama SoftBank — lanza el celular SkyWalker DP-211SW con 90 emojis. A 12x12. En blanco y negro." 🎭 ACCIÓN: Pausa dramática. Señala la pantalla. "¿Adivinen qué emoji VENÍA en ese set de 1997? La. CAQUITA. Todos estos años le dimos el crédito al pobre Kurita. Pero no. El 💩 es de SoftBank. Crédito a quien crédito merece."</div></div>
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#6</div>
+    <div class="slide-id"><code>the-creator</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block"><div class="content-type">Texto</div>
+        <div class="big-emoji">👨‍💻</div>
+        <div class="content-title">Un Tipo. Un Mes. Un Lápiz.</div>
+        <div class="content-body">Les presento a Shigetaka Kurita. 26 años, ingeniero en NTT DoCoMo (la compañía de celulares más grande de Japón). Su jefe le dice "arregla los mensajes." Entonces este señor — inspirado en el manga, los kanji y los letreros de tráfico — agarra papel cuadriculado, un lápiz, y en UN MES dibuja 176 iconitos de 12x12 pixeles. A mano. Uno por uno. Hoy esos dibujos están en el MoMA de Nueva York.</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cámara</span> · <strong>Zoom In</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>zoom-in</code> · <strong>duración:</strong> 2.2s</div>
+        <div class="trans-desc">Interpolación suave (ease expo.inOut) desde la cámara actual hasta la cámara destino. Hace un zoom directo sin efectos extras. Ideal para aterrizar con foco en una diapositiva.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=4000, y=200, scale=0.6, rotation=1°</code></div>
+    </div>
+  </div>
+  <div class="slide-notes"><h4>Notas del presentador</h4><div>🎤 DI: "Entra Shigetaka Kurita. 26 años. Ingeniero en NTT DoCoMo — la empresa de celulares más grande de Japón. Su jefe le dice: 'Kurita, arregla los mensajes.' Y este GALÁN agarra papel cuadriculado, un lapicito, y en UN MES dibuja 176 iconitos a MANO inspirándose en el MANGA, los KANJI y los letreros de tráfico." 🎭 ACCIÓN: Mira al público. "Y aguanten, porque AHORA viene el plot twist: Kurita NO fue el primero. El emoji de la caca que todos amamos… ni siquiera es suyo. Les voy a explicar." Sonrisa cómplice.</div></div>
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#7</div>
+    <div class="slide-id"><code>original-176</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block"><div class="content-type">Grid (retro)</div>
+        <div class="content-title">Los 176 Originales de Kurita</div>
+        <div class="content-body">Simulación del set de Kurita (12x12 pixeles, paleta limitada de colores). La caquita NO estaba — esa llegó después.</div>
+        <div class="grid-items"><span class="grid-item">☀️<span class="grid-label">Sol</span></span><span class="grid-item">☁️<span class="grid-label">Nube</span></span><span class="grid-item">☂️<span class="grid-label">Paraguas</span></span><span class="grid-item">❄️<span class="grid-label">Nieve</span></span><span class="grid-item">⚡<span class="grid-label">Rayo</span></span><span class="grid-item">🌊<span class="grid-label">Ola</span></span><span class="grid-item">🔥<span class="grid-label">Fuego</span></span><span class="grid-item">💧<span class="grid-label">Agua</span></span><span class="grid-item">😃<span class="grid-label">Feliz</span></span><span class="grid-item">😢<span class="grid-label">Triste</span></span><span class="grid-item">😠<span class="grid-label">Enojado</span></span><span class="grid-item">😍<span class="grid-label">Amor</span></span><span class="grid-item">💀<span class="grid-label">Calavera</span></span><span class="grid-item">😴<span class="grid-label">Dormir</span></span><span class="grid-item">❤️<span class="grid-label">Corazón</span></span><span class="grid-item">💔<span class="grid-label">Roto</span></span><span class="grid-item">🎵<span class="grid-label">Música</span></span><span class="grid-item">🎮<span class="grid-label">Juego</span></span><span class="grid-item">📱<span class="grid-label">Teléfono</span></span><span class="grid-item">📷<span class="grid-label">Cámara</span></span><span class="grid-item">🏠<span class="grid-label">Casa</span></span><span class="grid-item">🚗<span class="grid-label">Carro</span></span><span class="grid-item">✈️<span class="grid-label">Avión</span></span><span class="grid-item">🚃<span class="grid-label">Tren</span></span><span class="grid-item">🍔<span class="grid-label">Hamburguesa</span></span><span class="grid-item">🍕<span class="grid-label">Pizza</span></span><span class="grid-item">🍺<span class="grid-label">Cerveza</span></span><span class="grid-item">🎂<span class="grid-label">Pastel</span></span><span class="grid-item">🌸<span class="grid-label">Cerezo</span></span><span class="grid-item">🌙<span class="grid-label">Luna</span></span><span class="grid-item">⭐<span class="grid-label">Estrella</span></span><span class="grid-item">🎁<span class="grid-label">Regalo</span></span><span class="grid-item">🔔<span class="grid-label">Campana</span></span><span class="grid-item">⏰<span class="grid-label">Reloj</span></span><span class="grid-item">📩<span class="grid-label">Correo</span></span><span class="grid-item">📞<span class="grid-label">Llamada</span></span><span class="grid-item">💡<span class="grid-label">Foco</span></span><span class="grid-item">🔑<span class="grid-label">Llave</span></span><span class="grid-item">✂️<span class="grid-label">Tijeras</span></span><span class="grid-item">📝<span class="grid-label">Nota</span></span><span class="grid-item">🎯<span class="grid-label">Diana</span></span><span class="grid-item">🏆<span class="grid-label">Trofeo</span></span><span class="grid-item">👟<span class="grid-label">Tenis</span></span><span class="grid-item">👕<span class="grid-label">Playera</span></span><span class="grid-item">👑<span class="grid-label">Corona</span></span><span class="grid-item">💎<span class="grid-label">Gema</span></span><span class="grid-item">🚬<span class="grid-label">Cigarro</span></span><span class="grid-item">💊<span class="grid-label">Pastilla</span></span><span class="grid-item">🐶<span class="grid-label">Perro</span></span><span class="grid-item">🐱<span class="grid-label">Gato</span></span><span class="grid-item">🐟<span class="grid-label">Pez</span></span><span class="grid-item">🐦<span class="grid-label">Pájaro</span></span><span class="grid-item">👀<span class="grid-label">Ojos</span></span><span class="grid-item">👂<span class="grid-label">Oreja</span></span><span class="grid-item">✋<span class="grid-label">Mano</span></span><span class="grid-item">👆<span class="grid-label">Arriba</span></span><span class="grid-item">✌️<span class="grid-label">Paz</span></span><span class="grid-item">👍<span class="grid-label">Bien</span></span><span class="grid-item">🙏<span class="grid-label">Orar</span></span><span class="grid-item">💪<span class="grid-label">Fuerza</span></span><span class="grid-item">🚶<span class="grid-label">Caminar</span></span><span class="grid-item">🏃<span class="grid-label">Correr</span></span></div>
+        <div class="content-body small">62 elementos</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Emoji: Acción</span> · <strong>Unlock (candado)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>emoji-unlock</code> · <strong>duración:</strong> 2.5s · <strong>emoji:</strong> 🔓</div>
+        <div class="trans-desc">Un candado 🔒 aparece al centro con rebote, tiembla 7 veces, se transforma en 🔓 (con punch de escala), vuela hacia arriba, y dos puertas negras con borde morado se abren hacia los lados.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=6000, y=-600, scale=0.3, rotation=0°</code></div>
+    </div>
+  </div>
+  <div class="slide-notes"><h4>Notas del presentador</h4><div>🎤 DI: "Aquí están TODOS los originales de Kurita. Pixel art de 12x12. A diferencia de lo que todos creen, SÍ eran a color — los celulares de i-mode tenían una paleta limitada pero funcional." 🎭 ACCIÓN: Señala la pantalla. "Fíjense bien: el corazón, el diablito, el avión, la cerveza, la calavera… pero NO está la caquita. ¿Por qué? Porque el 💩 es de OTRA empresa. De SoftBank. Dos años ANTES. Se las volé, ¿verdad?"</div></div>
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#8</div>
+    <div class="slide-id"><code>they-were-ugly</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block"><div class="content-type">Comparación</div>
+        <div class="content-title">El Glow-Up del Siglo</div>
+        <table class="compare-table">
+          <tr>
+            <th>Izquierda 💩</th>
+            <th>Derecha 💩</th>
+          </tr>
+          <tr>
+            <td><strong>1997: 12x12 Pixeles</strong><br>12 pixeles de ancho, en blanco y negro. Así nació la caquita en un celular SoftBank. Sin sombreado, sin degradados. Solo vibras y un sueño. Parecía un helado de chocolate diseñado por alguien que jamás había visto chocolate.</td>
+            <td><strong>2026: Gloria a Todo Color</strong><br>Listo para 4K, con degradados, sombras y todo. El emoji de caca ahora tiene mejor iluminación que la mayoría de las fotos de perfil de LinkedIn.</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Emoji: Transformación</span> · <strong>Split (división limpia)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>emoji-split</code> · <strong>duración:</strong> 2.2s · <strong>variante:</strong> electric</div>
+        <div class="trans-desc">Dos mitades del viewport cada una mostrando la mitad de un emoji (🔪 default) que se encuentran al centro. Flash blanco vertical, y las mitades se separan dejando ver la nueva diapositiva.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=8000, y=400, scale=0.7, rotation=3°</code></div>
+    </div>
+  </div>
+  <div class="slide-notes"><h4>Notas del presentador</h4><div>🎤 DI: "Y aquí está el GLOW-UP más grande de la historia de la tecnología." 🎭 ACCIÓN: Señala a la izquierda. "A la izquierda: 1999. 12x12 pixeles. Parecía una galleta de chocolate dibujada por alguien que nunca había visto chocolate." Pausa. Señala a la derecha. "A la derecha: 2026. Con gradientes, sombras, hasta brillo. El emoji de caca hoy tiene mejor iluminación que mis fotos de perfil." Pausa para risa.</div></div>
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#9</div>
+    <div class="slide-id"><code>the-name</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block"><div class="content-type">Texto</div>
+        <div class="big-emoji">🤯</div>
+        <div class="content-title">El Nombre es Mentira</div>
+        <div class="content-body">¿Crees que "emoji" viene de "emoción"? NOPE. Es japonés: 絵 (e = imagen) + 文字 (moji = carácter). "Carácter de imagen." El hecho de que suene como "emotion" en inglés es pura coincidencia. El universo tiene un sentido del humor bien retorcido.</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Emoji: Acción</span> · <strong>Magia con Varita</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>emoji-magic</code> · <strong>duración:</strong> 2.5s · <strong>emoji:</strong> ✨</div>
+        <div class="trans-desc">Una varita (✨ o emoji config) cruza la pantalla de izquierda a derecha con 40 destellos ✨ siguiéndola, y al final un shimmer radial morado cubre el viewport.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=10000, y=-200, scale=0.5, rotation=-3°</code></div>
+    </div>
+  </div>
+  <div class="slide-notes"><h4>Notas del presentador</h4><div>🎤 DI: "Ok, preguntita: ¿de dónde creen que viene la palabra 'emoji'? ¿De 'emotion' en inglés? ¿De 'emoticon'? ¿Quién lo cree?" 🎭 ACCIÓN: Espera que levanten la mano. "NOPE. Se las voy a volar." Pausa. Señala pantalla. "絵 = imagen. 文字 = carácter. 'Carácter de imagen.' En JAPONÉS. Que suene como 'emotion' en inglés es PURA COINCIDENCIA. El universo tiene un sentido del humor bien retorcido." 🤯</div></div>
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#10</div>
+    <div class="slide-id"><code>japan-only</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block"><div class="content-type">Texto</div>
+        <div class="big-emoji">🇯🇵</div>
+        <div class="content-title">El Secreto Mejor Guardado de Japón</div>
+        <div class="content-body">Por DIEZ AÑOS, los emojis fueron exclusivos de Japón. El resto del mundo seguía escribiendo :-) como cavernícolas. Y se pone peor: cada compañía telefónica japonesa tenía SUS PROPIOS emojis que no funcionaban en otras redes. Mandas un corazón en DoCoMo, llega un cuadrito vacío en SoftBank. Caos total.</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Emoji: Marco</span> · <strong>Puerta Emoji</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>emoji-door</code> · <strong>duración:</strong> 2.2s · <strong>emoji:</strong> 🚪</div>
+        <div class="trans-desc">Un marco de puerta con borde morado aparece al centro, una puerta (🚪 o emoji config) con manija azul aparece dentro, la manija tiembla, la puerta se abre en 3D (rotationY -110°), y hacemos zoom a través del hueco.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=12000, y=600, scale=0.8, rotation=2°</code></div>
+    </div>
+  </div>
+  <div class="slide-notes"><h4>Notas del presentador</h4><div>🎤 DI: "Y aquí viene lo bueno: por DIEZ AÑOS los emojis fueron EXCLUSIVOS de Japón. Diez. El resto del mundo seguía usando :-) y :-( como CAVERNÍCOLAS." 🎭 ACCIÓN: Cara de incredulidad. "Y se pone peor: cada compañía en Japón tenía SUS propios emojis. Mandabas un corazón en una red, llegaba un cuadrito vacío en otra. Relaciones terminaron por esto. PROBABLEMENTE."</div></div>
+</section>
+</section>
+<section class="act">
+  <h2>Acto 2 — Caos (la explosión global)</h2>
+  <p class="act-sub">Guerras de compañías, Apple que entra por la puerta trasera, Unicode salva el día.</p>
+  <section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#11</div>
+    <div class="slide-id"><code>carrier-wars</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block"><div class="content-type">Comparación</div>
+        <div class="content-title">La Guerra de las Compañías</div>
+        <table class="compare-table">
+          <tr>
+            <th>Izquierda ❤️</th>
+            <th>Derecha ⬜</th>
+          </tr>
+          <tr>
+            <td><strong>Lo Que Mandaste</strong><br>Un hermoso corazón rojo en DoCoMo. El amor está en el aire. Pusiste toda tu alma en ese mensaje de texto.</td>
+            <td><strong>Lo Que Recibieron</strong><br>Un cuadrito vacío en SoftBank. Tu declaración de amor convertida en... nada. Relaciones terminaron por esto. Probablemente.</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Digital</span> · <strong>Glitch</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>glitch</code> · <strong>duración:</strong> 1.8s</div>
+        <div class="trans-desc">RGB split (sombras roja y azul), scanlines, y 6 tiras horizontales que se desplazan aleatoriamente 4 veces para simular un "error" digital. Gran glitch al centro, luego recuperación.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=14000, y=-800, scale=0.6, rotation=-4°</code></div>
+    </div>
+  </div>
+  <div class="slide-notes"><h4>Notas del presentador</h4><div>🎤 DI: "Miren este desastre. Esto era Japón en los 2000s." 🎭 ACCIÓN: Señala el lado izquierdo. "Pones todo tu amor en un corazón rojo. Lo mandas. Tu novio, que está en otra compañía…" Señala derecha. "…recibe. Un. Cuadrito. VACÍO." Pausa. "Imagínense terminando una relación por un cuadrito vacío. Esa era la vida en Japón."</div></div>
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#12</div>
+    <div class="slide-id"><code>apple-sneaks-in</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block"><div class="content-type">Texto</div>
+        <div class="big-emoji">🍎</div>
+        <div class="content-title">Apple Entra por la Puerta Trasera</div>
+        <div class="content-body">2008. Apple lanza el iPhone en Japón y esconde un teclado de emojis en el sistema. Se suponía que era solo para Japón, pero gente de todo el mundo descubrió cómo activarlo. Apple accidentalmente creó la demanda global de emojis. Ups. El mejor "bug" de la historia.</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Emoji: Marco</span> · <strong>Telescopio</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>emoji-telescope</code> · <strong>duración:</strong> 2.5s · <strong>emoji:</strong> 🔭</div>
+        <div class="trans-desc">Oscuro total con un "hueco" circular pequeño en el centro (como ver por un telescopio). Un telescopio 🔭 aparece en la esquina inferior, un lens flare breve, y el hueco se expande gradualmente hasta revelar toda la pantalla.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=16000, y=300, scale=0.7, rotation=2°</code></div>
+    </div>
+  </div>
+  <div class="slide-notes"><h4>Notas del presentador</h4><div>🎤 DI: "Llega 2008. Apple lanza el iPhone en Japón. Y hace algo MUY Apple: esconde un teclado de emojis en el sistema. SOLO para Japón. Nadie más lo debía encontrar." 🎭 ACCIÓN: Sonríe pícaro. "Pero los nerds del internet — bendita gente — lo encontraron, lo sacaron, lo compartieron y BOOM. Apple accidentalmente creó la demanda global de emojis. El mejor bug de la historia de la tecnología."</div></div>
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#13</div>
+    <div class="slide-id"><code>unicode-saves</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block"><div class="content-type">Timeline</div>
+        <div class="content-title">Unicode Salva el Día</div>
+        <table class="timeline-table"><tr><td class="tl-year">2007</td><td class="tl-emoji">📋</td><td>Ingenieros de Google proponen estandarizar los emojis</td></tr><tr><td class="tl-year">2009</td><td class="tl-emoji">📨</td><td>Apple y Google hacen una petición formal al Consorcio Unicode</td></tr><tr><td class="tl-year">2010</td><td class="tl-emoji">✅</td><td>Unicode 6.0 incluye 722 emojis. Se restaura el orden.</td></tr><tr><td class="tl-year">2011</td><td class="tl-emoji">🌍</td><td>Apple agrega el teclado emoji a iOS en todo el mundo</td></tr></table>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Digital</span> · <strong>Terminal</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>terminal</code> · <strong>duración:</strong> 2.2s</div>
+        <div class="trans-desc">Pantalla negra con texto verde monoespaciado que imprime 5 líneas de "> inicializando... > cargando recursos... [OK]... transición completa." con un cursor parpadeante. Estilo hacker.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=18000, y=-400, scale=0.5, rotation=-1°</code></div>
+    </div>
+  </div>
+  <div class="slide-notes"><h4>Notas del presentador</h4><div>🎤 DI: "Aquí viene el salvador: Unicode. Que es básicamente un grupito de nerds en California que deciden QUÉ letras, números y SÍMBOLOS existen en todo el internet." 🎭 ACCIÓN: Repasa los años en la pantalla. "2007 Google propone. 2009 Apple y Google meten la petición oficial. 2010 Unicode dice SÍ y mete 722 emojis al estándar. 2011 Apple pone el teclado en TODOS los iPhones del mundo. Y ahí empezó todo."</div></div>
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#14</div>
+    <div class="slide-id"><code>the-explosion</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block"><div class="content-type">Texto</div>
+        <div class="big-emoji">💥</div>
+        <div class="content-title">La Gran Explosión de Emojis</div>
+        <div class="content-body">Una vez que Apple mandó emojis a cada iPhone del planeta, Android los siguió. Luego Twitter. Luego Facebook. En 3 años, los emojis pasaron de ser una función rara de teléfonos japoneses al lenguaje de más rápido crecimiento en el mundo. Sin necesidad de Duolingo.</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Emoji: Acción</span> · <strong>Bomba Emoji</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>emoji-bomb</code> · <strong>duración:</strong> 2.8s · <strong>emoji:</strong> 💣</div>
+        <div class="trans-desc">Cae una bomba (💣 o el emoji config) desde arriba con bounce, una mecha roja prende, la bomba tiembla mientras "arde", EXPLOTA (se cambia a 💥), flash radial naranja/rojo, shake, 26 fragmentos de colores de fuego salen disparados en todas direcciones.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=20000, y=500, scale=0.4, rotation=3°</code></div>
+    </div>
+  </div>
+  <div class="slide-notes"><h4>Notas del presentador</h4><div>🎤 DI: "Y entonces… EXPLOTÓ. Literalmente." 🎭 ACCIÓN: Deja que la bomba caiga en la transición. Después. "Apple mandó emojis a cada iPhone del planeta, Android siguió, Twitter siguió, Facebook siguió. En 3 años pasaron de ser una cosa rara de teléfonos japoneses al idioma de más rápido crecimiento en la historia. Sin Duolingo. Sin maestros. Solo… BAM."</div></div>
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#15</div>
+    <div class="slide-id"><code>the-stats</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block"><div class="content-type">Stat</div>
+        <div class="content-stat">10,000,000,000</div>
+        <div class="content-subtitle">Emojis enviados cada día</div>
+        <div class="content-body">El 92% de todos los humanos en internet usan emojis. Tu abuelita estadísticamente es usuaria de emojis.</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cámara</span> · <strong>Dolly Zoom (zoom brutal con impacto)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>dolly-zoom</code> · <strong>duración:</strong> 3s</div>
+        <div class="trans-desc">Zoom súper rápido con sobrepaso de 25%, un flash blanco en el impacto, shake de pantalla (3 sacudidas), y un radial motion blur. Simula el efecto "Vertigo" de Hitchcock. Usado en el slide de los números grandes.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=22000, y=-200, scale=0.15, rotation=0°</code></div>
+    </div>
+  </div>
+  <div class="slide-notes"><h4>Notas del presentador</h4><div>🎤 DI: "Tómense un segundo para procesar ESTE número." 🎭 ACCIÓN: Pausa LARGA. Señala la pantalla. "DIEZ. MIL. MILLONES. Por día. Más que la población de la Tierra. El 92% de la gente en internet usa emojis. Eso incluye a tu abuelita. Tu abuelita, estadísticamente, es usuaria activa de emojis. Piensen eso."</div></div>
+</section>
+</section>
+<section class="act">
+  <h2>Acto 3 — Drama (las peleas más absurdas)</h2>
+  <p class="act-sub">Pistolas, duraznos, hamburguesas, Oxford, Finlandia.</p>
+  <section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#16</div>
+    <div class="slide-id"><code>gun-debate</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block"><div class="content-type">Emoji Showcase</div>
+        <div class="big-emoji">🔫</div>
+        <div class="content-title">El Gran Debate de la Pistola</div>
+        <div class="content-body">En 2016, Apple cambió en silencio el emoji de pistola de un revólver realista a una pistola de agua verde brillante. Las demás plataformas entraron en pánico y lo copiaron. Durante unos 6 meses, podías mandar una pistola de agua desde un iPhone y tu amigo con Android recibía una Glock real. El pico de la mala comunicación.</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Emoji: Transformación</span> · <strong>Split con Sangre</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>split-blood</code> · <strong>duración:</strong> 2.5s</div>
+        <div class="trans-desc">Variante de split con 12 gotas de sangre (rojo a granate) que caen en la línea de corte después de que se abren las mitades.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=24000, y=800, scale=0.6, rotation=-3°</code></div>
+    </div>
+  </div>
+  <div class="slide-notes"><h4>Notas del presentador</h4><div>🎤 DI: "Entramos al ACTO del DRAMA. Y empezamos fuerte." 🎭 ACCIÓN: Pausa. "2016: Apple un buen día decide que la pistola emoji 🔫 ya no es pistola. La cambia a PISTOLA DE AGUA. Verde brillante. Como de juguete." Pausa dramática. "Todas las demás empresas entraron en pánico porque durante 6 MESES, si mandabas una pistolita de agua desde iPhone, a tu cuate con Android le llegaba una GLOCK real. EL PICO DE LA MALA COMUNICACIÓN."</div></div>
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#17</div>
+    <div class="slide-id"><code>peach-incident</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block"><div class="content-type">Texto</div>
+        <div class="big-emoji">🍑</div>
+        <div class="content-title">El Incidente del Durazno</div>
+        <div class="content-body">En 2016, Apple intentó hacer que el emoji de durazno se pareciera más a un durazno real. El internet SE REBELÓ. Se firmaron peticiones. Se escribieron artículos de opinión. Apple discretamente lo regresó a su forma, digamos... familiar. El pueblo habló, y el pueblo quería pastel. Pastel de durazno.</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Emoji: Transformación</span> · <strong>Pop de Globo</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>emoji-pop</code> · <strong>duración:</strong> 1.8s · <strong>emoji:</strong> 🍑</div>
+        <div class="trans-desc">Un globo (🎈 o emoji config) se infla desde pequeño a enorme, tambalea, POP flash rosa neón, y 40 confettis salen volando en direcciones aleatorias.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=26000, y=-300, scale=0.7, rotation=4°</code></div>
+    </div>
+  </div>
+  <div class="slide-notes"><h4>Notas del presentador</h4><div>🎤 DI: "2016. Apple intenta cambiar el emoji del durazno 🍑 para que parezca un durazno REAL." 🎭 ACCIÓN: Cara seria, casi indignada. "El internet se VOLVIÓ LOCO. Se firmaron peticiones. Se escribieron artículos. Hubo MARCHAS metafóricas. ¿Y saben por qué?" Pausa. "Porque el durazno ya no era un durazno. Era algo MÁS. Algo… familiar. Apple se dobló. El pueblo habló. Y el pueblo quería… bueno, ustedes saben qué quería el pueblo." Sonrisa cómplice.</div></div>
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#18</div>
+    <div class="slide-id"><code>burger-war</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block"><div class="content-type">Comparación</div>
+        <div class="content-title">La Guerra de la Hamburguesa</div>
+        <table class="compare-table">
+          <tr>
+            <th>Izquierda 🍔</th>
+            <th>Derecha 🍔</th>
+          </tr>
+          <tr>
+            <td><strong>Google (Antes)</strong><br>Google puso el queso DEBAJO de la carne. Debajo. Como un monstruo. El internet perdió la cabeza. El CEO de Google, Sundar Pichai, tuiteó que iba a "dejar todo" para arreglarlo.</td>
+            <td><strong>La Forma Correcta</strong><br>El queso va ENCIMA de la carne. Esto no es debatible. El CEO de una empresa de un billón de dólares priorizó un emoji de hamburguesa sobre... todo lo demás. Respeto.</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cámara</span> · <strong>Whip Pan</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>whip-pan</code> · <strong>duración:</strong> 1.6s</div>
+        <div class="trans-desc">Paneo rápido estilo cinematográfico con motion blur (un gradiente horizontal oscuro que barre la pantalla mientras la cámara se mueve). Perfecto para cortes de "mira esto".</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=28000, y=600, scale=0.5, rotation=-2°</code></div>
+    </div>
+  </div>
+  <div class="slide-notes"><h4>Notas del presentador</h4><div>🎤 DI: "Ok, esto es REAL. Google, por años, tenía el emoji de hamburguesa con el QUESO DEBAJO DE LA CARNE." 🎭 ACCIÓN: Cara de horror. "DEBAJO. Como un MONSTRUO." Pausa. "Alguien lo notó en Twitter. Se armó la tremenda. ¿Y saben qué hizo el CEO de Google, Sundar Pichai, el señor que maneja una empresa de UN BILLÓN de dólares? Literalmente tuiteó: 'Voy a dejar TODO lo que estoy haciendo para arreglar esto el lunes.' Un billón de dólares. Priorizando una HAMBURGUESA EMOJI. Qué época."</div></div>
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#19</div>
+    <div class="slide-id"><code>word-of-year</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block"><div class="content-type">Stat</div>
+        <div class="content-stat">😂</div>
+        <div class="content-subtitle">Palabra del Año 2015 de Oxford</div>
+        <div class="content-body">No es una palabra. Ni siquiera son letras. Un emoji. El Diccionario Oxford dijo "esto está bien" y los profesores de inglés de todo el mundo sintieron una perturbación en la Fuerza.</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Spotlight (reflector)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>spotlight</code> · <strong>duración:</strong> 2.5s</div>
+        <div class="trans-desc">Un círculo "hueco" sobre fondo casi negro que se mueve por la pantalla como buscando algo (4 posiciones), aterriza al centro, y luego el hueco se expande hasta llenar el viewport revelando la siguiente diapositiva.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=30000, y=-700, scale=0.3, rotation=0°</code></div>
+    </div>
+  </div>
+  <div class="slide-notes"><h4>Notas del presentador</h4><div>🎤 DI: "El Diccionario de OXFORD. El diccionario más respetado del idioma inglés. En 2015 eligió COMO PALABRA DEL AÑO… 😂." 🎭 ACCIÓN: Pausa larga. Señala el emoji. "No es una palabra. Ni siquiera son letras. Es una carita llorando de risa. Los profesores de inglés de todo el mundo sintieron una PERTURBACIÓN en la Fuerza ese día." Pausa cómica. "'Cara con lágrimas de alegría' es su nombre oficial. No estoy mintiendo."</div></div>
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#20</div>
+    <div class="slide-id"><code>eggplant-ban</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block"><div class="content-type">Texto</div>
+        <div class="big-emoji">🍆</div>
+        <div class="content-title">Prohibido en Instagram</div>
+        <div class="content-body">Instagram prohibió el emoji de berenjena en las búsquedas de hashtags. No drogas. No armas. Una verdura. Porque aparentemente la humanidad no era de confianza con una verdura morada. La berenjena no hizo nada malo, y sin embargo aquí estamos.</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Emoji: Acción</span> · <strong>Freeze (congelación)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>emoji-freeze</code> · <strong>duración:</strong> 1.8s · <strong>emoji:</strong> 🍆</div>
+        <div class="trans-desc">Escarcha azul se acumula en los bordes, una cara fría (🥶 o emoji config) aparece al centro, aparecen grietas SVG, flash azul neón, y la pantalla "se rompe" en 15 fragmentos de hielo que salen disparados.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=32000, y=400, scale=0.7, rotation=5°</code></div>
+    </div>
+  </div>
+  <div class="slide-notes"><h4>Notas del presentador</h4><div>🎤 DI: "Instagram. Año 2015. Prohibió el emoji de la berenjena 🍆 en las búsquedas de hashtags." 🎭 ACCIÓN: Cara de inocente. "No drogas. No armas. No violencia. UNA VERDURA." Pausa. "Aparentemente la humanidad no era de confianza con una verdura morada. La berenjena no hizo NADA malo y sin embargo aquí estamos. Y no, no les voy a explicar por qué la prohibieron. Ustedes sabrán."</div></div>
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#21</div>
+    <div class="slide-id"><code>finland-emoji</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block"><div class="content-type">Texto</div>
+        <div class="big-emoji">🇫🇮</div>
+        <div class="content-title">Finlandia Tiene Su Propio Emoji</div>
+        <div class="content-body">Finlandia es el ÚNICO país que creó su propio set nacional de emojis. Hicieron emojis para saunas, teléfonos Nokia, headbangers de heavy metal, y un señor que no puede dejar de hablar del clima. Son reales. Finlandia no está jugando.</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Emoji: Transformación</span> · <strong>Portal</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>emoji-portal</code> · <strong>duración:</strong> 2.5s · <strong>emoji:</strong> 🇫🇮</div>
+        <div class="trans-desc">Un portal (🌀 o emoji config) aparece al centro con rebote, gira 720° mientras se expande hasta llenar la pantalla, y luego el relleno radial morado se contrae revelando la nueva diapositiva.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=34000, y=-100, scale=0.6, rotation=-4°</code></div>
+    </div>
+  </div>
+  <div class="slide-notes"><h4>Notas del presentador</h4><div>🎤 DI: "Dato curioso: Finlandia es el ÚNICO país en TODO EL MUNDO que creó su propio set oficial de emojis." 🎭 ACCIÓN: Sonrisa. "Y los hicieron a su ESTILO. Hay un emoji de SAUNA. Un teléfono NOKIA que no se rompe. Un señor HEADBANGER de heavy metal. Y un señor que no puede dejar de hablar del clima. Son reales, son oficiales, y son GLORIOSOS. El gobierno finlandés gastó dinero en ESTO. Amo a los finlandeses."</div></div>
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#22</div>
+    <div class="slide-id"><code>approval-process</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block"><div class="content-type">Timeline</div>
+        <div class="content-title">¿Quieres un Emoji Nuevo? Buena Suerte.</div>
+        <table class="timeline-table"><tr><td class="tl-year">Paso 1</td><td class="tl-emoji">📝</td><td>Escribe una propuesta formal con datos de uso</td></tr><tr><td class="tl-year">Paso 2</td><td class="tl-emoji">📮</td><td>Envíala al Subcomité de Emoji de Unicode</td></tr><tr><td class="tl-year">Paso 3</td><td class="tl-emoji">😰</td><td>Sobrevive múltiples rondas de revisión</td></tr><tr><td class="tl-year">Paso 4</td><td class="tl-emoji">⏳</td><td>Espera 2+ años para una decisión final</td></tr><tr><td class="tl-year">Dato</td><td class="tl-emoji">🤌</td><td>La "🤌" (dedos juntos italianos) tardó 2 años de propuestas y debates</td></tr></table>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Digital</span> · <strong>Loading Bar</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>loading-bar</code> · <strong>duración:</strong> 3s</div>
+        <div class="trans-desc">Fondo negro, texto "CARGANDO...", barra de progreso con gradiente neón (rosa → morado → azul) que sube en 6 pasos (23%, 47%, 52% stall, 78%, 93%, 100%), flash al terminar, y revela.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=36000, y=700, scale=0.5, rotation=2°</code></div>
+    </div>
+  </div>
+  <div class="slide-notes"><h4>Notas del presentador</h4><div>🎤 DI: "Ok preguntita: ¿quién aquí ha pensado 'ay, debería existir un emoji de X'?" 🎭 ACCIÓN: Levantar mano. "Bueno, pues pueden pedirlo. Pero no es fácil." Repasa los pasos en pantalla. "Primero: propuesta formal con datos. Segundo: la mandas al Subcomité de Emojis. Tercero: sobrevives varias rondas de revisión. Y cuarto: esperas DOS AÑOS mínimo." Pausa. "El 🤌 italiano — los ‘deditos juntos’ — tardó DOS años de propuestas. Esa manita vio más trámites que yo sacando el pasaporte."</div></div>
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#23</div>
+    <div class="slide-id"><code>the-numbers</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block"><div class="content-type">Stat</div>
+        <div class="content-stat">3,953</div>
+        <div class="content-subtitle">Emojis existen en 2026 (Unicode 17.0)</div>
+        <div class="content-body">Pero la persona promedio usa como 50. Eso significa que 3,903 emojis están ahí... sentaditos. Sin usar. Sin amor. Piensa en eso.</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cámara</span> · <strong>Dolly Zoom (zoom brutal con impacto)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>dolly-zoom</code> · <strong>duración:</strong> 2.8s</div>
+        <div class="trans-desc">Zoom súper rápido con sobrepaso de 25%, un flash blanco en el impacto, shake de pantalla (3 sacudidas), y un radial motion blur. Simula el efecto "Vertigo" de Hitchcock. Usado en el slide de los números grandes.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=38000, y=-500, scale=0.15, rotation=0°</code></div>
+    </div>
+  </div>
+  <div class="slide-notes"><h4>Notas del presentador</h4><div>🎤 DI: "En 2026 existen TRES MIL NOVECIENTOS CINCUENTA Y TRES emojis. Unicode 17.0, septiembre del 2025." 🎭 ACCIÓN: Deja que el número pegue. "Pero la persona promedio usa como… 50. Los mismos 50 de siempre: 😂 ❤️ 🔥 👍 🙏. Eso significa que 3,903 emojis están ahí sentaditos. Sin usar. Sin amor." Pausa cómica. "¿Quién aquí HA USADO alguna vez el emoji del teleférico? ¿Del frasco de medicina? ¿Del fax? Exacto. Nadie. Pobres emojis."</div></div>
+</section>
+</section>
+<section class="act">
+  <h2>Acto 4 — Plataformas (cross-platform hell)</h2>
+  <p class="act-sub">Samsung, galletas con crisis de identidad, pistolas de agua y el plot-twist de Microsoft.</p>
+  <section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#24</div>
+    <div class="slide-id"><code>cross-platform</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block"><div class="content-type">Texto</div>
+        <div class="big-emoji">😅</div>
+        <div class="content-title">Mismo Emoji, Aspectos Diferentes</div>
+        <div class="content-body">Aquí viene una pesadilla divertida: cada plataforma diseña su propia versión de cada emoji. Manda una "cara ligeramente sonriente" desde un iPhone y se ve amable. Véla en Samsung y parece que está planeando un asesinato. Mismo código Unicode. Energía completamente diferente.</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Emoji: Marco</span> · <strong>Emoji TV</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>emoji-tv</code> · <strong>duración:</strong> 2.2s · <strong>emoji:</strong> 📺</div>
+        <div class="trans-desc">Aparece un televisor (📺 o emoji config) con estática, 12 barras de ruido blanco parpadeando, la estática se va (como sintonizar un canal), y la TV crece hasta llenar toda la pantalla.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=40000, y=200, scale=0.6, rotation=-3°</code></div>
+    </div>
+  </div>
+  <div class="slide-notes"><h4>Notas del presentador</h4><div>🎤 DI: "Ahora pongan atención porque esto explota cabezas. Cada plataforma — Apple, Google, Samsung, Microsoft, WhatsApp — diseña SU PROPIA versión de cada emoji." 🎭 ACCIÓN: Cara de disbelief. "Mismo código Unicode. Arte completamente distinto. Mandas 'cara ligeramente sonriente' desde iPhone y se ve amable. El mismo emoji en Samsung parece que está planeando un HOMICIDIO. Literalmente la misma data. Energía MUY diferente."</div></div>
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#25</div>
+    <div class="slide-id"><code>samsung-worst</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block"><div class="content-type">Texto</div>
+        <div class="big-emoji">🤦</div>
+        <div class="content-title">Samsung: El Peor Infractor</div>
+        <div class="content-body">Los emojis viejos de Samsung eran DE LOCOS. Su "cara de mueca" se veía feliz. Su "bailarina" miraba al lado contrario. Su "galleta" parecía una galleta salada. Samsung básicamente estaba corriendo su propio universo cinematográfico de emojis donde nada tenía sentido y todos estaban ligeramente malditos.</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Digital</span> · <strong>Scan Line</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>scan-line</code> · <strong>duración:</strong> 1.8s</div>
+        <div class="trans-desc">Línea horizontal azul neón con glow que barre la pantalla de arriba abajo (cambiando la cámara al 45%), luego regresa hacia arriba. Efecto "escaneo".</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=42000, y=-600, scale=0.5, rotation=4°</code></div>
+    </div>
+  </div>
+  <div class="slide-notes"><h4>Notas del presentador</h4><div>🎤 DI: "Samsung, mis compadres. Samsung tuvo una ÉPOCA." 🎭 ACCIÓN: Cabeza hacia atrás, cara de frustración. "Su cara de mueca se veía FELIZ. Su bailarina estaba mirando al lado contrario. Su galleta parecía una galleta salada. Era como si vivieran en un universo paralelo donde todo estaba ligeramente MALDITO." Pausa. "Finalmente arreglaron todo en 2018 pero los viejos… viven en la infamia. El internet nunca olvida."</div></div>
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#26</div>
+    <div class="slide-id"><code>cookie-incident</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block"><div class="content-type">Comparación</div>
+        <div class="content-title">La Crisis de la Galleta</div>
+        <table class="compare-table">
+          <tr>
+            <th>Izquierda 🍪</th>
+            <th>Derecha 🍘</th>
+          </tr>
+          <tr>
+            <td><strong>Lo Que Esperabas</strong><br>Una deliciosa galleta con chispas de chocolate. Doradita, un poco suavecita, como las que hace la abuelita.</td>
+            <td><strong>Lo Que Samsung Te Dio</strong><br>Esto. La "galleta" de Samsung parecía una galleta de arroz con crisis de identidad. La gente literalmente no podía saber qué comida se suponía que era. ¿Galleta? ¿Cracker? ¿Artefacto antiguo? Nadie sabía.</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Emoji: Acción</span> · <strong>Snapshot (foto Polaroid)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>emoji-snapshot</code> · <strong>duración:</strong> 2.2s · <strong>emoji:</strong> 📸</div>
+        <div class="trans-desc">Fondo oscuro, viewfinder con esquinas de cámara y mira roja, indicador "REC" parpadeante, cámara (📸) aparece con bounce, FLASH blanco (se cambia la cámara), y una Polaroid aparece rotada, se revela (fade-in del contenido), y hace zoom hasta desaparecer.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=44000, y=500, scale=0.7, rotation=-1°</code></div>
+    </div>
+  </div>
+  <div class="slide-notes"><h4>Notas del presentador</h4><div>🎤 DI: "Exhibit A: la GALLETA." 🎭 ACCIÓN: Señala cada lado. "A la izquierda: lo que todos esperamos cuando mandan '🍪'. Una galletita tibia con chispas de chocolate. Como las de la abuela." Pausa. "A la derecha: LO QUE SAMSUNG NOS DIO DURANTE AÑOS. Eso no es una galleta. Eso es una galleta de ARROZ con CRISIS DE IDENTIDAD. La gente LITERALMENTE no sabía qué comida era. Samsung eventualmente lo arregló, pero el trauma PERMANECE."</div></div>
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#27</div>
+    <div class="slide-id"><code>pistol-timeline</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block"><div class="content-type">Timeline</div>
+        <div class="content-title">De Revólver a Pistola de Agua</div>
+        <table class="timeline-table"><tr><td class="tl-year">1 Ago 2016</td><td class="tl-emoji">🔫</td><td>Apple cambia el revólver por pistola de agua</td></tr><tr><td class="tl-year">2 Ago 2016</td><td class="tl-emoji">🤠</td><td>Microsoft hace lo OPUESTO: cambia su pistolita de rayos por un REVÓLVER realista</td></tr><tr><td class="tl-year">2018</td><td class="tl-emoji">💧</td><td>Google, Samsung, Facebook y Twitter se alinean: todos a pistola de agua</td></tr><tr><td class="tl-year">2018</td><td class="tl-emoji">🏳️</td><td>Microsoft por fin se rinde. Pistola de agua universal.</td></tr><tr><td class="tl-year">Jul 2024</td><td class="tl-emoji">😱</td><td>Plot twist: X (Twitter) regresa a pistola real. El caos nunca muere.</td></tr></table>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Emoji: Marco</span> · <strong>Claqueta de Cine</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>emoji-clapper</code> · <strong>duración:</strong> 2.5s · <strong>emoji:</strong> 🎬</div>
+        <div class="trans-desc">Una claqueta (🎬 o emoji config) cae desde arriba con rotación, aparece el texto "SIGUIENTE ESCENA", la claqueta se aplasta (scaleY 0.85) como si cerrara, corte a negro, y el negro se desliza hacia arriba como telón.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=46000, y=-200, scale=0.4, rotation=0°</code></div>
+    </div>
+  </div>
+  <div class="slide-notes"><h4>Notas del presentador</h4><div>🎤 DI: "Y aquí viene una de las ANÉCDOTAS más absurdas de la historia de los emojis." 🎭 ACCIÓN: Repasa los años. "1 de agosto de 2016: Apple cambia su revólver por una pistolita de agua. Un DÍA DESPUÉS — no una semana, UN DÍA — Microsoft hace LO OPUESTO. Tenía una pistolita de rayos de juguete y la cambió… a un REVÓLVER REALISTA." Pausa. "Se pasaron al lado OSCURO mientras todos se iban al lado lindo. En 2018 se rindieron junto con Google, Samsung, Facebook y Twitter." Pausa dramática. "Y cuando creías que ya habíamos cerrado el tema… en julio del 2024, X — el Twitter de Elon — regresó a PISTOLA REAL. El drama nunca termina."</div></div>
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#28</div>
+    <div class="slide-id"><code>microsoft-plot-twist</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block"><div class="content-type">Comparación</div>
+        <div class="content-title">Microsoft: 24 Horas Para Arruinarlo Todo</div>
+        <table class="compare-table">
+          <tr>
+            <th>Izquierda 💧</th>
+            <th>Derecha 🤠</th>
+          </tr>
+          <tr>
+            <td><strong>1 Ago 2016 — Apple</strong><br>Cambia el revólver realista por una pistolita de agua verde brillante. Un mensaje de paz. El mundo aplaude.</td>
+            <td><strong>2 Ago 2016 — Microsoft</strong><br>AL DÍA SIGUIENTE, Microsoft hace lo EXACTAMENTE opuesto. Tenía una pistolita de rayos de juguete y la cambia… a un REVÓLVER REAL. Se pasaron al lado oscuro en 24 horas.</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cámara</span> · <strong>Whip Pan</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>whip-pan</code> · <strong>duración:</strong> 1.8s</div>
+        <div class="trans-desc">Paneo rápido estilo cinematográfico con motion blur (un gradiente horizontal oscuro que barre la pantalla mientras la cámara se mueve). Perfecto para cortes de "mira esto".</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=47000, y=900, scale=0.5, rotation=-4°</code></div>
+    </div>
+  </div>
+  <div class="slide-notes"><h4>Notas del presentador</h4><div>🎤 DI: "Ok, este slide merece su propio momento." 🎭 ACCIÓN: Mira al público, cara cómplice. "Es tan absurdo que cuando lo cuento la gente cree que estoy exagerando. Pero NO. Literalmente en 24 horas: Apple se va hacia la paz, Microsoft se va hacia LA GUERRA. Fueron al REVÉS. Completamente." Pausa. "¿Ustedes se imaginan la junta en Microsoft ese lunes? 'Oigan, Apple acaba de poner una pistolita de agua… ¿qué hacemos?' 'Pongámosle BALAS.' 'Sí, eso.' Genio puro."</div></div>
+</section>
+</section>
+<section class="act">
+  <h2>Acto 5 — Juego interactivo</h2>
+  <p class="act-sub">25 películas + 25 series + 14 países + 9 dichos, con marcador en vivo.</p>
+  <section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#29</div>
+    <div class="slide-id"><code>game-reveal</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block"><div class="content-type">Game Reveal</div>
+        <div class="content-title">¿Pero qué tan bien conoces TÚ los emojis?</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Digital</span> · <strong>Glitch</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>glitch</code> · <strong>duración:</strong> 2.5s</div>
+        <div class="trans-desc">RGB split (sombras roja y azul), scanlines, y 6 tiras horizontales que se desplazan aleatoriamente 4 veces para simular un "error" digital. Gran glitch al centro, luego recuperación.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=48000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  <div class="slide-notes"><h4>Notas del presentador</h4><div>🎤 DI: "Ok, hasta aquí la clase de historia. Ahora…" 🎭 ACCIÓN: Avanza y deja que el glitch se despliegue. Después del caos visual, mira al público con sonrisa maliciosa. "Ahora quiero saber… ¿qué tan bien los conocen USTEDES?" Pausa dramática. Observa cómo se prenden los ojos. ESTE es el momento sorpresa. Saboréalo.</div></div>
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#30</div>
+    <div class="slide-id"><code>qr-lobby</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block"><div class="content-type">QR Lobby</div>
+        <div class="content-title">Pantalla con QR y código de sala</div>
+        <div class="content-body small">Título anima con <code>animate-flicker</code> (parpadeo neón 2s infinito).</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade a Negro</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade-black</code> · <strong>duración:</strong> 1.8s</div>
+        <div class="trans-desc">Igual que fade pero la cortina es #000 puro y se mantiene visible un momento antes de revelar. Da un respiro dramático antes de la siguiente diapositiva.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=50000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  <div class="slide-notes"><h4>Notas del presentador</h4><div>🎤 DI: "¡BIENVENIDOS AL JUEGO! Agarren sus celulares, ESCANEEN el QR, escojan un EQUIPO, y prepárense. Porque nos vamos a reír mucho y alguien va a quedar mal." 🎭 ACCIÓN: Espera 30-60 segundos. Ve los nombres (con emojis) apareciendo abajo. Hazle bullying cariñoso al que elija nombre raro. "Ay sí, '🍕🐢🔥' muy bonito. Vamos a ver si juegas igual de bien."</div></div>
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#31</div>
+    <div class="slide-id"><code>quiz-movies-intro</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block"><div class="content-type">Título</div>
+        <div class="big-emoji">🎬</div>
+        <div class="content-title">Ronda 1: Películas</div>
+        <div class="content-subtitle">Adivina la película por los emojis</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Emoji: Marco</span> · <strong>Claqueta de Cine</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>emoji-clapper</code> · <strong>duración:</strong> 2.2s · <strong>emoji:</strong> 🎬</div>
+        <div class="trans-desc">Una claqueta (🎬 o emoji config) cae desde arriba con rotación, aparece el texto "SIGUIENTE ESCENA", la claqueta se aplasta (scaleY 0.85) como si cerrara, corte a negro, y el negro se desliza hacia arriba como telón.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=52000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  <div class="slide-notes"><h4>Notas del presentador</h4><div>🎤 DI: "¡PRIMERA RONDA! Películas. El primero que BUZZEE y atine se lleva 100 puntitos. Si falla, el otro equipo puede ROBAR la pregunta. Prepárense, empezamos fácil pero se pone feo." 🎭 ACCIÓN: Haz sonidos de redoble de tambor con la boca.</div></div>
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#32</div>
+    <div class="slide-id"><code>quiz-movie-1</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Películas</div>
+        <div class="quiz-emojis">🦁 👑</div>
+        <div class="content-body"><strong>Respuesta:</strong> El Rey León</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=54000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#33</div>
+    <div class="slide-id"><code>quiz-movie-2</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Películas</div>
+        <div class="quiz-emojis">🧙‍♂️ 💍 🌋</div>
+        <div class="content-body"><strong>Respuesta:</strong> El Señor de los Anillos</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=56000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#34</div>
+    <div class="slide-id"><code>quiz-movie-3</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Películas</div>
+        <div class="quiz-emojis">🚢 ❄️ 💑 💀</div>
+        <div class="content-body"><strong>Respuesta:</strong> Titanic</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=58000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#35</div>
+    <div class="slide-id"><code>quiz-movie-4</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Películas</div>
+        <div class="quiz-emojis">🐀 👨‍🍳 🧀 🥖</div>
+        <div class="content-body"><strong>Respuesta:</strong> Ratatouille</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=60000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#36</div>
+    <div class="slide-id"><code>quiz-movie-5</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Películas</div>
+        <div class="quiz-emojis">🐠 🔍 👨 👦</div>
+        <div class="content-body"><strong>Respuesta:</strong> Buscando a Nemo</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=62000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#37</div>
+    <div class="slide-id"><code>quiz-movie-6</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Películas</div>
+        <div class="quiz-emojis">🦖 🦴 🏞️</div>
+        <div class="content-body"><strong>Respuesta:</strong> Jurassic Park</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=64000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#38</div>
+    <div class="slide-id"><code>quiz-movie-7</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Películas</div>
+        <div class="quiz-emojis">🦈 🏊 🏖️</div>
+        <div class="content-body"><strong>Respuesta:</strong> Tiburón (Jaws)</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=66000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#39</div>
+    <div class="slide-id"><code>quiz-movie-8</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Películas</div>
+        <div class="quiz-emojis">🤖 🌱 ❤️ 🌌</div>
+        <div class="content-body"><strong>Respuesta:</strong> WALL·E</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=68000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#40</div>
+    <div class="slide-id"><code>quiz-movie-9</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Películas</div>
+        <div class="quiz-emojis">🕴️ 🌀 🛏️</div>
+        <div class="content-body"><strong>Respuesta:</strong> El Origen (Inception)</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=70000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#41</div>
+    <div class="slide-id"><code>quiz-movie-10</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Películas</div>
+        <div class="quiz-emojis">🚗 ⚡ ⏪</div>
+        <div class="content-body"><strong>Respuesta:</strong> Volver al Futuro</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=72000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#42</div>
+    <div class="slide-id"><code>quiz-movie-11</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Películas</div>
+        <div class="quiz-emojis">🏃 🍫 📦</div>
+        <div class="content-body"><strong>Respuesta:</strong> Forrest Gump</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=74000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#43</div>
+    <div class="slide-id"><code>quiz-movie-12</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Películas</div>
+        <div class="quiz-emojis">🚀 🌌 🕳️ ⏰</div>
+        <div class="content-body"><strong>Respuesta:</strong> Interestelar</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=76000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#44</div>
+    <div class="slide-id"><code>quiz-movie-13</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Películas</div>
+        <div class="quiz-emojis">💀 🎸 🌺 👦</div>
+        <div class="content-body"><strong>Respuesta:</strong> Coco</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=78000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#45</div>
+    <div class="slide-id"><code>quiz-movie-14</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Películas</div>
+        <div class="quiz-emojis">🧙 ⚡ 🦉</div>
+        <div class="content-body"><strong>Respuesta:</strong> Harry Potter</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=80000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#46</div>
+    <div class="slide-id"><code>quiz-movie-15</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Películas</div>
+        <div class="quiz-emojis">🕷️ 🏙️ 🕸️</div>
+        <div class="content-body"><strong>Respuesta:</strong> Spider-Man</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=82000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#47</div>
+    <div class="slide-id"><code>quiz-movie-16</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Películas</div>
+        <div class="quiz-emojis">❄️ 👸 ⛄ 🐴</div>
+        <div class="content-body"><strong>Respuesta:</strong> Frozen</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=84000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#48</div>
+    <div class="slide-id"><code>quiz-movie-17</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Películas</div>
+        <div class="quiz-emojis">🦇 🃏 🌃</div>
+        <div class="content-body"><strong>Respuesta:</strong> Batman (El Caballero de la Noche)</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=86000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#49</div>
+    <div class="slide-id"><code>quiz-movie-18</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Películas</div>
+        <div class="quiz-emojis">💊 🔴 🔵 🕶️</div>
+        <div class="content-body"><strong>Respuesta:</strong> The Matrix</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=88000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#50</div>
+    <div class="slide-id"><code>quiz-movie-19</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Películas</div>
+        <div class="quiz-emojis">👽 📞 🚲 🌕</div>
+        <div class="content-body"><strong>Respuesta:</strong> E.T. el Extraterrestre</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=90000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#51</div>
+    <div class="slide-id"><code>quiz-movie-20</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Películas</div>
+        <div class="quiz-emojis">🎈 🏠 👴 🐶</div>
+        <div class="content-body"><strong>Respuesta:</strong> Up (Una Aventura de Altura)</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=92000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#52</div>
+    <div class="slide-id"><code>quiz-movie-21</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Películas</div>
+        <div class="quiz-emojis">🐉 🏹 🔥 👦</div>
+        <div class="content-body"><strong>Respuesta:</strong> Cómo Entrenar a tu Dragón</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=94000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#53</div>
+    <div class="slide-id"><code>quiz-movie-22</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Películas</div>
+        <div class="quiz-emojis">🏴‍☠️ 🚢 ⚓ 💀</div>
+        <div class="content-body"><strong>Respuesta:</strong> Piratas del Caribe</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=96000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#54</div>
+    <div class="slide-id"><code>quiz-movie-23</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Películas</div>
+        <div class="quiz-emojis">🐰 🦊 👮‍♀️ 🏙️</div>
+        <div class="content-body"><strong>Respuesta:</strong> Zootopia</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=98000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#55</div>
+    <div class="slide-id"><code>quiz-movie-24</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Películas</div>
+        <div class="quiz-emojis">🍫 🎫 👦 🏭</div>
+        <div class="content-body"><strong>Respuesta:</strong> Charlie y la Fábrica de Chocolate</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=100000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#56</div>
+    <div class="slide-id"><code>quiz-movie-25</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Películas</div>
+        <div class="quiz-emojis">🧞‍♂️ 🪔 🐅 🏰</div>
+        <div class="content-body"><strong>Respuesta:</strong> Aladdín</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=102000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#57</div>
+    <div class="slide-id"><code>quiz-tv-intro</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block"><div class="content-type">Título</div>
+        <div class="big-emoji">📺</div>
+        <div class="content-title">Ronda 2: Series</div>
+        <div class="content-subtitle">Adivina la serie por los emojis</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Emoji: Marco</span> · <strong>Emoji TV</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>emoji-tv</code> · <strong>duración:</strong> 2.2s · <strong>emoji:</strong> 📺</div>
+        <div class="trans-desc">Aparece un televisor (📺 o emoji config) con estática, 12 barras de ruido blanco parpadeando, la estática se va (como sintonizar un canal), y la TV crece hasta llenar toda la pantalla.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=104000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  <div class="slide-notes"><h4>Notas del presentador</h4><div>🎤 DI: "¡SEGUNDA RONDA! Series. Si tuviste Netflix alguna vez en los últimos 10 años, deberías rompérsela. Si no las conoces, CHUPA CABRAS, a aprender se ha dicho." 🎭 ACCIÓN: Mira a quién no ha ganado punto todavía. Señálalo. "Tú, es tu momento. Lo SÉ."</div></div>
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#58</div>
+    <div class="slide-id"><code>quiz-tv-1</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Series</div>
+        <div class="quiz-emojis">🧪 👨‍🔬 💊 💰</div>
+        <div class="content-body"><strong>Respuesta:</strong> Breaking Bad</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=106000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#59</div>
+    <div class="slide-id"><code>quiz-tv-2</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Series</div>
+        <div class="quiz-emojis">👑 ⚔️ 🐉</div>
+        <div class="content-body"><strong>Respuesta:</strong> Game of Thrones</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=108000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#60</div>
+    <div class="slide-id"><code>quiz-tv-3</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Series</div>
+        <div class="quiz-emojis">🦑 🎮 💀</div>
+        <div class="content-body"><strong>Respuesta:</strong> El Juego del Calamar</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=110000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#61</div>
+    <div class="slide-id"><code>quiz-tv-4</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Series</div>
+        <div class="quiz-emojis">👽 🚲 🔦 👦</div>
+        <div class="content-body"><strong>Respuesta:</strong> Stranger Things</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=112000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#62</div>
+    <div class="slide-id"><code>quiz-tv-5</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Series</div>
+        <div class="quiz-emojis">🦹 💰 🏦 🎭</div>
+        <div class="content-body"><strong>Respuesta:</strong> La Casa de Papel</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=114000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#63</div>
+    <div class="slide-id"><code>quiz-tv-6</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Series</div>
+        <div class="quiz-emojis">🧟 🔫 🏚️</div>
+        <div class="content-body"><strong>Respuesta:</strong> The Walking Dead</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=116000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#64</div>
+    <div class="slide-id"><code>quiz-tv-7</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Series</div>
+        <div class="quiz-emojis">🏢 😐 📎 🤝</div>
+        <div class="content-body"><strong>Respuesta:</strong> The Office</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=118000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#65</div>
+    <div class="slide-id"><code>quiz-tv-8</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Series</div>
+        <div class="quiz-emojis">👥 ☕ 🛋️</div>
+        <div class="content-body"><strong>Respuesta:</strong> Friends</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=120000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#66</div>
+    <div class="slide-id"><code>quiz-tv-9</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Series</div>
+        <div class="quiz-emojis">⚖️ 👨‍⚖️ 📞 🧃</div>
+        <div class="content-body"><strong>Respuesta:</strong> Better Call Saul</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=122000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#67</div>
+    <div class="slide-id"><code>quiz-tv-10</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Series</div>
+        <div class="quiz-emojis">🎩 🪒 💰</div>
+        <div class="content-body"><strong>Respuesta:</strong> Peaky Blinders</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=124000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#68</div>
+    <div class="slide-id"><code>quiz-tv-11</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Series</div>
+        <div class="quiz-emojis">🕳️ 🌲 👨 👧</div>
+        <div class="content-body"><strong>Respuesta:</strong> Dark</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=126000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#69</div>
+    <div class="slide-id"><code>quiz-tv-12</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Series</div>
+        <div class="quiz-emojis">💊 💰 🌴</div>
+        <div class="content-body"><strong>Respuesta:</strong> Narcos</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=128000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#70</div>
+    <div class="slide-id"><code>quiz-tv-13</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Series</div>
+        <div class="quiz-emojis">🏝️ ✈️ 💥</div>
+        <div class="content-body"><strong>Respuesta:</strong> Lost</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=130000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#71</div>
+    <div class="slide-id"><code>quiz-tv-14</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Series</div>
+        <div class="quiz-emojis">⚔️ ⛵ ❄️</div>
+        <div class="content-body"><strong>Respuesta:</strong> Vikings</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=132000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#72</div>
+    <div class="slide-id"><code>quiz-tv-15</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Series</div>
+        <div class="quiz-emojis">🧟 🍄 👨 👧</div>
+        <div class="content-body"><strong>Respuesta:</strong> The Last of Us</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=134000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#73</div>
+    <div class="slide-id"><code>quiz-tv-16</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Series</div>
+        <div class="quiz-emojis">👑 🇬🇧 👸 🏰</div>
+        <div class="content-body"><strong>Respuesta:</strong> The Crown</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=136000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#74</div>
+    <div class="slide-id"><code>quiz-tv-17</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Series</div>
+        <div class="quiz-emojis">📺 🛋️ 🍩 🏠</div>
+        <div class="content-body"><strong>Respuesta:</strong> Los Simpsons</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=138000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#75</div>
+    <div class="slide-id"><code>quiz-tv-18</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Series</div>
+        <div class="quiz-emojis">🔬 🛋️ 🚀 🤓</div>
+        <div class="content-body"><strong>Respuesta:</strong> The Big Bang Theory</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=140000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#76</div>
+    <div class="slide-id"><code>quiz-tv-19</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Series</div>
+        <div class="quiz-emojis">🛸 🧪 👴 👦</div>
+        <div class="content-body"><strong>Respuesta:</strong> Rick and Morty</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=142000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#77</div>
+    <div class="slide-id"><code>quiz-tv-20</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Series</div>
+        <div class="quiz-emojis">💀 🖤 👧 🎻</div>
+        <div class="content-body"><strong>Respuesta:</strong> Merlina (Wednesday)</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=144000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#78</div>
+    <div class="slide-id"><code>quiz-tv-21</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Series</div>
+        <div class="quiz-emojis">💼 💰 👨‍👧‍👦 🏢</div>
+        <div class="content-body"><strong>Respuesta:</strong> Succession</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=146000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#79</div>
+    <div class="slide-id"><code>quiz-tv-22</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Series</div>
+        <div class="quiz-emojis">🧠 ✂️ 🏢 😐</div>
+        <div class="content-body"><strong>Respuesta:</strong> Severance (Separación)</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=148000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#80</div>
+    <div class="slide-id"><code>quiz-tv-23</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Series</div>
+        <div class="quiz-emojis">🗡️ 🐺 🎵 💊</div>
+        <div class="content-body"><strong>Respuesta:</strong> The Witcher</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=150000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#81</div>
+    <div class="slide-id"><code>quiz-tv-24</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Series</div>
+        <div class="quiz-emojis">☢️ 🏭 👨‍🔬 💣</div>
+        <div class="content-body"><strong>Respuesta:</strong> Chernobyl</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=152000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#82</div>
+    <div class="slide-id"><code>quiz-tv-25</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Series</div>
+        <div class="quiz-emojis">🎻 👸 🤴 🏰</div>
+        <div class="content-body"><strong>Respuesta:</strong> Bridgerton</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=154000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#83</div>
+    <div class="slide-id"><code>quiz-countries-intro</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block"><div class="content-type">Título</div>
+        <div class="big-emoji">🌍</div>
+        <div class="content-title">Ronda 3: Países</div>
+        <div class="content-subtitle">Adivina el país por los emojis</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Emoji: Transformación</span> · <strong>Portal</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>emoji-portal</code> · <strong>duración:</strong> 2.2s · <strong>emoji:</strong> 🌍</div>
+        <div class="trans-desc">Un portal (🌀 o emoji config) aparece al centro con rebote, gira 720° mientras se expande hasta llenar la pantalla, y luego el relleno radial morado se contrae revelando la nueva diapositiva.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=156000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  <div class="slide-notes"><h4>Notas del presentador</h4><div>🎤 DI: "¡TERCERA RONDA! Países. Y ojito: NO hay banderas. Porque eso sería facilísimo. Tienen que adivinar por los ESTEREOTIPOS culturales." 🎭 ACCIÓN: Haz un gesto de comer tacos. "Ya saben, lo típico. Sin polemizar."</div></div>
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#84</div>
+    <div class="slide-id"><code>quiz-country-1</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Países</div>
+        <div class="quiz-emojis">🗼 🥐 🍷</div>
+        <div class="content-body"><strong>Respuesta:</strong> Francia</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=158000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#85</div>
+    <div class="slide-id"><code>quiz-country-2</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Países</div>
+        <div class="quiz-emojis">🌮 🌶️ 💀</div>
+        <div class="content-body"><strong>Respuesta:</strong> México</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=160000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#86</div>
+    <div class="slide-id"><code>quiz-country-3</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Países</div>
+        <div class="quiz-emojis">🍕 🏛️ 🤌</div>
+        <div class="content-body"><strong>Respuesta:</strong> Italia</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=162000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#87</div>
+    <div class="slide-id"><code>quiz-country-4</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Países</div>
+        <div class="quiz-emojis">🦘 🏏 🕷️</div>
+        <div class="content-body"><strong>Respuesta:</strong> Australia</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=164000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#88</div>
+    <div class="slide-id"><code>quiz-country-5</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Países</div>
+        <div class="quiz-emojis">🍻 🥨 ⚽</div>
+        <div class="content-body"><strong>Respuesta:</strong> Alemania</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=166000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#89</div>
+    <div class="slide-id"><code>quiz-country-6</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Países</div>
+        <div class="quiz-emojis">💃 🎸 🐂</div>
+        <div class="content-body"><strong>Respuesta:</strong> España</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=168000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#90</div>
+    <div class="slide-id"><code>quiz-country-7</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Países</div>
+        <div class="quiz-emojis">🧉 🥩 ⚽</div>
+        <div class="content-body"><strong>Respuesta:</strong> Argentina</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=170000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#91</div>
+    <div class="slide-id"><code>quiz-country-8</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Países</div>
+        <div class="quiz-emojis">⛪ ❄️ 🐻 🪆</div>
+        <div class="content-body"><strong>Respuesta:</strong> Rusia</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=172000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#92</div>
+    <div class="slide-id"><code>quiz-country-9</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Países</div>
+        <div class="quiz-emojis">🐘 🕌 💃 🍛</div>
+        <div class="content-body"><strong>Respuesta:</strong> India</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=174000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#93</div>
+    <div class="slide-id"><code>quiz-country-10</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Países</div>
+        <div class="quiz-emojis">🍣 🗻 🌸</div>
+        <div class="content-body"><strong>Respuesta:</strong> Japón</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=176000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#94</div>
+    <div class="slide-id"><code>quiz-country-11</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Países</div>
+        <div class="quiz-emojis">🐫 🏜️ 🕌</div>
+        <div class="content-body"><strong>Respuesta:</strong> Egipto</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=178000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#95</div>
+    <div class="slide-id"><code>quiz-country-12</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Países</div>
+        <div class="quiz-emojis">🌷 🚲 🧀</div>
+        <div class="content-body"><strong>Respuesta:</strong> Países Bajos (Holanda)</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=180000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#96</div>
+    <div class="slide-id"><code>quiz-country-13</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Países</div>
+        <div class="quiz-emojis">🍀 🍺 🧚</div>
+        <div class="content-body"><strong>Respuesta:</strong> Irlanda</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=182000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#97</div>
+    <div class="slide-id"><code>quiz-country-14</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Países</div>
+        <div class="quiz-emojis">🛕 🐘 🌶️</div>
+        <div class="content-body"><strong>Respuesta:</strong> Tailandia</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=184000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#98</div>
+    <div class="slide-id"><code>quiz-sayings-intro</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block"><div class="content-type">Título</div>
+        <div class="big-emoji">🇲🇽</div>
+        <div class="content-title">Ronda 4: Dichos Mexicanos</div>
+        <div class="content-subtitle">Adivina el dicho por los emojis</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Emoji: Acción</span> · <strong>Magia con Varita</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>emoji-magic</code> · <strong>duración:</strong> 2.2s · <strong>emoji:</strong> ✨</div>
+        <div class="trans-desc">Una varita (✨ o emoji config) cruza la pantalla de izquierda a derecha con 40 destellos ✨ siguiéndola, y al final un shimmer radial morado cubre el viewport.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=186000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  <div class="slide-notes"><h4>Notas del presentador</h4><div>🎤 DI: "Y ahora: la RONDA FINAL. DICHOS MEXICANOS. Si aquí le fallan, me van a avergonzar. Mi abuela los está viendo desde el cielo." 🎭 ACCIÓN: Cara solemne. "Vamos a ver quién tiene sangre mexicana en las venas y quién no."</div></div>
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#99</div>
+    <div class="slide-id"><code>quiz-saying-1</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Dichos</div>
+        <div class="quiz-emojis">🐦 ✋ 🕊️ 🕊️ 🕊️</div>
+        <div class="content-body"><strong>Respuesta:</strong> Más vale pájaro en mano que cien volando</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=188000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#100</div>
+    <div class="slide-id"><code>quiz-saying-2</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Dichos</div>
+        <div class="quiz-emojis">🐕 📢 🚫</div>
+        <div class="content-body"><strong>Respuesta:</strong> Perro que ladra no muerde</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=190000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#101</div>
+    <div class="slide-id"><code>quiz-saying-3</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Dichos</div>
+        <div class="quiz-emojis">🦐 😴 🌊</div>
+        <div class="content-body"><strong>Respuesta:</strong> Camarón que se duerme se lo lleva la corriente</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=192000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#102</div>
+    <div class="slide-id"><code>quiz-saying-4</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Dichos</div>
+        <div class="quiz-emojis">👄 🤐 🪰</div>
+        <div class="content-body"><strong>Respuesta:</strong> En boca cerrada no entran moscas</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=194000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#103</div>
+    <div class="slide-id"><code>quiz-saying-5</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Dichos</div>
+        <div class="quiz-emojis">🐒 👗 👗</div>
+        <div class="content-body"><strong>Respuesta:</strong> Aunque la mona se vista de seda, mona se queda</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=196000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#104</div>
+    <div class="slide-id"><code>quiz-saying-6</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Dichos</div>
+        <div class="quiz-emojis">🪵 ➡️ 🪵</div>
+        <div class="content-body"><strong>Respuesta:</strong> De tal palo, tal astilla</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=198000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#105</div>
+    <div class="slide-id"><code>quiz-saying-7</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Dichos</div>
+        <div class="quiz-emojis">✨ 🥇 ❌</div>
+        <div class="content-body"><strong>Respuesta:</strong> No todo lo que brilla es oro</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=200000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#106</div>
+    <div class="slide-id"><code>quiz-saying-8</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Dichos</div>
+        <div class="quiz-emojis">👀 🙈 ❤️ 💔</div>
+        <div class="content-body"><strong>Respuesta:</strong> Ojos que no ven, corazón que no siente</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=202000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#107</div>
+    <div class="slide-id"><code>quiz-saying-9</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block quiz"><div class="content-type">Quiz: Dichos</div>
+        <div class="quiz-emojis">🔨 🏠 🪵 🔪</div>
+        <div class="content-body"><strong>Respuesta:</strong> En casa del herrero, cuchillo de palo</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cine</span> · <strong>Fade (a negro)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>fade</code> · <strong>duración:</strong> 1.4s</div>
+        <div class="trans-desc">Cortina del color de fondo (--bg) que sube al 100% de opacidad, se cambia la cámara, y baja a 0. Es el fade básico. Usado para la mayoría de las transiciones del juego.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=204000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#108</div>
+    <div class="slide-id"><code>scoreboard-final</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block"><div class="content-type">Scoreboard Final</div>
+        <div class="content-title">Marcador final del juego (muestra puntajes en vivo desde Supabase)</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Cámara</span> · <strong>Spiral Zoom (zoom en espiral)</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>spiral-zoom</code> · <strong>duración:</strong> 3s</div>
+        <div class="trans-desc">Zoom + rotación 360° completa mientras se acerca al destino. Ease expo.inOut. Ideal para cierres dramáticos o revelaciones grandes.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=206000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  <div class="slide-notes"><h4>Notas del presentador</h4><div>🎤 DI: "Señoras y señores… los resultados finales…" 🎭 ACCIÓN: Redoble de tambor con la boca. Deja que la animación de celebración ocurra. Ve el confetti. Observa quién ganó. "¡APLAUSOS para los ganadores! Y para los que perdieron… pues a entrenar más con los emojis. Apple lanza actualización en otoño, tienen hasta entonces."</div></div>
+</section>
+<section class="slide-card">
+  <div class="slide-header">
+    <div class="slide-num">#109</div>
+    <div class="slide-id"><code>gg</code></div>
+  </div>
+  <div class="slide-grid">
+    <div class="slide-col">
+      <h4>Contenido</h4>
+      <div class="content-block"><div class="content-type">Título</div>
+        <div class="big-emoji">🎉</div>
+        <div class="content-title">¡GG!</div>
+        <div class="content-subtitle">¡Gracias por jugar!</div>
+      </div>
+    </div>
+    <div class="slide-col">
+      <h4>Transición al llegar</h4>
+      <div class="trans-box">
+        <div class="trans-title"><span class="trans-family">Emoji: Transformación</span> · <strong>Split con Confetti</strong></div>
+        <div class="trans-config"><strong>ID:</strong> <code>split-confetti</code> · <strong>duración:</strong> 2.5s</div>
+        <div class="trans-desc">Variante de split con una explosión de 50 confettis en 6 colores neón que salen del centro después de que se abren las mitades. Ideal para cierres.</div>
+      </div>
+      <h4>Cámara (posición mundial)</h4>
+      <div class="pos-box"><code>x=208000, y=0, scale=1, rotation=0°</code></div>
+    </div>
+  </div>
+  <div class="slide-notes"><h4>Notas del presentador</h4><div>🎤 DI: "Y eso fue todo. Espero que aprendieron algo, se rieron un poco, y ahora ven su teléfono con ojos distintos." 🎭 ACCIÓN: Pausa. Sonrisa. "GG a todos. Los quiero. Vámonos a comer." Deja caer el micrófono (metafóricamente). Aléjate lentamente.</div></div>
+</section>
+</section>
+
+</body>
+</html>
