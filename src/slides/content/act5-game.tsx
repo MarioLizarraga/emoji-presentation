@@ -10,7 +10,7 @@ export const act5Slides: SlideData[] = [
       type: 'game-reveal',
       text: '¿Pero qué tan bien conoces TÚ los emojis?',
     },
-    speakerNotes: 'GRAN MOMENTO. Deja que la transición de glitch aterrice. Pausa. Observa las caras iluminarse.',
+    speakerNotes: '🎤 DI: "Ok, hasta aquí la clase de historia. Ahora…" 🎭 ACCIÓN: Avanza y deja que el glitch se despliegue. Después del caos visual, mira al público con sonrisa maliciosa. "Ahora quiero saber… ¿qué tan bien los conocen USTEDES?" Pausa dramática. Observa cómo se prenden los ojos. ESTE es el momento sorpresa. Saboréalo.',
   },
 
   /* ── Slide 26: QR Lobby ─────────────────────────────────── */
@@ -22,7 +22,7 @@ export const act5Slides: SlideData[] = [
       type: 'qr-lobby',
       roomCode: '',
     },
-    speakerNotes: 'El código de sala se genera automáticamente. Dale 30-60 segundos a la gente para unirse.',
+    speakerNotes: '🎤 DI: "¡BIENVENIDOS AL JUEGO! Agarren sus celulares, ESCANEEN el QR, escojan un EQUIPO, y prepárense. Porque nos vamos a reír mucho y alguien va a quedar mal." 🎭 ACCIÓN: Espera 30-60 segundos. Ve los nombres (con emojis) apareciendo abajo. Hazle bullying cariñoso al que elija nombre raro. "Ay sí, \'🍕🐢🔥\' muy bonito. Vamos a ver si juegas igual de bien."',
   },
 
   /* ── Ronda 1: Películas (14 preguntas, fácil → difícil) ──── */
@@ -36,6 +36,7 @@ export const act5Slides: SlideData[] = [
       subtitle: 'Adivina la película por los emojis',
       emoji: '🎬',
     },
+    speakerNotes: '🎤 DI: "¡PRIMERA RONDA! Películas. El primero que BUZZEE y atine se lleva 100 puntitos. Si falla, el otro equipo puede ROBAR la pregunta. Prepárense, empezamos fácil pero se pone feo." 🎭 ACCIÓN: Haz sonidos de redoble de tambor con la boca.',
   },
   {
     id: 'quiz-movie-1',
@@ -134,6 +135,7 @@ export const act5Slides: SlideData[] = [
       subtitle: 'Adivina la serie por los emojis',
       emoji: '📺',
     },
+    speakerNotes: '🎤 DI: "¡SEGUNDA RONDA! Series. Si tuviste Netflix alguna vez en los últimos 10 años, deberías rompérsela. Si no las conoces, CHUPA CABRAS, a aprender se ha dicho." 🎭 ACCIÓN: Mira a quién no ha ganado punto todavía. Señálalo. "Tú, es tu momento. Lo SÉ."',
   },
   {
     id: 'quiz-tv-1',
@@ -232,6 +234,7 @@ export const act5Slides: SlideData[] = [
       subtitle: 'Adivina el país por los emojis',
       emoji: '🌍',
     },
+    speakerNotes: '🎤 DI: "¡TERCERA RONDA! Países. Y ojito: NO hay banderas. Porque eso sería facilísimo. Tienen que adivinar por los ESTEREOTIPOS culturales." 🎭 ACCIÓN: Haz un gesto de comer tacos. "Ya saben, lo típico. Sin polemizar."',
   },
   {
     id: 'quiz-country-1',
@@ -330,6 +333,7 @@ export const act5Slides: SlideData[] = [
       subtitle: 'Adivina el dicho por los emojis',
       emoji: '🇲🇽',
     },
+    speakerNotes: '🎤 DI: "Y ahora: la RONDA FINAL. DICHOS MEXICANOS. Si aquí le fallan, me van a avergonzar. Mi abuela los está viendo desde el cielo." 🎭 ACCIÓN: Cara solemne. "Vamos a ver quién tiene sangre mexicana en las venas y quién no."',
   },
   /* Fáciles */
   {
@@ -396,7 +400,7 @@ export const act5Slides: SlideData[] = [
     content: {
       type: 'scoreboard-final',
     },
-    speakerNotes: '¡Celebra al ganador! Dales un aplauso.',
+    speakerNotes: '🎤 DI: "Señoras y señores… los resultados finales…" 🎭 ACCIÓN: Redoble de tambor con la boca. Deja que la animación de celebración ocurra. Ve el confetti. Observa quién ganó. "¡APLAUSOS para los ganadores! Y para los que perdieron… pues a entrenar más con los emojis. Apple lanza actualización en otoño, tienen hasta entonces."',
   },
 
   /* ── Cierre ─────────────────────────────────────────────── */
@@ -410,6 +414,6 @@ export const act5Slides: SlideData[] = [
       subtitle: '¡Gracias por jugar!',
       emoji: '🎉',
     },
-    speakerNotes: '¡Gracias a todos! Suelta el micrófono. Aléjate lentamente.',
+    speakerNotes: '🎤 DI: "Y eso fue todo. Espero que aprendieron algo, se rieron un poco, y ahora ven su teléfono con ojos distintos." 🎭 ACCIÓN: Pausa. Sonrisa. "GG a todos. Los quiero. Vámonos a comer." Deja caer el micrófono (metafóricamente). Aléjate lentamente.',
   },
 ]

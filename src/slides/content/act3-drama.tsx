@@ -13,7 +13,7 @@ export const act3Slides: SlideData[] = [
       description: 'En 2016, Apple cambió en silencio el emoji de pistola de un revólver realista a una pistola de agua verde brillante. Las demás plataformas entraron en pánico y lo copiaron. Durante unos 6 meses, podías mandar una pistola de agua desde un iPhone y tu amigo con Android recibía una Glock real. El pico de la mala comunicación.',
       platforms: [],
     },
-    speakerNotes: 'El período de incompatibilidad fue genuinamente peligroso para contextos legales. La gente mandaba el emoji de pistola en amenazas que se veían como juguetes en algunos teléfonos.',
+    speakerNotes: '🎤 DI: "Entramos al ACTO del DRAMA. Y empezamos fuerte." 🎭 ACCIÓN: Pausa. "2016: Apple un buen día decide que la pistola emoji 🔫 ya no es pistola. La cambia a PISTOLA DE AGUA. Verde brillante. Como de juguete." Pausa dramática. "Todas las demás empresas entraron en pánico porque durante 6 MESES, si mandabas una pistolita de agua desde iPhone, a tu cuate con Android le llegaba una GLOCK real. EL PICO DE LA MALA COMUNICACIÓN."',
   },
 
   /* ── Slide 14: Peach Incident ───────────────────────────── */
@@ -27,7 +27,7 @@ export const act3Slides: SlideData[] = [
       body: 'En 2016, Apple intentó hacer que el emoji de durazno se pareciera más a un durazno real. El internet SE REBELÓ. Se firmaron peticiones. Se escribieron artículos de opinión. Apple discretamente lo regresó a su forma, digamos... familiar. El pueblo habló, y el pueblo quería pastel. Pastel de durazno.',
       emoji: '🍑',
     },
-    speakerNotes: 'La reacción fue inmediata y abrumadora. Apple cedió en la siguiente beta.',
+    speakerNotes: '🎤 DI: "2016. Apple intenta cambiar el emoji del durazno 🍑 para que parezca un durazno REAL." 🎭 ACCIÓN: Cara seria, casi indignada. "El internet se VOLVIÓ LOCO. Se firmaron peticiones. Se escribieron artículos. Hubo MARCHAS metafóricas. ¿Y saben por qué?" Pausa. "Porque el durazno ya no era un durazno. Era algo MÁS. Algo… familiar. Apple se dobló. El pueblo habló. Y el pueblo quería… bueno, ustedes saben qué quería el pueblo." Sonrisa cómplice.',
   },
 
   /* ── Slide 15: Burger War ───────────────────────────────── */
@@ -49,7 +49,7 @@ export const act3Slides: SlideData[] = [
         description: 'El queso va ENCIMA de la carne. Esto no es debatible. El CEO de una empresa de un billón de dólares priorizó un emoji de hamburguesa sobre... todo lo demás. Respeto.',
       },
     },
-    speakerNotes: 'Sundar Pichai realmente tuiteó sobre esto. Un CEO priorizando la posición del emoji. Qué época para estar vivo.',
+    speakerNotes: '🎤 DI: "Ok, esto es REAL. Google, por años, tenía el emoji de hamburguesa con el QUESO DEBAJO DE LA CARNE." 🎭 ACCIÓN: Cara de horror. "DEBAJO. Como un MONSTRUO." Pausa. "Alguien lo notó en Twitter. Se armó la tremenda. ¿Y saben qué hizo el CEO de Google, Sundar Pichai, el señor que maneja una empresa de UN BILLÓN de dólares? Literalmente tuiteó: \'Voy a dejar TODO lo que estoy haciendo para arreglar esto el lunes.\' Un billón de dólares. Priorizando una HAMBURGUESA EMOJI. Qué época."',
   },
 
   /* ── Slide 16: Word of the Year ─────────────────────────── */
@@ -63,7 +63,7 @@ export const act3Slides: SlideData[] = [
       label: 'Palabra del Año 2015 de Oxford',
       sublabel: 'No es una palabra. Ni siquiera son letras. Un emoji. El Diccionario Oxford dijo "esto está bien" y los profesores de inglés de todo el mundo sintieron una perturbación en la Fuerza.',
     },
-    speakerNotes: 'El nombre oficial es "Cara con Lágrimas de Alegría." Oxford lo eligió porque fue el emoji más usado globalmente ese año.',
+    speakerNotes: '🎤 DI: "El Diccionario de OXFORD. El diccionario más respetado del idioma inglés. En 2015 eligió COMO PALABRA DEL AÑO… 😂." 🎭 ACCIÓN: Pausa larga. Señala el emoji. "No es una palabra. Ni siquiera son letras. Es una carita llorando de risa. Los profesores de inglés de todo el mundo sintieron una PERTURBACIÓN en la Fuerza ese día." Pausa cómica. "\'Cara con lágrimas de alegría\' es su nombre oficial. No estoy mintiendo."',
   },
 
   /* ── Slide 17: Eggplant Ban ─────────────────────────────── */
@@ -77,7 +77,7 @@ export const act3Slides: SlideData[] = [
       body: 'Instagram prohibió el emoji de berenjena en las búsquedas de hashtags. No drogas. No armas. Una verdura. Porque aparentemente la humanidad no era de confianza con una verdura morada. La berenjena no hizo nada malo, y sin embargo aquí estamos.',
       emoji: '🍆',
     },
-    speakerNotes: 'El durazno también fue restringido pero no completamente prohibido. A la berenjena le fue peor.',
+    speakerNotes: '🎤 DI: "Instagram. Año 2015. Prohibió el emoji de la berenjena 🍆 en las búsquedas de hashtags." 🎭 ACCIÓN: Cara de inocente. "No drogas. No armas. No violencia. UNA VERDURA." Pausa. "Aparentemente la humanidad no era de confianza con una verdura morada. La berenjena no hizo NADA malo y sin embargo aquí estamos. Y no, no les voy a explicar por qué la prohibieron. Ustedes sabrán."',
   },
 
   /* ── Slide 18: Finland Emoji ────────────────────────────── */
@@ -91,7 +91,7 @@ export const act3Slides: SlideData[] = [
       body: 'Finlandia es el ÚNICO país que creó su propio set nacional de emojis. Hicieron emojis para saunas, teléfonos Nokia, headbangers de heavy metal, y un señor que no puede dejar de hablar del clima. Son reales. Finlandia no está jugando.',
       emoji: '🇫🇮',
     },
-    speakerNotes: 'Busca "Finland emoji" para verlos. El de heavy metal es *chef\'s kiss*.',
+    speakerNotes: '🎤 DI: "Dato curioso: Finlandia es el ÚNICO país en TODO EL MUNDO que creó su propio set oficial de emojis." 🎭 ACCIÓN: Sonrisa. "Y los hicieron a su ESTILO. Hay un emoji de SAUNA. Un teléfono NOKIA que no se rompe. Un señor HEADBANGER de heavy metal. Y un señor que no puede dejar de hablar del clima. Son reales, son oficiales, y son GLORIOSOS. El gobierno finlandés gastó dinero en ESTO. Amo a los finlandeses."',
   },
 
   /* ── Slide 19: Approval Process ─────────────────────────── */
@@ -110,7 +110,7 @@ export const act3Slides: SlideData[] = [
         { year: 'Dato', text: '🫠 (Cara Derritiéndose) tardó 3 años en aprobarse', emoji: '🫠' },
       ],
     },
-    speakerNotes: 'El Consorcio Unicode se reúne trimestralmente. Tu propuesta de emoji compite con cientos de otras.',
+    speakerNotes: '🎤 DI: "Ok preguntita: ¿quién aquí ha pensado \'ay, debería existir un emoji de X\'?" 🎭 ACCIÓN: Levantar mano. "Bueno, pues pueden pedirlo. Pero no es fácil." Repasa los pasos en pantalla. "Primero: propuesta formal con datos. Segundo: la mandas al Subcomité de Emojis. Tercero: sobrevives varias rondas de revisión. Y cuarto: esperas DOS PUTOS AÑOS." Pausa. "La cara derritiéndose 🫠 tardó TRES años. Tres. Años. Esa carita vio más trámites que yo sacando el pasaporte."',
   },
 
   /* ── Slide 20: The Numbers ──────────────────────────────── */
@@ -124,6 +124,6 @@ export const act3Slides: SlideData[] = [
       label: 'Emojis existen en 2026',
       sublabel: 'Pero la persona promedio usa como 50. Eso significa que 3,732 emojis están ahí... sentaditos. Sin usar. Sin amor. Piensa en eso.',
     },
-    speakerNotes: 'Pregunta al público: ¿quién ha usado alguna vez el emoji del teleférico? Exacto.',
+    speakerNotes: '🎤 DI: "En 2026 existen TRES MIL SETECIENTOS OCHENTA Y DOS emojis." 🎭 ACCIÓN: Deja que el número pegue. "Pero la persona promedio usa como… 50. Los mismos 50 de siempre: 😂 ❤️ 🔥 👍 🙏. Eso significa que 3,732 emojis están ahí sentaditos. Sin usar. Sin amor." Pausa cómica. "¿Quién aquí HA USADO alguna vez el emoji del teleférico? ¿Del frasco de medicina? ¿Del fax? Exacto. Nadie. Pobres emojis."',
   },
 ]

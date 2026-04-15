@@ -12,7 +12,7 @@ export const act4Slides: SlideData[] = [
       body: 'Aquí viene una pesadilla divertida: cada plataforma diseña su propia versión de cada emoji. Manda una "cara ligeramente sonriente" desde un iPhone y se ve amable. Véla en Samsung y parece que está planeando un asesinato. Mismo código Unicode. Energía completamente diferente.',
       emoji: '😅',
     },
-    speakerNotes: 'Este es el problema central de los emojis entre plataformas. Mismo código, diferente arte.',
+    speakerNotes: '🎤 DI: "Ahora pongan atención porque esto explota cabezas. Cada plataforma — Apple, Google, Samsung, Microsoft, WhatsApp — diseña SU PROPIA versión de cada emoji." 🎭 ACCIÓN: Cara de disbelief. "Mismo código Unicode. Arte completamente distinto. Mandas \'cara ligeramente sonriente\' desde iPhone y se ve amable. El mismo emoji en Samsung parece que está planeando un HOMICIDIO. Literalmente la misma data. Energía MUY diferente."',
   },
 
   /* ── Slide 22: Samsung Was Wild ─────────────────────────── */
@@ -26,7 +26,7 @@ export const act4Slides: SlideData[] = [
       body: 'Los emojis viejos de Samsung eran DE LOCOS. Su "cara de mueca" se veía feliz. Su "bailarina" miraba al lado contrario. Su "galleta" parecía una galleta salada. Samsung básicamente estaba corriendo su propio universo cinematográfico de emojis donde nada tenía sentido y todos estaban ligeramente malditos.',
       emoji: '🤦',
     },
-    speakerNotes: 'Samsung finalmente arregló la mayoría en 2018-2019, pero los viejos viven en la infamia.',
+    speakerNotes: '🎤 DI: "Samsung, mis compadres. Samsung tuvo una ÉPOCA." 🎭 ACCIÓN: Cabeza hacia atrás, cara de frustración. "Su cara de mueca se veía FELIZ. Su bailarina estaba mirando al lado contrario. Su galleta parecía una galleta salada. Era como si vivieran en un universo paralelo donde todo estaba ligeramente MALDITO." Pausa. "Finalmente arreglaron todo en 2018 pero los viejos… viven en la infamia. El internet nunca olvida."',
   },
 
   /* ── Slide 23: Cookie Incident ──────────────────────────── */
@@ -48,7 +48,7 @@ export const act4Slides: SlideData[] = [
         description: 'Esto. La "galleta" de Samsung parecía una galleta de arroz con crisis de identidad. La gente literalmente no podía saber qué comida se suponía que era. ¿Galleta? ¿Cracker? ¿Artefacto antiguo? Nadie sabía.',
       },
     },
-    speakerNotes: 'Samsung eventualmente arregló la galleta, pero el trauma permanece.',
+    speakerNotes: '🎤 DI: "Exhibit A: la GALLETA." 🎭 ACCIÓN: Señala cada lado. "A la izquierda: lo que todos esperamos cuando mandan \'🍪\'. Una galletita tibia con chispas de chocolate. Como las de la abuela." Pausa. "A la derecha: LO QUE SAMSUNG NOS DIO DURANTE AÑOS. Eso no es una galleta. Eso es una galleta de ARROZ con CRISIS DE IDENTIDAD. La gente LITERALMENTE no sabía qué comida era. Samsung eventualmente lo arregló, pero el trauma PERMANECE."',
   },
 
   /* ── Slide 24: Pistol Timeline ──────────────────────────── */
@@ -67,6 +67,6 @@ export const act4Slides: SlideData[] = [
         { year: '2019', text: 'Microsoft finalmente cede. Todas las plataformas: pistola de agua.', emoji: '🏳️' },
       ],
     },
-    speakerNotes: 'Microsoft fue el último en resistir. 3 años siendo la única plataforma con un emoji de pistola real.',
+    speakerNotes: '🎤 DI: "La evolución del emoji de pistola es la historia de cómo una empresa se atreve a hacer algo y las demás siguen como borregos." 🎭 ACCIÓN: Repasa los años. "2016 Apple rompe el hielo con su pistolita de agua. 2017 Twitter sigue. 2018 Google, Samsung y Facebook también. ¿Y Microsoft? Microsoft aguantó como CAMPEÓN." Pausa. "Tres años siendo la ÚNICA plataforma con pistola real. Un rebelde. Un icono. Un… \'qué onda con Microsoft\'. Al final cedió en 2019. Todo el mundo: pistola de agua. Fin."',
   },
 ]

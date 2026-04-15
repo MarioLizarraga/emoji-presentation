@@ -20,7 +20,7 @@ export const act2Slides: SlideData[] = [
         description: 'Un cuadrito vacío en SoftBank. Tu declaración de amor convertida en... nada. Relaciones terminaron por esto. Probablemente.',
       },
     },
-    speakerNotes: 'Tres compañías, tres sets de emojis incompatibles. La definición del caos.',
+    speakerNotes: '🎤 DI: "Miren este desastre. Esto era Japón en los 2000s." 🎭 ACCIÓN: Señala el lado izquierdo. "Pones todo tu amor en un corazón rojo. Lo mandas. Tu novio, que está en otra compañía…" Señala derecha. "…recibe. Un. Cuadrito. VACÍO." Pausa. "Imagínense terminando una relación por un cuadrito vacío. Esa era la vida en Japón."',
   },
 
   /* ── Slide 9: Apple Sneaks In ───────────────────────────── */
@@ -34,7 +34,7 @@ export const act2Slides: SlideData[] = [
       body: '2008. Apple lanza el iPhone en Japón y esconde un teclado de emojis en el sistema. Se suponía que era solo para Japón, pero gente de todo el mundo descubrió cómo activarlo. Apple accidentalmente creó la demanda global de emojis. Ups. El mejor "bug" de la historia.',
       emoji: '🍎',
     },
-    speakerNotes: 'El teclado oculto fue un hack para competir en el mercado japonés. Se filtró globalmente.',
+    speakerNotes: '🎤 DI: "Llega 2008. Apple lanza el iPhone en Japón. Y hace algo MUY Apple: esconde un teclado de emojis en el sistema. SOLO para Japón. Nadie más lo debía encontrar." 🎭 ACCIÓN: Sonríe pícaro. "Pero los nerds del internet — bendita gente — lo encontraron, lo sacaron, lo compartieron y BOOM. Apple accidentalmente creó la demanda global de emojis. El mejor bug de la historia de la tecnología."',
   },
 
   /* ── Slide 10: Unicode Saves the Day ────────────────────── */
@@ -52,7 +52,7 @@ export const act2Slides: SlideData[] = [
         { year: '2011', text: 'Apple agrega el teclado emoji a iOS en todo el mundo', emoji: '🌍' },
       ],
     },
-    speakerNotes: 'El Consorcio Unicode es una organización sin fines de lucro en Mountain View, CA. Ellos deciden qué emojis existen.',
+    speakerNotes: '🎤 DI: "Aquí viene el salvador: Unicode. Que es básicamente un grupito de nerds en California que deciden QUÉ letras, números y SÍMBOLOS existen en todo el internet." 🎭 ACCIÓN: Repasa los años en la pantalla. "2007 Google propone. 2009 Apple y Google meten la petición oficial. 2010 Unicode dice SÍ y mete 722 emojis al estándar. 2011 Apple pone el teclado en TODOS los iPhones del mundo. Y ahí empezó todo."',
   },
 
   /* ── Slide 11: The Explosion ────────────────────────────── */
@@ -66,7 +66,7 @@ export const act2Slides: SlideData[] = [
       body: 'Una vez que Apple mandó emojis a cada iPhone del planeta, Android los siguió. Luego Twitter. Luego Facebook. En 3 años, los emojis pasaron de ser una función rara de teléfonos japoneses al lenguaje de más rápido crecimiento en el mundo. Sin necesidad de Duolingo.',
       emoji: '💥',
     },
-    speakerNotes: 'La explosión fue increíblemente rápida. 2011-2014 fue la fiebre del oro.',
+    speakerNotes: '🎤 DI: "Y entonces… EXPLOTÓ. Literalmente." 🎭 ACCIÓN: Deja que la bomba caiga en la transición. Después. "Apple mandó emojis a cada iPhone del planeta, Android siguió, Twitter siguió, Facebook siguió. En 3 años pasaron de ser una cosa rara de teléfonos japoneses al idioma de más rápido crecimiento en la historia. Sin Duolingo. Sin maestros. Solo… BAM."',
   },
 
   /* ── Slide 12: The Stats ────────────────────────────────── */
@@ -80,6 +80,6 @@ export const act2Slides: SlideData[] = [
       label: 'Emojis enviados cada día',
       sublabel: 'El 92% de todos los humanos en internet usan emojis. Tu abuelita estadísticamente es usuaria de emojis.',
     },
-    speakerNotes: 'Diez MIL MILLONES por día. Deja que ese número pegue. El efecto de zoom lo hace más impactante.',
+    speakerNotes: '🎤 DI: "Tómense un segundo para procesar ESTE número." 🎭 ACCIÓN: Pausa LARGA. Señala la pantalla. "DIEZ. MIL. MILLONES. Por día. Más que la población de la Tierra. El 92% de la gente en internet usa emojis. Eso incluye a tu abuelita. Tu abuelita, estadísticamente, es usuaria activa de emojis. Piensen eso."',
   },
 ]
