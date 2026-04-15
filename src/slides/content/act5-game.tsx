@@ -5,7 +5,7 @@ export const act5Slides: SlideData[] = [
   {
     id: 'game-reveal',
     position: { x: 48000, y: 0, scale: 1, rotation: 0 },
-    transition: { id: 'glitch', duration: 1.0 },
+    transition: { id: 'glitch', duration: 2.5 },
     content: {
       type: 'game-reveal',
       text: "But how well do YOU know emoji?",
@@ -17,7 +17,7 @@ export const act5Slides: SlideData[] = [
   {
     id: 'qr-lobby',
     position: { x: 50000, y: 0, scale: 1, rotation: 0 },
-    transition: { id: 'fade-black', duration: 0.8 },
+    transition: { id: 'fade-black', duration: 1.8 },
     content: {
       type: 'qr-lobby',
       roomCode: '',
@@ -29,7 +29,7 @@ export const act5Slides: SlideData[] = [
   {
     id: 'quiz-movies-intro',
     position: { x: 52000, y: 0, scale: 1, rotation: 0 },
-    transition: { id: 'emoji-clapper', duration: 0.9, emoji: '🎬' },
+    transition: { id: 'emoji-clapper', duration: 2.2, emoji: '🎬' },
     content: {
       type: 'title',
       title: 'Round 1: Movies',
@@ -41,7 +41,7 @@ export const act5Slides: SlideData[] = [
   {
     id: 'quiz-movie-1',
     position: { x: 54000, y: 0, scale: 1, rotation: 0 },
-    transition: { id: 'fade', duration: 0.6 },
+    transition: { id: 'fade', duration: 1.4 },
     content: {
       type: 'quiz-question',
       category: 'Movies',
@@ -54,7 +54,7 @@ export const act5Slides: SlideData[] = [
   {
     id: 'quiz-movie-2',
     position: { x: 56000, y: 0, scale: 1, rotation: 0 },
-    transition: { id: 'fade', duration: 0.6 },
+    transition: { id: 'fade', duration: 1.4 },
     content: {
       type: 'quiz-question',
       category: 'Movies',
@@ -67,7 +67,7 @@ export const act5Slides: SlideData[] = [
   {
     id: 'quiz-movie-3',
     position: { x: 58000, y: 0, scale: 1, rotation: 0 },
-    transition: { id: 'fade', duration: 0.6 },
+    transition: { id: 'fade', duration: 1.4 },
     content: {
       type: 'quiz-question',
       category: 'Movies',
@@ -80,7 +80,7 @@ export const act5Slides: SlideData[] = [
   {
     id: 'quiz-movie-4',
     position: { x: 60000, y: 0, scale: 1, rotation: 0 },
-    transition: { id: 'fade', duration: 0.6 },
+    transition: { id: 'fade', duration: 1.4 },
     content: {
       type: 'quiz-question',
       category: 'Movies',
@@ -94,7 +94,7 @@ export const act5Slides: SlideData[] = [
   {
     id: 'quiz-tv-intro',
     position: { x: 62000, y: 0, scale: 1, rotation: 0 },
-    transition: { id: 'emoji-tv', duration: 0.9, emoji: '📺' },
+    transition: { id: 'emoji-tv', duration: 2.2, emoji: '📺' },
     content: {
       type: 'title',
       title: 'Round 2: TV Shows',
@@ -106,7 +106,7 @@ export const act5Slides: SlideData[] = [
   {
     id: 'quiz-tv-1',
     position: { x: 64000, y: 0, scale: 1, rotation: 0 },
-    transition: { id: 'fade', duration: 0.6 },
+    transition: { id: 'fade', duration: 1.4 },
     content: {
       type: 'quiz-question',
       category: 'TV Shows',
@@ -119,7 +119,7 @@ export const act5Slides: SlideData[] = [
   {
     id: 'quiz-tv-2',
     position: { x: 66000, y: 0, scale: 1, rotation: 0 },
-    transition: { id: 'fade', duration: 0.6 },
+    transition: { id: 'fade', duration: 1.4 },
     content: {
       type: 'quiz-question',
       category: 'TV Shows',
@@ -132,7 +132,7 @@ export const act5Slides: SlideData[] = [
   {
     id: 'quiz-tv-3',
     position: { x: 68000, y: 0, scale: 1, rotation: 0 },
-    transition: { id: 'fade', duration: 0.6 },
+    transition: { id: 'fade', duration: 1.4 },
     content: {
       type: 'quiz-question',
       category: 'TV Shows',
@@ -145,7 +145,7 @@ export const act5Slides: SlideData[] = [
   {
     id: 'quiz-tv-4',
     position: { x: 70000, y: 0, scale: 1, rotation: 0 },
-    transition: { id: 'fade', duration: 0.6 },
+    transition: { id: 'fade', duration: 1.4 },
     content: {
       type: 'quiz-question',
       category: 'TV Shows',
@@ -159,7 +159,7 @@ export const act5Slides: SlideData[] = [
   {
     id: 'quiz-countries-intro',
     position: { x: 72000, y: 0, scale: 1, rotation: 0 },
-    transition: { id: 'emoji-portal', duration: 0.9, emoji: '🌍' },
+    transition: { id: 'emoji-portal', duration: 2.2, emoji: '🌍' },
     content: {
       type: 'title',
       title: 'Round 3: Countries',
@@ -171,7 +171,7 @@ export const act5Slides: SlideData[] = [
   {
     id: 'quiz-country-1',
     position: { x: 74000, y: 0, scale: 1, rotation: 0 },
-    transition: { id: 'fade', duration: 0.6 },
+    transition: { id: 'fade', duration: 1.4 },
     content: {
       type: 'quiz-question',
       category: 'Countries',
@@ -184,7 +184,7 @@ export const act5Slides: SlideData[] = [
   {
     id: 'quiz-country-2',
     position: { x: 76000, y: 0, scale: 1, rotation: 0 },
-    transition: { id: 'fade', duration: 0.6 },
+    transition: { id: 'fade', duration: 1.4 },
     content: {
       type: 'quiz-question',
       category: 'Countries',
@@ -197,7 +197,7 @@ export const act5Slides: SlideData[] = [
   {
     id: 'quiz-country-3',
     position: { x: 78000, y: 0, scale: 1, rotation: 0 },
-    transition: { id: 'fade', duration: 0.6 },
+    transition: { id: 'fade', duration: 1.4 },
     content: {
       type: 'quiz-question',
       category: 'Countries',
@@ -210,7 +210,7 @@ export const act5Slides: SlideData[] = [
   {
     id: 'quiz-country-4',
     position: { x: 80000, y: 0, scale: 1, rotation: 0 },
-    transition: { id: 'fade', duration: 0.6 },
+    transition: { id: 'fade', duration: 1.4 },
     content: {
       type: 'quiz-question',
       category: 'Countries',
@@ -224,7 +224,7 @@ export const act5Slides: SlideData[] = [
   {
     id: 'quiz-sayings-intro',
     position: { x: 82000, y: 0, scale: 1, rotation: 0 },
-    transition: { id: 'emoji-magic', duration: 0.9, emoji: '✨' },
+    transition: { id: 'emoji-magic', duration: 2.2, emoji: '✨' },
     content: {
       type: 'title',
       title: 'Round 4: Sayings',
@@ -236,7 +236,7 @@ export const act5Slides: SlideData[] = [
   {
     id: 'quiz-saying-1',
     position: { x: 84000, y: 0, scale: 1, rotation: 0 },
-    transition: { id: 'fade', duration: 0.6 },
+    transition: { id: 'fade', duration: 1.4 },
     content: {
       type: 'quiz-question',
       category: 'Sayings',
@@ -249,7 +249,7 @@ export const act5Slides: SlideData[] = [
   {
     id: 'quiz-saying-2',
     position: { x: 86000, y: 0, scale: 1, rotation: 0 },
-    transition: { id: 'fade', duration: 0.6 },
+    transition: { id: 'fade', duration: 1.4 },
     content: {
       type: 'quiz-question',
       category: 'Sayings',
@@ -262,7 +262,7 @@ export const act5Slides: SlideData[] = [
   {
     id: 'quiz-saying-3',
     position: { x: 88000, y: 0, scale: 1, rotation: 0 },
-    transition: { id: 'fade', duration: 0.6 },
+    transition: { id: 'fade', duration: 1.4 },
     content: {
       type: 'quiz-question',
       category: 'Sayings',
@@ -275,7 +275,7 @@ export const act5Slides: SlideData[] = [
   {
     id: 'quiz-saying-4',
     position: { x: 90000, y: 0, scale: 1, rotation: 0 },
-    transition: { id: 'fade', duration: 0.6 },
+    transition: { id: 'fade', duration: 1.4 },
     content: {
       type: 'quiz-question',
       category: 'Sayings',
@@ -289,7 +289,7 @@ export const act5Slides: SlideData[] = [
   {
     id: 'scoreboard-final',
     position: { x: 92000, y: 0, scale: 1, rotation: 0 },
-    transition: { id: 'spiral-zoom', duration: 1.2 },
+    transition: { id: 'spiral-zoom', duration: 3.0 },
     content: {
       type: 'scoreboard-final',
     },
@@ -300,7 +300,7 @@ export const act5Slides: SlideData[] = [
   {
     id: 'gg',
     position: { x: 94000, y: 0, scale: 1, rotation: 0 },
-    transition: { id: 'split-confetti', duration: 1.0 },
+    transition: { id: 'split-confetti', duration: 2.5 },
     content: {
       type: 'title',
       title: 'GG',

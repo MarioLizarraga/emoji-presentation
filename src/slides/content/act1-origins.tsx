@@ -5,7 +5,7 @@ export const act1Slides: SlideData[] = [
   {
     id: 'title',
     position: { x: 0, y: 0, scale: 1, rotation: 0 },
-    transition: { id: 'mega-zoom', duration: 1.2, emoji: '😂' },
+    transition: { id: 'mega-zoom', duration: 3.0, emoji: '😂' },
     content: {
       type: 'title',
       title: 'The Emoji Story',
@@ -19,7 +19,7 @@ export const act1Slides: SlideData[] = [
   {
     id: 'the-problem',
     position: { x: 2000, y: -400, scale: 0.8, rotation: -2 },
-    transition: { id: 'slide', duration: 0.8 },
+    transition: { id: 'slide', duration: 1.8 },
     content: {
       type: 'text',
       title: 'The Problem',
@@ -33,7 +33,7 @@ export const act1Slides: SlideData[] = [
   {
     id: 'the-creator',
     position: { x: 4000, y: 200, scale: 0.6, rotation: 1 },
-    transition: { id: 'zoom-in', duration: 0.9 },
+    transition: { id: 'zoom-in', duration: 2.2 },
     content: {
       type: 'text',
       title: 'One Guy. One Weekend.',
@@ -47,7 +47,7 @@ export const act1Slides: SlideData[] = [
   {
     id: 'original-176',
     position: { x: 6000, y: -600, scale: 0.3, rotation: 0 },
-    transition: { id: 'emoji-unlock', duration: 1.0, emoji: '🔓' },
+    transition: { id: 'emoji-unlock', duration: 2.5, emoji: '🔓' },
     content: {
       type: 'grid',
       title: 'The Original 176',
@@ -92,7 +92,7 @@ export const act1Slides: SlideData[] = [
   {
     id: 'they-were-ugly',
     position: { x: 8000, y: 400, scale: 0.7, rotation: 3 },
-    transition: { id: 'emoji-split', duration: 0.9, variant: 'electric' },
+    transition: { id: 'emoji-split', duration: 2.2, variant: 'electric' },
     content: {
       type: 'comparison',
       title: 'Glow-Up of the Century',
@@ -114,7 +114,7 @@ export const act1Slides: SlideData[] = [
   {
     id: 'the-name',
     position: { x: 10000, y: -200, scale: 0.5, rotation: -3 },
-    transition: { id: 'emoji-magic', duration: 1.0, emoji: '✨' },
+    transition: { id: 'emoji-magic', duration: 2.5, emoji: '✨' },
     content: {
       type: 'text',
       title: 'The Name is a Lie',
@@ -128,7 +128,7 @@ export const act1Slides: SlideData[] = [
   {
     id: 'japan-only',
     position: { x: 12000, y: 600, scale: 0.8, rotation: 2 },
-    transition: { id: 'emoji-door', duration: 0.9, emoji: '🚪' },
+    transition: { id: 'emoji-door', duration: 2.2, emoji: '🚪' },
     content: {
       type: 'text',
       title: 'Japan\'s Best-Kept Secret',

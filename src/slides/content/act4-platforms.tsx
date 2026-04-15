@@ -5,7 +5,7 @@ export const act4Slides: SlideData[] = [
   {
     id: 'cross-platform',
     position: { x: 40000, y: 200, scale: 0.6, rotation: -3 },
-    transition: { id: 'emoji-tv', duration: 0.9, emoji: '📺' },
+    transition: { id: 'emoji-tv', duration: 2.2, emoji: '📺' },
     content: {
       type: 'text',
       title: 'Same Emoji, Different Vibes',
@@ -19,7 +19,7 @@ export const act4Slides: SlideData[] = [
   {
     id: 'samsung-worst',
     position: { x: 42000, y: -600, scale: 0.5, rotation: 4 },
-    transition: { id: 'scan-line', duration: 0.8 },
+    transition: { id: 'scan-line', duration: 1.8 },
     content: {
       type: 'text',
       title: 'Samsung: The Worst Offender',
@@ -33,7 +33,7 @@ export const act4Slides: SlideData[] = [
   {
     id: 'cookie-incident',
     position: { x: 44000, y: 500, scale: 0.7, rotation: -1 },
-    transition: { id: 'emoji-snapshot', duration: 0.9, emoji: '📸' },
+    transition: { id: 'emoji-snapshot', duration: 2.2, emoji: '📸' },
     content: {
       type: 'comparison',
       title: 'The Cookie Crisis',
@@ -55,7 +55,7 @@ export const act4Slides: SlideData[] = [
   {
     id: 'pistol-timeline',
     position: { x: 46000, y: -200, scale: 0.4, rotation: 0 },
-    transition: { id: 'emoji-clapper', duration: 1.0, emoji: '🎬' },
+    transition: { id: 'emoji-clapper', duration: 2.5, emoji: '🎬' },
     content: {
       type: 'timeline',
       title: 'The Great Pistol-to-Water-Gun Pipeline',

@@ -5,7 +5,7 @@ export const act2Slides: SlideData[] = [
   {
     id: 'carrier-wars',
     position: { x: 14000, y: -800, scale: 0.6, rotation: -4 },
-    transition: { id: 'glitch', duration: 0.8 },
+    transition: { id: 'glitch', duration: 1.8 },
     content: {
       type: 'comparison',
       title: 'The Carrier Wars',
@@ -27,7 +27,7 @@ export const act2Slides: SlideData[] = [
   {
     id: 'apple-sneaks-in',
     position: { x: 16000, y: 300, scale: 0.7, rotation: 2 },
-    transition: { id: 'emoji-telescope', duration: 1.0, emoji: '🔭' },
+    transition: { id: 'emoji-telescope', duration: 2.5, emoji: '🔭' },
     content: {
       type: 'text',
       title: 'Apple\'s Secret Keyboard',
@@ -41,7 +41,7 @@ export const act2Slides: SlideData[] = [
   {
     id: 'unicode-saves',
     position: { x: 18000, y: -400, scale: 0.5, rotation: -1 },
-    transition: { id: 'terminal', duration: 0.9 },
+    transition: { id: 'terminal', duration: 2.2 },
     content: {
       type: 'timeline',
       title: 'Unicode to the Rescue',
@@ -59,7 +59,7 @@ export const act2Slides: SlideData[] = [
   {
     id: 'the-explosion',
     position: { x: 20000, y: 500, scale: 0.4, rotation: 3 },
-    transition: { id: 'emoji-bomb', duration: 1.1, emoji: '💥' },
+    transition: { id: 'emoji-bomb', duration: 2.8, emoji: '💥' },
     content: {
       type: 'text',
       title: 'And Then... BOOM',
@@ -73,7 +73,7 @@ export const act2Slides: SlideData[] = [
   {
     id: 'the-stats',
     position: { x: 22000, y: -200, scale: 0.15, rotation: 0 },
-    transition: { id: 'dolly-zoom', duration: 1.2 },
+    transition: { id: 'dolly-zoom', duration: 3.0 },
     content: {
       type: 'stat',
       value: '10,000,000,000',
