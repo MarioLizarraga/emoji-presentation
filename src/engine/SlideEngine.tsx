@@ -3,6 +3,7 @@ import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { SlideRenderer } from './SlideRenderer'
 import { getTransition, createCameraMove } from './TransitionManager'
+import './transitions/index'
 import type { SlideData } from '../slides/types'
 
 gsap.registerPlugin(useGSAP)
