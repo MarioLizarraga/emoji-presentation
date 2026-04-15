@@ -1,0 +1,40 @@
+@keyframes neonFlicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+  20%, 24%, 55% { opacity: 0.4; }
+}
+@keyframes pulseGlow {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.3); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
+  20%, 40%, 60%, 80% { transform: translateX(4px); }
+}
+@keyframes glitchShift {
+  0%, 100% { clip-path: inset(0 0 0 0); transform: translateX(0); }
+  20% { clip-path: inset(20% 0 60% 0); transform: translateX(-5px); }
+  40% { clip-path: inset(60% 0 10% 0); transform: translateX(5px); }
+  60% { clip-path: inset(40% 0 30% 0); transform: translateX(-3px); }
+  80% { clip-path: inset(10% 0 70% 0); transform: translateX(3px); }
+}
+@keyframes rgbSplit {
+  0%, 100% { text-shadow: none; }
+  25% { text-shadow: -2px 0 #ff006e, 2px 0 #3a86ff; }
+  50% { text-shadow: 2px 0 #ff006e, -2px 0 #3a86ff; }
+  75% { text-shadow: -1px 0 #ff006e, 1px 0 #3a86ff; }
+}
+@keyframes confettiFall {
+  0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+.animate-flicker { animation: neonFlicker 2s infinite; }
+.animate-pulse { animation: pulseGlow 2s ease-in-out infinite; }
+.animate-float { animation: float 3s ease-in-out infinite; }
+.animate-shake { animation: shake 0.5s; }
+.animate-glitch { animation: glitchShift 0.3s steps(1) infinite; }
+.animate-rgb { animation: rgbSplit 0.5s steps(1) infinite; }
