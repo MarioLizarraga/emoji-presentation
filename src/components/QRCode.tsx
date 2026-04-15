@@ -23,7 +23,7 @@ export function QRDisplay({ roomCode }: QRProps) {
         className="slide-title neon-pink animate-flicker"
         style={{ fontSize: 'clamp(2rem, 4vw, 4rem)' }}
       >
-        SCAN TO PLAY
+        ESCANEA PARA JUGAR
       </h1>
       <div
         style={{
@@ -36,19 +36,13 @@ export function QRDisplay({ roomCode }: QRProps) {
         <QRCodeSVG value={url} size={280} level="H" />
       </div>
       <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-        <span className="slide-caption">Room:</span>
+        <span className="slide-caption">Sala:</span>
         <span
           className="slide-subtitle neon-blue"
           style={{ letterSpacing: '8px', fontWeight: 900 }}
         >
           {roomCode}
         </span>
-      </div>
-      <div
-        className="slide-caption"
-        style={{ maxWidth: '500px', textAlign: 'center' }}
-      >
-        Or go to: {url}
       </div>
     </div>
   )

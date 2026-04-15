@@ -4,10 +4,12 @@ import gsap from 'gsap'
 interface ScoreboardProps {
   redScore: number
   blueScore: number
+  redName?: string
+  blueName?: string
   style?: React.CSSProperties
 }
 
-export function Scoreboard({ redScore, blueScore, style }: ScoreboardProps) {
+export function Scoreboard({ redScore, blueScore, redName = 'Equipo Fuego', blueName = 'Equipo Hielo', style }: ScoreboardProps) {
   const redRef = useRef<HTMLSpanElement>(null)
   const blueRef = useRef<HTMLSpanElement>(null)
   const prevRedRef = useRef(redScore)
@@ -77,7 +79,7 @@ export function Scoreboard({ redScore, blueScore, style }: ScoreboardProps) {
         ...style,
       }}
     >
-      {/* Team Fire */}
+      {/* Team Red */}
       <div
         style={{
           display: 'flex',
@@ -94,7 +96,7 @@ export function Scoreboard({ redScore, blueScore, style }: ScoreboardProps) {
             textShadow: redLeading ? '0 0 12px #ff444488, 0 0 24px #ff444444' : 'none',
           }}
         >
-          Team Fire
+          {redName}
         </span>
         <span
           ref={redRef}
@@ -122,7 +124,7 @@ export function Scoreboard({ redScore, blueScore, style }: ScoreboardProps) {
         :
       </span>
 
-      {/* Team Ice */}
+      {/* Team Blue */}
       <div
         style={{
           display: 'flex',
@@ -151,7 +153,7 @@ export function Scoreboard({ redScore, blueScore, style }: ScoreboardProps) {
             textShadow: blueLeading ? '0 0 12px #4488ff88, 0 0 24px #4488ff44' : 'none',
           }}
         >
-          Team Ice
+          {blueName}
         </span>
         <span style={{ fontSize: '1.5rem' }}>&#x1F535;</span>
       </div>

@@ -8,11 +8,11 @@ export const act4Slides: SlideData[] = [
     transition: { id: 'emoji-tv', duration: 2.2, emoji: '📺' },
     content: {
       type: 'text',
-      title: 'Same Emoji, Different Vibes',
-      body: "Here's a fun nightmare: every platform designs their own version of each emoji. Send a \"slightly smiling face\" from an iPhone and it looks polite. See it on Samsung and it looks like it's plotting a murder. Same Unicode codepoint. Wildly different energy.",
+      title: 'Mismo Emoji, Aspectos Diferentes',
+      body: 'Aquí viene una pesadilla divertida: cada plataforma diseña su propia versión de cada emoji. Manda una "cara ligeramente sonriente" desde un iPhone y se ve amable. Véla en Samsung y parece que está planeando un asesinato. Mismo código Unicode. Energía completamente diferente.',
       emoji: '😅',
     },
-    speakerNotes: 'This is the core problem of cross-platform emoji. Same code, different art.',
+    speakerNotes: 'Este es el problema central de los emojis entre plataformas. Mismo código, diferente arte.',
   },
 
   /* ── Slide 22: Samsung Was Wild ─────────────────────────── */
@@ -22,11 +22,11 @@ export const act4Slides: SlideData[] = [
     transition: { id: 'scan-line', duration: 1.8 },
     content: {
       type: 'text',
-      title: 'Samsung: The Worst Offender',
-      body: "Old Samsung emoji were UNHINGED. Their \"grimacing face\" looked gleeful. Their \"dancer\" faced the wrong way. Their \"cookie\" looked like a saltine cracker. Samsung was basically running its own emoji cinematic universe where nothing made sense and everyone was slightly cursed.",
+      title: 'Samsung: El Peor Infractor',
+      body: 'Los emojis viejos de Samsung eran DE LOCOS. Su "cara de mueca" se veía feliz. Su "bailarina" miraba al lado contrario. Su "galleta" parecía una galleta salada. Samsung básicamente estaba corriendo su propio universo cinematográfico de emojis donde nada tenía sentido y todos estaban ligeramente malditos.',
       emoji: '🤦',
     },
-    speakerNotes: 'Samsung finally fixed most of these in 2018-2019, but the old ones live in infamy.',
+    speakerNotes: 'Samsung finalmente arregló la mayoría en 2018-2019, pero los viejos viven en la infamia.',
   },
 
   /* ── Slide 23: Cookie Incident ──────────────────────────── */
@@ -36,19 +36,19 @@ export const act4Slides: SlideData[] = [
     transition: { id: 'emoji-snapshot', duration: 2.2, emoji: '📸' },
     content: {
       type: 'comparison',
-      title: 'The Cookie Crisis',
+      title: 'La Crisis de la Galleta',
       left: {
-        label: 'What You Expected',
+        label: 'Lo Que Esperabas',
         emoji: '🍪',
-        description: 'A warm, delicious chocolate chip cookie. Golden brown, slightly gooey, the kind grandma makes.',
+        description: 'Una deliciosa galleta con chispas de chocolate. Doradita, un poco suavecita, como las que hace la abuelita.',
       },
       right: {
-        label: 'What Samsung Gave You',
+        label: 'Lo Que Samsung Te Dio',
         emoji: '🍘',
-        description: "This. Samsung\'s \"cookie\" looked like a rice cracker having an identity crisis. People literally couldn't tell what food it was supposed to be. Cookie? Cracker? Ancient artifact? Nobody knew.",
+        description: 'Esto. La "galleta" de Samsung parecía una galleta de arroz con crisis de identidad. La gente literalmente no podía saber qué comida se suponía que era. ¿Galleta? ¿Cracker? ¿Artefacto antiguo? Nadie sabía.',
       },
     },
-    speakerNotes: 'Samsung eventually fixed the cookie, but the trauma remains.',
+    speakerNotes: 'Samsung eventualmente arregló la galleta, pero el trauma permanece.',
   },
 
   /* ── Slide 24: Pistol Timeline ──────────────────────────── */
@@ -58,15 +58,15 @@ export const act4Slides: SlideData[] = [
     transition: { id: 'emoji-clapper', duration: 2.5, emoji: '🎬' },
     content: {
       type: 'timeline',
-      title: 'The Great Pistol-to-Water-Gun Pipeline',
+      title: 'De Revólver a Pistola de Agua',
       events: [
-        { year: '2016', text: 'Apple switches revolver to water gun', emoji: '🔫' },
-        { year: '2017', text: 'Twitter follows Apple. The dominos begin.', emoji: '🐦' },
-        { year: '2018', text: 'Google, Samsung, and Facebook switch', emoji: '💧' },
-        { year: '2018', text: 'Microsoft holds out with their revolver (respect)', emoji: '🤠' },
-        { year: '2019', text: 'Microsoft finally caves. All platforms: water gun.', emoji: '🏳️' },
+        { year: '2016', text: 'Apple cambia el revólver por pistola de agua', emoji: '🔫' },
+        { year: '2017', text: 'Twitter sigue a Apple. Empiezan las fichas de dominó.', emoji: '🐦' },
+        { year: '2018', text: 'Google, Samsung y Facebook hacen el cambio', emoji: '💧' },
+        { year: '2018', text: 'Microsoft aguanta con su revólver (respeto)', emoji: '🤠' },
+        { year: '2019', text: 'Microsoft finalmente cede. Todas las plataformas: pistola de agua.', emoji: '🏳️' },
       ],
     },
-    speakerNotes: 'Microsoft was the last holdout. 3 years of being the only platform with a real gun emoji.',
+    speakerNotes: 'Microsoft fue el último en resistir. 3 años siendo la única plataforma con un emoji de pistola real.',
   },
 ]

@@ -240,7 +240,7 @@ registerTransition('loading-bar', (worldEl, _from, to, overlay, config) => {
 
   // Loading text
   const label = document.createElement('div')
-  label.textContent = 'LOADING...'
+  label.textContent = 'CARGANDO...'
   label.style.cssText =
     'position:absolute;top:42%;left:50%;transform:translateX(-50%);' +
     'font-family:monospace;font-size:1.2rem;color:var(--text,#fff);z-index:12;' +
@@ -365,11 +365,11 @@ registerTransition('terminal', (worldEl, _from, to, overlay, config) => {
   overlay.appendChild(terminal)
 
   const lines = [
-    '> initializing transition...',
-    '> loading slide assets...',
-    '> rendering viewport... [OK]',
-    '> applying transforms...',
-    '> transition complete.',
+    '> inicializando transición...',
+    '> cargando recursos...',
+    '> renderizando vista... [OK]',
+    '> aplicando transformaciones...',
+    '> transición completa.',
     '',
   ]
 

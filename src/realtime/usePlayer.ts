@@ -10,6 +10,7 @@ interface GameState {
   gameEnded: boolean
   winner: 'red' | 'blue' | 'tie' | null
   lastReveal: { answer: string; correct: boolean } | null
+  teamNames: { red: string; blue: string }
 }
 
 const initialGameState: GameState = {
@@ -21,6 +22,7 @@ const initialGameState: GameState = {
   gameEnded: false,
   winner: null,
   lastReveal: null,
+  teamNames: { red: 'Equipo Fuego', blue: 'Equipo Hielo' },
 }
 
 export function usePlayer(roomCode: string) {
@@ -84,6 +86,25 @@ export function usePlayer(roomCode: string) {
       }))
     })
 
+    const unsubTeamNames = on('presenter:teamNames', (payload) => {
+      const red = (payload.red as string) || 'Equipo Fuego'
+      const blue = (payload.blue as string) || 'Equipo Hielo'
+      setGameState((prev) => ({
+        ...prev,
+        teamNames: { red, blue },
+      }))
+    })
+
+    // Also listen for score broadcasts from remote
+    const unsubRemoteScore = on('presenter:score', (payload) => {
+      const team = payload.team as 'red' | 'blue'
+      const total = payload.total as number
+      setGameState((prev) => ({
+        ...prev,
+        scores: { ...prev.scores, [team]: total },
+      }))
+    })
+
     return () => {
       unsubSlide()
       unsubStart()
@@ -91,6 +112,8 @@ export function usePlayer(roomCode: string) {
       unsubScore()
       unsubNextRound()
       unsubEnd()
+      unsubTeamNames()
+      unsubRemoteScore()
     }
   }, [on])
 

@@ -23,9 +23,9 @@ export function PlayerView() {
         }}
       >
         <div style={{ fontSize: '3rem' }}>&#x26A0;&#xFE0F;</div>
-        <h2 style={{ fontSize: '1.25rem', fontWeight: 700 }}>No Room Code</h2>
+        <h2 style={{ fontSize: '1.25rem', fontWeight: 700 }}>Sin Código de Sala</h2>
         <p style={{ color: 'var(--text-dim)', fontSize: '0.9rem', lineHeight: 1.5 }}>
-          Scan the QR code on the presentation screen or open this page with a room code:
+          Escanea el código QR en la pantalla de la presentación o abre esta página con un código de sala:
         </p>
         <code
           style={{

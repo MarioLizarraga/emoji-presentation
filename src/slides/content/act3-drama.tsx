@@ -9,11 +9,11 @@ export const act3Slides: SlideData[] = [
     content: {
       type: 'emoji-showcase',
       emoji: '🔫',
-      title: 'The Great Gun Debate',
-      description: "In 2016, Apple quietly changed the pistol emoji from a realistic revolver to a bright green water gun. Other platforms panicked and followed. For about 6 months, you could send a water gun from an iPhone and your Android friend would receive a real Glock. Peak miscommunication.",
+      title: 'El Gran Debate de la Pistola',
+      description: 'En 2016, Apple cambió en silencio el emoji de pistola de un revólver realista a una pistola de agua verde brillante. Las demás plataformas entraron en pánico y lo copiaron. Durante unos 6 meses, podías mandar una pistola de agua desde un iPhone y tu amigo con Android recibía una Glock real. El pico de la mala comunicación.',
       platforms: [],
     },
-    speakerNotes: 'The mismatch period was genuinely dangerous for legal contexts. People sent gun emoji in threats that rendered as toys on some phones.',
+    speakerNotes: 'El período de incompatibilidad fue genuinamente peligroso para contextos legales. La gente mandaba el emoji de pistola en amenazas que se veían como juguetes en algunos teléfonos.',
   },
 
   /* ── Slide 14: Peach Incident ───────────────────────────── */
@@ -23,11 +23,11 @@ export const act3Slides: SlideData[] = [
     transition: { id: 'emoji-pop', duration: 1.8, emoji: '🍑' },
     content: {
       type: 'text',
-      title: 'The Peach Must Stay Thicc',
-      body: "In 2016, Apple tried to make the peach emoji look more like an actual peach. The internet REVOLTED. Petitions were signed. Think pieces were written. Apple quietly reverted it back to its, uh, familiar shape. The people spoke, and the people wanted cake. Peach cake.",
+      title: 'El Incidente del Durazno',
+      body: 'En 2016, Apple intentó hacer que el emoji de durazno se pareciera más a un durazno real. El internet SE REBELÓ. Se firmaron peticiones. Se escribieron artículos de opinión. Apple discretamente lo regresó a su forma, digamos... familiar. El pueblo habló, y el pueblo quería pastel. Pastel de durazno.',
       emoji: '🍑',
     },
-    speakerNotes: 'The backlash was immediate and overwhelming. Apple caved in the next beta.',
+    speakerNotes: 'La reacción fue inmediata y abrumadora. Apple cedió en la siguiente beta.',
   },
 
   /* ── Slide 15: Burger War ───────────────────────────────── */
@@ -37,19 +37,19 @@ export const act3Slides: SlideData[] = [
     transition: { id: 'whip-pan', duration: 1.6 },
     content: {
       type: 'comparison',
-      title: 'Burgergate',
+      title: 'La Guerra de la Hamburguesa',
       left: {
-        label: 'Google (Before)',
+        label: 'Google (Antes)',
         emoji: '🍔',
-        description: "Google put the cheese UNDER the patty. Under it. Like a monster. The internet lost its mind. Google's CEO Sundar Pichai tweeted he would \"drop everything\" to fix it.",
+        description: 'Google puso el queso DEBAJO de la carne. Debajo. Como un monstruo. El internet perdió la cabeza. El CEO de Google, Sundar Pichai, tuiteó que iba a "dejar todo" para arreglarlo.',
       },
       right: {
-        label: 'The Correct Way',
+        label: 'La Forma Correcta',
         emoji: '🍔',
-        description: "Cheese goes ON TOP of the patty. This is not debatable. The CEO of a trillion-dollar company prioritized a burger emoji over... everything else. Respect.",
+        description: 'El queso va ENCIMA de la carne. Esto no es debatible. El CEO de una empresa de un billón de dólares priorizó un emoji de hamburguesa sobre... todo lo demás. Respeto.',
       },
     },
-    speakerNotes: 'Sundar Pichai actually tweeted about this. A CEO prioritizing emoji placement. What a time to be alive.',
+    speakerNotes: 'Sundar Pichai realmente tuiteó sobre esto. Un CEO priorizando la posición del emoji. Qué época para estar vivo.',
   },
 
   /* ── Slide 16: Word of the Year ─────────────────────────── */
@@ -60,10 +60,10 @@ export const act3Slides: SlideData[] = [
     content: {
       type: 'stat',
       value: '😂',
-      label: "Oxford's 2015 Word of the Year",
-      sublabel: "Not a word. Not even letters. An emoji. Oxford Dictionary said \"this is fine\" and English teachers everywhere felt a disturbance in the Force.",
+      label: 'Palabra del Año 2015 de Oxford',
+      sublabel: 'No es una palabra. Ni siquiera son letras. Un emoji. El Diccionario Oxford dijo "esto está bien" y los profesores de inglés de todo el mundo sintieron una perturbación en la Fuerza.',
     },
-    speakerNotes: 'The official name is "Face with Tears of Joy." Oxford picked it because it was the most-used emoji globally that year.',
+    speakerNotes: 'El nombre oficial es "Cara con Lágrimas de Alegría." Oxford lo eligió porque fue el emoji más usado globalmente ese año.',
   },
 
   /* ── Slide 17: Eggplant Ban ─────────────────────────────── */
@@ -73,11 +73,11 @@ export const act3Slides: SlideData[] = [
     transition: { id: 'emoji-freeze', duration: 1.8, emoji: '🍆' },
     content: {
       type: 'text',
-      title: 'Banned Produce',
-      body: "Instagram banned the eggplant emoji from hashtag searches. Not drugs. Not weapons. A vegetable. Because apparently humanity couldn't be trusted with a purple vegetable. The eggplant did nothing wrong, and yet here we are.",
+      title: 'Prohibido en Instagram',
+      body: 'Instagram prohibió el emoji de berenjena en las búsquedas de hashtags. No drogas. No armas. Una verdura. Porque aparentemente la humanidad no era de confianza con una verdura morada. La berenjena no hizo nada malo, y sin embargo aquí estamos.',
       emoji: '🍆',
     },
-    speakerNotes: 'The peach was also restricted but not fully banned. The eggplant got it worse.',
+    speakerNotes: 'El durazno también fue restringido pero no completamente prohibido. A la berenjena le fue peor.',
   },
 
   /* ── Slide 18: Finland Emoji ────────────────────────────── */
@@ -87,11 +87,11 @@ export const act3Slides: SlideData[] = [
     transition: { id: 'emoji-portal', duration: 2.5, emoji: '🇫🇮' },
     content: {
       type: 'text',
-      title: 'Finland Said "Hold My Sauna"',
-      body: "Finland is the ONLY country that created its own national emoji set. They made emoji for saunas, Nokia phones, heavy metal headbangers, and a guy who can't stop talking about the weather. These are real. Finland is not messing around.",
+      title: 'Finlandia Tiene Su Propio Emoji',
+      body: 'Finlandia es el ÚNICO país que creó su propio set nacional de emojis. Hicieron emojis para saunas, teléfonos Nokia, headbangers de heavy metal, y un señor que no puede dejar de hablar del clima. Son reales. Finlandia no está jugando.',
       emoji: '🇫🇮',
     },
-    speakerNotes: 'Google "Finland emoji" to see them. The heavy metal one is *chef\'s kiss*.',
+    speakerNotes: 'Busca "Finland emoji" para verlos. El de heavy metal es *chef\'s kiss*.',
   },
 
   /* ── Slide 19: Approval Process ─────────────────────────── */
@@ -101,16 +101,16 @@ export const act3Slides: SlideData[] = [
     transition: { id: 'loading-bar', duration: 3.0 },
     content: {
       type: 'timeline',
-      title: 'Getting an Emoji Approved is BRUTAL',
+      title: '¿Quieres un Emoji Nuevo? Buena Suerte.',
       events: [
-        { year: 'Step 1', text: 'Write a formal proposal with usage data', emoji: '📝' },
-        { year: 'Step 2', text: 'Submit to the Unicode Emoji Subcommittee', emoji: '📮' },
-        { year: 'Step 3', text: 'Survive multiple rounds of review', emoji: '😰' },
-        { year: 'Step 4', text: 'Wait 2+ years for a final decision', emoji: '⏳' },
-        { year: 'Fun Fact', text: '🫠 (Melting Face) took 3 years to approve', emoji: '🫠' },
+        { year: 'Paso 1', text: 'Escribe una propuesta formal con datos de uso', emoji: '📝' },
+        { year: 'Paso 2', text: 'Envíala al Subcomité de Emoji de Unicode', emoji: '📮' },
+        { year: 'Paso 3', text: 'Sobrevive múltiples rondas de revisión', emoji: '😰' },
+        { year: 'Paso 4', text: 'Espera 2+ años para una decisión final', emoji: '⏳' },
+        { year: 'Dato', text: '🫠 (Cara Derritiéndose) tardó 3 años en aprobarse', emoji: '🫠' },
       ],
     },
-    speakerNotes: 'The Unicode Consortium meets quarterly. Your emoji proposal competes with hundreds of others.',
+    speakerNotes: 'El Consorcio Unicode se reúne trimestralmente. Tu propuesta de emoji compite con cientos de otras.',
   },
 
   /* ── Slide 20: The Numbers ──────────────────────────────── */
@@ -121,9 +121,9 @@ export const act3Slides: SlideData[] = [
     content: {
       type: 'stat',
       value: '3,782',
-      label: 'Emoji exist as of 2026',
-      sublabel: "But the average person uses about 50. That means 3,732 emoji are just... sitting there. Unused. Unloved. Think about that.",
+      label: 'Emojis existen en 2026',
+      sublabel: 'Pero la persona promedio usa como 50. Eso significa que 3,732 emojis están ahí... sentaditos. Sin usar. Sin amor. Piensa en eso.',
     },
-    speakerNotes: 'Ask the audience: who has ever used the aerial tramway emoji? Exactly.',
+    speakerNotes: 'Pregunta al público: ¿quién ha usado alguna vez el emoji del teleférico? Exacto.',
   },
 ]

@@ -8,9 +8,9 @@ export const act5Slides: SlideData[] = [
     transition: { id: 'glitch', duration: 2.5 },
     content: {
       type: 'game-reveal',
-      text: "But how well do YOU know emoji?",
+      text: '¿Pero qué tan bien conoces TÚ los emojis?',
     },
-    speakerNotes: 'BIG MOMENT. Let the glitch transition land. Pause. Watch faces light up.',
+    speakerNotes: 'GRAN MOMENTO. Deja que la transición de glitch aterrice. Pausa. Observa las caras iluminarse.',
   },
 
   /* ── Slide 26: QR Lobby ─────────────────────────────────── */
@@ -22,7 +22,7 @@ export const act5Slides: SlideData[] = [
       type: 'qr-lobby',
       roomCode: '',
     },
-    speakerNotes: 'Room code generates automatically. Give people 30-60 seconds to join.',
+    speakerNotes: 'El código de sala se genera automáticamente. Dale 30-60 segundos a la gente para unirse.',
   },
 
   /* ── Round 1: Movies ────────────────────────────────────── */
@@ -32,8 +32,8 @@ export const act5Slides: SlideData[] = [
     transition: { id: 'emoji-clapper', duration: 2.2, emoji: '🎬' },
     content: {
       type: 'title',
-      title: 'Round 1: Movies',
-      subtitle: 'Guess the movie from the emoji',
+      title: 'Ronda 1: Películas',
+      subtitle: 'Adivina la película por los emojis',
       emoji: '🎬',
     },
   },
@@ -44,9 +44,9 @@ export const act5Slides: SlideData[] = [
     transition: { id: 'fade', duration: 1.4 },
     content: {
       type: 'quiz-question',
-      category: 'Movies',
+      category: 'Películas',
       emojis: ['🦁', '👑'],
-      answer: 'The Lion King',
+      answer: 'El Rey León',
       answerEmoji: '🦁',
     },
   },
@@ -57,9 +57,9 @@ export const act5Slides: SlideData[] = [
     transition: { id: 'fade', duration: 1.4 },
     content: {
       type: 'quiz-question',
-      category: 'Movies',
+      category: 'Películas',
       emojis: ['🧙‍♂️', '💍', '🌋'],
-      answer: 'Lord of the Rings',
+      answer: 'El Señor de los Anillos',
       answerEmoji: '💍',
     },
   },
@@ -70,7 +70,7 @@ export const act5Slides: SlideData[] = [
     transition: { id: 'fade', duration: 1.4 },
     content: {
       type: 'quiz-question',
-      category: 'Movies',
+      category: 'Películas',
       emojis: ['🚢', '❄️', '💑', '💀'],
       answer: 'Titanic',
       answerEmoji: '🚢',
@@ -83,7 +83,7 @@ export const act5Slides: SlideData[] = [
     transition: { id: 'fade', duration: 1.4 },
     content: {
       type: 'quiz-question',
-      category: 'Movies',
+      category: 'Películas',
       emojis: ['🐀', '👨‍🍳', '🇫🇷'],
       answer: 'Ratatouille',
       answerEmoji: '🐀',
@@ -97,8 +97,8 @@ export const act5Slides: SlideData[] = [
     transition: { id: 'emoji-tv', duration: 2.2, emoji: '📺' },
     content: {
       type: 'title',
-      title: 'Round 2: TV Shows',
-      subtitle: 'Guess the show from the emoji',
+      title: 'Ronda 2: Series',
+      subtitle: 'Adivina la serie por los emojis',
       emoji: '📺',
     },
   },
@@ -109,7 +109,7 @@ export const act5Slides: SlideData[] = [
     transition: { id: 'fade', duration: 1.4 },
     content: {
       type: 'quiz-question',
-      category: 'TV Shows',
+      category: 'Series',
       emojis: ['🧪', '👨‍🔬', '💊', '💰'],
       answer: 'Breaking Bad',
       answerEmoji: '🧪',
@@ -122,7 +122,7 @@ export const act5Slides: SlideData[] = [
     transition: { id: 'fade', duration: 1.4 },
     content: {
       type: 'quiz-question',
-      category: 'TV Shows',
+      category: 'Series',
       emojis: ['👑', '⚔️', '🐉'],
       answer: 'Game of Thrones',
       answerEmoji: '👑',
@@ -135,9 +135,9 @@ export const act5Slides: SlideData[] = [
     transition: { id: 'fade', duration: 1.4 },
     content: {
       type: 'quiz-question',
-      category: 'TV Shows',
+      category: 'Series',
       emojis: ['🦑', '🎮', '💀'],
-      answer: 'Squid Game',
+      answer: 'El Juego del Calamar',
       answerEmoji: '🦑',
     },
   },
@@ -148,7 +148,7 @@ export const act5Slides: SlideData[] = [
     transition: { id: 'fade', duration: 1.4 },
     content: {
       type: 'quiz-question',
-      category: 'TV Shows',
+      category: 'Series',
       emojis: ['👽', '🚲', '🔦', '👦'],
       answer: 'Stranger Things',
       answerEmoji: '👽',
@@ -162,8 +162,8 @@ export const act5Slides: SlideData[] = [
     transition: { id: 'emoji-portal', duration: 2.2, emoji: '🌍' },
     content: {
       type: 'title',
-      title: 'Round 3: Countries',
-      subtitle: 'Guess the country from the emoji',
+      title: 'Ronda 3: Países',
+      subtitle: 'Adivina el país por los emojis',
       emoji: '🌍',
     },
   },
@@ -174,9 +174,9 @@ export const act5Slides: SlideData[] = [
     transition: { id: 'fade', duration: 1.4 },
     content: {
       type: 'quiz-question',
-      category: 'Countries',
+      category: 'Países',
       emojis: ['🗼', '🥐', '🍷'],
-      answer: 'France',
+      answer: 'Francia',
       answerEmoji: '🇫🇷',
     },
   },
@@ -187,9 +187,9 @@ export const act5Slides: SlideData[] = [
     transition: { id: 'fade', duration: 1.4 },
     content: {
       type: 'quiz-question',
-      category: 'Countries',
+      category: 'Países',
       emojis: ['🌮', '🌶️', '💀'],
-      answer: 'Mexico',
+      answer: 'México',
       answerEmoji: '🇲🇽',
     },
   },
@@ -200,9 +200,9 @@ export const act5Slides: SlideData[] = [
     transition: { id: 'fade', duration: 1.4 },
     content: {
       type: 'quiz-question',
-      category: 'Countries',
+      category: 'Países',
       emojis: ['🍕', '🏛️', '🤌'],
-      answer: 'Italy',
+      answer: 'Italia',
       answerEmoji: '🇮🇹',
     },
   },
@@ -213,7 +213,7 @@ export const act5Slides: SlideData[] = [
     transition: { id: 'fade', duration: 1.4 },
     content: {
       type: 'quiz-question',
-      category: 'Countries',
+      category: 'Países',
       emojis: ['🦘', '🏏', '🕷️'],
       answer: 'Australia',
       answerEmoji: '🇦🇺',
@@ -227,8 +227,8 @@ export const act5Slides: SlideData[] = [
     transition: { id: 'emoji-magic', duration: 2.2, emoji: '✨' },
     content: {
       type: 'title',
-      title: 'Round 4: Sayings',
-      subtitle: 'Guess the common saying from the emoji',
+      title: 'Ronda 4: Dichos y Frases',
+      subtitle: 'Adivina el dicho por los emojis',
       emoji: '💬',
     },
   },
@@ -239,9 +239,9 @@ export const act5Slides: SlideData[] = [
     transition: { id: 'fade', duration: 1.4 },
     content: {
       type: 'quiz-question',
-      category: 'Sayings',
+      category: 'Dichos',
       emojis: ['🐘', '🏠'],
-      answer: 'Elephant in the room',
+      answer: 'El elefante en la habitación',
       answerEmoji: '🐘',
     },
   },
@@ -252,9 +252,9 @@ export const act5Slides: SlideData[] = [
     transition: { id: 'fade', duration: 1.4 },
     content: {
       type: 'quiz-question',
-      category: 'Sayings',
+      category: 'Dichos',
       emojis: ['😢', '🥛'],
-      answer: "Don't cry over spilled milk",
+      answer: 'No llores sobre la leche derramada',
       answerEmoji: '🥛',
     },
   },
@@ -265,9 +265,9 @@ export const act5Slides: SlideData[] = [
     transition: { id: 'fade', duration: 1.4 },
     content: {
       type: 'quiz-question',
-      category: 'Sayings',
+      category: 'Dichos',
       emojis: ['🐔', '❓', '🥚'],
-      answer: 'Chicken or the egg',
+      answer: '¿El huevo o la gallina?',
       answerEmoji: '🐔',
     },
   },
@@ -278,9 +278,9 @@ export const act5Slides: SlideData[] = [
     transition: { id: 'fade', duration: 1.4 },
     content: {
       type: 'quiz-question',
-      category: 'Sayings',
+      category: 'Dichos',
       emojis: ['⏰', '💣'],
-      answer: 'Ticking time bomb',
+      answer: 'Bomba de tiempo',
       answerEmoji: '💣',
     },
   },
@@ -293,7 +293,7 @@ export const act5Slides: SlideData[] = [
     content: {
       type: 'scoreboard-final',
     },
-    speakerNotes: 'Celebrate the winner! Give them a round of applause.',
+    speakerNotes: '¡Celebra al ganador! Dales un aplauso.',
   },
 
   /* ── Slide 36: Thanks / GG ─────────────────────────────── */
@@ -304,9 +304,9 @@ export const act5Slides: SlideData[] = [
     content: {
       type: 'title',
       title: 'GG',
-      subtitle: 'Made with 😂 and Claude Code',
+      subtitle: 'Hecho con 😂 y Claude Code',
       emoji: '🎉',
     },
-    speakerNotes: 'Thanks everyone! Drop the mic. Walk away slowly.',
+    speakerNotes: '¡Gracias a todos! Suelta el micrófono. Aléjate lentamente.',
   },
 ]

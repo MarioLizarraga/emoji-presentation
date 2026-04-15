@@ -187,7 +187,7 @@ registerTransition(
 registerTransition(
   'split-confetti',
   (worldEl, _from, to, overlay, config) => {
-    const tl = createEmojiSplit(worldEl, to, overlay, { ...config, emoji: config.emoji ?? '🎉' }, '')
+    const tl = createEmojiSplit(worldEl, to, overlay, { ...config, emoji: config.emoji ?? '🎉' }, '', true)
     const dur = config.duration
 
     // confetti burst from center after split
@@ -223,6 +223,12 @@ registerTransition(
         dur * 0.2,
       )
     }
+
+    // Cleanup after confetti animations
+    tl.call(() => {
+      overlay.innerHTML = ''
+      gsap.set(overlay, { opacity: 0 })
+    })
 
     return tl
   },

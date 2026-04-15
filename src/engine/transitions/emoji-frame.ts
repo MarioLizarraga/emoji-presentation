@@ -218,7 +218,7 @@ registerTransition(
 
     // "SCENE" text
     const sceneText = document.createElement('div')
-    sceneText.textContent = 'NEXT SCENE'
+    sceneText.textContent = 'SIGUIENTE ESCENA'
     sceneText.style.cssText =
       'position:absolute;top:28%;left:50%;transform:translateX(-50%);z-index:11;' +
       'font-family:monospace;font-size:1.4rem;color:var(--neon-blue,#00bfff);' +

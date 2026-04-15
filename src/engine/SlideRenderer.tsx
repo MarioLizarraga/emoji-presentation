@@ -173,11 +173,11 @@ function GameRevealSlide({ text }: { text: string }) {
 function QrLobbySlide({ roomCode }: { roomCode: string }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%', gap: '2rem', textAlign: 'center', padding: '2rem' }}>
-      <h2 className="slide-subtitle neon-blue">Join the Game!</h2>
+      <h2 className="slide-subtitle neon-blue">¡Únete al Juego!</h2>
       <div style={{ background: 'white', padding: '2rem', borderRadius: '1rem' }}>
         <p style={{ color: '#000', fontSize: '2rem', fontWeight: 900 }}>{roomCode}</p>
       </div>
-      <p className="slide-caption">Enter the code at the URL or scan the QR code</p>
+      <p className="slide-caption">Ingresa el código en la URL o escanea el código QR</p>
     </div>
   )
 }
@@ -193,7 +193,7 @@ function QuizQuestionSlide({ category, emojis }: { category: string; emojis: str
           <span key={i} className="emoji-xl">{e}</span>
         ))}
       </div>
-      <p className="slide-body" style={{ color: 'var(--neon-yellow)' }}>What do these emoji mean?</p>
+      <p className="slide-body" style={{ color: 'var(--neon-yellow)' }}>¿Qué significan estos emojis?</p>
     </div>
   )
 }
@@ -222,7 +222,7 @@ function QuizPlatformSlide({ emoji, platforms }: { emoji: string; platforms: { p
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%', gap: '2rem', textAlign: 'center', padding: '2rem' }}>
       <div style={{ fontSize: '6rem', lineHeight: 1 }}>{emoji}</div>
-      <h2 className="slide-subtitle neon-blue">Same Emoji, Different Looks</h2>
+      <h2 className="slide-subtitle neon-blue">Mismo Emoji, Diferentes Versiones</h2>
       <div style={{ display: 'flex', gap: '3rem', marginTop: '1rem' }}>
         {platforms.map((p, i) => (
           <div key={i} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.75rem' }}>
@@ -241,8 +241,8 @@ function ScoreboardFinalSlide() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%', gap: '2rem', textAlign: 'center', padding: '2rem' }}>
       <div className="emoji-xl">🏆</div>
-      <h1 className="slide-title neon-yellow">Final Scores</h1>
-      <p className="slide-body" style={{ color: 'var(--text-dim)' }}>Scoreboard will appear here</p>
+      <h1 className="slide-title neon-yellow">Puntaje Final</h1>
+      <p className="slide-body" style={{ color: 'var(--text-dim)' }}>El marcador aparecerá aquí</p>
     </div>
   )
 }

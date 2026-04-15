@@ -1,5 +1,6 @@
-import { useState, useCallback, useMemo } from 'react'
+import { useState, useCallback, useMemo, useRef, useEffect } from 'react'
 import { SlideEngine } from '../engine/SlideEngine'
+import type { SlideEngineHandle } from '../engine/SlideEngine'
 import { QRDisplay } from '../components/QRCode'
 import { Scoreboard } from '../components/Scoreboard'
 import { usePresenter } from '../realtime/usePresenter'
@@ -18,12 +19,23 @@ export function PresenterView() {
     sendSlide,
     updateScore,
     endGame,
+    remoteSlideCommand,
+    teamNames,
+    scores,
+    setScores,
   } = usePresenter()
 
-  const [scores, setScores] = useState({ red: 0, blue: 0 })
+  const engineRef = useRef<SlideEngineHandle>(null)
   const [gameActive, setGameActive] = useState(false)
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0)
   const [showQR, setShowQR] = useState(false)
+
+  // React to remote slide commands from the phone remote
+  useEffect(() => {
+    if (remoteSlideCommand !== null && engineRef.current) {
+      engineRef.current.goTo(remoteSlideCommand.index)
+    }
+  }, [remoteSlideCommand])
 
   // Inject roomCode into the qr-lobby slide
   const slides = useMemo(
@@ -76,8 +88,12 @@ export function PresenterView() {
       // Remove handled buzz (keep the rest)
       clearBuzzes()
     },
-    [scores, updateScore, clearBuzzes],
+    [scores, setScores, updateScore, clearBuzzes],
   )
+
+  // Remote URL for QR indicator
+  const baseUrl = window.location.origin + import.meta.env.BASE_URL
+  const remoteUrl = `${baseUrl}#/remote`
 
   // Determine if the current slide is the QR lobby
   const currentSlide = slides[currentSlideIndex]
@@ -87,6 +103,7 @@ export function PresenterView() {
     <div style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden' }}>
       {/* Main slide engine (always rendered, but may be covered by QR overlay) */}
       <SlideEngine
+        ref={engineRef}
         slides={slides}
         onSlideChange={handleSlideChange}
       />
@@ -127,7 +144,7 @@ export function PresenterView() {
                 {players.length}
               </span>
               <span style={{ color: 'var(--text-dim)' }}>
-                player{players.length !== 1 ? 's' : ''} joined
+                jugador{players.length !== 1 ? 'es' : ''} conectado{players.length !== 1 ? 's' : ''}
               </span>
             </div>
           )}
@@ -145,7 +162,12 @@ export function PresenterView() {
             zIndex: 25,
           }}
         >
-          <Scoreboard redScore={scores.red} blueScore={scores.blue} />
+          <Scoreboard
+            redScore={scores.red}
+            blueScore={scores.blue}
+            redName={teamNames.red}
+            blueName={teamNames.blue}
+          />
         </div>
       )}
 
@@ -193,7 +215,7 @@ export function PresenterView() {
                     borderRadius: '4px',
                   }}
                 >
-                  1st
+                  1ro
                 </span>
               )}
 
@@ -253,7 +275,7 @@ export function PresenterView() {
         </div>
       )}
 
-      {/* Room code indicator (top-right corner) */}
+      {/* Room code + remote link indicator (top-right corner) */}
       {connected && !showQR && (
         <div
           style={{
@@ -262,30 +284,52 @@ export function PresenterView() {
             right: '1.5rem',
             zIndex: 25,
             display: 'flex',
-            alignItems: 'center',
-            gap: '0.5rem',
-            padding: '0.4rem 0.75rem',
-            background: 'rgba(10, 10, 15, 0.7)',
-            backdropFilter: 'blur(8px)',
-            borderRadius: '8px',
-            fontFamily: 'var(--font)',
-            fontSize: '0.8rem',
+            flexDirection: 'column',
+            alignItems: 'flex-end',
+            gap: '0.3rem',
           }}
         >
-          <span
+          <div
             style={{
-              width: 8,
-              height: 8,
-              borderRadius: '50%',
-              display: 'inline-block',
-              backgroundColor: 'var(--neon-green)',
-              boxShadow: '0 0 6px var(--neon-green)',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              padding: '0.4rem 0.75rem',
+              background: 'rgba(10, 10, 15, 0.7)',
+              backdropFilter: 'blur(8px)',
+              borderRadius: '8px',
+              fontFamily: 'var(--font)',
+              fontSize: '0.8rem',
             }}
-          />
-          <span style={{ color: 'var(--text-muted)', fontWeight: 600 }}>{roomCode}</span>
-          <span style={{ color: 'var(--text-muted)' }}>
-            ({players.length} player{players.length !== 1 ? 's' : ''})
-          </span>
+          >
+            <span
+              style={{
+                width: 8,
+                height: 8,
+                borderRadius: '50%',
+                display: 'inline-block',
+                backgroundColor: 'var(--neon-green)',
+                boxShadow: '0 0 6px var(--neon-green)',
+              }}
+            />
+            <span style={{ color: 'var(--text-muted)', fontWeight: 600 }}>{roomCode}</span>
+            <span style={{ color: 'var(--text-muted)' }}>
+              ({players.length} jugador{players.length !== 1 ? 'es' : ''})
+            </span>
+          </div>
+          <div
+            style={{
+              padding: '0.25rem 0.6rem',
+              background: 'rgba(10, 10, 15, 0.5)',
+              borderRadius: '6px',
+              fontFamily: 'var(--font)',
+              fontSize: '0.65rem',
+              color: 'var(--text-muted)',
+              letterSpacing: '0.02em',
+            }}
+          >
+            Control: {remoteUrl}
+          </div>
         </div>
       )}
     </div>

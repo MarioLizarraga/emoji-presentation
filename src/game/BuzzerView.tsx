@@ -13,6 +13,9 @@ export function BuzzerView({ roomCode }: BuzzerViewProps) {
   const [team, setTeam] = useState<'red' | 'blue' | null>(null)
   const [joined, setJoined] = useState(false)
 
+  const redTeamName = gameState.teamNames.red
+  const blueTeamName = gameState.teamNames.blue
+
   const handleJoin = () => {
     if (!playerName.trim() || !team) return
     join(playerName.trim(), team)
@@ -27,18 +30,20 @@ export function BuzzerView({ roomCode }: BuzzerViewProps) {
         <div style={styles.endScreen}>
           <div style={{ fontSize: '5rem' }}>&#x1F3C6;</div>
           <h1 style={{ fontSize: '2rem', fontWeight: 900, color: 'var(--neon-yellow)' }}>
-            Game Over!
+            ¡Fin del Juego!
           </h1>
           <div style={{ fontSize: '1.2rem', color: 'var(--text-dim)', marginTop: '0.5rem' }}>
             {winner === 'tie'
-              ? "It's a tie!"
+              ? '¡Es un empate!'
               : winner === 'red'
-                ? 'Team Fire wins!'
-                : 'Team Ice wins!'}
+                ? `¡${redTeamName} gana!`
+                : `¡${blueTeamName} gana!`}
           </div>
           <Scoreboard
             redScore={gameState.scores.red}
             blueScore={gameState.scores.blue}
+            redName={redTeamName}
+            blueName={blueTeamName}
             style={{ marginTop: '2rem', width: '100%' }}
           />
         </div>
@@ -87,7 +92,7 @@ export function BuzzerView({ roomCode }: BuzzerViewProps) {
               letterSpacing: '0.1em',
             }}
           >
-            {team === 'red' ? 'Team Fire' : 'Team Ice'}
+            {team === 'red' ? redTeamName : blueTeamName}
           </span>
         </div>
 
@@ -95,6 +100,8 @@ export function BuzzerView({ roomCode }: BuzzerViewProps) {
         <Scoreboard
           redScore={gameState.scores.red}
           blueScore={gameState.scores.blue}
+          redName={redTeamName}
+          blueName={blueTeamName}
           style={{ width: '100%' }}
         />
 
@@ -137,7 +144,7 @@ export function BuzzerView({ roomCode }: BuzzerViewProps) {
               opacity: hasBuzzed ? 0.5 : 1,
             }}
           >
-            {hasBuzzed ? 'BUZZED!' : 'BUZZ'}
+            {hasBuzzed ? '¡BUZZEADO!' : 'BUZZ'}
           </button>
         </div>
 
@@ -156,7 +163,7 @@ export function BuzzerView({ roomCode }: BuzzerViewProps) {
               fontWeight: 600,
             }}
           >
-            {gameState.lastReveal.correct ? 'Correct!' : 'Wrong!'}{' '}
+            {gameState.lastReveal.correct ? '¡Correcto!' : '¡Incorrecto!'}{' '}
             {gameState.lastReveal.answer}
           </div>
         )}
@@ -170,16 +177,16 @@ export function BuzzerView({ roomCode }: BuzzerViewProps) {
       <div style={styles.joinScreen}>
         <div style={{ fontSize: '4rem', marginBottom: '0.5rem' }}>&#x1F3AE;</div>
         <h1 style={{ fontSize: '1.5rem', fontWeight: 900, color: 'var(--text)' }}>
-          Join the Game
+          Unirse al Juego
         </h1>
         <p style={{ color: 'var(--text-dim)', fontSize: '0.9rem' }}>
-          Room: <strong style={{ color: 'var(--neon-purple)', letterSpacing: '0.1em' }}>{roomCode}</strong>
+          Sala: <strong style={{ color: 'var(--neon-purple)', letterSpacing: '0.1em' }}>{roomCode}</strong>
         </p>
 
         {/* Name input */}
         <input
           type="text"
-          placeholder="Your name"
+          placeholder="Tu nombre"
           value={playerName}
           onChange={(e) => setPlayerName(e.target.value)}
           maxLength={20}
@@ -198,7 +205,7 @@ export function BuzzerView({ roomCode }: BuzzerViewProps) {
               boxShadow: team === 'red' ? '0 0 20px #ff444444' : 'none',
             }}
           >
-            &#x1F534; Team Fire
+            &#x1F534; {redTeamName}
           </button>
           <button
             onClick={() => setTeam('blue')}
@@ -210,7 +217,7 @@ export function BuzzerView({ roomCode }: BuzzerViewProps) {
               boxShadow: team === 'blue' ? '0 0 20px #4488ff44' : 'none',
             }}
           >
-            &#x1F535; Team Ice
+            &#x1F535; {blueTeamName}
           </button>
         </div>
 
@@ -224,7 +231,7 @@ export function BuzzerView({ roomCode }: BuzzerViewProps) {
             cursor: !playerName.trim() || !team ? 'not-allowed' : 'pointer',
           }}
         >
-          JOIN
+          UNIRSE
         </button>
 
         {/* Connection status */}
@@ -246,7 +253,7 @@ export function BuzzerView({ roomCode }: BuzzerViewProps) {
               backgroundColor: connected ? 'var(--neon-green)' : 'var(--neon-red)',
             }}
           />
-          {connected ? 'Connected' : 'Connecting...'}
+          {connected ? 'Conectado' : 'Conectando...'}
         </div>
       </div>
     </div>
