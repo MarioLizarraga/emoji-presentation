@@ -59,7 +59,7 @@ export const act2Slides: SlideData[] = [
   {
     id: 'the-explosion',
     position: { x: 20000, y: 500, scale: 0.4, rotation: 3 },
-    transition: { id: 'emoji-bomb', duration: 2.8, emoji: '💥' },
+    transition: { id: 'emoji-bomb', duration: 2.8, emoji: '💣' },
     content: {
       type: 'text',
       title: 'La Gran Explosión de Emojis',

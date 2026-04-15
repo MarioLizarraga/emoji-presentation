@@ -22,74 +22,101 @@ registerTransition(
   (worldEl, _from, to, overlay, config) => {
     const tl = gsap.timeline()
     const dur = config.duration
-    const emoji = config.emoji ?? '💣'
+    // The config emoji is the FALLING object (bomb/dynamite). Explosion is always 💥.
+    const fallingEmoji = config.emoji ?? '💣'
 
     tl.set(overlay, { opacity: 1 })
 
-    // bomb element
-    const bomb = document.createElement('div')
-    bomb.textContent = emoji
-    bomb.style.cssText =
-      'position:absolute;top:-20%;left:50%;transform:translateX(-50%);font-size:8rem;z-index:10;'
-    overlay.appendChild(bomb)
+    // Wrapper for the bomb so we can rotate/scale it separately from position
+    const bombWrap = document.createElement('div')
+    bombWrap.style.cssText =
+      'position:absolute;top:-20%;left:50%;transform:translate(-50%,-50%);' +
+      'font-size:12rem;z-index:10;will-change:transform,top;'
+    bombWrap.textContent = fallingEmoji
+    overlay.appendChild(bombWrap)
 
-    // fuse spark
+    // Fuse spark (a glowing red dot on top of the bomb)
     const spark = document.createElement('div')
     spark.style.cssText =
-      'position:absolute;top:-20%;left:calc(50% + 2rem);width:12px;height:12px;' +
-      'border-radius:50%;background:var(--neon-red,#f44);box-shadow:0 0 12px var(--neon-red,#f44);z-index:11;'
+      'position:absolute;top:-20%;left:calc(50% + 2.5rem);width:16px;height:16px;' +
+      'border-radius:50%;background:#fff59d;' +
+      'box-shadow:0 0 12px #ffa500,0 0 24px #ff4400,0 0 40px #ff0000;' +
+      'z-index:11;opacity:0;'
     overlay.appendChild(spark)
 
-    // drop bomb with bounce
-    tl.to(bomb, {
-      top: '45%',
-      duration: dur * 0.3,
+    // PHASE 1: Bomb drops from above with gentle rotation and bounce
+    tl.to(bombWrap, {
+      top: '50%',
+      rotation: 25,
+      duration: dur * 0.35,
       ease: 'bounce.out',
+    })
+    tl.to(spark, { top: '42%', opacity: 1, duration: dur * 0.3, ease: 'power2.out' }, '<')
+
+    // PHASE 2: Fuse burns — spark flickers frantically
+    tl.to(bombWrap, {
+      rotation: -8,
+      duration: dur * 0.05,
+      repeat: 5,
+      yoyo: true,
+      ease: 'power1.inOut',
     })
     tl.to(
       spark,
       {
-        top: '42%',
-        duration: dur * 0.3,
-        ease: 'bounce.out',
+        scale: 2,
+        opacity: 0.7,
+        duration: dur * 0.05,
+        repeat: 5,
+        yoyo: true,
+        ease: 'power1.inOut',
       },
       '<',
     )
 
-    // fuse pulsing
-    tl.to(spark, {
-      scale: 1.8,
-      opacity: 0.5,
-      duration: dur * 0.08,
-      repeat: 3,
-      yoyo: true,
-      ease: 'power1.inOut',
-    })
-
-    // BOOM flash
+    // PHASE 3: BOOM! The bomb becomes an explosion emoji + flash + shake
     const flash = document.createElement('div')
     flash.style.cssText =
       'position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,' +
-      'var(--neon-red,#f44) 0%,transparent 70%);opacity:0;z-index:12;'
+      '#fff 0%,#ffa500 20%,#ff4400 45%,transparent 75%);opacity:0;z-index:12;'
     overlay.appendChild(flash)
 
-    tl.to(flash, { opacity: 1, duration: dur * 0.05, ease: 'expo.in' })
-    tl.set(bomb, { display: 'none' })
-    tl.set(spark, { display: 'none' })
+    // The moment of explosion: hide spark, swap emoji to 💥, punch it big, flash white
+    tl.call(() => {
+      spark.style.display = 'none'
+      bombWrap.textContent = '💥'
+    })
+    tl.to(bombWrap, {
+      scale: 3,
+      rotation: 0,
+      duration: dur * 0.08,
+      ease: 'back.out(3)',
+    })
+    tl.to(flash, { opacity: 1, duration: dur * 0.06, ease: 'expo.in' }, '<')
 
-    // snap camera
+    // Snap camera to destination during the flash (peak brightness hides the transition)
     tl.call(() => snap(worldEl, to))
 
-    // debris fragments
-    const FRAG_COUNT = 20
+    // PHASE 4: Explosion emoji grows & fades, debris flies outward
+    tl.to(bombWrap, {
+      scale: 8,
+      opacity: 0,
+      duration: dur * 0.4,
+      ease: 'power2.out',
+    })
+
+    // Debris fragments (26 pieces in red/orange/yellow - fire colors)
+    const FRAG_COUNT = 26
     const frags: HTMLDivElement[] = []
+    const fragColors = ['#ff4400', '#ffa500', '#fff59d', '#333', '#ff0000']
     for (let i = 0; i < FRAG_COUNT; i++) {
       const f = document.createElement('div')
-      const size = rnd(6, 18)
+      const size = rnd(8, 22)
       f.style.cssText =
         `position:absolute;top:50%;left:50%;width:${size}px;height:${size}px;` +
-        `border-radius:${rnd(0, 50)}%;opacity:1;z-index:13;` +
-        `background:${['var(--neon-red,#f44)', 'var(--neon-purple,#a855f7)', '#ffa500', '#333'][Math.floor(rnd(0, 4))]};`
+        `border-radius:${rnd(0, 50)}%;opacity:1;z-index:13;transform:translate(-50%,-50%);` +
+        `background:${fragColors[Math.floor(rnd(0, fragColors.length))]};` +
+        `box-shadow:0 0 ${rnd(4, 10)}px currentColor;`
       overlay.appendChild(f)
       frags.push(f)
     }
@@ -98,19 +125,19 @@ registerTransition(
       tl.to(
         f,
         {
-          x: rnd(-500, 500),
+          x: rnd(-700, 700),
           y: rnd(-500, 500),
           rotation: rnd(-720, 720),
           opacity: 0,
-          duration: dur * 0.35,
+          duration: dur * 0.45,
           ease: 'expo.out',
         },
-        '<',
+        `-=${dur * 0.4}`,
       )
     })
 
-    // flash fade + smoke clear
-    tl.to(flash, { opacity: 0, duration: dur * 0.2, ease: 'power2.out' }, `-=${dur * 0.15}`)
+    // Flash fades
+    tl.to(flash, { opacity: 0, duration: dur * 0.25, ease: 'power2.out' }, `-=${dur * 0.3}`)
 
     // cleanup
     tl.call(() => {

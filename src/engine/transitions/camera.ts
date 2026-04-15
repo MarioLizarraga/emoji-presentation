@@ -153,33 +153,24 @@ registerTransition('dolly-zoom', (worldEl, _from, to, _overlay, config) => {
   const w = toWorld(to)
   const dur = config.duration
 
-  // Vertigo/dolly-zoom: scale in while moving out (or vice versa)
+  // Dramatic "punch-in" zoom with slight overshoot and settle — feels deliberate
+  // Phase 1 (70%): Move to target position, zoom slightly PAST target scale (impact!)
+  const overshootScale = w.scale * 1.15
   tl.to(worldEl, {
     x: w.x,
     y: w.y,
+    scale: overshootScale,
     rotation: w.rotation,
-    duration: dur,
-    ease: 'power2.inOut',
+    duration: dur * 0.7,
+    ease: 'power3.out',
   })
-  // Scale animates separately with different easing for the vertigo feel
-  tl.to(
-    worldEl,
-    {
-      scale: w.scale * 1.5,
-      duration: dur * 0.5,
-      ease: 'power3.in',
-    },
-    0,
-  )
-  tl.to(
-    worldEl,
-    {
-      scale: w.scale,
-      duration: dur * 0.5,
-      ease: 'power3.out',
-    },
-    dur * 0.5,
-  )
+
+  // Phase 2 (30%): Gentle spring-back to the exact target scale
+  tl.to(worldEl, {
+    scale: w.scale,
+    duration: dur * 0.3,
+    ease: 'back.out(1.4)',
+  })
 
   return tl
 })
