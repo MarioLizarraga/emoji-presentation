@@ -1,4 +1,4 @@
-import { useRef, useState, useCallback, useEffect } from 'react'
+import { useRef, useState, useCallback, useEffect, forwardRef, useImperativeHandle } from 'react'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { SlideRenderer } from './SlideRenderer'
@@ -21,9 +21,19 @@ interface SlideEngineProps {
 const SLIDE_WIDTH = 1920
 const SLIDE_HEIGHT = 1080
 
+/* ── Imperative Handle ─────────────────────────────────── */
+
+export interface SlideEngineHandle {
+  goTo: (index: number) => void
+  next: () => void
+  prev: () => void
+  currentIndex: number
+}
+
 /* ── Component ─────────────────────────────────────────── */
 
-export function SlideEngine({ slides, startIndex = 0, onSlideChange }: SlideEngineProps) {
+export const SlideEngine = forwardRef<SlideEngineHandle, SlideEngineProps>(
+  function SlideEngine({ slides, startIndex = 0, onSlideChange }, ref) {
   const containerRef = useRef<HTMLDivElement>(null)
   const worldRef = useRef<HTMLDivElement>(null)
   const overlayRef = useRef<HTMLDivElement>(null)
@@ -99,6 +109,15 @@ export function SlideEngine({ slides, startIndex = 0, onSlideChange }: SlideEngi
 
   const goNext = useCallback(() => goToSlide(currentIndex + 1), [currentIndex, goToSlide])
   const goPrev = useCallback(() => goToSlide(currentIndex - 1), [currentIndex, goToSlide])
+
+  /* ── Expose imperative API for remote control ────────── */
+
+  useImperativeHandle(ref, () => ({
+    goTo: goToSlide,
+    next: goNext,
+    prev: goPrev,
+    get currentIndex() { return currentIndex },
+  }), [goToSlide, goNext, goPrev, currentIndex])
 
   /* ── Set initial camera position (no animation) ──────── */
 
@@ -244,4 +263,5 @@ export function SlideEngine({ slides, startIndex = 0, onSlideChange }: SlideEngi
       </div>
     </div>
   )
-}
+  },
+)
