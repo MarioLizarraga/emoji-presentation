@@ -80,7 +80,11 @@ registerTransition('glitch', (worldEl, _from, to, overlay, config) => {
   tl.to(redShift, { x: -20, y: 5, duration: dur * 0.03, ease: 'none' })
   tl.to(blueShift, { x: 20, y: -5, duration: dur * 0.03, ease: 'none' }, '<')
 
-  tl.call(() => snapCamera(worldEl, to))
+  tl.call(() => {
+    snapCamera(worldEl, to)
+    // Defensive reset: ensure no stray transforms leak onto the world element
+    gsap.set(worldEl, { skewX: 0 })
+  })
 
   // Phase 2: recovery
   tl.to(redShift, { x: -4, y: 0, duration: dur * 0.08, ease: 'power2.out' })
@@ -105,30 +109,39 @@ registerTransition('pixel-dissolve', (worldEl, _from, to, overlay, config) => {
   const tl = gsap.timeline()
   const dur = config.duration
 
-  // Pixelation effect via backdrop-filter blur
-  const pixel = document.createElement('div')
-  pixel.style.cssText =
-    'position:absolute;inset:0;z-index:10;backdrop-filter:blur(0px);-webkit-backdrop-filter:blur(0px);'
-  overlay.appendChild(pixel)
-
   tl.set(overlay, { opacity: 1 })
 
-  // Blur in (pixelate)
-  tl.to(pixel, {
-    backdropFilter: 'blur(30px)',
-    webkitBackdropFilter: 'blur(30px)',
-    duration: dur * 0.4,
-    ease: 'power2.in',
+  // Mosaic/pixelation effect using a grid of colored blocks
+  const gridOverlay = document.createElement('div')
+  gridOverlay.style.cssText =
+    'position:absolute;inset:0;z-index:10;display:grid;' +
+    'grid-template-columns:repeat(20,1fr);grid-template-rows:repeat(12,1fr);'
+
+  const CELLS = 20 * 12
+  const cells: HTMLDivElement[] = []
+  for (let i = 0; i < CELLS; i++) {
+    const cell = document.createElement('div')
+    const colors = ['var(--bg)', 'var(--bg-surface)', 'var(--bg-elevated)', '#1a1a2e', '#0a0a1a']
+    cell.style.cssText = `background:${colors[Math.floor(Math.random() * colors.length)]};opacity:0;`
+    gridOverlay.appendChild(cell)
+    cells.push(cell)
+  }
+  overlay.appendChild(gridOverlay)
+
+  // Cells appear randomly to create pixelation effect
+  tl.to(cells, {
+    opacity: 1,
+    duration: dur * 0.01,
+    stagger: { each: (dur * 0.4) / CELLS, from: 'random' },
   })
 
   tl.call(() => snapCamera(worldEl, to))
 
-  // Blur out (resolve)
-  tl.to(pixel, {
-    backdropFilter: 'blur(0px)',
-    webkitBackdropFilter: 'blur(0px)',
-    duration: dur * 0.4,
-    ease: 'power2.out',
+  // Cells disappear randomly to reveal new slide
+  tl.to(cells, {
+    opacity: 0,
+    duration: dur * 0.01,
+    stagger: { each: (dur * 0.4) / CELLS, from: 'random' },
   })
 
   tl.call(() => {

@@ -63,37 +63,28 @@ registerTransition('spotlight', (worldEl, _from, to, overlay, config) => {
   const tl = gsap.timeline()
   const dur = config.duration
 
-  // Dark overlay with a circular "spotlight" cut-out via radial-gradient
-  const dark = document.createElement('div')
-  dark.style.cssText =
-    'position:absolute;inset:0;z-index:10;' +
-    'background:radial-gradient(circle 60px at 20% 30%, transparent 0%, rgba(0,0,0,0.95) 60px);'
-  overlay.appendChild(dark)
-
   tl.set(overlay, { opacity: 1 })
 
-  // Spotlight searches around
-  tl.to(dark, {
-    background: 'radial-gradient(circle 60px at 70% 60%, transparent 0%, rgba(0,0,0,0.95) 60px)',
-    duration: dur * 0.2,
-    ease: 'power1.inOut',
-  })
-  tl.to(dark, {
-    background: 'radial-gradient(circle 60px at 30% 70%, transparent 0%, rgba(0,0,0,0.95) 60px)',
-    duration: dur * 0.15,
-    ease: 'power1.inOut',
-  })
-  tl.to(dark, {
-    background: 'radial-gradient(circle 60px at 50% 50%, transparent 0%, rgba(0,0,0,0.95) 60px)',
-    duration: dur * 0.1,
-    ease: 'power1.inOut',
-  })
+  // Spotlight circle using box-shadow technique: a small circle with a massive
+  // box-shadow creates darkness everywhere except inside the circle.
+  const hole = document.createElement('div')
+  hole.style.cssText =
+    'position:absolute;width:120px;height:120px;border-radius:50%;z-index:10;' +
+    'top:30%;left:20%;transform:translate(-50%,-50%);' +
+    'box-shadow:0 0 0 200vmax rgba(0,0,0,0.95);'
+  overlay.appendChild(hole)
+
+  // Search around
+  tl.to(hole, { left: '70%', top: '60%', duration: dur * 0.2, ease: 'power1.inOut' })
+  tl.to(hole, { left: '30%', top: '70%', duration: dur * 0.15, ease: 'power1.inOut' })
+  tl.to(hole, { left: '50%', top: '50%', duration: dur * 0.1, ease: 'power1.inOut' })
 
   tl.call(() => snapCamera(worldEl, to))
 
-  // Spotlight expands to reveal
-  tl.to(dark, {
-    background: 'radial-gradient(circle 2000px at 50% 50%, transparent 0%, rgba(0,0,0,0.95) 2000px)',
+  // Expand spotlight to reveal
+  tl.to(hole, {
+    width: '300vmax',
+    height: '300vmax',
     duration: dur * 0.35,
     ease: 'expo.out',
   })

@@ -20,6 +20,7 @@ function createEmojiSplit(
   overlay: HTMLElement,
   config: TransitionConfig,
   effectHtml: string,
+  skipCleanup = false,
 ): gsap.core.Timeline {
   const tl = gsap.timeline()
   const dur = config.duration
@@ -78,10 +79,12 @@ function createEmojiSplit(
   tl.to(halfRight, { x: '105%', duration: dur * 0.35, ease: 'power3.inOut' }, '<')
   tl.to(flash, { opacity: 0, duration: dur * 0.15 }, '<')
 
-  tl.call(() => {
-    overlay.innerHTML = ''
-    gsap.set(overlay, { opacity: 0 })
-  })
+  if (!skipCleanup) {
+    tl.call(() => {
+      overlay.innerHTML = ''
+      gsap.set(overlay, { opacity: 0 })
+    })
+  }
 
   return tl
 }
@@ -112,7 +115,8 @@ registerTransition(
         `animation:none;z-index:12;" data-drip-h="${h}" data-drip-delay="${delay}"></div>`
     }
 
-    const tl = createEmojiSplit(worldEl, to, overlay, { ...config, emoji: config.emoji ?? '🔪' }, drips)
+    // Skip cleanup in createEmojiSplit — we add it after drip animations finish
+    const tl = createEmojiSplit(worldEl, to, overlay, { ...config, emoji: config.emoji ?? '🔪' }, drips, true)
 
     // animate drips after split opens
     const dripEls = overlay.querySelectorAll<HTMLElement>('[data-drip-h]')
@@ -124,6 +128,12 @@ registerTransition(
         { height: h, duration: config.duration * 0.3, ease: 'power2.in' },
         delay + config.duration * 0.15,
       )
+    })
+
+    // Cleanup AFTER all drip animations have completed
+    tl.call(() => {
+      overlay.innerHTML = ''
+      gsap.set(overlay, { opacity: 0 })
     })
 
     return tl

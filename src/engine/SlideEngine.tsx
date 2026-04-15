@@ -44,6 +44,12 @@ export function SlideEngine({ slides, startIndex = 0, onSlideChange }: SlideEngi
 
       isAnimating.current = true
 
+      // Clean overlay at the START of every transition to prevent leftover artifacts
+      if (overlayRef.current) {
+        overlayRef.current.innerHTML = ''
+        gsap.set(overlayRef.current, { opacity: 0 })
+      }
+
       const registeredFn = getTransition(toSlide.transition.id)
       let tl: gsap.core.Timeline
 
@@ -63,7 +69,26 @@ export function SlideEngine({ slides, startIndex = 0, onSlideChange }: SlideEngi
         )
       }
 
+      // Safety timeout: if a transition fails to complete, force-reset after duration + 2s buffer
+      const maxWait = (toSlide.transition.duration + 2) * 1000
+      const safetyTimer = window.setTimeout(() => {
+        if (isAnimating.current) {
+          tl.kill()
+          if (worldRef.current) {
+            gsap.set(worldRef.current, posToCamera(toSlide.position))
+          }
+          if (overlayRef.current) {
+            overlayRef.current.innerHTML = ''
+            gsap.set(overlayRef.current, { opacity: 0 })
+          }
+          isAnimating.current = false
+          setCurrentIndex(index)
+          onSlideChange?.(index)
+        }
+      }, maxWait)
+
       tl.eventCallback('onComplete', () => {
+        window.clearTimeout(safetyTimer)
         isAnimating.current = false
         setCurrentIndex(index)
         onSlideChange?.(index)

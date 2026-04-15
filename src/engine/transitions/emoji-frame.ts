@@ -288,12 +288,13 @@ registerTransition(
 
     tl.set(overlay, { opacity: 1 })
 
-    // dark background with circular vignette hole
-    const vignette = document.createElement('div')
-    vignette.style.cssText =
-      'position:absolute;inset:0;z-index:10;' +
-      'background:radial-gradient(circle 5vmin at 50% 50%,transparent 0%,#000 0.1%);'
-    overlay.appendChild(vignette)
+    // Dark overlay with a circular hole (using box-shadow technique)
+    const hole = document.createElement('div')
+    hole.style.cssText =
+      'position:absolute;width:10vmin;height:10vmin;border-radius:50%;z-index:10;' +
+      'top:50%;left:50%;transform:translate(-50%,-50%);' +
+      'box-shadow:0 0 0 200vmax rgba(0,0,0,0.98);'
+    overlay.appendChild(hole)
 
     // telescope emoji
     const scope = document.createElement('div')
@@ -321,27 +322,16 @@ registerTransition(
     // snap camera
     tl.call(() => snap(worldEl, to))
 
-    // expand the vignette circle to reveal full screen
-    // Animate the gradient by interpolating the circle radius
-    const steps = 30
-    const startRadius = 5
-    const endRadius = 150
-    for (let i = 1; i <= steps; i++) {
-      const r = startRadius + ((endRadius - startRadius) * i) / steps
-      const progress = i / steps
-      const easedOpacity = i === steps ? 0 : undefined
-      tl.set(
-        vignette,
-        {
-          background: `radial-gradient(circle ${r}vmin at 50% 50%,transparent ${Math.min(r - 1, r * 0.98)}vmin,#000 ${r}vmin)`,
-          ...(easedOpacity !== undefined ? { opacity: 0 } : {}),
-        },
-        dur * 0.35 + (progress * dur * 0.4),
-      )
-    }
+    // Expand the hole to reveal the full screen
+    tl.to(hole, {
+      width: '300vmax',
+      height: '300vmax',
+      duration: dur * 0.4,
+      ease: 'power2.out',
+    })
 
     // fade out telescope
-    tl.to(scope, { opacity: 0, duration: dur * 0.1, ease: 'power2.in' }, `-=${dur * 0.15}`)
+    tl.to(scope, { opacity: 0, duration: dur * 0.1 }, '<')
 
     tl.call(() => {
       overlay.innerHTML = ''
