@@ -1,3 +1,4 @@
+import { QRCodeSVG } from 'qrcode.react'
 import type { SlideContent } from '../slides/types'
 
 interface SlideRendererProps {
@@ -307,13 +308,48 @@ function GameRevealSlide({ text }: { text: string }) {
 /* ── QR Lobby ──────────────────────────────────────────── */
 
 function QrLobbySlide({ roomCode }: { roomCode: string }) {
+  const baseUrl = typeof window !== 'undefined'
+    ? window.location.origin + import.meta.env.BASE_URL
+    : ''
+  const playerUrl = `${baseUrl}#/play?room=${roomCode}`
+
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%', gap: '2rem', textAlign: 'center', padding: '2rem' }}>
-      <h2 className="slide-subtitle neon-blue">¡Únete al Juego!</h2>
-      <div style={{ background: 'white', padding: '2rem', borderRadius: '1rem' }}>
-        <p style={{ color: '#000', fontSize: '2rem', fontWeight: 900 }}>{roomCode}</p>
+    <div style={{
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      height: '100%',
+      gap: '2rem',
+      textAlign: 'center',
+      padding: '2rem',
+    }}>
+      <h1 className="slide-title neon-pink animate-flicker" style={{ fontSize: 'clamp(2rem, 4vw, 4rem)' }}>
+        ESCANEA PARA JUGAR
+      </h1>
+      {roomCode && (
+        <div style={{
+          background: 'white',
+          padding: '1.5rem',
+          borderRadius: '1rem',
+          boxShadow: 'var(--glow-pink)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>
+          <QRCodeSVG value={playerUrl} size={360} level="H" />
+        </div>
+      )}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+        <span className="slide-caption">Sala:</span>
+        <span className="slide-subtitle neon-blue" style={{
+          letterSpacing: '8px',
+          fontWeight: 900,
+          fontSize: 'clamp(2rem, 3.5vw, 3.5rem)',
+        }}>
+          {roomCode || '————'}
+        </span>
       </div>
-      <p className="slide-caption">Ingresa el código en la URL o escanea el código QR</p>
     </div>
   )
 }

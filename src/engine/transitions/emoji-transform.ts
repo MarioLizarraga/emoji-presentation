@@ -392,15 +392,6 @@ registerTransition(
       )
     }
 
-    // string remnant
-    const remnant = document.createElement('div')
-    remnant.textContent = '🧵'
-    remnant.style.cssText =
-      'position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);' +
-      'font-size:2rem;z-index:11;opacity:1;'
-    overlay.appendChild(remnant)
-    tl.to(remnant, { y: 400, opacity: 0, duration: dur * 0.25, ease: 'power2.in' }, '<')
-
     tl.to(flash, { opacity: 0, duration: dur * 0.2, ease: 'power2.out' }, '-=0.15')
 
     tl.call(() => {

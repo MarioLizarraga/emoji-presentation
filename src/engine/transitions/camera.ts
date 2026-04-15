@@ -148,28 +148,77 @@ registerTransition('orbit', (worldEl, from, to, _overlay, config) => {
 
 /* ── dolly-zoom ──────────────────────────────────────────── */
 
-registerTransition('dolly-zoom', (worldEl, _from, to, _overlay, config) => {
+registerTransition('dolly-zoom', (worldEl, _from, to, overlay, config) => {
   const tl = gsap.timeline()
   const w = toWorld(to)
   const dur = config.duration
 
-  // Dramatic "punch-in" zoom with slight overshoot and settle — feels deliberate
-  // Phase 1 (70%): Move to target position, zoom slightly PAST target scale (impact!)
-  const overshootScale = w.scale * 1.15
-  tl.to(worldEl, {
-    x: w.x,
-    y: w.y,
-    scale: overshootScale,
-    rotation: w.rotation,
-    duration: dur * 0.7,
-    ease: 'power3.out',
-  })
+  // Create "slam zoom" impact elements for visual clarity
+  // Radial motion blur streaks (lines radiating from the center toward edges)
+  const blur = document.createElement('div')
+  blur.style.cssText =
+    'position:absolute;inset:0;z-index:10;pointer-events:none;opacity:0;' +
+    'background:radial-gradient(circle at center,transparent 25%,rgba(0,0,0,0.5) 100%);'
+  overlay.appendChild(blur)
 
-  // Phase 2 (30%): Gentle spring-back to the exact target scale
-  tl.to(worldEl, {
-    scale: w.scale,
-    duration: dur * 0.3,
-    ease: 'back.out(1.4)',
+  // White impact flash
+  const flash = document.createElement('div')
+  flash.style.cssText =
+    'position:absolute;inset:0;z-index:11;pointer-events:none;opacity:0;background:#fff;'
+  overlay.appendChild(flash)
+
+  tl.set(overlay, { opacity: 1 })
+
+  // PHASE 1 (0–60%): Fast zoom IN, motion blur ramps up
+  tl.to(
+    worldEl,
+    {
+      x: w.x,
+      y: w.y,
+      scale: w.scale * 1.25, // overshoot to create impact
+      rotation: w.rotation,
+      duration: dur * 0.6,
+      ease: 'power4.in',
+    },
+    0,
+  )
+  tl.to(blur, { opacity: 1, duration: dur * 0.4, ease: 'power2.in' }, 0)
+
+  // PHASE 2 (60–65%): IMPACT! Sharp white flash + screen shake
+  tl.to(flash, { opacity: 0.6, duration: dur * 0.05, ease: 'expo.in' }, dur * 0.6)
+
+  // Shake the world element briefly
+  tl.to(
+    worldEl,
+    {
+      x: `+=${12}`,
+      y: `+=${8}`,
+      duration: 0.04,
+      repeat: 3,
+      yoyo: true,
+      ease: 'power1.inOut',
+    },
+    dur * 0.6,
+  )
+
+  // PHASE 3 (65–100%): Settle back to exact target scale, clear flash and blur
+  tl.to(
+    worldEl,
+    {
+      x: w.x,
+      y: w.y,
+      scale: w.scale,
+      duration: dur * 0.35,
+      ease: 'back.out(1.4)',
+    },
+    dur * 0.65,
+  )
+  tl.to(flash, { opacity: 0, duration: dur * 0.25, ease: 'power2.out' }, dur * 0.65)
+  tl.to(blur, { opacity: 0, duration: dur * 0.3, ease: 'power2.out' }, dur * 0.65)
+
+  tl.call(() => {
+    overlay.innerHTML = ''
+    gsap.set(overlay, { opacity: 0 })
   })
 
   return tl

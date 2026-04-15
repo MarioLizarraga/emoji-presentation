@@ -317,33 +317,83 @@ registerTransition(
   (worldEl, _from, to, overlay, config) => {
     const tl = gsap.timeline()
     const dur = config.duration
-    const emoji = config.emoji ?? '📷'
+    const emoji = config.emoji ?? '📸'
 
     tl.set(overlay, { opacity: 1 })
 
-    // camera emoji
+    // Dark background while the camera "takes the photo"
+    const darkBg = document.createElement('div')
+    darkBg.style.cssText =
+      'position:absolute;inset:0;background:rgba(0,0,0,0.85);z-index:9;opacity:0;'
+    overlay.appendChild(darkBg)
+
+    // Viewfinder frame (camera framing corners) — unmistakable camera feel
+    const viewfinder = document.createElement('div')
+    viewfinder.style.cssText = 'position:absolute;inset:10%;z-index:11;opacity:0;'
+    viewfinder.innerHTML = `
+      <div style="position:absolute;top:0;left:0;width:60px;height:60px;border-top:5px solid #fff;border-left:5px solid #fff;"></div>
+      <div style="position:absolute;top:0;right:0;width:60px;height:60px;border-top:5px solid #fff;border-right:5px solid #fff;"></div>
+      <div style="position:absolute;bottom:0;left:0;width:60px;height:60px;border-bottom:5px solid #fff;border-left:5px solid #fff;"></div>
+      <div style="position:absolute;bottom:0;right:0;width:60px;height:60px;border-bottom:5px solid #fff;border-right:5px solid #fff;"></div>
+      <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:30px;height:30px;border:2px solid #ff4444;border-radius:50%;"></div>
+      <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:3px;height:40px;background:#ff4444;"></div>
+      <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:40px;height:3px;background:#ff4444;"></div>
+    `
+    overlay.appendChild(viewfinder)
+
+    // "REC" indicator in top-left of viewfinder
+    const rec = document.createElement('div')
+    rec.style.cssText =
+      'position:absolute;top:12%;left:12%;z-index:12;opacity:0;' +
+      'display:flex;align-items:center;gap:8px;' +
+      'font-family:monospace;font-size:1.2rem;color:#ff4444;font-weight:900;letter-spacing:0.1em;'
+    rec.innerHTML =
+      '<span style="width:14px;height:14px;border-radius:50%;background:#ff4444;box-shadow:0 0 10px #ff4444;display:inline-block;"></span>REC'
+    overlay.appendChild(rec)
+
+    // Big camera emoji (centered prominently)
     const cam = document.createElement('div')
     cam.textContent = emoji
     cam.style.cssText =
       'position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);' +
-      'font-size:10rem;z-index:10;opacity:0;'
+      'font-size:16rem;z-index:12;opacity:0;'
     overlay.appendChild(cam)
 
-    tl.to(cam, { opacity: 1, scale: 1.1, duration: dur * 0.15, ease: 'back.out(2)' })
-    tl.to(cam, { scale: 0.95, duration: dur * 0.05, ease: 'power2.in' })
+    // PHASE 1: dark background, viewfinder corners appear (framing the shot)
+    tl.to(darkBg, { opacity: 1, duration: dur * 0.08, ease: 'power2.out' })
+    tl.to(viewfinder, { opacity: 1, duration: dur * 0.1, ease: 'power2.out' }, '<')
+    tl.to(rec, { opacity: 1, duration: dur * 0.08, ease: 'power2.out' }, '<')
 
-    // flash
+    // Blinking REC indicator
+    tl.to(rec, {
+      opacity: 0.3,
+      duration: dur * 0.08,
+      repeat: 2,
+      yoyo: true,
+      ease: 'steps(1)',
+    })
+
+    // PHASE 2: camera emoji appears with bounce (clearly visible as camera)
+    tl.to(cam, {
+      opacity: 1,
+      scale: 1.15,
+      duration: dur * 0.15,
+      ease: 'back.out(2)',
+    })
+    tl.to(cam, { scale: 0.95, duration: dur * 0.06, ease: 'power2.in' })
+
+    // PHASE 3: FLASH! (the shutter)
     const flash = document.createElement('div')
-    flash.style.cssText = 'position:absolute;inset:0;background:#fff;opacity:0;z-index:14;'
+    flash.style.cssText = 'position:absolute;inset:0;background:#fff;opacity:0;z-index:20;'
     overlay.appendChild(flash)
 
     tl.to(flash, { opacity: 1, duration: dur * 0.04, ease: 'expo.in' })
-    tl.set(cam, { display: 'none' })
+    tl.set([cam, viewfinder, rec, darkBg], { display: 'none' })
 
-    // snap camera
+    // Snap camera during flash
     tl.call(() => snap(worldEl, to))
 
-    // polaroid develop effect
+    // PHASE 4: Polaroid develops
     const polaroid = document.createElement('div')
     polaroid.style.cssText =
       'position:absolute;inset:5%;background:#fff;border-radius:4px;z-index:13;' +

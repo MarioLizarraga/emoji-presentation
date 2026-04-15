@@ -1,7 +1,6 @@
 import { useState, useCallback, useMemo, useRef, useEffect } from 'react'
 import { SlideEngine } from '../engine/SlideEngine'
 import type { SlideEngineHandle } from '../engine/SlideEngine'
-import { QRDisplay } from '../components/QRCode'
 import { Scoreboard } from '../components/Scoreboard'
 import { usePresenter } from '../realtime/usePresenter'
 import { allSlides } from '../slides/slideData'
@@ -28,7 +27,6 @@ export function PresenterView() {
   const engineRef = useRef<SlideEngineHandle>(null)
   const [gameActive, setGameActive] = useState(false)
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0)
-  const [showQR, setShowQR] = useState(false)
 
   // React to remote slide commands from the phone remote
   useEffect(() => {
@@ -62,9 +60,6 @@ export function PresenterView() {
       if (isGameSlide && !gameActive) {
         setGameActive(true)
       }
-
-      // Show QR overlay on lobby slide
-      setShowQR(slide.content.type === 'qr-lobby')
 
       // On scoreboard-final, broadcast end game
       if (slide.content.type === 'scoreboard-final') {
@@ -108,58 +103,46 @@ export function PresenterView() {
         onSlideChange={handleSlideChange}
       />
 
-      {/* QR overlay on lobby slide */}
-      {(showQR || isLobbySlide) && (
+      {/* Player count badge on lobby slide (the QR is rendered by the slide itself) */}
+      {isLobbySlide && players.length > 0 && (
         <div
           style={{
             position: 'absolute',
-            inset: 0,
+            bottom: '2rem',
+            left: '50%',
+            transform: 'translateX(-50%)',
             zIndex: 30,
-            background: 'var(--bg)',
             display: 'flex',
-            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '0.75rem',
+            padding: '0.75rem 1.5rem',
+            background: 'rgba(10,10,15,0.85)',
+            backdropFilter: 'blur(8px)',
+            borderRadius: '12px',
+            fontSize: '1rem',
+            fontFamily: 'var(--font)',
+            color: 'var(--text)',
+            border: '1px solid rgba(255,255,255,0.1)',
           }}
         >
-          <QRDisplay roomCode={roomCode} />
-          {/* Player count */}
-          {players.length > 0 && (
-            <div
-              style={{
-                position: 'absolute',
-                bottom: '2rem',
-                left: '50%',
-                transform: 'translateX(-50%)',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.75rem',
-                padding: '0.75rem 1.5rem',
-                background: 'var(--bg-surface)',
-                borderRadius: '12px',
-                fontSize: '1rem',
-                fontFamily: 'var(--font)',
-                color: 'var(--text)',
-              }}
-            >
-              <span style={{ color: 'var(--neon-green)', fontWeight: 700 }}>
-                {players.length}
-              </span>
-              <span style={{ color: 'var(--text-dim)' }}>
-                jugador{players.length !== 1 ? 'es' : ''} conectado{players.length !== 1 ? 's' : ''}
-              </span>
-            </div>
-          )}
+          <span style={{ color: 'var(--neon-green)', fontWeight: 700, fontSize: '1.2rem' }}>
+            {players.length}
+          </span>
+          <span style={{ color: 'var(--text-dim)' }}>
+            jugador{players.length !== 1 ? 'es' : ''} conectado{players.length !== 1 ? 's' : ''}
+          </span>
         </div>
       )}
 
-      {/* Scoreboard overlay during game mode (not on lobby) */}
-      {gameActive && !showQR && !isLobbySlide && (
+      {/* Small, subtle scoreboard during game mode (bottom-left, not on lobby) */}
+      {gameActive && !isLobbySlide && (
         <div
           style={{
             position: 'absolute',
-            top: '1rem',
-            left: '50%',
-            transform: 'translateX(-50%)',
+            bottom: '1rem',
+            left: '1rem',
             zIndex: 25,
+            opacity: 0.92,
           }}
         >
           <Scoreboard
@@ -172,7 +155,7 @@ export function PresenterView() {
       )}
 
       {/* Buzz notifications during game mode */}
-      {gameActive && buzzes.length > 0 && !showQR && (
+      {gameActive && buzzes.length > 0 && !isLobbySlide && (
         <div
           style={{
             position: 'absolute',
@@ -276,7 +259,7 @@ export function PresenterView() {
       )}
 
       {/* Room code + remote link indicator (top-right corner) */}
-      {connected && !showQR && (
+      {connected && !isLobbySlide && (
         <div
           style={{
             position: 'absolute',

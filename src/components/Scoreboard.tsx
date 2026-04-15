@@ -70,12 +70,13 @@ export function Scoreboard({ redScore, blueScore, redName = 'Equipo Fuego', blue
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        gap: '3rem',
-        padding: '1rem 2rem',
-        background: 'rgba(10, 10, 15, 0.85)',
-        backdropFilter: 'blur(10px)',
-        borderRadius: '1rem',
+        gap: '1.25rem',
+        padding: '0.5rem 1rem',
+        background: 'rgba(10, 10, 15, 0.6)',
+        backdropFilter: 'blur(8px)',
+        borderRadius: '999px',
         fontFamily: 'var(--font)',
+        border: '1px solid rgba(255,255,255,0.08)',
         ...style,
       }}
     >
@@ -84,16 +85,29 @@ export function Scoreboard({ redScore, blueScore, redName = 'Equipo Fuego', blue
         style={{
           display: 'flex',
           alignItems: 'center',
-          gap: '0.75rem',
+          gap: '0.4rem',
         }}
       >
-        <span style={{ fontSize: '1.5rem' }}>&#x1F534;</span>
         <span
           style={{
-            fontWeight: 700,
-            fontSize: 'clamp(1rem, 2vw, 1.3rem)',
-            color: '#ff4444',
-            textShadow: redLeading ? '0 0 12px #ff444488, 0 0 24px #ff444444' : 'none',
+            width: 10,
+            height: 10,
+            borderRadius: '50%',
+            background: '#ff4444',
+            boxShadow: redLeading ? '0 0 8px #ff4444' : 'none',
+            display: 'inline-block',
+          }}
+        />
+        <span
+          style={{
+            fontWeight: 600,
+            fontSize: '0.85rem',
+            color: '#ff6666',
+            opacity: redLeading ? 1 : 0.75,
+            whiteSpace: 'nowrap',
+            maxWidth: '120px',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
           }}
         >
           {redName}
@@ -102,11 +116,13 @@ export function Scoreboard({ redScore, blueScore, redName = 'Equipo Fuego', blue
           ref={redRef}
           style={{
             fontWeight: 900,
-            fontSize: 'clamp(1.5rem, 3vw, 2.5rem)',
+            fontSize: '1.1rem',
             color: '#ff4444',
             fontVariantNumeric: 'tabular-nums',
             display: 'inline-block',
-            textShadow: redLeading ? '0 0 16px #ff444488, 0 0 32px #ff444444' : 'none',
+            minWidth: '2ch',
+            textAlign: 'right',
+            textShadow: redLeading ? '0 0 10px #ff444488' : 'none',
           }}
         >
           {redScore}
@@ -116,12 +132,12 @@ export function Scoreboard({ redScore, blueScore, redName = 'Equipo Fuego', blue
       {/* Divider */}
       <span
         style={{
-          fontSize: 'clamp(1.5rem, 3vw, 2rem)',
+          fontSize: '0.9rem',
           color: 'var(--text-muted)',
           fontWeight: 300,
         }}
       >
-        :
+        &#x2022;
       </span>
 
       {/* Team Blue */}
@@ -129,33 +145,48 @@ export function Scoreboard({ redScore, blueScore, redName = 'Equipo Fuego', blue
         style={{
           display: 'flex',
           alignItems: 'center',
-          gap: '0.75rem',
+          gap: '0.4rem',
         }}
       >
         <span
           ref={blueRef}
           style={{
             fontWeight: 900,
-            fontSize: 'clamp(1.5rem, 3vw, 2.5rem)',
+            fontSize: '1.1rem',
             color: '#4488ff',
             fontVariantNumeric: 'tabular-nums',
             display: 'inline-block',
-            textShadow: blueLeading ? '0 0 16px #4488ff88, 0 0 32px #4488ff44' : 'none',
+            minWidth: '2ch',
+            textAlign: 'left',
+            textShadow: blueLeading ? '0 0 10px #4488ff88' : 'none',
           }}
         >
           {blueScore}
         </span>
         <span
           style={{
-            fontWeight: 700,
-            fontSize: 'clamp(1rem, 2vw, 1.3rem)',
-            color: '#4488ff',
-            textShadow: blueLeading ? '0 0 12px #4488ff88, 0 0 24px #4488ff44' : 'none',
+            fontWeight: 600,
+            fontSize: '0.85rem',
+            color: '#66aaff',
+            opacity: blueLeading ? 1 : 0.75,
+            whiteSpace: 'nowrap',
+            maxWidth: '120px',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
           }}
         >
           {blueName}
         </span>
-        <span style={{ fontSize: '1.5rem' }}>&#x1F535;</span>
+        <span
+          style={{
+            width: 10,
+            height: 10,
+            borderRadius: '50%',
+            background: '#4488ff',
+            boxShadow: blueLeading ? '0 0 8px #4488ff' : 'none',
+            display: 'inline-block',
+          }}
+        />
       </div>
     </div>
   )
