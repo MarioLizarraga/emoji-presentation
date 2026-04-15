@@ -94,6 +94,7 @@ function createEmojiSplit(
 registerTransition(
   'emoji-split',
   (worldEl, _from, to, overlay, config) => {
+    console.log('[transition] emoji-split start')
     return createEmojiSplit(worldEl, to, overlay, config, '')
   },
 )
@@ -103,6 +104,7 @@ registerTransition(
 registerTransition(
   'split-blood',
   (worldEl, _from, to, overlay, config) => {
+    console.log('[transition] split-blood start')
     // blood drip HTML
     let drips = ''
     for (let i = 0; i < 12; i++) {
@@ -145,6 +147,7 @@ registerTransition(
 registerTransition(
   'split-electric',
   (worldEl, _from, to, overlay, config) => {
+    console.log('[transition] split-electric start')
     const arcSvg =
       '<svg style="position:absolute;top:0;left:calc(50% - 30px);width:60px;height:100%;" viewBox="0 0 60 100" preserveAspectRatio="none">' +
       '<path d="M30 0 L25 10 L40 20 L20 30 L35 40 L22 50 L38 60 L25 70 L32 80 L28 90 L30 100" ' +
@@ -161,6 +164,7 @@ registerTransition(
 registerTransition(
   'split-lava',
   (worldEl, _from, to, overlay, config) => {
+    console.log('[transition] split-lava start')
     let lavaHtml =
       '<div style="position:absolute;top:0;left:calc(50% - 4px);width:8px;height:100%;' +
       'background:linear-gradient(180deg,#ff4500,#ff8c00,#ff4500);z-index:12;' +
@@ -187,6 +191,7 @@ registerTransition(
 registerTransition(
   'split-confetti',
   (worldEl, _from, to, overlay, config) => {
+    console.log('[transition] split-confetti start')
     const tl = createEmojiSplit(worldEl, to, overlay, { ...config, emoji: config.emoji ?? '🎉' }, '', true)
     const dur = config.duration
 
@@ -239,6 +244,7 @@ registerTransition(
 registerTransition(
   'emoji-portal',
   (worldEl, _from, to, overlay, config) => {
+    console.log('[transition] emoji-portal start')
     const tl = gsap.timeline()
     const dur = config.duration
     const emoji = config.emoji ?? '🌀'
@@ -315,6 +321,7 @@ registerTransition(
 registerTransition(
   'emoji-pop',
   (worldEl, _from, to, overlay, config) => {
+    console.log('[transition] emoji-pop start')
     const tl = gsap.timeline()
     const dur = config.duration
     const emoji = config.emoji ?? '🎈'

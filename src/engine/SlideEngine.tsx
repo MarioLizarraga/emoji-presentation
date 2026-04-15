@@ -54,13 +54,18 @@ export const SlideEngine = forwardRef<SlideEngineHandle, SlideEngineProps>(
 
       isAnimating.current = true
 
+      const transitionId = toSlide.transition.id
+      console.log(
+        `[SlideEngine] goToSlide(${currentIndex} -> ${index}) transition="${transitionId}" dur=${toSlide.transition.duration}`,
+      )
+
       // Clean overlay at the START of every transition to prevent leftover artifacts
       if (overlayRef.current) {
         overlayRef.current.innerHTML = ''
         gsap.set(overlayRef.current, { opacity: 0 })
       }
 
-      const registeredFn = getTransition(toSlide.transition.id)
+      const registeredFn = getTransition(transitionId)
       let tl: gsap.core.Timeline
 
       if (registeredFn) {
@@ -79,10 +84,17 @@ export const SlideEngine = forwardRef<SlideEngineHandle, SlideEngineProps>(
         )
       }
 
+      console.log(
+        `[SlideEngine] timeline created for "${transitionId}" totalDuration=${tl.totalDuration().toFixed(3)}s`,
+      )
+
       // Safety timeout: if a transition fails to complete, force-reset after duration + 2s buffer
       const maxWait = (toSlide.transition.duration + 2) * 1000
       const safetyTimer = window.setTimeout(() => {
         if (isAnimating.current) {
+          console.warn(
+            `[SlideEngine] SAFETY TIMEOUT fired for transition="${transitionId}" (${currentIndex}->${index}) after ${maxWait}ms — timeline progress=${tl.progress().toFixed(3)}`,
+          )
           tl.kill()
           if (worldRef.current) {
             gsap.set(worldRef.current, posToCamera(toSlide.position))
@@ -98,6 +110,7 @@ export const SlideEngine = forwardRef<SlideEngineHandle, SlideEngineProps>(
       }, maxWait)
 
       tl.eventCallback('onComplete', () => {
+        console.log(`[SlideEngine] onComplete for "${transitionId}" (${currentIndex}->${index})`)
         window.clearTimeout(safetyTimer)
         isAnimating.current = false
         setCurrentIndex(index)

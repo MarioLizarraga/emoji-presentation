@@ -20,6 +20,7 @@ function rnd(min: number, max: number) {
 registerTransition(
   'emoji-bomb',
   (worldEl, _from, to, overlay, config) => {
+    console.log('[transition] emoji-bomb start')
     const tl = gsap.timeline()
     const dur = config.duration
     // The config emoji is the FALLING object (bomb/dynamite). Explosion is always 💥.
@@ -98,16 +99,21 @@ registerTransition(
     tl.call(() => snap(worldEl, to))
 
     // PHASE 4: Explosion emoji grows & fades, debris flies outward
+    // Mark the explosion start so fragments can launch simultaneously
+    const explosionLabel = 'explosion'
+    tl.addLabel(explosionLabel)
+
     tl.to(bombWrap, {
       scale: 8,
       opacity: 0,
       duration: dur * 0.4,
       ease: 'power2.out',
-    })
+    }, explosionLabel)
 
     // Debris fragments (26 pieces in red/orange/yellow - fire colors)
+    // All fragments launch simultaneously from the explosion label to avoid
+    // timeline bloat from stacking '-=' offsets
     const FRAG_COUNT = 26
-    const frags: HTMLDivElement[] = []
     const fragColors = ['#ff4400', '#ffa500', '#fff59d', '#333', '#ff0000']
     for (let i = 0; i < FRAG_COUNT; i++) {
       const f = document.createElement('div')
@@ -118,10 +124,7 @@ registerTransition(
         `background:${fragColors[Math.floor(rnd(0, fragColors.length))]};` +
         `box-shadow:0 0 ${rnd(4, 10)}px currentColor;`
       overlay.appendChild(f)
-      frags.push(f)
-    }
 
-    frags.forEach((f) => {
       tl.to(
         f,
         {
@@ -132,12 +135,12 @@ registerTransition(
           duration: dur * 0.45,
           ease: 'expo.out',
         },
-        `-=${dur * 0.4}`,
+        explosionLabel,
       )
-    })
+    }
 
-    // Flash fades
-    tl.to(flash, { opacity: 0, duration: dur * 0.25, ease: 'power2.out' }, `-=${dur * 0.3}`)
+    // Flash fades alongside the explosion
+    tl.to(flash, { opacity: 0, duration: dur * 0.25, ease: 'power2.out' }, explosionLabel)
 
     // cleanup
     tl.call(() => {
@@ -154,6 +157,7 @@ registerTransition(
 registerTransition(
   'emoji-slash',
   (worldEl, _from, to, overlay, config) => {
+    console.log('[transition] emoji-slash start')
     const tl = gsap.timeline()
     const dur = config.duration
     const emoji = config.emoji ?? '⚔️'
@@ -229,6 +233,7 @@ registerTransition(
 registerTransition(
   'emoji-magic',
   (worldEl, _from, to, overlay, config) => {
+    console.log('[transition] emoji-magic start')
     const tl = gsap.timeline()
     const dur = config.duration
     const emoji = config.emoji ?? '🪄'
@@ -315,6 +320,7 @@ registerTransition(
 registerTransition(
   'emoji-snapshot',
   (worldEl, _from, to, overlay, config) => {
+    console.log('[transition] emoji-snapshot start')
     const tl = gsap.timeline()
     const dur = config.duration
     const emoji = config.emoji ?? '📸'
@@ -435,6 +441,7 @@ registerTransition(
 registerTransition(
   'emoji-unlock',
   (worldEl, _from, to, overlay, config) => {
+    console.log('[transition] emoji-unlock start')
     const tl = gsap.timeline()
     const dur = config.duration
 
@@ -503,6 +510,7 @@ registerTransition(
 registerTransition(
   'emoji-freeze',
   (worldEl, _from, to, overlay, config) => {
+    console.log('[transition] emoji-freeze start')
     const tl = gsap.timeline()
     const dur = config.duration
     const emoji = config.emoji ?? '🥶'

@@ -11,6 +11,7 @@ function snapCamera(worldEl: HTMLElement, to: SlidePosition) {
 /* ── fade ─────────────────────────────────────────────────── */
 
 registerTransition('fade', (worldEl, _from, to, overlay, config) => {
+  console.log('[transition] fade start')
   const tl = gsap.timeline()
   const dur = config.duration
 
@@ -35,6 +36,7 @@ registerTransition('fade', (worldEl, _from, to, overlay, config) => {
 /* ── fade-black ──────────────────────────────────────────── */
 
 registerTransition('fade-black', (worldEl, _from, to, overlay, config) => {
+  console.log('[transition] fade-black start')
   const tl = gsap.timeline()
   const dur = config.duration
 
@@ -60,6 +62,7 @@ registerTransition('fade-black', (worldEl, _from, to, overlay, config) => {
 /* ── spotlight ───────────────────────────────────────────── */
 
 registerTransition('spotlight', (worldEl, _from, to, overlay, config) => {
+  console.log('[transition] spotlight start')
   const tl = gsap.timeline()
   const dur = config.duration
 
@@ -100,6 +103,7 @@ registerTransition('spotlight', (worldEl, _from, to, overlay, config) => {
 /* ── tv-flip ─────────────────────────────────────────────── */
 
 registerTransition('tv-flip', (worldEl, _from, to, overlay, config) => {
+  console.log('[transition] tv-flip start')
   const tl = gsap.timeline()
   const dur = config.duration
 
@@ -168,6 +172,7 @@ registerTransition('tv-flip', (worldEl, _from, to, overlay, config) => {
 /* ── iris ────────────────────────────────────────────────── */
 
 registerTransition('iris', (worldEl, _from, to, overlay, config) => {
+  console.log('[transition] iris start')
   const tl = gsap.timeline()
   const dur = config.duration
 
@@ -207,6 +212,7 @@ registerTransition('iris', (worldEl, _from, to, overlay, config) => {
 /* ── letterbox ───────────────────────────────────────────── */
 
 registerTransition('letterbox', (worldEl, _from, to, overlay, config) => {
+  console.log('[transition] letterbox start')
   const tl = gsap.timeline()
   const dur = config.duration
 

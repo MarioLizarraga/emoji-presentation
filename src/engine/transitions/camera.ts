@@ -37,6 +37,7 @@ function toWorld(pos: SlidePosition) {
 /* ── zoom-in ─────────────────────────────────────────────── */
 
 registerTransition('zoom-in', (worldEl, _from, to, _overlay, config) => {
+  console.log('[transition] zoom-in start')
   const tl = gsap.timeline()
   const w = toWorld(to)
   tl.to(worldEl, { ...w, duration: config.duration, ease: 'expo.inOut' })
@@ -46,6 +47,7 @@ registerTransition('zoom-in', (worldEl, _from, to, _overlay, config) => {
 /* ── zoom-out ────────────────────────────────────────────── */
 
 registerTransition('zoom-out', (worldEl, _from, to, _overlay, config) => {
+  console.log('[transition] zoom-out start')
   const tl = gsap.timeline()
   const w = toWorld(to)
   // Zoom out first then settle into target
@@ -58,6 +60,7 @@ registerTransition('zoom-out', (worldEl, _from, to, _overlay, config) => {
 /* ── mega-zoom ───────────────────────────────────────────── */
 
 registerTransition('mega-zoom', (worldEl, from, to, _overlay, config) => {
+  console.log('[transition] mega-zoom start')
   const tl = gsap.timeline()
   const wFrom = toWorld(from)
   const wTo = toWorld(to)
@@ -83,12 +86,14 @@ registerTransition('mega-zoom', (worldEl, from, to, _overlay, config) => {
 /* ── slide ───────────────────────────────────────────────── */
 
 registerTransition('slide', (worldEl, _from, to, _overlay, config) => {
+  console.log('[transition] slide start')
   return createCameraMove(worldEl, to, config.duration, 'power3.inOut')
 })
 
 /* ── whip-pan ────────────────────────────────────────────── */
 
 registerTransition('whip-pan', (worldEl, _from, to, overlay, config) => {
+  console.log('[transition] whip-pan start')
   const tl = gsap.timeline()
   const w = toWorld(to)
   const dur = config.duration
@@ -117,6 +122,7 @@ registerTransition('whip-pan', (worldEl, _from, to, overlay, config) => {
 /* ── orbit ───────────────────────────────────────────────── */
 
 registerTransition('orbit', (worldEl, from, to, _overlay, config) => {
+  console.log('[transition] orbit start')
   const tl = gsap.timeline()
   const wFrom = toWorld(from)
   const wTo = toWorld(to)
@@ -149,6 +155,7 @@ registerTransition('orbit', (worldEl, from, to, _overlay, config) => {
 /* ── dolly-zoom ──────────────────────────────────────────── */
 
 registerTransition('dolly-zoom', (worldEl, _from, to, overlay, config) => {
+  console.log('[transition] dolly-zoom start')
   const tl = gsap.timeline()
   const w = toWorld(to)
   const dur = config.duration
@@ -166,6 +173,12 @@ registerTransition('dolly-zoom', (worldEl, _from, to, overlay, config) => {
   flash.style.cssText =
     'position:absolute;inset:0;z-index:11;pointer-events:none;opacity:0;background:#fff;'
   overlay.appendChild(flash)
+
+  // Shake overlay element (avoids conflicting tweens on worldEl x/y)
+  const shakeEl = document.createElement('div')
+  shakeEl.style.cssText =
+    'position:absolute;inset:0;z-index:12;pointer-events:none;'
+  overlay.appendChild(shakeEl)
 
   tl.set(overlay, { opacity: 1 })
 
@@ -185,14 +198,13 @@ registerTransition('dolly-zoom', (worldEl, _from, to, overlay, config) => {
   tl.to(blur, { opacity: 1, duration: dur * 0.4, ease: 'power2.in' }, 0)
 
   // PHASE 2 (60–65%): IMPACT! Sharp white flash + screen shake
+  // Shake is applied to the overlay container to avoid overwriting worldEl's x/y tweens
   tl.to(flash, { opacity: 0.6, duration: dur * 0.05, ease: 'expo.in' }, dur * 0.6)
-
-  // Shake the world element briefly
   tl.to(
-    worldEl,
+    shakeEl,
     {
-      x: `+=${12}`,
-      y: `+=${8}`,
+      x: 12,
+      y: 8,
       duration: 0.04,
       repeat: 3,
       yoyo: true,
@@ -227,6 +239,7 @@ registerTransition('dolly-zoom', (worldEl, _from, to, overlay, config) => {
 /* ── spiral-zoom ─────────────────────────────────────────── */
 
 registerTransition('spiral-zoom', (worldEl, _from, to, _overlay, config) => {
+  console.log('[transition] spiral-zoom start')
   const tl = gsap.timeline()
   const w = toWorld(to)
   const dur = config.duration
@@ -249,6 +262,7 @@ registerTransition('spiral-zoom', (worldEl, _from, to, _overlay, config) => {
 /* ── boomerang ───────────────────────────────────────────── */
 
 registerTransition('boomerang', (worldEl, from, to, _overlay, config) => {
+  console.log('[transition] boomerang start')
   const tl = gsap.timeline()
   const wFrom = toWorld(from)
   const wTo = toWorld(to)

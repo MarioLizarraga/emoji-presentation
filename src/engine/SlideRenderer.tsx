@@ -200,8 +200,6 @@ function GridSlide({
   else if (count <= 81) cols = 9
   else cols = 10
 
-  const rows = Math.ceil(count / cols)
-
   // Scale emoji size based on how much space each cell has
   // With 60 items in 10 cols × 6 rows on a 1920x1080 slide (minus title + padding ~200px)
   // Each cell gets ~190px × ~150px

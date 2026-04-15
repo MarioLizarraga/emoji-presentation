@@ -15,6 +15,7 @@ function rnd(min: number, max: number) {
 /* ── glitch ──────────────────────────────────────────────── */
 
 registerTransition('glitch', (worldEl, _from, to, overlay, config) => {
+  console.log('[transition] glitch start')
   const tl = gsap.timeline()
   const dur = config.duration
 
@@ -106,6 +107,7 @@ registerTransition('glitch', (worldEl, _from, to, overlay, config) => {
 /* ── pixel-dissolve ──────────────────────────────────────── */
 
 registerTransition('pixel-dissolve', (worldEl, _from, to, overlay, config) => {
+  console.log('[transition] pixel-dissolve start')
   const tl = gsap.timeline()
   const dur = config.duration
 
@@ -155,6 +157,7 @@ registerTransition('pixel-dissolve', (worldEl, _from, to, overlay, config) => {
 /* ── matrix ──────────────────────────────────────────────── */
 
 registerTransition('matrix', (worldEl, _from, to, overlay, config) => {
+  console.log('[transition] matrix start')
   const tl = gsap.timeline()
   const dur = config.duration
 
@@ -228,6 +231,7 @@ registerTransition('matrix', (worldEl, _from, to, overlay, config) => {
 /* ── loading-bar ─────────────────────────────────────────── */
 
 registerTransition('loading-bar', (worldEl, _from, to, overlay, config) => {
+  console.log('[transition] loading-bar start')
   const tl = gsap.timeline()
   const dur = config.duration
 
@@ -310,6 +314,7 @@ registerTransition('loading-bar', (worldEl, _from, to, overlay, config) => {
 /* ── scan-line ───────────────────────────────────────────── */
 
 registerTransition('scan-line', (worldEl, _from, to, overlay, config) => {
+  console.log('[transition] scan-line start')
   const tl = gsap.timeline()
   const dur = config.duration
 
@@ -351,6 +356,7 @@ registerTransition('scan-line', (worldEl, _from, to, overlay, config) => {
 /* ── terminal ────────────────────────────────────────────── */
 
 registerTransition('terminal', (worldEl, _from, to, overlay, config) => {
+  console.log('[transition] terminal start')
   const tl = gsap.timeline()
   const dur = config.duration
 
@@ -395,10 +401,11 @@ registerTransition('terminal', (worldEl, _from, to, overlay, config) => {
     tl.to(el, { opacity: 1, duration: 0.01 }, i * lineDelay)
   })
 
-  // Cursor blink effect
+  // Cursor blink effect — scale duration with transition to avoid exceeding total dur
+  const blinkDur = Math.min(dur * 0.05, 0.15)
   tl.to(cursor, {
     opacity: 0,
-    duration: 0.3,
+    duration: blinkDur,
     repeat: 3,
     yoyo: true,
     ease: 'steps(1)',

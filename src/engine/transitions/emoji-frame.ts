@@ -17,6 +17,7 @@ function rnd(min: number, max: number) {
 registerTransition(
   'emoji-tv',
   (worldEl, _from, to, overlay, config) => {
+    console.log('[transition] emoji-tv start')
     const tl = gsap.timeline()
     const dur = config.duration
 
@@ -121,6 +122,7 @@ registerTransition(
 registerTransition(
   'emoji-door',
   (worldEl, _from, to, overlay, config) => {
+    console.log('[transition] emoji-door start')
     const tl = gsap.timeline()
     const dur = config.duration
     const emoji = config.emoji ?? '🚪'
@@ -202,6 +204,7 @@ registerTransition(
 registerTransition(
   'emoji-clapper',
   (worldEl, _from, to, overlay, config) => {
+    console.log('[transition] emoji-clapper start')
     const tl = gsap.timeline()
     const dur = config.duration
     const emoji = config.emoji ?? '🎬'
@@ -282,6 +285,7 @@ registerTransition(
 registerTransition(
   'emoji-telescope',
   (worldEl, _from, to, overlay, config) => {
+    console.log('[transition] emoji-telescope start')
     const tl = gsap.timeline()
     const dur = config.duration
     const emoji = config.emoji ?? '🔭'
