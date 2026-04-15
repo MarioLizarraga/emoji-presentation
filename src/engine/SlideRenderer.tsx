@@ -89,15 +89,14 @@ function ComparisonSlide({ title, left, right }: { title: string; left: { label:
       padding: '2rem 3rem',
       boxSizing: 'border-box',
     }}>
-      <h2 className="slide-subtitle neon-blue" style={{ flexShrink: 0 }}>{title}</h2>
+      <h2 className="slide-subtitle neon-blue" style={{ flexShrink: 0, textAlign: 'center' }}>{title}</h2>
       <div style={{
         display: 'flex',
         gap: '3rem',
         alignItems: 'center',
         justifyContent: 'center',
         width: '100%',
-        flex: 1,
-        minHeight: 0,
+        maxHeight: 'calc(100% - 80px)',
       }}>
         <ComparisonCard item={left} color="var(--neon-pink)" />
         <div style={{
@@ -219,18 +218,21 @@ function GridSlide({
       justifyContent: 'center',
       height: '100%',
       width: '100%',
-      gap: '1.5rem',
+      gap: '1rem',
       padding: '2rem 3rem',
       boxSizing: 'border-box',
     }}>
-      <h2 className="slide-subtitle neon-blue" style={{ flexShrink: 0 }}>{title}</h2>
+      <h2 className="slide-subtitle neon-blue" style={{ flexShrink: 0, textAlign: 'center' }}>
+        {title}
+      </h2>
       {subtitle && (
         <p style={{
           fontSize: '1rem',
           color: 'var(--text-muted)',
           fontStyle: 'italic',
-          marginTop: '-0.5rem',
           flexShrink: 0,
+          margin: 0,
+          textAlign: 'center',
         }}>
           {subtitle}
         </p>
@@ -238,12 +240,9 @@ function GridSlide({
       <div style={{
         display: 'grid',
         gridTemplateColumns: `repeat(${cols}, 1fr)`,
-        gridTemplateRows: `repeat(${rows}, 1fr)`,
         gap,
         width: '100%',
         maxWidth: '90%',
-        flex: 1,
-        minHeight: 0,
         placeItems: 'center',
       }}>
         {items.map((item, i) => (
@@ -301,23 +300,21 @@ function TimelineSlide({ title, events }: { title: string; events: { year: strin
       padding: '2rem 3rem',
       boxSizing: 'border-box',
     }}>
-      <h2 className="slide-subtitle neon-blue" style={{ flexShrink: 0 }}>{title}</h2>
+      <h2 className="slide-subtitle neon-blue" style={{ flexShrink: 0, textAlign: 'center' }}>
+        {title}
+      </h2>
       <div style={{
         display: 'flex',
         flexDirection: 'column',
         gap,
         width: '100%',
         maxWidth: '85%',
-        flex: 1,
-        minHeight: 0,
-        justifyContent: 'center',
       }}>
         {events.map((evt, i) => (
           <div key={i} style={{
             display: 'flex',
             alignItems: 'center',
             gap: '1.5rem',
-            minHeight: 0,
           }}>
             {evt.emoji && (
               <span style={{ fontSize: emojiSize, lineHeight: 1, flexShrink: 0 }}>{evt.emoji}</span>
