@@ -6,6 +6,32 @@ interface BuzzerViewProps {
   roomCode: string
 }
 
+/**
+ * Filters a string to keep only emoji characters.
+ * Allows: Extended_Pictographic (core emojis), Emoji_Modifier (skin tones),
+ * Regional_Indicator (for flags), ZWJ (for compound emojis like 👨‍👩‍👦),
+ * and Variation_Selector (U+FE0F).
+ */
+function keepOnlyEmojis(input: string): string {
+  const matches = input.match(
+    /(\p{Extended_Pictographic}|\p{Emoji_Modifier}|\p{Regional_Indicator}|\u200d|\uFE0F)/gu,
+  )
+  return matches ? matches.join('') : ''
+}
+
+/** Counts actual emoji "grapheme clusters" — multi-codepoint emojis count as 1 */
+function countEmojis(input: string): number {
+  // Use Intl.Segmenter if available (modern browsers)
+  if (typeof Intl !== 'undefined' && 'Segmenter' in Intl) {
+    const seg = new (Intl as { Segmenter: new (locale: string, opts: { granularity: string }) => { segment: (s: string) => Iterable<unknown> } }).Segmenter('es', { granularity: 'grapheme' })
+    let count = 0
+    for (const _ of seg.segment(input)) count++
+    return count
+  }
+  // Fallback: count code points
+  return Array.from(input).length
+}
+
 export function BuzzerView({ roomCode }: BuzzerViewProps) {
   const { connected, gameState, hasBuzzed, buzz, join } = usePlayer(roomCode)
 
@@ -16,10 +42,26 @@ export function BuzzerView({ roomCode }: BuzzerViewProps) {
   const redTeamName = gameState.teamNames.red
   const blueTeamName = gameState.teamNames.blue
 
+  const emojiCount = countEmojis(playerName)
+  const canJoin = emojiCount > 0 && !!team
+
   const handleJoin = () => {
-    if (!playerName.trim() || !team) return
-    join(playerName.trim(), team)
+    if (!canJoin || !team) return
+    join(playerName, team)
     setJoined(true)
+  }
+
+  const handleNameChange = (raw: string) => {
+    // Strip anything that isn't an emoji. Cap at 5 emojis.
+    const filtered = keepOnlyEmojis(raw)
+    // Limit by grapheme clusters (so "👨‍👩‍👦" is 1 emoji, not 5 codepoints)
+    const graphemes = Array.from(
+      typeof Intl !== 'undefined' && 'Segmenter' in Intl
+        ? new (Intl as { Segmenter: new (locale: string, opts: { granularity: string }) => { segment: (s: string) => Iterable<{ segment: string }> } }).Segmenter('es', { granularity: 'grapheme' }).segment(filtered)
+        : [...filtered].map((c) => ({ segment: c })),
+    )
+    const limited = graphemes.slice(0, 5).map((g) => g.segment).join('')
+    setPlayerName(limited)
   }
 
   // Game ended state
@@ -183,15 +225,34 @@ export function BuzzerView({ roomCode }: BuzzerViewProps) {
           Sala: <strong style={{ color: 'var(--neon-purple)', letterSpacing: '0.1em' }}>{roomCode}</strong>
         </p>
 
-        {/* Name input */}
-        <input
-          type="text"
-          placeholder="Tu nombre"
-          value={playerName}
-          onChange={(e) => setPlayerName(e.target.value)}
-          maxLength={20}
-          style={styles.nameInput}
-        />
+        {/* Emoji-only name input */}
+        <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
+          <input
+            type="text"
+            placeholder="😀 🦄 🔥"
+            value={playerName}
+            onChange={(e) => handleNameChange(e.target.value)}
+            inputMode="text"
+            autoCapitalize="none"
+            autoCorrect="off"
+            spellCheck={false}
+            style={{
+              ...styles.nameInput,
+              letterSpacing: '0.2em',
+              fontSize: '1.8rem',
+              minHeight: '3.5rem',
+            }}
+          />
+          <p style={{
+            fontSize: '0.75rem',
+            color: 'var(--text-muted)',
+            textAlign: 'center',
+            margin: 0,
+            fontStyle: 'italic',
+          }}>
+            Solo emojis 🎭 — máximo 5. Abre el teclado de emojis de tu celular.
+          </p>
+        </div>
 
         {/* Team selection */}
         <div style={{ display: 'flex', gap: '0.75rem', width: '100%' }}>
@@ -224,11 +285,11 @@ export function BuzzerView({ roomCode }: BuzzerViewProps) {
         {/* Join button */}
         <button
           onClick={handleJoin}
-          disabled={!playerName.trim() || !team}
+          disabled={!canJoin}
           style={{
             ...styles.joinButton,
-            opacity: !playerName.trim() || !team ? 0.4 : 1,
-            cursor: !playerName.trim() || !team ? 'not-allowed' : 'pointer',
+            opacity: !canJoin ? 0.4 : 1,
+            cursor: !canJoin ? 'not-allowed' : 'pointer',
           }}
         >
           UNIRSE

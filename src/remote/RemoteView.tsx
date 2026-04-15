@@ -117,10 +117,16 @@ function RemoteController({ roomCode }: { roomCode: string }) {
 
   // Team names with localStorage persistence
   const [redTeamName, setRedTeamName] = useState(() => {
-    return localStorage.getItem('emoji-remote-redTeam') || '🔥'
+    const stored = localStorage.getItem('emoji-remote-redTeam')
+    // Migrate legacy values to emoji defaults
+    if (!stored || stored === 'Equipo Fuego' || stored === 'Team Fire') return '🔥'
+    return stored
   })
   const [blueTeamName, setBlueTeamName] = useState(() => {
-    return localStorage.getItem('emoji-remote-blueTeam') || '🧊'
+    const stored = localStorage.getItem('emoji-remote-blueTeam')
+    // Migrate legacy values to emoji defaults
+    if (!stored || stored === 'Equipo Hielo' || stored === 'Team Ice') return '🧊'
+    return stored
   })
   const [showTeamSettings, setShowTeamSettings] = useState(false)
 
