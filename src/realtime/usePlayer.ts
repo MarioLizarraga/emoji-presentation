@@ -1,0 +1,120 @@
+import { useEffect, useState, useCallback } from 'react'
+import { useRoom } from './useRoom'
+
+interface GameState {
+  mode: string
+  round: number
+  currentSlide: number
+  scores: { red: number; blue: number }
+  gameStarted: boolean
+  gameEnded: boolean
+  winner: 'red' | 'blue' | 'tie' | null
+  lastReveal: { answer: string; correct: boolean } | null
+}
+
+const initialGameState: GameState = {
+  mode: '',
+  round: 0,
+  currentSlide: 0,
+  scores: { red: 0, blue: 0 },
+  gameStarted: false,
+  gameEnded: false,
+  winner: null,
+  lastReveal: null,
+}
+
+export function usePlayer(roomCode: string) {
+  const { connected, broadcast, on } = useRoom(roomCode)
+  const [gameState, setGameState] = useState<GameState>(initialGameState)
+  const [hasBuzzed, setHasBuzzed] = useState(false)
+
+  useEffect(() => {
+    const unsubSlide = on('presenter:slide', (payload) => {
+      const { index } = payload as { index: number }
+      setGameState((prev) => ({ ...prev, currentSlide: index }))
+    })
+
+    const unsubStart = on('presenter:startGame', (payload) => {
+      const { mode, round } = payload as { mode: string; round: number }
+      setGameState((prev) => ({
+        ...prev,
+        mode,
+        round,
+        gameStarted: true,
+        gameEnded: false,
+        winner: null,
+      }))
+      setHasBuzzed(false)
+    })
+
+    const unsubReveal = on('presenter:revealAnswer', (payload) => {
+      const { answer, correct } = payload as { answer: string; correct: boolean }
+      setGameState((prev) => ({ ...prev, lastReveal: { answer, correct } }))
+    })
+
+    const unsubScore = on('presenter:updateScore', (payload) => {
+      const { team, total } = payload as { team: 'red' | 'blue'; points: number; total: number }
+      setGameState((prev) => ({
+        ...prev,
+        scores: { ...prev.scores, [team]: total },
+      }))
+    })
+
+    const unsubNextRound = on('presenter:nextRound', (payload) => {
+      const { index } = payload as { index: number }
+      setGameState((prev) => ({
+        ...prev,
+        round: index,
+        lastReveal: null,
+      }))
+      setHasBuzzed(false)
+    })
+
+    const unsubEnd = on('presenter:endGame', (payload) => {
+      const { scores, winner } = payload as {
+        scores: { red: number; blue: number }
+        winner: 'red' | 'blue' | 'tie'
+        mvp?: string
+      }
+      setGameState((prev) => ({
+        ...prev,
+        scores,
+        winner,
+        gameEnded: true,
+      }))
+    })
+
+    return () => {
+      unsubSlide()
+      unsubStart()
+      unsubReveal()
+      unsubScore()
+      unsubNextRound()
+      unsubEnd()
+    }
+  }, [on])
+
+  const buzz = useCallback(
+    (name: string, team: 'red' | 'blue') => {
+      if (hasBuzzed) return
+      setHasBuzzed(true)
+      broadcast('player:buzz', { name, team, timestamp: Date.now() })
+    },
+    [hasBuzzed, broadcast],
+  )
+
+  const join = useCallback(
+    (name: string, team: 'red' | 'blue') => {
+      broadcast('player:join', { name, team, joinedAt: Date.now() })
+    },
+    [broadcast],
+  )
+
+  return {
+    connected,
+    gameState,
+    hasBuzzed,
+    buzz,
+    join,
+  }
+}
