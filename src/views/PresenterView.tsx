@@ -7,8 +7,6 @@ import { usePresenter } from '../realtime/usePresenter'
 import { allSlides } from '../slides/slideData'
 import type { BuzzEvent } from '../realtime/usePresenter'
 
-const GAME_SLIDE_TYPES = new Set(['qr-lobby', 'quiz-question', 'scoreboard-final'])
-
 export function PresenterView() {
   const {
     roomCode,
@@ -30,7 +28,6 @@ export function PresenterView() {
   } = usePresenter()
 
   const engineRef = useRef<SlideEngineHandle>(null)
-  const [gameActive, setGameActive] = useState(false)
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0)
 
   // React to remote slide commands from the phone remote
@@ -93,11 +90,6 @@ export function PresenterView() {
       const slide = slides[index]
       if (!slide) return
 
-      const isGameSlide = GAME_SLIDE_TYPES.has(slide.content.type)
-      if (isGameSlide && !gameActive) {
-        setGameActive(true)
-      }
-
       // On scoreboard-final, broadcast end game
       if (slide.content.type === 'scoreboard-final') {
         const winner: 'red' | 'blue' | 'tie' =
@@ -105,7 +97,7 @@ export function PresenterView() {
         endGame(scores, winner)
       }
     },
-    [sendSlide, clearBuzzes, slides, gameActive, scores, endGame],
+    [sendSlide, clearBuzzes, slides, scores, endGame],
   )
 
   // Award or deny points when a buzz is handled
@@ -131,6 +123,11 @@ export function PresenterView() {
   const currentSlide = slides[currentSlideIndex]
   const isLobbySlide = currentSlide?.content.type === 'qr-lobby'
   const isFinalScoreboard = currentSlide?.content.type === 'scoreboard-final'
+  const isQuizSlide = currentSlide?.content.type === 'quiz-question'
+  // Game is active from the QR lobby onwards (any game-related slide)
+  const gameActive = isLobbySlide || isQuizSlide || isFinalScoreboard
+    || currentSlide?.content.type === 'game-reveal'
+    || (currentSlide?.id?.startsWith('quiz-') ?? false)
 
   return (
     <div style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden' }}>

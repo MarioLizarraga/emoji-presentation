@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap');
 
 :root {
   --bg: #0a0a0f;
@@ -17,6 +18,7 @@
   --glow-purple: 0 0 20px #8338ec44, 0 0 40px #8338ec22;
   --glow-blue: 0 0 20px #3a86ff44, 0 0 40px #3a86ff22;
   --font: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-emoji: 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', sans-serif;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -24,7 +26,7 @@
 html, body, #root {
   width: 100%; height: 100%; overflow: hidden;
   background: var(--bg); color: var(--text);
-  font-family: var(--font); -webkit-font-smoothing: antialiased;
+  font-family: var(--font), var(--font-emoji); -webkit-font-smoothing: antialiased;
 }
 
 :fullscreen { background: var(--bg); }
