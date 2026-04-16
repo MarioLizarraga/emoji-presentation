@@ -140,10 +140,10 @@ function ComparisonCard({
             src={item.image}
             alt={item.label}
             style={{
-              width: isRetro ? '10rem' : '10rem',
-              height: isRetro ? '10rem' : '10rem',
+              width: '10rem',
+              height: '10rem',
               objectFit: 'contain',
-              imageRendering: 'pixelated',
+              imageRendering: isRetro ? 'pixelated' : 'auto',
               display: 'block',
               filter: isRetro ? 'invert(1) brightness(1.5)' : undefined,
             }}

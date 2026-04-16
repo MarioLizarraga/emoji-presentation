@@ -40,13 +40,13 @@ export const act3Slides: SlideData[] = [
       title: 'La Guerra de la Hamburguesa',
       left: {
         label: 'Google (Antes)',
-        emoji: '🍔',
-        description: 'Google puso el queso DEBAJO de la carne. Debajo. Como un monstruo. El internet perdió la cabeza. El CEO de Google, Sundar Pichai, tuiteó que iba a "dejar todo" para arreglarlo.',
+        image: import.meta.env.BASE_URL + 'images/burger-before.png',
+        description: 'Google puso el queso DEBAJO de la carne. Debajo. Como un monstruo.',
       },
       right: {
-        label: 'La Forma Correcta',
-        emoji: '🍔',
-        description: 'El queso va ENCIMA de la carne. Esto no es debatible. El CEO de una empresa de un billón de dólares priorizó un emoji de hamburguesa sobre... todo lo demás. Respeto.',
+        label: 'Google (Después)',
+        image: import.meta.env.BASE_URL + 'images/burger-after.png',
+        description: 'El queso ENCIMA de la carne. Como debe ser. El CEO priorizó esto.',
       },
     },
     speakerNotes: '🎤 DI: "Ok, esto es REAL. Google, por años, tenía el emoji de hamburguesa con el QUESO DEBAJO DE LA CARNE." 🎭 ACCIÓN: Cara de horror. "DEBAJO. Como un MONSTRUO." Pausa. "Alguien lo notó en Twitter. Se armó la tremenda. ¿Y saben qué hizo el CEO de Google, Sundar Pichai, el señor que maneja una empresa de UN BILLÓN de dólares? Literalmente tuiteó: \'Voy a dejar TODO lo que estoy haciendo para arreglar esto el lunes.\' Un billón de dólares. Priorizando una HAMBURGUESA EMOJI. Qué época."',
