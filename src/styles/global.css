@@ -17,16 +17,16 @@
   --glow-pink: 0 0 20px #ff006e44, 0 0 40px #ff006e22;
   --glow-purple: 0 0 20px #8338ec44, 0 0 40px #8338ec22;
   --glow-blue: 0 0 20px #3a86ff44, 0 0 40px #3a86ff22;
-  --font: 'Inter', system-ui, -apple-system, sans-serif;
+  --font: 'Inter', 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', system-ui, -apple-system, sans-serif;
   --font-emoji: 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', sans-serif;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: inherit; }
 
 html, body, #root {
   width: 100%; height: 100%; overflow: hidden;
   background: var(--bg); color: var(--text);
-  font-family: var(--font), var(--font-emoji); -webkit-font-smoothing: antialiased;
+  font-family: var(--font), var(--font-emoji), sans-serif; -webkit-font-smoothing: antialiased;
 }
 
 :fullscreen { background: var(--bg); }

@@ -248,13 +248,14 @@ export function PresenterView() {
                 </span>
               )}
 
-              {/* Player name */}
+              {/* Player name (emoji-only names need emoji font) */}
               <span
                 style={{
                   fontWeight: 700,
-                  fontSize: '1.1rem',
+                  fontSize: '1.5rem',
                   color: buzz.team === 'red' ? '#ff4444' : '#4488ff',
                   flex: 1,
+                  fontFamily: 'var(--font-emoji), var(--font)',
                 }}
               >
                 {buzz.name}
