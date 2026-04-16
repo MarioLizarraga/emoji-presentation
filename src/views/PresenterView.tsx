@@ -127,10 +127,6 @@ export function PresenterView() {
     [scores, setScores, updateScore, recordAnswer, resetBuzzers, dismissBuzz],
   )
 
-  // Remote URL for QR indicator
-  const baseUrl = window.location.origin + import.meta.env.BASE_URL
-  const remoteUrl = `${baseUrl}#/remote`
-
   // Determine what special slide we're on
   const currentSlide = slides[currentSlideIndex]
   const isLobbySlide = currentSlide?.content.type === 'qr-lobby'
