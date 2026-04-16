@@ -133,19 +133,19 @@ function ComparisonCard({
     }}>
       {item.image ? (
         <div style={{
-          padding: isRetro ? '0.5rem' : '0',
-          background: isRetro ? 'rgba(255,255,255,0.05)' : 'transparent',
+          padding: '0.5rem',
           borderRadius: '8px',
         }}>
           <img
             src={item.image}
             alt={item.label}
             style={{
-              width: isRetro ? '8rem' : '10rem',
-              height: isRetro ? '8rem' : '10rem',
+              width: isRetro ? '10rem' : '10rem',
+              height: isRetro ? '10rem' : '10rem',
               objectFit: 'contain',
               imageRendering: 'pixelated',
               display: 'block',
+              filter: isRetro ? 'invert(1) brightness(1.5)' : undefined,
             }}
           />
         </div>

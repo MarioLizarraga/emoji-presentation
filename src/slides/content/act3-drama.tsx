@@ -4,7 +4,7 @@ export const act3Slides: SlideData[] = [
   /* ── Slide 13: Gun Debate ───────────────────────────────── */
   {
     id: 'gun-debate',
-    position: { x: 24000, y: 800, scale: 0.6, rotation: -3 },
+    position: { x: 33000, y: 800, scale: 0.6, rotation: -3 },
     transition: { id: 'split-blood', duration: 2.5 },
     content: {
       type: 'emoji-showcase',
@@ -19,7 +19,7 @@ export const act3Slides: SlideData[] = [
   /* ── Slide 14: Peach Incident ───────────────────────────── */
   {
     id: 'peach-incident',
-    position: { x: 26000, y: -300, scale: 0.7, rotation: 4 },
+    position: { x: 35000, y: -300, scale: 0.7, rotation: 4 },
     transition: { id: 'emoji-pop', duration: 1.8, emoji: '🍑' },
     content: {
       type: 'text',
@@ -33,7 +33,7 @@ export const act3Slides: SlideData[] = [
   /* ── Slide 15: Burger War ───────────────────────────────── */
   {
     id: 'burger-war',
-    position: { x: 28000, y: 600, scale: 0.5, rotation: -2 },
+    position: { x: 37000, y: 600, scale: 0.5, rotation: -2 },
     transition: { id: 'whip-pan', duration: 1.6 },
     content: {
       type: 'comparison',
@@ -55,7 +55,7 @@ export const act3Slides: SlideData[] = [
   /* ── Slide 16: Word of the Year ─────────────────────────── */
   {
     id: 'word-of-year',
-    position: { x: 30000, y: -700, scale: 0.3, rotation: 0 },
+    position: { x: 39000, y: -700, scale: 0.3, rotation: 0 },
     transition: { id: 'spotlight', duration: 2.5 },
     content: {
       type: 'stat',
@@ -69,7 +69,7 @@ export const act3Slides: SlideData[] = [
   /* ── Slide 17: Eggplant Ban ─────────────────────────────── */
   {
     id: 'eggplant-ban',
-    position: { x: 32000, y: 400, scale: 0.7, rotation: 5 },
+    position: { x: 41000, y: 400, scale: 0.7, rotation: 5 },
     transition: { id: 'emoji-freeze', duration: 1.8, emoji: '🍆' },
     content: {
       type: 'text',
@@ -83,7 +83,7 @@ export const act3Slides: SlideData[] = [
   /* ── Slide 18: Finland Emoji ────────────────────────────── */
   {
     id: 'finland-emoji',
-    position: { x: 34000, y: -100, scale: 0.6, rotation: -4 },
+    position: { x: 43000, y: -100, scale: 0.6, rotation: -4 },
     transition: { id: 'emoji-portal', duration: 2.5, emoji: '🇫🇮' },
     content: {
       type: 'text',
@@ -97,7 +97,7 @@ export const act3Slides: SlideData[] = [
   /* ── Slide 19: Approval Process ─────────────────────────── */
   {
     id: 'approval-process',
-    position: { x: 36000, y: 700, scale: 0.5, rotation: 2 },
+    position: { x: 45000, y: 700, scale: 0.5, rotation: 2 },
     transition: { id: 'loading-bar', duration: 3.0 },
     content: {
       type: 'timeline',
@@ -116,7 +116,7 @@ export const act3Slides: SlideData[] = [
   /* ── Slide 20: The Numbers ──────────────────────────────── */
   {
     id: 'the-numbers',
-    position: { x: 38000, y: -500, scale: 0.15, rotation: 0 },
+    position: { x: 47000, y: -500, scale: 0.15, rotation: 0 },
     transition: { id: 'dolly-zoom', duration: 2.8 },
     content: {
       type: 'stat',

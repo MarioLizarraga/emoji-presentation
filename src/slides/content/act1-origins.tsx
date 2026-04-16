@@ -32,7 +32,7 @@ export const act1Slides: SlideData[] = [
   /* ── Slide 2.5: Plot Twist — la historia empieza antes ───── */
   {
     id: 'plot-twist-prehistory',
-    position: { x: 2700, y: 1100, scale: 0.7, rotation: -5 },
+    position: { x: 3000, y: 1500, scale: 0.7, rotation: -5 },
     transition: { id: 'glitch', duration: 2.2 },
     content: {
       type: 'title',
@@ -46,7 +46,7 @@ export const act1Slides: SlideData[] = [
   /* ── Slide 2.6: Sharp PA-8500 (1988) ─────────────────────── */
   {
     id: 'sharp-1988',
-    position: { x: 3100, y: -1200, scale: 0.55, rotation: 3 },
+    position: { x: 5500, y: -1500, scale: 0.55, rotation: 3 },
     transition: { id: 'pixel-dissolve', duration: 2.5 },
     content: {
       type: 'emoji-showcase',
@@ -62,7 +62,7 @@ export const act1Slides: SlideData[] = [
   /* ── Slide 2.7: SoftBank 1997 — la caquita es suya ────────── */
   {
     id: 'softbank-1997',
-    position: { x: 3500, y: 900, scale: 0.6, rotation: -2 },
+    position: { x: 8000, y: 1200, scale: 0.6, rotation: -2 },
     transition: { id: 'emoji-pop', duration: 2.2, emoji: '💩' },
     content: {
       type: 'emoji-showcase',
@@ -78,7 +78,7 @@ export const act1Slides: SlideData[] = [
   /* ── Slide 3: The Creator ────────────────────────────────── */
   {
     id: 'the-creator',
-    position: { x: 4000, y: 200, scale: 0.6, rotation: 1 },
+    position: { x: 10500, y: 200, scale: 0.6, rotation: 1 },
     transition: { id: 'zoom-in', duration: 2.2 },
     content: {
       type: 'text',
@@ -92,7 +92,7 @@ export const act1Slides: SlideData[] = [
   /* ── Slide 4: Original 176 ───────────────────────────────── */
   {
     id: 'original-176',
-    position: { x: 6000, y: -600, scale: 0.3, rotation: 0 },
+    position: { x: 13000, y: -600, scale: 0.3, rotation: 0 },
     transition: { id: 'emoji-unlock', duration: 2.5, emoji: '🔓' },
     content: {
       type: 'emoji-showcase',
@@ -107,7 +107,7 @@ export const act1Slides: SlideData[] = [
   /* ── Slide 5: They Were Ugly ─────────────────────────────── */
   {
     id: 'they-were-ugly',
-    position: { x: 8000, y: 400, scale: 0.7, rotation: 3 },
+    position: { x: 15500, y: 400, scale: 0.7, rotation: 3 },
     transition: { id: 'emoji-split', duration: 2.2, variant: 'electric' },
     content: {
       type: 'comparison',
@@ -115,7 +115,7 @@ export const act1Slides: SlideData[] = [
       left: {
         retro: true,
         label: '1997: SoftBank 12x12',
-        image: import.meta.env.BASE_URL + 'images/poop-1997.png',
+        image: import.meta.env.BASE_URL + 'images/poop-1997.jpg',
         description: '12 pixeles de ancho, en blanco y negro. Así nació la caquita en un celular SoftBank. Sin sombreado, sin degradados. Solo vibras y un sueño.',
       },
       right: {
@@ -130,7 +130,7 @@ export const act1Slides: SlideData[] = [
   /* ── Slide 6: The Name ───────────────────────────────────── */
   {
     id: 'the-name',
-    position: { x: 10000, y: -200, scale: 0.5, rotation: -3 },
+    position: { x: 18000, y: -200, scale: 0.5, rotation: -3 },
     transition: { id: 'emoji-magic', duration: 2.5, emoji: '✨' },
     content: {
       type: 'text',
@@ -144,7 +144,7 @@ export const act1Slides: SlideData[] = [
   /* ── Slide 7: Japan Only ─────────────────────────────────── */
   {
     id: 'japan-only',
-    position: { x: 12000, y: 600, scale: 0.8, rotation: 2 },
+    position: { x: 20500, y: 600, scale: 0.8, rotation: 2 },
     transition: { id: 'emoji-door', duration: 2.2, emoji: '🚪' },
     content: {
       type: 'text',

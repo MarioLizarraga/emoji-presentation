@@ -4,7 +4,7 @@ export const act2Slides: SlideData[] = [
   /* ── Slide 8: Carrier Wars ──────────────────────────────── */
   {
     id: 'carrier-wars',
-    position: { x: 14000, y: -800, scale: 0.6, rotation: -4 },
+    position: { x: 23000, y: -800, scale: 0.6, rotation: -4 },
     transition: { id: 'glitch', duration: 1.8 },
     content: {
       type: 'comparison',
@@ -26,7 +26,7 @@ export const act2Slides: SlideData[] = [
   /* ── Slide 9: Apple Sneaks In ───────────────────────────── */
   {
     id: 'apple-sneaks-in',
-    position: { x: 16000, y: 300, scale: 0.7, rotation: 2 },
+    position: { x: 25000, y: 300, scale: 0.7, rotation: 2 },
     transition: { id: 'emoji-telescope', duration: 2.5, emoji: '🔭' },
     content: {
       type: 'text',
@@ -40,7 +40,7 @@ export const act2Slides: SlideData[] = [
   /* ── Slide 10: Unicode Saves the Day ────────────────────── */
   {
     id: 'unicode-saves',
-    position: { x: 18000, y: -400, scale: 0.5, rotation: -1 },
+    position: { x: 27000, y: -400, scale: 0.5, rotation: -1 },
     transition: { id: 'terminal', duration: 2.2 },
     content: {
       type: 'timeline',
@@ -58,7 +58,7 @@ export const act2Slides: SlideData[] = [
   /* ── Slide 11: The Explosion ────────────────────────────── */
   {
     id: 'the-explosion',
-    position: { x: 20000, y: 500, scale: 0.4, rotation: 3 },
+    position: { x: 29000, y: 500, scale: 0.4, rotation: 3 },
     transition: { id: 'emoji-bomb', duration: 2.8, emoji: '💣' },
     content: {
       type: 'text',
@@ -72,7 +72,7 @@ export const act2Slides: SlideData[] = [
   /* ── Slide 12: The Stats ────────────────────────────────── */
   {
     id: 'the-stats',
-    position: { x: 22000, y: -200, scale: 0.15, rotation: 0 },
+    position: { x: 31000, y: -200, scale: 0.15, rotation: 0 },
     transition: { id: 'dolly-zoom', duration: 3.0 },
     content: {
       type: 'stat',
