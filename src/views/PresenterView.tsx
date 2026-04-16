@@ -26,6 +26,7 @@ export function PresenterView() {
     playerStats,
     recordAnswer,
     resetBuzzers,
+    dismissBuzz,
   } = usePresenter()
 
   const engineRef = useRef<SlideEngineHandle>(null)
@@ -48,6 +49,28 @@ export function PresenterView() {
     }
     prevPlayerCount.current = players.length
   }, [players.length, currentSlideIndex, sendSlide])
+
+  // Play a sound when a new buzz arrives on the presenter screen
+  const prevBuzzCount = useRef(0)
+  useEffect(() => {
+    if (buzzes.length > prevBuzzCount.current) {
+      // New buzz! Play a ding sound
+      try {
+        const ctx = new AudioContext()
+        const osc = ctx.createOscillator()
+        const gain = ctx.createGain()
+        osc.connect(gain)
+        gain.connect(ctx.destination)
+        osc.frequency.value = 1200
+        osc.type = 'sine'
+        gain.gain.value = 0.4
+        osc.start()
+        gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.3)
+        osc.stop(ctx.currentTime + 0.3)
+      } catch (_e) { /* ignore */ }
+    }
+    prevBuzzCount.current = buzzes.length
+  }, [buzzes.length])
 
   // Inject roomCode into the qr-lobby slide
   const slides = useMemo(
@@ -93,14 +116,15 @@ export function PresenterView() {
         const newScores = { ...scores, [buzz.team]: newTotal }
         setScores(newScores)
         updateScore(buzz.team, 100, newTotal)
-        // Track player stats for the final scoreboard
         recordAnswer(buzz.name, buzz.team, 100)
+        // Correct: question is over — reset ALL buzzers
+        resetBuzzers()
+      } else {
+        // Wrong: only dismiss THIS player's buzz, others stay
+        dismissBuzz(buzz.name)
       }
-      // Either way: reset all buzzers across all devices
-      // (correct: question is over; wrong: allow steal)
-      resetBuzzers()
     },
-    [scores, setScores, updateScore, recordAnswer, resetBuzzers],
+    [scores, setScores, updateScore, recordAnswer, resetBuzzers, dismissBuzz],
   )
 
   // Remote URL for QR indicator

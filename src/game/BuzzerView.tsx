@@ -165,7 +165,23 @@ export function BuzzerView({ roomCode }: BuzzerViewProps) {
         >
           <button
             onClick={() => {
-              if (team && !buzzerDisabled) buzz(playerName, team)
+              if (team && !buzzerDisabled) {
+                buzz(playerName, team)
+                // Haptic feedback (vibration) on mobile
+                if (navigator.vibrate) navigator.vibrate(100)
+                // Play a beep sound using Web Audio API
+                try {
+                  const ctx = new AudioContext()
+                  const osc = ctx.createOscillator()
+                  const gain = ctx.createGain()
+                  osc.connect(gain)
+                  gain.connect(ctx.destination)
+                  osc.frequency.value = team === 'red' ? 880 : 660
+                  gain.gain.value = 0.3
+                  osc.start()
+                  osc.stop(ctx.currentTime + 0.15)
+                } catch (_e) { /* ignore if audio not available */ }
+              }
             }}
             disabled={buzzerDisabled}
             style={{

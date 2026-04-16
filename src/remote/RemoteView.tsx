@@ -170,6 +170,18 @@ function RemoteController({ roomCode }: { roomCode: string }) {
     return () => { unsub1(); unsub2() }
   }, [on])
 
+  // Listen for buzz dismiss/reset from presenter
+  useEffect(() => {
+    const unsub1 = on('presenter:resetBuzzers', () => {
+      setBuzzes([])
+    })
+    const unsub2 = on('presenter:dismissBuzz', (payload) => {
+      const name = payload.name as string
+      setBuzzes((prev) => prev.filter((b) => b.playerName !== name))
+    })
+    return () => { unsub1(); unsub2() }
+  }, [on])
+
   // Clear buzzes when slide changes
   useEffect(() => {
     setBuzzes([])
@@ -215,14 +227,18 @@ function RemoteController({ roomCode }: { roomCode: string }) {
   )
 
   const scorePlayer = useCallback(
-    (_playerName: string, team: 'red' | 'blue', correct: boolean, bonus = false) => {
+    (playerName: string, team: 'red' | 'blue', correct: boolean, bonus = false) => {
       if (correct) {
         const pts = bonus ? 200 : 100
         awardPoints(team, pts)
+        // Correct: question is over — reset ALL buzzers
+        setBuzzes([])
+        broadcast('presenter:resetBuzzers', {})
+      } else {
+        // Wrong: only dismiss THIS player's buzz
+        setBuzzes((prev) => prev.filter((b) => b.playerName !== playerName))
+        broadcast('presenter:dismissBuzz', { name: playerName })
       }
-      // Either way: clear local buzz list and broadcast so PresenterView + players sync
-      setBuzzes([])
-      broadcast('presenter:resetBuzzers', {})
     },
     [awardPoints, broadcast],
   )

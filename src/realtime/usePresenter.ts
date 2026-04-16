@@ -61,9 +61,14 @@ export function usePresenter() {
     })
 
     // Listen for resetBuzzers broadcasts (from the remote's X button, etc.)
-    // to clear the presenter's buzz list as well
     const unsubReset = on('presenter:resetBuzzers', () => {
       setBuzzes([])
+    })
+
+    // Listen for dismissBuzz (remove a single player's buzz)
+    const unsubDismiss = on('presenter:dismissBuzz', (payload) => {
+      const name = payload.name as string
+      setBuzzes((prev) => prev.filter((b) => b.name !== name))
     })
 
     return () => {
@@ -73,12 +78,19 @@ export function usePresenter() {
       unsubTeamNames()
       unsubScore()
       unsubReset()
+      unsubDismiss()
     }
   }, [on])
 
   const clearBuzzes = useCallback(() => {
     setBuzzes([])
   }, [])
+
+  const dismissBuzz = useCallback((playerName: string) => {
+    setBuzzes((prev) => prev.filter((b) => b.name !== playerName))
+    // Broadcast so Remote also removes just this one
+    broadcast('presenter:dismissBuzz', { name: playerName })
+  }, [broadcast])
 
   const sendSlide = useCallback(
     (index: number) => {
@@ -159,6 +171,7 @@ export function usePresenter() {
     players,
     buzzes,
     clearBuzzes,
+    dismissBuzz,
     sendSlide,
     startGame,
     revealAnswer,
