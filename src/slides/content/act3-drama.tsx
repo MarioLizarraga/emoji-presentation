@@ -1,22 +1,7 @@
 import type { SlideData } from '../types'
 
 export const act3Slides: SlideData[] = [
-  /* ── Slide 13: Gun Debate ───────────────────────────────── */
-  {
-    id: 'gun-debate',
-    position: { x: 33000, y: 800, scale: 0.6, rotation: -3 },
-    transition: { id: 'split-blood', duration: 2.5 },
-    content: {
-      type: 'emoji-showcase',
-      emoji: '🔫',
-      title: 'El Gran Debate de la Pistola',
-      description: 'En 2016, Apple cambió en silencio el emoji de pistola de un revólver realista a una pistola de agua verde brillante. Las demás plataformas entraron en pánico y lo copiaron. Durante unos 6 meses, podías mandar una pistola de agua desde un iPhone y tu amigo con Android recibía una Glock real. El pico de la mala comunicación.',
-      platforms: [],
-    },
-    speakerNotes: '🎤 DI: "Entramos al ACTO del DRAMA. Y empezamos fuerte." 🎭 ACCIÓN: Pausa. "2016: Apple un buen día decide que la pistola emoji 🔫 ya no es pistola. La cambia a PISTOLA DE AGUA. Verde brillante. Como de juguete." Pausa dramática. "Todas las demás empresas entraron en pánico porque durante 6 MESES, si mandabas una pistolita de agua desde iPhone, a tu cuate con Android le llegaba una GLOCK real. EL PICO DE LA MALA COMUNICACIÓN."',
-  },
-
-  /* ── Slide 14: Peach Incident ───────────────────────────── */
+  /* ── Slide 13: Peach Incident (was 14, gun-debate removed — covered in act4 pistol-timeline) ── */
   {
     id: 'peach-incident',
     position: { x: 35000, y: -300, scale: 0.7, rotation: 4 },
