@@ -28,11 +28,12 @@ registerTransition(
 
     tl.set(overlay, { opacity: 1 })
 
-    // Wrapper for the bomb so we can rotate/scale it separately from position
+    // Wrapper for the bomb — use margin for centering (not transform, which GSAP overwrites)
     const bombWrap = document.createElement('div')
     bombWrap.style.cssText =
-      'position:absolute;top:-20%;left:50%;transform:translate(-50%,-50%);' +
-      'font-size:12rem;z-index:10;will-change:transform,top;'
+      'position:absolute;top:-20%;left:50%;margin-left:-6rem;margin-top:-6rem;' +
+      'font-size:12rem;line-height:1;z-index:10;will-change:transform,top;' +
+      'width:12rem;height:12rem;text-align:center;'
     bombWrap.textContent = fallingEmoji
     overlay.appendChild(bombWrap)
 
@@ -87,7 +88,7 @@ registerTransition(
       ease: 'power2.out',
     }, explosionLabel)
 
-    // Debris fragments — start INVISIBLE, reveal at explosion moment
+    // Debris fragments — completely hidden until explosion
     const FRAG_COUNT = 26
     const fragColors = ['#ff4400', '#ffa500', '#fff59d', '#333', '#ff0000']
     const frags: HTMLDivElement[] = []
@@ -96,14 +97,15 @@ registerTransition(
       const size = rnd(8, 22)
       f.style.cssText =
         `position:absolute;top:50%;left:50%;width:${size}px;height:${size}px;` +
-        `border-radius:${rnd(0, 50)}%;opacity:0;z-index:13;transform:translate(-50%,-50%);` +
+        `border-radius:${rnd(0, 50)}%;z-index:13;` +
         `background:${fragColors[Math.floor(rnd(0, fragColors.length))]};` +
-        `box-shadow:0 0 ${rnd(4, 10)}px currentColor;`
+        `box-shadow:0 0 ${rnd(4, 10)}px currentColor;` +
+        `display:none;`
       overlay.appendChild(f)
       frags.push(f)
     }
-    // Make all fragments visible at explosion moment, then scatter
-    tl.set(frags, { opacity: 1 }, explosionLabel)
+    // Reveal fragments at explosion moment
+    tl.call(() => { frags.forEach(f => { f.style.display = 'block' }) }, [], explosionLabel)
     frags.forEach((f) => {
       tl.to(
         f,
@@ -379,28 +381,53 @@ registerTransition(
     // Snap camera during flash
     tl.call(() => snap(worldEl, to))
 
-    // PHASE 4: Polaroid develops (starts INVISIBLE — opacity:0)
+    // PHASE 4: Polaroid develops with the new slide visible INSIDE the frame
+    // The trick: polaroid has a white border, but the inner area is a transparent
+    // "window" that lets the new slide (already snapped) show through the overlay.
     const polaroid = document.createElement('div')
     polaroid.style.cssText =
-      'position:absolute;inset:5%;background:#fff;border-radius:4px;z-index:13;' +
-      'box-shadow:0 8px 40px rgba(0,0,0,0.5);opacity:0;'
-    const inner = document.createElement('div')
-    inner.style.cssText =
-      'position:absolute;top:5%;left:5%;right:5%;bottom:15%;background:var(--bg,#0a0a0a);opacity:0;'
-    polaroid.appendChild(inner)
+      'position:absolute;inset:5%;border-radius:4px;z-index:13;opacity:0;' +
+      'box-shadow:0 8px 40px rgba(0,0,0,0.5);overflow:hidden;'
+
+    // White frame using border-like divs (top, left, right, bottom)
+    const borderTop = document.createElement('div')
+    borderTop.style.cssText = 'position:absolute;top:0;left:0;right:0;height:5%;background:#fff;'
+    const borderLeft = document.createElement('div')
+    borderLeft.style.cssText = 'position:absolute;top:0;left:0;bottom:0;width:5%;background:#fff;'
+    const borderRight = document.createElement('div')
+    borderRight.style.cssText = 'position:absolute;top:0;right:0;bottom:0;width:5%;background:#fff;'
+    const borderBottom = document.createElement('div')
+    borderBottom.style.cssText = 'position:absolute;bottom:0;left:0;right:0;height:15%;background:#fff;'
+    // "Developing" text at bottom of polaroid
+    const devText = document.createElement('div')
+    devText.textContent = '📸'
+    devText.style.cssText =
+      'position:absolute;bottom:3%;left:50%;transform:translateX(-50%);font-size:1.5rem;z-index:2;'
+    polaroid.appendChild(borderTop)
+    polaroid.appendChild(borderLeft)
+    polaroid.appendChild(borderRight)
+    polaroid.appendChild(borderBottom)
+    polaroid.appendChild(devText)
     overlay.appendChild(polaroid)
 
+    // Dark "undeveloped" overlay inside the frame (fades out to reveal slide)
+    const develop = document.createElement('div')
+    develop.style.cssText =
+      'position:absolute;top:5%;left:5%;right:5%;bottom:15%;background:var(--bg,#0a0a0a);z-index:1;'
+    polaroid.appendChild(develop)
+
     tl.to(flash, { opacity: 0, duration: dur * 0.15 })
-    // Reveal polaroid only at this moment
+    // Reveal polaroid frame
     tl.fromTo(
       polaroid,
       { scale: 0.3, rotation: rnd(-5, 5), opacity: 0 },
       { scale: 1, rotation: 0, opacity: 1, duration: dur * 0.2, ease: 'power2.out' },
       '<',
     )
-    tl.to(inner, { opacity: 1, duration: dur * 0.25, ease: 'power1.inOut' })
+    // "Develop" the photo — fade the dark overlay to reveal the slide underneath
+    tl.to(develop, { opacity: 0, duration: dur * 0.25, ease: 'power1.inOut' })
 
-    // zoom polaroid to fill and fade
+    // Zoom polaroid to fill screen and fade — the slide is now fully visible
     tl.to(polaroid, {
       scale: 1.5,
       opacity: 0,
