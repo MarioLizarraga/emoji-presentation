@@ -115,7 +115,7 @@ function ComparisonCard({
   item,
   color,
 }: {
-  item: { label: string; emoji?: string; description?: string; retro?: boolean }
+  item: { label: string; emoji?: string; image?: string; description?: string; retro?: boolean }
   color: string
 }) {
   const isRetro = item.retro
@@ -131,7 +131,25 @@ function ComparisonCard({
       textAlign: 'center',
       minHeight: 0,
     }}>
-      {item.emoji && (
+      {item.image ? (
+        <div style={{
+          padding: isRetro ? '0.5rem' : '0',
+          background: isRetro ? 'rgba(255,255,255,0.05)' : 'transparent',
+          borderRadius: '8px',
+        }}>
+          <img
+            src={item.image}
+            alt={item.label}
+            style={{
+              width: isRetro ? '8rem' : '10rem',
+              height: isRetro ? '8rem' : '10rem',
+              objectFit: 'contain',
+              imageRendering: 'pixelated',
+              display: 'block',
+            }}
+          />
+        </div>
+      ) : item.emoji ? (
         <div style={{
           fontSize: isRetro ? '3rem' : '8rem',
           lineHeight: 1,
@@ -147,7 +165,7 @@ function ComparisonCard({
         }}>
           {item.emoji}
         </div>
-      )}
+      ) : null}
       <h3 style={{
         fontSize: 'clamp(1.2rem, 2.4vw, 2.2rem)',
         fontWeight: 700,
