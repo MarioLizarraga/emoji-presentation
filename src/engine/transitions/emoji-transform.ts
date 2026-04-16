@@ -366,7 +366,7 @@ registerTransition(
     // snap camera
     tl.call(() => snap(worldEl, to))
 
-    // confetti burst
+    // confetti burst — start invisible, reveal at POP moment
     const CONFETTI = 40
     const colors = [
       'var(--neon-pink,#f0f)',
@@ -375,6 +375,7 @@ registerTransition(
       '#ffcc00',
       '#00ff88',
     ]
+    const popPieces: HTMLDivElement[] = []
     for (let i = 0; i < CONFETTI; i++) {
       const c = document.createElement('div')
       const w = rnd(5, 14)
@@ -382,11 +383,15 @@ registerTransition(
       c.style.cssText =
         `position:absolute;top:50%;left:50%;width:${w}px;height:${h}px;` +
         `background:${colors[Math.floor(rnd(0, colors.length))]};` +
-        `border-radius:${rnd(0, 50)}%;z-index:13;`
+        `border-radius:${rnd(0, 50)}%;z-index:13;opacity:0;`
       overlay.appendChild(c)
-      tl.fromTo(
+      popPieces.push(c)
+    }
+    // Make all pieces visible at the burst moment, then scatter
+    tl.set(popPieces, { opacity: 1 })
+    popPieces.forEach((c) => {
+      tl.to(
         c,
-        { x: 0, y: 0, rotation: 0, opacity: 1 },
         {
           x: rnd(-500, 500),
           y: rnd(-500, 500),
@@ -397,7 +402,7 @@ registerTransition(
         },
         '<',
       )
-    }
+    })
 
     tl.to(flash, { opacity: 0, duration: dur * 0.2, ease: 'power2.out' }, '-=0.15')
 
