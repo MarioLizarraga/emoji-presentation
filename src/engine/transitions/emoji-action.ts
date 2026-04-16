@@ -54,16 +54,17 @@ registerTransition(
       ease: 'power1.inOut',
     })
 
-    // PHASE 3: BOOM! The bomb becomes an explosion emoji + flash
+    // PHASE 3: BOOM! — flash is only added to DOM at explosion moment
     const flash = document.createElement('div')
     flash.style.cssText =
       'position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,' +
       '#fff 0%,#ffa500 20%,#ff4400 45%,transparent 75%);opacity:0;z-index:12;'
-    overlay.appendChild(flash)
+    // NOT appended yet — only added when the explosion happens
 
-    // The moment of explosion: swap emoji to 💥, punch it big, flash white
+    // The moment of explosion: swap emoji to 💥, add flash to DOM, punch it big
     tl.call(() => {
       bombWrap.textContent = '💥'
+      overlay.appendChild(flash)
     })
     tl.to(bombWrap, {
       scale: 3,
