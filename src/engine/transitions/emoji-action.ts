@@ -36,15 +36,6 @@ registerTransition(
     bombWrap.textContent = fallingEmoji
     overlay.appendChild(bombWrap)
 
-    // Fuse spark (a glowing red dot on top of the bomb)
-    const spark = document.createElement('div')
-    spark.style.cssText =
-      'position:absolute;top:-20%;left:calc(50% + 2.5rem);width:16px;height:16px;' +
-      'border-radius:50%;background:#fff59d;' +
-      'box-shadow:0 0 12px #ffa500,0 0 24px #ff4400,0 0 40px #ff0000;' +
-      'z-index:11;opacity:0;'
-    overlay.appendChild(spark)
-
     // PHASE 1: Bomb drops from above with gentle rotation and bounce
     tl.to(bombWrap, {
       top: '50%',
@@ -52,9 +43,8 @@ registerTransition(
       duration: dur * 0.35,
       ease: 'bounce.out',
     })
-    tl.to(spark, { top: '42%', opacity: 1, duration: dur * 0.3, ease: 'power2.out' }, '<')
 
-    // PHASE 2: Fuse burns — spark flickers frantically
+    // PHASE 2: Fuse burns — bomb jitters
     tl.to(bombWrap, {
       rotation: -8,
       duration: dur * 0.05,
@@ -62,29 +52,16 @@ registerTransition(
       yoyo: true,
       ease: 'power1.inOut',
     })
-    tl.to(
-      spark,
-      {
-        scale: 2,
-        opacity: 0.7,
-        duration: dur * 0.05,
-        repeat: 5,
-        yoyo: true,
-        ease: 'power1.inOut',
-      },
-      '<',
-    )
 
-    // PHASE 3: BOOM! The bomb becomes an explosion emoji + flash + shake
+    // PHASE 3: BOOM! The bomb becomes an explosion emoji + flash
     const flash = document.createElement('div')
     flash.style.cssText =
       'position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,' +
       '#fff 0%,#ffa500 20%,#ff4400 45%,transparent 75%);opacity:0;z-index:12;'
     overlay.appendChild(flash)
 
-    // The moment of explosion: hide spark, swap emoji to 💥, punch it big, flash white
+    // The moment of explosion: swap emoji to 💥, punch it big, flash white
     tl.call(() => {
-      spark.style.display = 'none'
       bombWrap.textContent = '💥'
     })
     tl.to(bombWrap, {
