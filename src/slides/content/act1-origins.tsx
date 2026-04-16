@@ -114,9 +114,9 @@ export const act1Slides: SlideData[] = [
       title: 'El Glow-Up del Siglo',
       left: {
         retro: true,
-        label: '1997: 12x12 Pixeles',
-        emoji: '💩',
-        description: '12 pixeles de ancho, en blanco y negro. Así nació la caquita en un celular SoftBank. Sin sombreado, sin degradados. Solo vibras y un sueño. Parecía un helado de chocolate diseñado por alguien que jamás había visto chocolate.',
+        label: '1997: SoftBank 12x12',
+        image: import.meta.env.BASE_URL + 'images/poop-1997.png',
+        description: '12 pixeles de ancho, en blanco y negro. Así nació la caquita en un celular SoftBank. Sin sombreado, sin degradados. Solo vibras y un sueño.',
       },
       right: {
         label: '2026: Gloria a Todo Color',
