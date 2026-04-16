@@ -87,21 +87,24 @@ registerTransition(
       ease: 'power2.out',
     }, explosionLabel)
 
-    // Debris fragments (26 pieces in red/orange/yellow - fire colors)
-    // All fragments launch simultaneously from the explosion label to avoid
-    // timeline bloat from stacking '-=' offsets
+    // Debris fragments — start INVISIBLE, reveal at explosion moment
     const FRAG_COUNT = 26
     const fragColors = ['#ff4400', '#ffa500', '#fff59d', '#333', '#ff0000']
+    const frags: HTMLDivElement[] = []
     for (let i = 0; i < FRAG_COUNT; i++) {
       const f = document.createElement('div')
       const size = rnd(8, 22)
       f.style.cssText =
         `position:absolute;top:50%;left:50%;width:${size}px;height:${size}px;` +
-        `border-radius:${rnd(0, 50)}%;opacity:1;z-index:13;transform:translate(-50%,-50%);` +
+        `border-radius:${rnd(0, 50)}%;opacity:0;z-index:13;transform:translate(-50%,-50%);` +
         `background:${fragColors[Math.floor(rnd(0, fragColors.length))]};` +
         `box-shadow:0 0 ${rnd(4, 10)}px currentColor;`
       overlay.appendChild(f)
-
+      frags.push(f)
+    }
+    // Make all fragments visible at explosion moment, then scatter
+    tl.set(frags, { opacity: 1 }, explosionLabel)
+    frags.forEach((f) => {
       tl.to(
         f,
         {
