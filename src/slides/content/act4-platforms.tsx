@@ -71,7 +71,7 @@ export const act4Slides: SlideData[] = [
       type: 'emoji-showcase',
       emoji: '🔫',
       title: 'De Revólver a Pistola de Agua',
-      description: '2016: Apple cambia a pistola de agua. Microsoft hace LO OPUESTO. 2018: todos se alinean. 2024: X (Twitter) regresa a pistola real.',
+      description: '2013-2015: Apple, Samsung, Facebook y Twitter tenían revólver. Google y Microsoft tenían pistola de rayos. 2016: Apple cambia a pistola de agua. Microsoft hace LO OPUESTO — pasa de rayos a REVÓLVER REAL. 2017: Google sigue a Apple. 2018: Samsung, Microsoft, Facebook y Twitter se rinden. Todos pistola de agua.',
       platforms: [
         { platform: 'apple' as const, imageUrl: import.meta.env.BASE_URL + 'images/platforms/pistol-apple.png' },
         { platform: 'google' as const, imageUrl: import.meta.env.BASE_URL + 'images/platforms/pistol-google.png' },
@@ -79,7 +79,7 @@ export const act4Slides: SlideData[] = [
         { platform: 'microsoft' as const, imageUrl: import.meta.env.BASE_URL + 'images/platforms/pistol-microsoft.png' },
       ],
     },
-    speakerNotes: '🎤 DI: "Y aquí viene una de las ANÉCDOTAS más absurdas de la historia de los emojis." 🎭 ACCIÓN: Repasa los años. "1 de agosto de 2016: Apple cambia su revólver por una pistolita de agua. Un DÍA DESPUÉS — no una semana, UN DÍA — Microsoft hace LO OPUESTO. Tenía una pistolita de rayos de juguete y la cambió… a un REVÓLVER REALISTA." Pausa. "Se pasaron al lado OSCURO mientras todos se iban al lado lindo. En 2018 se rindieron junto con Google, Samsung, Facebook y Twitter." Pausa dramática. "Y cuando creías que ya habíamos cerrado el tema… en julio del 2024, X — el Twitter de Elon — regresó a PISTOLA REAL. El drama nunca termina."',
+    speakerNotes: '🎤 DI: "Miren las pistolas de cada plataforma." 🎭 ACCIÓN: Señala cada una. "De 2013 a 2015, Apple, Samsung, Facebook y Twitter tenían un REVÓLVER realista. Google y Microsoft tenían una pistolita de rayos — como de juguete." Pausa. "En 2016, Apple cambia a pistola de agua verde. Un DÍA DESPUÉS, Microsoft hace LO OPUESTO — cambia su pistolita de rayos por un REVÓLVER REAL. Se pasaron al lado oscuro." Pausa. "2017: Google sigue a Apple con pistola de agua. 2018: Samsung, Microsoft, Facebook y Twitter se rinden. Todos pistola de agua." Pausa. "¿Y en 2024? X — el Twitter de Elon — regresa a PISTOLA REAL. El drama nunca termina."',
   },
 
   /* ── Slide 25: Microsoft Plot Twist ──────────────────────── */
