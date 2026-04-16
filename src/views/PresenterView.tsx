@@ -29,6 +29,7 @@ export function PresenterView() {
 
   const engineRef = useRef<SlideEngineHandle>(null)
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0)
+  const [gameWasActivated, setGameWasActivated] = useState(false)
 
   // React to remote slide commands from the phone remote
   useEffect(() => {
@@ -125,9 +126,16 @@ export function PresenterView() {
   const isFinalScoreboard = currentSlide?.content.type === 'scoreboard-final'
   const isQuizSlide = currentSlide?.content.type === 'quiz-question'
   // Game is active from the QR lobby onwards (any game-related slide)
-  const gameActive = isLobbySlide || isQuizSlide || isFinalScoreboard
+  const isGameSlideNow = isLobbySlide || isQuizSlide || isFinalScoreboard
     || currentSlide?.content.type === 'game-reveal'
     || (currentSlide?.id?.startsWith('quiz-') ?? false)
+  // Once game was activated, it STAYS active (even on intro/title slides between rounds)
+  if (isGameSlideNow && !gameWasActivated) {
+    setGameWasActivated(true)
+  }
+  const gameActive = gameWasActivated || isGameSlideNow
+
+  console.log('[PresenterView] slide:', currentSlideIndex, 'id:', currentSlide?.id, 'gameActive:', gameActive, 'isGameSlideNow:', isGameSlideNow)
 
   return (
     <div style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden' }}>
