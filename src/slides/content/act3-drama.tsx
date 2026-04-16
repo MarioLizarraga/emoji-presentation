@@ -12,7 +12,7 @@ export const act3Slides: SlideData[] = [
       body: 'En 2016, Apple intentó hacer que el emoji de durazno se pareciera más a un durazno real. El internet SE REBELÓ. Se firmaron peticiones. Se escribieron artículos de opinión. Apple discretamente lo regresó a su forma, digamos... familiar. El pueblo habló, y el pueblo quería pastel. Pastel de durazno.',
       emoji: '🍑',
     },
-    speakerNotes: '🎤 DI: "2016. Apple intenta cambiar el emoji del durazno 🍑 para que parezca un durazno REAL." 🎭 ACCIÓN: Cara seria, casi indignada. "El internet se VOLVIÓ LOCO. Se firmaron peticiones. Se escribieron artículos. Hubo MARCHAS metafóricas. ¿Y saben por qué?" Pausa. "Porque el durazno ya no era un durazno. Era algo MÁS. Algo… familiar. Apple se dobló. El pueblo habló. Y el pueblo quería… bueno, ustedes saben qué quería el pueblo." Sonrisa cómplice.',
+    speakerNotes: '🎤 DI: "Entramos al ACTO del DRAMA. Y empezamos con una historia que no vas a creer." Pausa. "2016. Apple intenta cambiar el emoji del durazno 🍑 para que parezca un durazno REAL." 🎭 ACCIÓN: Cara seria, casi indignada. "El internet se VOLVIÓ LOCO. Se firmaron peticiones. Se escribieron artículos. Hubo MARCHAS metafóricas. ¿Y saben por qué?" Pausa. "Porque el durazno ya no era un durazno. Era algo MÁS. Algo… familiar. Apple se dobló. El pueblo habló. Y el pueblo quería… bueno, ustedes saben qué quería el pueblo." Sonrisa cómplice.',
   },
 
   /* ── Slide 15: Burger War ───────────────────────────────── */
