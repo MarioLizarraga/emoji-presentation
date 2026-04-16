@@ -25,46 +25,76 @@ registerTransition(
     const dur = config.duration
     const fallingEmoji = config.emoji ?? '💣'
 
-    // ONLY the bomb emoji in the overlay — nothing else until explosion
     tl.set(overlay, { opacity: 1 })
 
+    // Only the bomb emoji — nothing else in the DOM yet
     const bomb = document.createElement('div')
     bomb.textContent = fallingEmoji
     bomb.style.cssText =
       'position:absolute;left:50%;font-size:10rem;z-index:10;top:-15%;'
     overlay.appendChild(bomb)
-    // Use GSAP for centering (persists through transforms)
     gsap.set(bomb, { xPercent: -50 })
 
     // PHASE 1: Drop with bounce
-    tl.to(bomb, { top: '40%', duration: dur * 0.3, ease: 'bounce.out' })
+    tl.to(bomb, { top: '40%', duration: dur * 0.25, ease: 'bounce.out' })
 
     // PHASE 2: Jitter
     tl.to(bomb, { rotation: -10, duration: dur * 0.04, repeat: 4, yoyo: true, ease: 'power1.inOut' })
 
-    // PHASE 3: BOOM — swap to 💥, flash, snap camera
+    // PHASE 3: BOOM — swap to 💥, brief orange flash, explosion animation
     tl.call(() => {
       bomb.textContent = '💥'
-      bomb.style.fontSize = '14rem'
+      bomb.style.fontSize = '16rem'
     })
 
-    // White flash — created and appended ONLY now
+    // Quick orange/white flash (NOT solid white — radial burst that fades fast)
     tl.call(() => {
       const fl = document.createElement('div')
       fl.id = 'bomb-flash'
-      fl.style.cssText = 'position:absolute;inset:0;background:#fff;z-index:15;'
+      fl.style.cssText =
+        'position:absolute;inset:0;z-index:15;opacity:0;' +
+        'background:radial-gradient(circle at 50% 45%,#fff 0%,#ffa500 15%,#ff4400 35%,transparent 60%);'
       overlay.appendChild(fl)
     })
+    tl.to('#bomb-flash', { opacity: 1, duration: dur * 0.04, ease: 'expo.in' })
 
-    tl.to(bomb, { scale: 5, opacity: 0, duration: dur * 0.3, ease: 'power2.out' })
+    // 💥 grows big while flash is visible
+    tl.to(bomb, { scale: 4, duration: dur * 0.1, ease: 'back.out(2)' }, '<')
 
-    // Snap camera while flash covers screen
-    tl.call(() => snap(worldEl, to), [], `-=${dur * 0.25}`)
+    // Snap camera during peak flash
+    tl.call(() => snap(worldEl, to))
 
-    // Fade flash
-    tl.to('#bomb-flash', { opacity: 0, duration: dur * 0.2, ease: 'power2.out' })
+    // Flash fades quickly (NOT lingering white screen)
+    tl.to('#bomb-flash', { opacity: 0, duration: dur * 0.12, ease: 'power2.out' })
 
-    // Cleanup
+    // 💥 continues growing and fading
+    tl.to(bomb, { scale: 12, opacity: 0, duration: dur * 0.25, ease: 'power2.out' }, '<')
+
+    // PHASE 4: Debris flies outward — created ONLY at this moment
+    tl.call(() => {
+      const fragColors = ['#ff4400', '#ffa500', '#fff59d', '#ff0000', '#ff6600']
+      for (let i = 0; i < 20; i++) {
+        const f = document.createElement('div')
+        const size = rnd(8, 20)
+        f.style.cssText =
+          `position:absolute;top:45%;left:50%;width:${size}px;height:${size}px;` +
+          `border-radius:${rnd(0, 50)}%;z-index:13;` +
+          `background:${fragColors[Math.floor(rnd(0, fragColors.length))]};`
+        overlay.appendChild(f)
+        gsap.to(f, {
+          x: rnd(-600, 600),
+          y: rnd(-400, 400),
+          rotation: rnd(-720, 720),
+          opacity: 0,
+          duration: dur * 0.3,
+          ease: 'expo.out',
+        })
+      }
+    })
+
+    // Wait for debris to finish, then cleanup
+    tl.to({}, { duration: dur * 0.2 })
+
     tl.call(() => {
       overlay.innerHTML = ''
       gsap.set(overlay, { opacity: 0 })
