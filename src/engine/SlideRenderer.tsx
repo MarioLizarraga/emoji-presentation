@@ -335,12 +335,36 @@ function TimelineSlide({ title, events }: { title: string; events: { year: strin
 
 /* ── Emoji Showcase ────────────────────────────────────── */
 
-function EmojiShowcaseSlide({ emoji, title, description, platforms }: { emoji: string; title: string; description: string; platforms?: { platform: string; imageUrl: string }[] }) {
+function EmojiShowcaseSlide({ emoji, title, description, image, imageFilter, platforms }: { emoji: string; title: string; description: string; image?: string; imageFilter?: string; platforms?: { platform: string; imageUrl: string }[] }) {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%', gap: '1.5rem', textAlign: 'center', padding: '2rem' }}>
-      <div style={{ fontSize: '10rem', lineHeight: 1 }}>{emoji}</div>
+    <div style={{
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      height: '100%',
+      gap: '1rem',
+      textAlign: 'center',
+      padding: '2rem',
+    }}>
+      {image ? (
+        <img
+          src={image}
+          alt={title}
+          style={{
+            maxHeight: '55%',
+            maxWidth: '80%',
+            objectFit: 'contain',
+            borderRadius: '12px',
+            filter: imageFilter || undefined,
+            imageRendering: 'pixelated',
+          }}
+        />
+      ) : (
+        <div style={{ fontSize: '10rem', lineHeight: 1 }}>{emoji}</div>
+      )}
       <h2 className="slide-subtitle neon-pink">{title}</h2>
-      <p className="slide-body" style={{ maxWidth: '60%', color: 'var(--text-dim)' }}>{description}</p>
+      <p className="slide-body" style={{ maxWidth: '70%', color: 'var(--text-dim)' }}>{description}</p>
       {platforms && platforms.length > 0 && (
         <div style={{ display: 'flex', gap: '2rem', marginTop: '1rem' }}>
           {platforms.map((p, i) => (

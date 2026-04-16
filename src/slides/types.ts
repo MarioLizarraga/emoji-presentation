@@ -25,7 +25,7 @@ export type SlideContent =
   | { type: 'grid'; title: string; items: GridItem[]; retro?: boolean; subtitle?: string }
   | { type: 'timeline'; title: string; events: TimelineEvent[] }
   | { type: 'stat'; value: string; label: string; sublabel?: string }
-  | { type: 'emoji-showcase'; emoji: string; title: string; description: string; platforms?: PlatformRender[] }
+  | { type: 'emoji-showcase'; emoji: string; title: string; description: string; image?: string; imageFilter?: string; platforms?: PlatformRender[] }
   | { type: 'game-reveal'; text: string }
   | { type: 'qr-lobby'; roomCode: string }
   | { type: 'quiz-question'; category: string; emojis: string[]; answer: string; answerEmoji?: string }

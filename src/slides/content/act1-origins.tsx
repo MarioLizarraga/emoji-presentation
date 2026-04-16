@@ -49,12 +49,14 @@ export const act1Slides: SlideData[] = [
     position: { x: 3100, y: -1200, scale: 0.55, rotation: 3 },
     transition: { id: 'pixel-dissolve', duration: 2.5 },
     content: {
-      type: 'text',
-      title: '1988: Sharp PA-8500',
-      body: 'Japón, año 1988. Madonna está en la radio. Nintendo arrasa. Y Sharp lanza una "agenda electrónica" con ~100 iconitos a 16x16 pixeles — caritas, clima, comida, símbolos. Son, técnicamente, los primeros emojis documentados. 11 años ANTES de Kurita. Dato descubierto por un investigador llamado Matt Sephton en 2024.',
+      type: 'emoji-showcase',
       emoji: '🗓️',
+      title: '1988: Sharp PA-8500',
+      description: 'Los ~100 iconitos originales a 16x16 pixeles. 11 años ANTES de Kurita. Descubiertos por el investigador Matt Sephton en 2024.',
+      image: import.meta.env.BASE_URL + 'images/sharp-pa-8500.jpg',
+      imageFilter: 'invert(1) grayscale(1) brightness(1.5) contrast(1.3)',
     },
-    speakerNotes: '🎤 DI: "1988. Japón. Sharp saca una agenda electrónica — el PA-8500 — con CIEN ICONITOS. Caritas, clima, símbolos. A 16x16 pixeles. ONCE AÑOS antes de lo que te cuentan en los libros." 🎭 ACCIÓN: "¿Y por qué nunca lo supiste? Porque nadie lo había documentado hasta 2024, cuando un investigador llamado Matt Sephton se clavó con PDAs japonesas viejas y los sacó a la luz. El internet se volvió loco. Wikipedia tuvo que cambiar el artículo."',
+    speakerNotes: '🎤 DI: "1988. Japón. Sharp saca una agenda electrónica — el PA-8500 — con CIEN ICONITOS. Caritas, clima, símbolos. A 16x16 pixeles. ONCE AÑOS antes de lo que te cuentan en los libros." 🎭 ACCIÓN: Señala la pantalla. "ESTOS son los emojis reales. Los primeros emojis documentados de la HISTORIA. ¿Y por qué nunca lo supiste? Porque nadie lo había documentado hasta 2024, cuando un investigador llamado Matt Sephton se clavó con PDAs japonesas viejas y los sacó a la luz."',
   },
 
   /* ── Slide 2.7: SoftBank 1997 — la caquita es suya ────────── */
