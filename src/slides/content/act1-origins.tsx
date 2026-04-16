@@ -65,12 +65,14 @@ export const act1Slides: SlideData[] = [
     position: { x: 3500, y: 900, scale: 0.6, rotation: -2 },
     transition: { id: 'emoji-pop', duration: 2.2, emoji: '💩' },
     content: {
-      type: 'text',
-      title: '1997: SoftBank Se Adelanta',
-      body: 'El 1 de noviembre de 1997, DOS AÑOS antes que Kurita, la compañía japonesa J-Phone (hoy SoftBank) lanza el celular SkyWalker DP-211SW con 90 emojis a 12x12 pixeles en blanco y negro. Y aquí viene lo mejor: el emoji de la CAQUITA 💩 estaba en ese set. No fue Kurita quien la inventó. Fue SoftBank. Escríbanlo en su diario.',
+      type: 'emoji-showcase',
       emoji: '📱',
+      title: '1997: SoftBank Se Adelanta',
+      description: '90 emojis del J-Phone SkyWalker DP-211SW (1997). DOS AÑOS antes que Kurita. Y sí, el emoji de la CAQUITA 💩 ya estaba aquí.',
+      image: import.meta.env.BASE_URL + 'images/softbank-1997.jpg',
+      imageFilter: 'invert(1) brightness(1.5) contrast(1.3)',
     },
-    speakerNotes: '🎤 DI: "1 de noviembre de 1997. Dos años ANTES de Kurita. La compañía J-Phone — que hoy se llama SoftBank — lanza el celular SkyWalker DP-211SW con 90 emojis. A 12x12. En blanco y negro." 🎭 ACCIÓN: Pausa dramática. Señala la pantalla. "¿Adivinen qué emoji VENÍA en ese set de 1997? La. CAQUITA. Todos estos años le dimos el crédito al pobre Kurita. Pero no. El 💩 es de SoftBank. Crédito a quien crédito merece."',
+    speakerNotes: '🎤 DI: "1 de noviembre de 1997. Dos años ANTES de Kurita. La compañía J-Phone — que hoy se llama SoftBank — lanza el celular SkyWalker DP-211SW con 90 emojis. A 12x12. En blanco y negro." 🎭 ACCIÓN: Señala la pantalla. "AQUÍ los pueden ver. ¿Adivinen qué emoji VENÍA en ese set de 1997? La. CAQUITA. Todos estos años le dimos el crédito al pobre Kurita. Pero no. El 💩 es de SoftBank. Crédito a quien crédito merece."',
   },
 
   /* ── Slide 3: The Creator ────────────────────────────────── */
