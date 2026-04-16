@@ -23,13 +23,15 @@ registerTransition(
 
     tl.set(overlay, { opacity: 1 })
 
-    // TV frame
+    // TV frame — use GSAP xPercent/yPercent for centering (persists through transforms)
     const tv = document.createElement('div')
     tv.style.cssText =
-      'position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);' +
+      'position:absolute;top:50%;left:50%;' +
       'width:70vmin;height:55vmin;border-radius:12px;z-index:10;' +
       'border:8px solid #333;background:#111;box-shadow:0 0 40px rgba(0,0,0,0.8);' +
       'overflow:hidden;'
+    // GSAP-based centering that survives other GSAP transforms
+    gsap.set(tv, { xPercent: -50, yPercent: -50 })
 
     // TV emoji decoration on top
     const tvEmoji = document.createElement('div')

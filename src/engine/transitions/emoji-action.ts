@@ -23,109 +23,48 @@ registerTransition(
     console.log('[transition] emoji-bomb start')
     const tl = gsap.timeline()
     const dur = config.duration
-    // The config emoji is the FALLING object (bomb/dynamite). Explosion is always 💥.
     const fallingEmoji = config.emoji ?? '💣'
 
+    // ONLY the bomb emoji in the overlay — nothing else until explosion
     tl.set(overlay, { opacity: 1 })
 
-    // Wrapper for the bomb — use margin for centering (not transform, which GSAP overwrites)
-    const bombWrap = document.createElement('div')
-    bombWrap.style.cssText =
-      'position:absolute;top:-20%;left:50%;margin-left:-6rem;margin-top:-6rem;' +
-      'font-size:12rem;line-height:1;z-index:10;will-change:transform,top;' +
-      'width:12rem;height:12rem;text-align:center;'
-    bombWrap.textContent = fallingEmoji
-    overlay.appendChild(bombWrap)
+    const bomb = document.createElement('div')
+    bomb.textContent = fallingEmoji
+    bomb.style.cssText =
+      'position:absolute;left:50%;font-size:10rem;z-index:10;top:-15%;'
+    overlay.appendChild(bomb)
+    // Use GSAP for centering (persists through transforms)
+    gsap.set(bomb, { xPercent: -50 })
 
-    // PHASE 1: Bomb drops from above with gentle rotation and bounce
-    tl.to(bombWrap, {
-      top: '50%',
-      rotation: 25,
-      duration: dur * 0.35,
-      ease: 'bounce.out',
-    })
+    // PHASE 1: Drop with bounce
+    tl.to(bomb, { top: '40%', duration: dur * 0.3, ease: 'bounce.out' })
 
-    // PHASE 2: Fuse burns — bomb jitters
-    tl.to(bombWrap, {
-      rotation: -8,
-      duration: dur * 0.05,
-      repeat: 5,
-      yoyo: true,
-      ease: 'power1.inOut',
-    })
+    // PHASE 2: Jitter
+    tl.to(bomb, { rotation: -10, duration: dur * 0.04, repeat: 4, yoyo: true, ease: 'power1.inOut' })
 
-    // PHASE 3: BOOM! — flash is only added to DOM at explosion moment
-    const flash = document.createElement('div')
-    flash.style.cssText =
-      'position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,' +
-      '#fff 0%,#ffa500 20%,#ff4400 45%,transparent 75%);opacity:0;z-index:12;'
-    // NOT appended yet — only added when the explosion happens
-
-    // The moment of explosion: swap emoji to 💥, add flash to DOM, punch it big
+    // PHASE 3: BOOM — swap to 💥, flash, snap camera
     tl.call(() => {
-      bombWrap.textContent = '💥'
-      overlay.appendChild(flash)
+      bomb.textContent = '💥'
+      bomb.style.fontSize = '14rem'
     })
-    tl.to(bombWrap, {
-      scale: 3,
-      rotation: 0,
-      duration: dur * 0.08,
-      ease: 'back.out(3)',
+
+    // White flash — created and appended ONLY now
+    tl.call(() => {
+      const fl = document.createElement('div')
+      fl.id = 'bomb-flash'
+      fl.style.cssText = 'position:absolute;inset:0;background:#fff;z-index:15;'
+      overlay.appendChild(fl)
     })
-    tl.to(flash, { opacity: 1, duration: dur * 0.06, ease: 'expo.in' }, '<')
 
-    // Snap camera to destination during the flash (peak brightness hides the transition)
-    tl.call(() => snap(worldEl, to))
+    tl.to(bomb, { scale: 5, opacity: 0, duration: dur * 0.3, ease: 'power2.out' })
 
-    // PHASE 4: Explosion emoji grows & fades, debris flies outward
-    // Mark the explosion start so fragments can launch simultaneously
-    const explosionLabel = 'explosion'
-    tl.addLabel(explosionLabel)
+    // Snap camera while flash covers screen
+    tl.call(() => snap(worldEl, to), [], `-=${dur * 0.25}`)
 
-    tl.to(bombWrap, {
-      scale: 8,
-      opacity: 0,
-      duration: dur * 0.4,
-      ease: 'power2.out',
-    }, explosionLabel)
+    // Fade flash
+    tl.to('#bomb-flash', { opacity: 0, duration: dur * 0.2, ease: 'power2.out' })
 
-    // Debris fragments — completely hidden until explosion
-    const FRAG_COUNT = 26
-    const fragColors = ['#ff4400', '#ffa500', '#fff59d', '#333', '#ff0000']
-    const frags: HTMLDivElement[] = []
-    for (let i = 0; i < FRAG_COUNT; i++) {
-      const f = document.createElement('div')
-      const size = rnd(8, 22)
-      f.style.cssText =
-        `position:absolute;top:50%;left:50%;width:${size}px;height:${size}px;` +
-        `border-radius:${rnd(0, 50)}%;z-index:13;` +
-        `background:${fragColors[Math.floor(rnd(0, fragColors.length))]};` +
-        `box-shadow:0 0 ${rnd(4, 10)}px currentColor;` +
-        `display:none;`
-      overlay.appendChild(f)
-      frags.push(f)
-    }
-    // Reveal fragments at explosion moment
-    tl.call(() => { frags.forEach(f => { f.style.display = 'block' }) }, [], explosionLabel)
-    frags.forEach((f) => {
-      tl.to(
-        f,
-        {
-          x: rnd(-700, 700),
-          y: rnd(-500, 500),
-          rotation: rnd(-720, 720),
-          opacity: 0,
-          duration: dur * 0.45,
-          ease: 'expo.out',
-        },
-        explosionLabel,
-      )
-    }
-
-    // Flash fades alongside the explosion
-    tl.to(flash, { opacity: 0, duration: dur * 0.25, ease: 'power2.out' }, explosionLabel)
-
-    // cleanup
+    // Cleanup
     tl.call(() => {
       overlay.innerHTML = ''
       gsap.set(overlay, { opacity: 0 })
