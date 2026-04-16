@@ -4,7 +4,7 @@ export const act4Slides: SlideData[] = [
   /* ── Slide 21: Cross-Platform Chaos ─────────────────────── */
   {
     id: 'cross-platform',
-    position: { x: 49000, y: 200, scale: 0.6, rotation: -3 },
+    position: { x: 50000, y: 200, scale: 0.6, rotation: -3 },
     transition: { id: 'emoji-tv', duration: 2.2, emoji: '📺' },
     content: {
       type: 'text',
@@ -18,7 +18,7 @@ export const act4Slides: SlideData[] = [
   /* ── Slide 22: Samsung Was Wild ─────────────────────────── */
   {
     id: 'samsung-worst',
-    position: { x: 51000, y: -600, scale: 0.5, rotation: 4 },
+    position: { x: 53000, y: -600, scale: 0.5, rotation: 4 },
     transition: { id: 'scan-line', duration: 1.8 },
     content: {
       type: 'text',
@@ -32,7 +32,7 @@ export const act4Slides: SlideData[] = [
   /* ── Slide 23: Cookie Incident ──────────────────────────── */
   {
     id: 'cookie-incident',
-    position: { x: 53000, y: 500, scale: 0.7, rotation: -1 },
+    position: { x: 56000, y: 500, scale: 0.7, rotation: -1 },
     transition: { id: 'emoji-snapshot', duration: 2.2, emoji: '📸' },
     content: {
       type: 'comparison',
@@ -54,7 +54,7 @@ export const act4Slides: SlideData[] = [
   /* ── Slide 24: Pistol Timeline ──────────────────────────── */
   {
     id: 'pistol-timeline',
-    position: { x: 55000, y: -200, scale: 0.4, rotation: 0 },
+    position: { x: 59000, y: -200, scale: 0.4, rotation: 0 },
     transition: { id: 'emoji-clapper', duration: 2.5, emoji: '🎬' },
     content: {
       type: 'timeline',
@@ -73,7 +73,7 @@ export const act4Slides: SlideData[] = [
   /* ── Slide 25: Microsoft Plot Twist ──────────────────────── */
   {
     id: 'microsoft-plot-twist',
-    position: { x: 56000, y: 900, scale: 0.5, rotation: -4 },
+    position: { x: 62000, y: 900, scale: 0.5, rotation: -4 },
     transition: { id: 'whip-pan', duration: 1.8 },
     content: {
       type: 'comparison',
