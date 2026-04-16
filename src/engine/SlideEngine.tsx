@@ -192,7 +192,9 @@ export const SlideEngine = forwardRef<SlideEngineHandle, SlideEngineProps>(
 
   function toggleFullscreen() {
     if (!document.fullscreenElement) {
-      containerRef.current?.requestFullscreen().catch(() => {
+      // Fullscreen the ENTIRE page (document.documentElement) so overlays
+      // from parent components (scoreboard, notifications) are included
+      document.documentElement.requestFullscreen().catch(() => {
         /* silently ignore if not allowed */
       })
     } else {
