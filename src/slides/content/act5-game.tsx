@@ -315,14 +315,11 @@ export const act5Slides: SlideData[] = [
     content: { type: 'quiz-question', category: 'Series', emojis: ['🎩', '🪒', '💰'], answer: 'Peaky Blinders' },
   },
   {
-  {
-  {
     id: 'quiz-tv-13',
     position: { x: 159000, y: 0, scale: 1, rotation: 0 },
     transition: { id: 'fade', duration: 1.4 },
     content: { type: 'quiz-question', category: 'Series', emojis: ['🏝️', '✈️', '💥'], answer: 'Lost' },
   },
-  {
   /* ── 11 series NUEVAS ──────────────────────────────────── */
   {
     id: 'quiz-tv-15',
@@ -361,14 +358,11 @@ export const act5Slides: SlideData[] = [
     content: { type: 'quiz-question', category: 'Series', emojis: ['💀', '🖤', '👧', '🎻'], answer: 'Merlina (Wednesday)' },
   },
   {
-  {
-  {
     id: 'quiz-tv-23',
     position: { x: 173000, y: 0, scale: 1, rotation: 0 },
     transition: { id: 'fade', duration: 1.4 },
     content: { type: 'quiz-question', category: 'Series', emojis: ['🗡️', '🐺', '🎵', '💊'], answer: 'The Witcher' },
   },
-  {
   {
     id: 'quiz-tv-25',
     position: { x: 175000, y: 0, scale: 1, rotation: 0 },
@@ -490,7 +484,6 @@ export const act5Slides: SlideData[] = [
   },
   /* Fáciles */
   {
-  {
     id: 'quiz-saying-2',
     position: { x: 209000, y: 0, scale: 1, rotation: 0 },
     transition: { id: 'fade', duration: 1.4 },
@@ -502,7 +495,6 @@ export const act5Slides: SlideData[] = [
     transition: { id: 'fade', duration: 1.4 },
     content: { type: 'quiz-question', category: 'Dichos', emojis: ['🦐', '😴', '🌊'], answer: 'Camarón que se duerme se lo lleva la corriente' },
   },
-  {
   /* Más difíciles */
   {
     id: 'quiz-saying-5',
@@ -517,13 +509,11 @@ export const act5Slides: SlideData[] = [
     content: { type: 'quiz-question', category: 'Dichos', emojis: ['🪵', '➡️', '🪵'], answer: 'De tal palo, tal astilla' },
   },
   {
-  {
     id: 'quiz-saying-8',
     position: { x: 217000, y: 0, scale: 1, rotation: 0 },
     transition: { id: 'fade', duration: 1.4 },
     content: { type: 'quiz-question', category: 'Dichos', emojis: ['👀', '🙈', '❤️', '💔'], answer: 'Ojos que no ven, corazón que no siente' },
   },
-  {
 
   /* ── Final: Scoreboard ──────────────────────────────────── */
   {
