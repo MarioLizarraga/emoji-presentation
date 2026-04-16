@@ -376,11 +376,11 @@ registerTransition(
     // Snap camera during flash
     tl.call(() => snap(worldEl, to))
 
-    // PHASE 4: Polaroid develops
+    // PHASE 4: Polaroid develops (starts INVISIBLE — opacity:0)
     const polaroid = document.createElement('div')
     polaroid.style.cssText =
       'position:absolute;inset:5%;background:#fff;border-radius:4px;z-index:13;' +
-      'box-shadow:0 8px 40px rgba(0,0,0,0.5);'
+      'box-shadow:0 8px 40px rgba(0,0,0,0.5);opacity:0;'
     const inner = document.createElement('div')
     inner.style.cssText =
       'position:absolute;top:5%;left:5%;right:5%;bottom:15%;background:var(--bg,#0a0a0a);opacity:0;'
@@ -388,10 +388,11 @@ registerTransition(
     overlay.appendChild(polaroid)
 
     tl.to(flash, { opacity: 0, duration: dur * 0.15 })
+    // Reveal polaroid only at this moment
     tl.fromTo(
       polaroid,
-      { scale: 0.3, rotation: rnd(-5, 5) },
-      { scale: 1, rotation: 0, duration: dur * 0.2, ease: 'power2.out' },
+      { scale: 0.3, rotation: rnd(-5, 5), opacity: 0 },
+      { scale: 1, rotation: 0, opacity: 1, duration: dur * 0.2, ease: 'power2.out' },
       '<',
     )
     tl.to(inner, { opacity: 1, duration: dur * 0.25, ease: 'power1.inOut' })
