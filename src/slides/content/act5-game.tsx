@@ -315,93 +315,63 @@ export const act5Slides: SlideData[] = [
     content: { type: 'quiz-question', category: 'Series', emojis: ['🎩', '🪒', '💰'], answer: 'Peaky Blinders' },
   },
   {
-    id: 'quiz-tv-11',
-    position: { x: 159000, y: 0, scale: 1, rotation: 0 },
-    transition: { id: 'fade', duration: 1.4 },
-    content: { type: 'quiz-question', category: 'Series', emojis: ['🕳️', '🌲', '👨', '👧'], answer: 'Dark' },
-  },
   {
-    id: 'quiz-tv-12',
-    position: { x: 161000, y: 0, scale: 1, rotation: 0 },
-    transition: { id: 'fade', duration: 1.4 },
-    content: { type: 'quiz-question', category: 'Series', emojis: ['💊', '💰', '🌴'], answer: 'Narcos' },
-  },
   {
     id: 'quiz-tv-13',
-    position: { x: 163000, y: 0, scale: 1, rotation: 0 },
+    position: { x: 159000, y: 0, scale: 1, rotation: 0 },
     transition: { id: 'fade', duration: 1.4 },
     content: { type: 'quiz-question', category: 'Series', emojis: ['🏝️', '✈️', '💥'], answer: 'Lost' },
   },
   {
-    id: 'quiz-tv-14',
-    position: { x: 165000, y: 0, scale: 1, rotation: 0 },
-    transition: { id: 'fade', duration: 1.4 },
-    content: { type: 'quiz-question', category: 'Series', emojis: ['⚔️', '⛵', '❄️'], answer: 'Vikings' },
-  },
   /* ── 11 series NUEVAS ──────────────────────────────────── */
   {
     id: 'quiz-tv-15',
-    position: { x: 167000, y: 0, scale: 1, rotation: 0 },
+    position: { x: 161000, y: 0, scale: 1, rotation: 0 },
     transition: { id: 'fade', duration: 1.4 },
     content: { type: 'quiz-question', category: 'Series', emojis: ['🧟', '🍄', '👨', '👧'], answer: 'The Last of Us' },
   },
   {
     id: 'quiz-tv-16',
-    position: { x: 169000, y: 0, scale: 1, rotation: 0 },
+    position: { x: 163000, y: 0, scale: 1, rotation: 0 },
     transition: { id: 'fade', duration: 1.4 },
-    content: { type: 'quiz-question', category: 'Series', emojis: ['👑', '🇬🇧', '👸', '🏰'], answer: 'The Crown' },
+    content: { type: 'quiz-question', category: 'Series', emojis: ['👑', '👸', '🏰', '☕'], answer: 'The Crown' },
   },
   {
     id: 'quiz-tv-17',
-    position: { x: 171000, y: 0, scale: 1, rotation: 0 },
+    position: { x: 165000, y: 0, scale: 1, rotation: 0 },
     transition: { id: 'fade', duration: 1.4 },
     content: { type: 'quiz-question', category: 'Series', emojis: ['📺', '🛋️', '🍩', '🏠'], answer: 'Los Simpsons' },
   },
   {
     id: 'quiz-tv-18',
-    position: { x: 173000, y: 0, scale: 1, rotation: 0 },
+    position: { x: 167000, y: 0, scale: 1, rotation: 0 },
     transition: { id: 'fade', duration: 1.4 },
     content: { type: 'quiz-question', category: 'Series', emojis: ['🔬', '🛋️', '🚀', '🤓'], answer: 'The Big Bang Theory' },
   },
   {
     id: 'quiz-tv-19',
-    position: { x: 175000, y: 0, scale: 1, rotation: 0 },
+    position: { x: 169000, y: 0, scale: 1, rotation: 0 },
     transition: { id: 'fade', duration: 1.4 },
     content: { type: 'quiz-question', category: 'Series', emojis: ['🛸', '🧪', '👴', '👦'], answer: 'Rick and Morty' },
   },
   {
     id: 'quiz-tv-20',
-    position: { x: 177000, y: 0, scale: 1, rotation: 0 },
+    position: { x: 171000, y: 0, scale: 1, rotation: 0 },
     transition: { id: 'fade', duration: 1.4 },
     content: { type: 'quiz-question', category: 'Series', emojis: ['💀', '🖤', '👧', '🎻'], answer: 'Merlina (Wednesday)' },
   },
   {
-    id: 'quiz-tv-21',
-    position: { x: 179000, y: 0, scale: 1, rotation: 0 },
-    transition: { id: 'fade', duration: 1.4 },
-    content: { type: 'quiz-question', category: 'Series', emojis: ['💼', '💰', '👨‍👧‍👦', '🏢'], answer: 'Succession' },
-  },
   {
-    id: 'quiz-tv-22',
-    position: { x: 181000, y: 0, scale: 1, rotation: 0 },
-    transition: { id: 'fade', duration: 1.4 },
-    content: { type: 'quiz-question', category: 'Series', emojis: ['🧠', '✂️', '🏢', '😐'], answer: 'Severance (Separación)' },
-  },
   {
     id: 'quiz-tv-23',
-    position: { x: 183000, y: 0, scale: 1, rotation: 0 },
+    position: { x: 173000, y: 0, scale: 1, rotation: 0 },
     transition: { id: 'fade', duration: 1.4 },
     content: { type: 'quiz-question', category: 'Series', emojis: ['🗡️', '🐺', '🎵', '💊'], answer: 'The Witcher' },
   },
   {
-    id: 'quiz-tv-24',
-    position: { x: 185000, y: 0, scale: 1, rotation: 0 },
-    transition: { id: 'fade', duration: 1.4 },
-    content: { type: 'quiz-question', category: 'Series', emojis: ['☢️', '🏭', '👨‍🔬', '💣'], answer: 'Chernobyl' },
-  },
   {
     id: 'quiz-tv-25',
-    position: { x: 187000, y: 0, scale: 1, rotation: 0 },
+    position: { x: 175000, y: 0, scale: 1, rotation: 0 },
     transition: { id: 'fade', duration: 1.4 },
     content: { type: 'quiz-question', category: 'Series', emojis: ['🎻', '👸', '🤴', '🏰'], answer: 'Bridgerton' },
   },
@@ -409,7 +379,7 @@ export const act5Slides: SlideData[] = [
   /* ── Ronda 3: Países (14 preguntas, sin banderas) ────────── */
   {
     id: 'quiz-countries-intro',
-    position: { x: 189000, y: 0, scale: 1, rotation: 0 },
+    position: { x: 177000, y: 0, scale: 1, rotation: 0 },
     transition: { id: 'emoji-portal', duration: 2.2, emoji: '🌍' },
     content: {
       type: 'title',
@@ -421,86 +391,86 @@ export const act5Slides: SlideData[] = [
   },
   {
     id: 'quiz-country-1',
-    position: { x: 191000, y: 0, scale: 1, rotation: 0 },
+    position: { x: 179000, y: 0, scale: 1, rotation: 0 },
     transition: { id: 'fade', duration: 1.4 },
     content: { type: 'quiz-question', category: 'Países', emojis: ['🗼', '🥐', '🍷'], answer: 'Francia' },
   },
   {
     id: 'quiz-country-2',
-    position: { x: 193000, y: 0, scale: 1, rotation: 0 },
+    position: { x: 181000, y: 0, scale: 1, rotation: 0 },
     transition: { id: 'fade', duration: 1.4 },
     content: { type: 'quiz-question', category: 'Países', emojis: ['🌮', '🌶️', '💀'], answer: 'México' },
   },
   {
     id: 'quiz-country-3',
-    position: { x: 195000, y: 0, scale: 1, rotation: 0 },
+    position: { x: 183000, y: 0, scale: 1, rotation: 0 },
     transition: { id: 'fade', duration: 1.4 },
     content: { type: 'quiz-question', category: 'Países', emojis: ['🍕', '🏛️', '🤌'], answer: 'Italia' },
   },
   {
     id: 'quiz-country-4',
-    position: { x: 197000, y: 0, scale: 1, rotation: 0 },
+    position: { x: 185000, y: 0, scale: 1, rotation: 0 },
     transition: { id: 'fade', duration: 1.4 },
     content: { type: 'quiz-question', category: 'Países', emojis: ['🦘', '🏏', '🕷️'], answer: 'Australia' },
   },
   {
     id: 'quiz-country-5',
-    position: { x: 199000, y: 0, scale: 1, rotation: 0 },
+    position: { x: 187000, y: 0, scale: 1, rotation: 0 },
     transition: { id: 'fade', duration: 1.4 },
     content: { type: 'quiz-question', category: 'Países', emojis: ['🍻', '🥨', '⚽'], answer: 'Alemania' },
   },
   {
     id: 'quiz-country-6',
-    position: { x: 201000, y: 0, scale: 1, rotation: 0 },
+    position: { x: 189000, y: 0, scale: 1, rotation: 0 },
     transition: { id: 'fade', duration: 1.4 },
     content: { type: 'quiz-question', category: 'Países', emojis: ['💃', '🎸', '🐂'], answer: 'España' },
   },
   {
     id: 'quiz-country-7',
-    position: { x: 203000, y: 0, scale: 1, rotation: 0 },
+    position: { x: 191000, y: 0, scale: 1, rotation: 0 },
     transition: { id: 'fade', duration: 1.4 },
     content: { type: 'quiz-question', category: 'Países', emojis: ['🧉', '🥩', '⚽'], answer: 'Argentina' },
   },
   {
     id: 'quiz-country-8',
-    position: { x: 205000, y: 0, scale: 1, rotation: 0 },
+    position: { x: 193000, y: 0, scale: 1, rotation: 0 },
     transition: { id: 'fade', duration: 1.4 },
     content: { type: 'quiz-question', category: 'Países', emojis: ['⛪', '❄️', '🐻', '🪆'], answer: 'Rusia' },
   },
   {
     id: 'quiz-country-9',
-    position: { x: 207000, y: 0, scale: 1, rotation: 0 },
+    position: { x: 195000, y: 0, scale: 1, rotation: 0 },
     transition: { id: 'fade', duration: 1.4 },
     content: { type: 'quiz-question', category: 'Países', emojis: ['🐘', '🕌', '💃', '🍛'], answer: 'India' },
   },
   /* ── 5 más difíciles ───────────────────────────────────── */
   {
     id: 'quiz-country-10',
-    position: { x: 209000, y: 0, scale: 1, rotation: 0 },
+    position: { x: 197000, y: 0, scale: 1, rotation: 0 },
     transition: { id: 'fade', duration: 1.4 },
     content: { type: 'quiz-question', category: 'Países', emojis: ['🍣', '🗻', '🌸'], answer: 'Japón' },
   },
   {
     id: 'quiz-country-11',
-    position: { x: 211000, y: 0, scale: 1, rotation: 0 },
+    position: { x: 199000, y: 0, scale: 1, rotation: 0 },
     transition: { id: 'fade', duration: 1.4 },
     content: { type: 'quiz-question', category: 'Países', emojis: ['🐫', '🏜️', '🕌'], answer: 'Egipto' },
   },
   {
     id: 'quiz-country-12',
-    position: { x: 213000, y: 0, scale: 1, rotation: 0 },
+    position: { x: 201000, y: 0, scale: 1, rotation: 0 },
     transition: { id: 'fade', duration: 1.4 },
     content: { type: 'quiz-question', category: 'Países', emojis: ['🌷', '🚲', '🧀'], answer: 'Países Bajos (Holanda)' },
   },
   {
     id: 'quiz-country-13',
-    position: { x: 215000, y: 0, scale: 1, rotation: 0 },
+    position: { x: 203000, y: 0, scale: 1, rotation: 0 },
     transition: { id: 'fade', duration: 1.4 },
     content: { type: 'quiz-question', category: 'Países', emojis: ['🍀', '🍺', '🧚'], answer: 'Irlanda' },
   },
   {
     id: 'quiz-country-14',
-    position: { x: 217000, y: 0, scale: 1, rotation: 0 },
+    position: { x: 205000, y: 0, scale: 1, rotation: 0 },
     transition: { id: 'fade', duration: 1.4 },
     content: { type: 'quiz-question', category: 'Países', emojis: ['🛕', '🐘', '🌶️'], answer: 'Tailandia' },
   },
@@ -508,7 +478,7 @@ export const act5Slides: SlideData[] = [
   /* ── Ronda 4: Dichos Mexicanos (9 preguntas) ────────────── */
   {
     id: 'quiz-sayings-intro',
-    position: { x: 219000, y: 0, scale: 1, rotation: 0 },
+    position: { x: 207000, y: 0, scale: 1, rotation: 0 },
     transition: { id: 'emoji-magic', duration: 2.2, emoji: '✨' },
     content: {
       type: 'title',
@@ -520,65 +490,45 @@ export const act5Slides: SlideData[] = [
   },
   /* Fáciles */
   {
-    id: 'quiz-saying-1',
-    position: { x: 221000, y: 0, scale: 1, rotation: 0 },
-    transition: { id: 'fade', duration: 1.4 },
-    content: { type: 'quiz-question', category: 'Dichos', emojis: ['🐦', '✋', '🕊️', '🕊️', '🕊️'], answer: 'Más vale pájaro en mano que cien volando' },
-  },
   {
     id: 'quiz-saying-2',
-    position: { x: 223000, y: 0, scale: 1, rotation: 0 },
+    position: { x: 209000, y: 0, scale: 1, rotation: 0 },
     transition: { id: 'fade', duration: 1.4 },
     content: { type: 'quiz-question', category: 'Dichos', emojis: ['🐕', '📢', '🚫'], answer: 'Perro que ladra no muerde' },
   },
   {
     id: 'quiz-saying-3',
-    position: { x: 225000, y: 0, scale: 1, rotation: 0 },
+    position: { x: 211000, y: 0, scale: 1, rotation: 0 },
     transition: { id: 'fade', duration: 1.4 },
     content: { type: 'quiz-question', category: 'Dichos', emojis: ['🦐', '😴', '🌊'], answer: 'Camarón que se duerme se lo lleva la corriente' },
   },
   {
-    id: 'quiz-saying-4',
-    position: { x: 227000, y: 0, scale: 1, rotation: 0 },
-    transition: { id: 'fade', duration: 1.4 },
-    content: { type: 'quiz-question', category: 'Dichos', emojis: ['👄', '🤐', '🪰'], answer: 'En boca cerrada no entran moscas' },
-  },
   /* Más difíciles */
   {
     id: 'quiz-saying-5',
-    position: { x: 229000, y: 0, scale: 1, rotation: 0 },
+    position: { x: 213000, y: 0, scale: 1, rotation: 0 },
     transition: { id: 'fade', duration: 1.4 },
     content: { type: 'quiz-question', category: 'Dichos', emojis: ['🐒', '👗', '👗'], answer: 'Aunque la mona se vista de seda, mona se queda' },
   },
   {
     id: 'quiz-saying-6',
-    position: { x: 231000, y: 0, scale: 1, rotation: 0 },
+    position: { x: 215000, y: 0, scale: 1, rotation: 0 },
     transition: { id: 'fade', duration: 1.4 },
     content: { type: 'quiz-question', category: 'Dichos', emojis: ['🪵', '➡️', '🪵'], answer: 'De tal palo, tal astilla' },
   },
   {
-    id: 'quiz-saying-7',
-    position: { x: 233000, y: 0, scale: 1, rotation: 0 },
-    transition: { id: 'fade', duration: 1.4 },
-    content: { type: 'quiz-question', category: 'Dichos', emojis: ['✨', '🥇', '❌'], answer: 'No todo lo que brilla es oro' },
-  },
   {
     id: 'quiz-saying-8',
-    position: { x: 235000, y: 0, scale: 1, rotation: 0 },
+    position: { x: 217000, y: 0, scale: 1, rotation: 0 },
     transition: { id: 'fade', duration: 1.4 },
     content: { type: 'quiz-question', category: 'Dichos', emojis: ['👀', '🙈', '❤️', '💔'], answer: 'Ojos que no ven, corazón que no siente' },
   },
   {
-    id: 'quiz-saying-9',
-    position: { x: 237000, y: 0, scale: 1, rotation: 0 },
-    transition: { id: 'fade', duration: 1.4 },
-    content: { type: 'quiz-question', category: 'Dichos', emojis: ['🔨', '🏠', '🪵', '🔪'], answer: 'En casa del herrero, cuchillo de palo' },
-  },
 
   /* ── Final: Scoreboard ──────────────────────────────────── */
   {
     id: 'scoreboard-final',
-    position: { x: 239000, y: 0, scale: 1, rotation: 0 },
+    position: { x: 219000, y: 0, scale: 1, rotation: 0 },
     transition: { id: 'spiral-zoom', duration: 3.0 },
     content: {
       type: 'scoreboard-final',
@@ -589,7 +539,7 @@ export const act5Slides: SlideData[] = [
   /* ── Cierre ─────────────────────────────────────────────── */
   {
     id: 'gg',
-    position: { x: 241000, y: 0, scale: 1, rotation: 0 },
+    position: { x: 221000, y: 0, scale: 1, rotation: 0 },
     transition: { id: 'split-confetti', duration: 2.5 },
     content: {
       type: 'title',
