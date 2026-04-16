@@ -243,7 +243,7 @@ export const act5Slides: SlideData[] = [
   /* ── Ronda 2: Series (25 preguntas) ──────────────────────── */
   {
     id: 'quiz-tv-intro',
-    position: { x: 153000, y: 0, scale: 1, rotation: 0 },
+    position: { x: 137000, y: 0, scale: 1, rotation: 0 },
     transition: { id: 'emoji-tv', duration: 2.2, emoji: '📺' },
     content: {
       type: 'title',
