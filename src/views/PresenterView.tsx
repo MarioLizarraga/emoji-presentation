@@ -311,7 +311,7 @@ export function PresenterView() {
         </div>
       )}
 
-      {/* Room code + remote link indicator (top-right corner) */}
+      {/* Room code indicator (top-right corner) */}
       {connected && !isLobbySlide && !isFinalScoreboard && (
         <div
           style={{
@@ -319,10 +319,6 @@ export function PresenterView() {
             top: '1rem',
             right: '1.5rem',
             zIndex: 25,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'flex-end',
-            gap: '0.3rem',
           }}
         >
           <div
@@ -349,22 +345,6 @@ export function PresenterView() {
               }}
             />
             <span style={{ color: 'var(--text-muted)', fontWeight: 600 }}>{roomCode}</span>
-            <span style={{ color: 'var(--text-muted)' }}>
-              ({players.length} jugador{players.length !== 1 ? 'es' : ''})
-            </span>
-          </div>
-          <div
-            style={{
-              padding: '0.25rem 0.6rem',
-              background: 'rgba(10, 10, 15, 0.5)',
-              borderRadius: '6px',
-              fontFamily: 'var(--font)',
-              fontSize: '0.65rem',
-              color: 'var(--text-muted)',
-              letterSpacing: '0.02em',
-            }}
-          >
-            Control: {remoteUrl}
           </div>
         </div>
       )}
